@@ -6,18 +6,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import exceptions.ContraseniaCortaException;
+import exceptions.ContraseniaInseguraException;
+
 public class Usuario {
 	
 	String nombre;
-	String contrasenia; //Buscar algún algoritmo para hashear la contraseña
+	String contrasenia;
 	char tipo;
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
 	
-	public Usuario(String nombre, String contrasenia, char tipo) {
+	MD5Hashing hash = new MD5Hashing();
+	
+	public Usuario(String nombre, String contrasenia, char tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
-		this.contrasenia = contrasenia;
+		this.contrasenia = hash.getMd5(contrasenia);
 		this.tipo = tipo;
+		
+		this.validarContrasenia(contrasenia);
+		
 	}
 	
 	
@@ -50,18 +58,25 @@ public class Usuario {
 		}
 	}
 	
-	public String validarContrasenia() throws FileNotFoundException, IOException {
+	public String validarContrasenia(String contrasenia) throws FileNotFoundException, IOException {
+		
+		if(contrasenia.length()<= 8) {
+			throw new ContraseniaCortaException();
+		}
+		
+		
 		File file = new File("./files/topContraseniasInseguras.txt");  
 	    String cadena;
 	    FileReader f = new FileReader(file);
 	    BufferedReader b = new BufferedReader(f);
 	    while((cadena = b.readLine())!=null) {
-	    	if(cadena.equals(this.contrasenia)) {
-	    		return("Contraseña insegura");
+	    	if(cadena.equals(contrasenia)) {
+	    		throw new ContraseniaInseguraException();
 	    	}
 	    }
 	    b.close();
-	    return("Contraseña segura");    
+	    System.out.println("Contraseña segura");
+		return ("Contraseña segura"); 
 	}
 
 
