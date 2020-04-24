@@ -17,7 +17,7 @@ public class Usuario {
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
 	
-	MD5Hashing hash = new MD5Hashing();
+	MD5Hashing hash = MD5Hashing.getInstance();
 	
 	public Usuario(String nombre, String contrasenia, char tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
@@ -58,7 +58,7 @@ public class Usuario {
 		}
 	}
 	
-	public String validarContrasenia(String contrasenia) throws FileNotFoundException, IOException {
+	public void validarContrasenia(String contrasenia) throws FileNotFoundException, IOException {
 		
 		if(contrasenia.length()<= 8) {
 			throw new ContraseniaCortaException();
@@ -76,7 +76,6 @@ public class Usuario {
 	    }
 	    b.close();
 	    System.out.println("Contraseña segura");
-		return ("Contraseña segura"); 
 	}
 
 

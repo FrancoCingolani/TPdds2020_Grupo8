@@ -6,11 +6,23 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Hashing {
 	
-	public static String getMd5(String input) 
+	private static MD5Hashing instance;
+	
+	private MD5Hashing() {
+	}
+	
+	public static MD5Hashing getInstance() {
+		if(instance == null) {
+			instance = new MD5Hashing();
+		}
+		return instance;
+	}
+	
+	public static String getMd5(String pass) 
     { 
 		try { 			   
             MessageDigest md = MessageDigest.getInstance("MD5");  
-            byte[] messageDigest = md.digest(input.getBytes()); 
+            byte[] messageDigest = md.digest(pass.getBytes()); 
             BigInteger no = new BigInteger(1, messageDigest); 
   
             String hashtext = no.toString(16); 
