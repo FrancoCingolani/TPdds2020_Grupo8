@@ -49,7 +49,7 @@ public class Usuario {
 	}
 	
 	public boolean iniciarSesion(String nombre, String contrasenia) {
-		if(nombre == this.nombre && contrasenia == this.contrasenia && this.cantidadIntentos < this.intentosMaximos) {
+		if(nombre == this.nombre && hash.getMd5(contrasenia).equals(this.contrasenia) && this.cantidadIntentos < this.intentosMaximos) {
 			System.out.println("El usuario se ha logueado exitosamente.");
 			return true;
 		}else {
