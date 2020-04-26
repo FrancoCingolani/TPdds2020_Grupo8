@@ -1,6 +1,12 @@
-package main;
+package categoriasEntidadJuridica;
 
-public class Osc {
+public class OSC implements ICategoria {
+
+}
+
+
+//Deprecado, agregado el sufijo "Old" para indicar que no se debe utilizar. Queda de respaldo
+/*public class OscOld {
 	String nombre;
 	long numero;
 	String provincia;
@@ -23,3 +29,4 @@ public class Osc {
 		this.numero = numero;
 	}
 }
+*/

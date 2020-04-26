@@ -1,6 +1,7 @@
 package main;
 //https://pymes.afip.gob.ar/estiloAFIP/pymes/ayuda/default.asp ahi estan los numeros
-public class Categoria {
+// Deprecado, agregado el sufijo "Old" para indicar que no se debe utilizar. Queda de respaldo
+public class CategoriaOld {
 	int topeVtsConstruccion;
 	int topeVtsServicios;
 	int topeVtsComercio;
