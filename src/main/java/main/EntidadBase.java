@@ -1,6 +1,6 @@
 package main;
 
-public class EntidadBase {
+public class EntidadBase extends Organizacion{
 	String nombreFicticio ;
 	String descripcion;
 	EntidadJuridica perteneceA;

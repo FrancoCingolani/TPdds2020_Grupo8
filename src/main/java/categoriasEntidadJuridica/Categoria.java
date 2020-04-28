@@ -6,4 +6,8 @@ public class Categoria {
 	public Categoria(ICategoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	public String getDescripcionCategoria() {
+		return this.categoria.getDescripcionCategoria();
+	}
 }

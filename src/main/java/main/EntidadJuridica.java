@@ -1,19 +1,21 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import categoriasEntidadJuridica.*;
 import enumeradores.*;
 import exceptions.*;
 import constantes.ConstantesCategorias;
 import constantes.ConstantesCategorizacion;
 
-//@todo AGREGAR LAS OPERACIONES DE CADA ENTIDAD
+//TODO AGREGAR LAS OPERACIONES DE CADA ENTIDAD
 
-public class EntidadJuridica {
+public class EntidadJuridica extends Organizacion{
 	
 	String razonSocial;
 	String nombreFicticio;
 	int codigoInscripcionIGJ;
-	//categoria : string RE PENSAR ESTO TAMBIEN EN EL DIAGRAMA
 	String estructura;
 	long CUIT;
 	//entidadesBase : list<EntidadBase>
@@ -21,8 +23,8 @@ public class EntidadJuridica {
 	int ventas;
 	String direccionPostal;
 	Actividad actividad;
-	double ventasAnuales;
 	Categoria categoria;
+	TipoEntidadJuridica tipo;
 		
 	//Categoria 
 	
@@ -35,7 +37,10 @@ public class EntidadJuridica {
 		this.personal = personal;
 		this.actividad = actividad;
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
-		this.categorizar(tipo);
+		this.tipo = tipo;
+		this.operacionesEgresoEntidad = new ArrayList<OperacionEgreso>();
+		this.ventasAnuales = 0;
+		this.categorizar();
 	}
 	
 	public EntidadJuridica (String razonSocial, String nombreFicticio, long CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo) {
@@ -62,10 +67,10 @@ public class EntidadJuridica {
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
 	}
 	
-	public void categorizar(TipoEntidadJuridica tipo) {
+	public void categorizar() {
 		ICategoria interfazCategoria = null;
 		// Acá definimos los criterios de categorización disponibles
-		switch(tipo) {
+		switch(this.tipo) {
 			case OSC:
 				// OSC
 				interfazCategoria = new OSC();
@@ -407,6 +412,14 @@ public class EntidadJuridica {
 	public int promedioVentas(){
 		//return (this.ventas)/anios
 		return 0;
+	}
+	
+	public String getDescripcionCategoria() {
+		return this.categoria.getDescripcionCategoria();
+	}
+	
+	public double getVentasAnuales() {
+		return this.ventasAnuales;
 	}
 }
 /*

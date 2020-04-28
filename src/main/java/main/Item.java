@@ -3,9 +3,9 @@ package main;
 public class Item {
 	
 	String descripcion;
-	int valor;
+	double valor;
 	
-	public Item (String descripcion, int valor) {
+	public Item (String descripcion, double valor) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 	}
@@ -18,7 +18,7 @@ public class Item {
 		this.descripcion = descripcion;
 	}
 
-	public int getValor() {
+	public double getValor() {
 		return valor;
 	}
 
