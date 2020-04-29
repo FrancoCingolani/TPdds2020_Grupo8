@@ -58,12 +58,14 @@ public class Usuario {
 		}
 	}
 	
+	//poner una clase separadita la validacion
 	public void validarContrasenia(String contrasenia) throws FileNotFoundException, IOException {
 		
-		if(contrasenia.length()<= 8) {
+		if(contrasenia.length()<= 8) { // menor a 64
 			throw new ContraseniaCortaException();
 		}
-		
+		//falta caracteres repetidos
+		//coso de ascii unicode, se supone que hay librerias
 		
 		File file = new File("./files/topContraseniasInseguras.txt");  
 	    String cadena;
