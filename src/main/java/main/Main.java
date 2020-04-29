@@ -14,9 +14,9 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		
 		// Prueba creación de usuario e inicio de sesión
-		Usuario usuario = new Usuario("franco", "diseno2020!", 'A');
-		usuario.iniciarSesion("franco", "diseno2020!");
-		
+		Usuario usuario = new Usuario("franco", "diseno2020!", ConstantesTipoDeUsuario.ADMIN);
+		//usuario.iniciarSesion("franco", "diseno2020!");
+		/*
 		// Creación Entidad Jurídica
 		EntidadJuridica entidad = new EntidadJuridica("pepe SA", "pepe pateatraseros", 20375512840L, "calle falsa 123", 60, Actividad.AGROPECUARIO, TipoEntidadJuridica.EMPRESA);
 		
@@ -52,6 +52,7 @@ public class Main {
 		entidad.agregarOperacionEgreso(operacion2); // Agrego otro item para que suban las ventas y recategorice la empresa	
 		entidad.categorizar(); // recategorización por incremento de ventas
 		System.out.println(entidad.getDescripcionCategoria()); // Prueba de categoría
+		*/
 	}
 
 }

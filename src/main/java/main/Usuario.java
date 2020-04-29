@@ -13,13 +13,13 @@ public class Usuario {
 	
 	String nombre;
 	String contrasenia;
-	char tipo;
+	int tipo;
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
 	
 	MD5Hashing hash = MD5Hashing.getInstance();
 	
-	public Usuario(String nombre, String contrasenia, char tipo) throws FileNotFoundException, IOException {
+	public Usuario(String nombre, String contrasenia, int tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
 		this.contrasenia = hash.getMd5(contrasenia);
 		this.tipo = tipo;
@@ -41,7 +41,7 @@ public class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	public char getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
 	public void setTipo(char tipo) {
