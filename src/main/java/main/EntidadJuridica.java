@@ -16,11 +16,8 @@ public class EntidadJuridica extends Organizacion{
 	String razonSocial;
 	String nombreFicticio;
 	int codigoInscripcionIGJ;
-	String estructura;
 	long CUIT;
-	//entidadesBase : list<EntidadBase>
 	int personal;
-	int ventas;
 	String direccionPostal;
 	Actividad actividad;
 	Categoria categoria;
@@ -369,27 +366,6 @@ public class EntidadJuridica extends Organizacion{
 		return categoriaCalculada;
 	}
 
-
-	///////////////////////////////////////////////////////
-	/*public String getcategoria() {
-		return categoria;
-	}
-	public void categorizar(String categoria) {
-		this.categoria = categoria;
-	}
-	public String getentidadBase() {
-		return entidadBase;
-	}
-	public void setentidadBase(String entidadBase) {
-		this.entidadBase = entidadBase;
-	}*/ /*ESTAN MAL OBVIO, PERO PARA NO OLVIDAR DE HACERLAS*/
-	////////////////////////////////////////////////////////////////////////
-	public String getEstructura() {
-		return estructura;
-	}
-	public void setEstructura(String estructura) {
-		this.estructura = estructura;
-	}
 	public long getCUIT() {
 		return CUIT;
 	}
@@ -402,18 +378,7 @@ public class EntidadJuridica extends Organizacion{
 	public void setPersonal(int personal) {
 		this.personal = personal;
 	}
-	public int getVentas() {
-		return ventas;
-	}
-	public void setVentas(int ventas) {
-		this.ventas = ventas;
-	}
-	
-	public int promedioVentas(){
-		//return (this.ventas)/anios
-		return 0;
-	}
-	
+
 	public String getDescripcionCategoria() {
 		return this.categoria.getDescripcionCategoria();
 	}
@@ -422,50 +387,3 @@ public class EntidadJuridica extends Organizacion{
 		return this.ventasAnuales;
 	}
 }
-/*
- LO QUE DICE DE COMPOSITE EN EL GIT DE LA CATEDRA
- EL LINK POR LAS DUDAS:  https://github.com/utndds/dds-patrones/tree/master/Composite
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Composite
-{
-    /// <summary>
-    /// The 'Composite' class
-    /// </summary>
-    class CompositeElement : DrawingElement
-    {
-        private List<DrawingElement> elements =
-          new List<DrawingElement>();
-
-        // Constructor
-        public CompositeElement(string name)
-          : base(name)
-        {
-        }
-
-        public override void Add(DrawingElement d)
-        {
-            elements.Add(d);
-        }
-
-        public override void Remove(DrawingElement d)
-        {
-            elements.Remove(d);
-        }
-
-        public override void Display(int indent)
-        {
-            Console.WriteLine(new String('-', indent) +
-              "+ " + _name);
-
-            // Display each child element on this node
-            foreach (DrawingElement d in elements)
-            {
-                d.Display(indent + 2);
-            }
-        }
-    }
-}*/
