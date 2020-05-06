@@ -18,13 +18,14 @@ public class Usuario {
 	int cantidadIntentos = 0;
 	
 	MD5Hashing hash = MD5Hashing.getInstance();
+	ValidadorDeContrasenia validador = ValidadorDeContrasenia.getInstance();
 	
 	public Usuario(String nombre, String contrasenia, int tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
 		this.contrasenia = hash.getMd5(contrasenia);
 		this.tipo = tipo;
 		
-		this.validarContrasenia(contrasenia);
+		this.validador.validar(contrasenia);
 		
 	}
 	
@@ -57,33 +58,7 @@ public class Usuario {
 			return false;
 		}
 	}
-	
-	//poner una clase separadita la validacion
-	public void validarContrasenia(String contrasenia) throws FileNotFoundException, IOException {
 		
-		if(contrasenia.length()<= 8) { // menor a 64
-			throw new ContraseniaCortaException();
-		}
-		//falta caracteres repetidos
-		//coso de ascii unicode, se supone que hay librerias
-		
-		File file = new File("./files/topContraseniasInseguras.txt");  
-	    String cadena;
-	    FileReader f = new FileReader(file);
-	    BufferedReader b = new BufferedReader(f);
-	    while((cadena = b.readLine())!=null) {
-	    	if(cadena.equals(contrasenia)) {
-	    		throw new ContraseniaInseguraException();
-	    	}
-	    }
-	    b.close();
-	    System.out.println("Contraseña segura");
-	}
-
-
-	
-	
-	
 
 }
 
