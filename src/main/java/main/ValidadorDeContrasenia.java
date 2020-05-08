@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.*;
 
+import exceptions.ContraseniaCaracteresRepetidosException;
 import exceptions.ContraseniaCortaException;
 import exceptions.ContraseniaInseguraException;
 import exceptions.ContraseniaUnicodeException;
@@ -34,16 +36,30 @@ public class ValidadorDeContrasenia {
 	
 	public void validar(String contrasenia) throws FileNotFoundException, IOException {
 		
-		if((contrasenia.length()<= 8) && (contrasenia.length()<= 64)) { // menor a 64
+		
+		if((contrasenia.length()<= 8) && (contrasenia.length()<= 64)) {
 			throw new ContraseniaCortaException();
 		}
 		
 		if(ValidadorDeContrasenia.isPureAscii(contrasenia) == false) {
 			throw new ContraseniaUnicodeException();	
 		}
-		//boolean isAscii = CharMatcher.ascii().matchesAllOf(someString);
-		//falta caracteres repetidos
-		//coso de ascii unicode, se supone que hay librerias
+		
+		Pattern pattern = Pattern.compile("(.)\\1\\1", Pattern.CASE_INSENSITIVE);
+		
+		
+		//(@"^(?!.*(.)\1\1)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,20}$")
+		//^(?=.{8,20}$)(?=[^A-Za-z]*[A-Za-z])(?=[^0-9]*[0-9])(?:([\w\d*?!:;])\1?(?!\1))+$
+		
+		Matcher m = pattern.matcher(contrasenia);
+		
+		if (m.find()) {
+			throw new ContraseniaCaracteresRepetidosException();
+	    }
+		
+		if (m.matches()) {
+			throw new ContraseniaCaracteresRepetidosException();
+	    }
 		
 		File file = new File("./files/topContraseniasInseguras.txt");  
 	    String cadena;
