@@ -47,17 +47,9 @@ public class ValidadorDeContrasenia {
 		
 		Pattern pattern = Pattern.compile("(.)\\1\\1", Pattern.CASE_INSENSITIVE);
 		
-		
-		//(@"^(?!.*(.)\1\1)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,20}$")
-		//^(?=.{8,20}$)(?=[^A-Za-z]*[A-Za-z])(?=[^0-9]*[0-9])(?:([\w\d*?!:;])\1?(?!\1))+$
-		
 		Matcher m = pattern.matcher(contrasenia);
 		
 		if (m.find()) {
-			throw new ContraseniaCaracteresRepetidosException();
-	    }
-		
-		if (m.matches()) {
 			throw new ContraseniaCaracteresRepetidosException();
 	    }
 		

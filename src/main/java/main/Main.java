@@ -16,7 +16,7 @@ public class Main {
 		// Prueba creación de usuario e inicio de sesión
 		Usuario usuario = new Usuario("franco", "123456789", ConstantesTipoDeUsuario.ADMIN);
 		//usuario.iniciarSesion("franco", "diseno2020!");
-		/*
+		
 		// Creación Entidad Jurídica
 		EntidadJuridica entidad = new EntidadJuridica("pepe SA", "pepe pateatraseros", "20375512840", "calle falsa 123", 60, Actividad.AGROPECUARIO, TipoEntidadJuridica.EMPRESA);
 		
@@ -70,7 +70,7 @@ public class Main {
 		nuevaEntidadAPartirDeBase.agregarOperacionEgreso(operacion3); // Agrego otro item para que suban las ventas y recategorice la empresa	
 		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por incremento de ventas
 		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
-		*/
+		
 	}
 
 }
