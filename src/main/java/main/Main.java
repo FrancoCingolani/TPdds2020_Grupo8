@@ -35,11 +35,12 @@ public class Main {
 		Atm guita = new Atm(3);
 		
 		// Creación documento comercial
-		DocumentoComercial doc = new DocumentoComercial("ticket");
+		DocumentoComercial doc = new DocumentoComercial ("1425","ticket");
+		List<DocumentoComercial> docs = Arrays.asList(doc);
 		
 		// Creación operaciones de egreso
-		OperacionEgreso operacion = new OperacionEgreso(proveedor, new Date(), guita, items, doc);
-		OperacionEgreso operacion2 = new OperacionEgreso(proveedor, new Date(), guita, items2, doc);
+		OperacionEgreso operacion = new OperacionEgreso(proveedor, new Date(), guita, items, docs);
+		OperacionEgreso operacion2 = new OperacionEgreso(proveedor, new Date(), guita, items2, docs);
 		
 		// Asociación de operacion de egreso a la entidad
 		entidad.agregarOperacionEgreso(operacion);		
@@ -59,7 +60,7 @@ public class Main {
 		EntidadBase entidadBase = new EntidadBase("minerita", "minera los hijos de cuca", 18, "donovan y camino general chamizo, gerli", Actividad.INDUSTRIA_Y_MINERIA);
 		Item item4 = new Item ("Alto muuuuuuuuuuy caro", 1190330000, 4);
 		List<Item> items4 = Arrays.asList(item4);
-		OperacionEgreso operacion3 = new OperacionEgreso(proveedor, new Date(), guita, items4, doc);
+		OperacionEgreso operacion3 = new OperacionEgreso(proveedor, new Date(), guita, items4, docs);
 		System.out.println("Prueba sobre Entidad Base");
 		System.out.println(entidadBase.getDescripcionCategoria());
 		EntidadJuridica nuevaEntidadAPartirDeBase = new EntidadJuridica(entidadBase, "minera los honestos srl", TipoEntidadJuridica.EMPRESA, "20153456781"); // Reconvierto base a jurídica

@@ -10,10 +10,10 @@ public class OperacionEgreso extends Operacion {
 	double valorTotal;
 	MedioDePago medioDePago;
 	List<Item> items;
-	DocumentoComercial documentoComercial;
+	List<DocumentoComercial> documentoComercial;
 	
 	
-	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, DocumentoComercial documentoComercial) {
+	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentoComercial) {
 		this.proveedor = proveedor;
 		this.fecha = fecha;
 		this.medioDePago = medioDePago;
