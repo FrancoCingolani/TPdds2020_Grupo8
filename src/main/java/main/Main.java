@@ -43,7 +43,7 @@ public class Main {
 		OperacionEgreso operacion2 = new OperacionEgreso(proveedor, new Date(), guita, items2, docs);
 		
 		// Asociación de operacion de egreso a la entidad
-		entidad.agregarOperacionEgreso(operacion);		
+		entidad.agregarOperacion(operacion);
 		
 		// Prueba de categoría
 		System.out.println("Prueba sobre Entidad Juridica");
@@ -51,7 +51,7 @@ public class Main {
 		entidad.setPersonal(5); // Disminuyo la cantidad de personal para que recategorice la empresa
 		CategorizadorEntidad.categorizar(entidad); // recategorización por cambio de personal
 		System.out.println(entidad.getDescripcionCategoria()); // Prueba de categoría
-		entidad.agregarOperacionEgreso(operacion2); // Agrego otro item para que suban las ventas y recategorice la empresa	
+		entidad.agregarOperacion(operacion2); // Agrego otro item para que suban las ventas y recategorice la empresa
 		CategorizadorEntidad.categorizar(entidad); // recategorización por incremento de ventas
 		System.out.println(entidad.getDescripcionCategoria()); // Prueba de categoría
 		System.out.println();
@@ -68,7 +68,7 @@ public class Main {
 		nuevaEntidadAPartirDeBase.setPersonal(62); // Aumento la cantidad de personal para que recategorice la empresa
 		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por cambio de personal
 		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
-		nuevaEntidadAPartirDeBase.agregarOperacionEgreso(operacion3); // Agrego otro item para que suban las ventas y recategorice la empresa	
+		nuevaEntidadAPartirDeBase.agregarOperacion(operacion3); // Agrego otro item para que suban las ventas y recategorice la empresa
 		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por incremento de ventas
 		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
 		

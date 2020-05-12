@@ -15,7 +15,7 @@ public class Organizacion {
 	Categoria categoria;
 	TipoEntidadJuridica tipo;
 	
-	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {
+	public void agregarOperacion(OperacionEgreso nuevaOperacion) {
 		this.operacionesEgresoEntidad.add(nuevaOperacion);
 		this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();
 	}
