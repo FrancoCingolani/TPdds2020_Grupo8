@@ -1,5 +1,9 @@
 package constantes;
 
+import java.util.Map;
+
+import com.google.common.collect.ImmutableMap;
+
 public class ConstantesCategorizacion {
 	// Categoria = Construccion
 	// Ventas
@@ -61,4 +65,95 @@ public class ConstantesCategorizacion {
 	public static final int PERSONAL_AGROPECUARIO_MEDIANATRAMO1  = 50;
 	public static final int PERSONAL_AGROPECUARIO_MEDIANATRAMO2  = 215;
 	
+	
+	// Definición de diccionarios para cada una de las combinaciones posibles (actividad - ventas/personal - categoría)
+	public static final Map<Integer, Long> VENTAS_CONSTRUCCION = ImmutableMap.of(
+		ConstantesCategorias.MICRO, VENTAS_CONSTRUCCION_MICRO,
+		ConstantesCategorias.PEQUEÑA, VENTAS_CONSTRUCCION_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, VENTAS_CONSTRUCCION_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, VENTAS_CONSTRUCCION_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Integer> PERSONAL_CONSTRUCCION = ImmutableMap.of(
+		ConstantesCategorias.MICRO, PERSONAL_CONSTRUCCION_MICRO,
+		ConstantesCategorias.PEQUEÑA, PERSONAL_CONSTRUCCION_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, PERSONAL_CONSTRUCCION_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, PERSONAL_CONSTRUCCION_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Long> VENTAS_SERVICIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, VENTAS_SERVICIOS_MICRO,
+		ConstantesCategorias.PEQUEÑA, VENTAS_SERVICIOS_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, VENTAS_SERVICIOS_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, VENTAS_SERVICIOS_MEDIANATRAMO2
+	);
+
+	public static final Map<Integer, Integer> PERSONAL_SERVICIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, PERSONAL_SERVICIOS_MICRO,
+		ConstantesCategorias.PEQUEÑA, PERSONAL_SERVICIOS_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, PERSONAL_SERVICIOS_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, PERSONAL_SERVICIOS_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Long> VENTAS_COMERCIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, VENTAS_COMERCIO_MICRO,
+		ConstantesCategorias.PEQUEÑA, VENTAS_COMERCIO_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, VENTAS_COMERCIO_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, VENTAS_COMERCIO_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Integer> PERSONAL_COMERCIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, PERSONAL_COMERCIO_MICRO,
+		ConstantesCategorias.PEQUEÑA, PERSONAL_COMERCIO_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, PERSONAL_COMERCIO_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, PERSONAL_COMERCIO_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Long> VENTAS_INDUSTRIAMINERIA = ImmutableMap.of(
+		ConstantesCategorias.MICRO, VENTAS_INDUSTRIAMINERIA_MICRO,
+		ConstantesCategorias.PEQUEÑA, VENTAS_INDUSTRIAMINERIA_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, VENTAS_INDUSTRIAMINERIA_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, VENTAS_INDUSTRIAMINERIA_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Integer> PERSONAL_INDUSTRIAMINERIA = ImmutableMap.of(
+		ConstantesCategorias.MICRO, PERSONAL_INDUSTRIAMINERIA_MICRO,
+		ConstantesCategorias.PEQUEÑA, PERSONAL_INDUSTRIAMINERIA_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, PERSONAL_INDUSTRIAMINERIA_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, PERSONAL_INDUSTRIAMINERIA_MEDIANATRAMO2
+	);
+	
+	public static final Map<Integer, Long> VENTAS_AGROPECUARIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, VENTAS_AGROPECUARIO_MICRO,
+		ConstantesCategorias.PEQUEÑA, VENTAS_AGROPECUARIO_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, VENTAS_AGROPECUARIO_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, VENTAS_AGROPECUARIO_MEDIANATRAMO2
+	);
+		
+	public static final Map<Integer, Integer> PERSONAL_AGROPECUARIO = ImmutableMap.of(
+		ConstantesCategorias.MICRO, PERSONAL_AGROPECUARIO_MICRO,
+		ConstantesCategorias.PEQUEÑA, PERSONAL_AGROPECUARIO_PEQUEÑA,
+		ConstantesCategorias.MEDIANATRAMO1, PERSONAL_AGROPECUARIO_MEDIANATRAMO1,
+		ConstantesCategorias.MEDIANATRAMO2, PERSONAL_AGROPECUARIO_MEDIANATRAMO2
+	);
+	
+	
+	// Defino los diccionarios finales para consultar por el categorizador
+	public static final Map<Integer, Map<Integer, Long>> VENTAS_LIMITES = ImmutableMap.of(
+		ConstantesActividades.CONSTRUCCION, VENTAS_CONSTRUCCION,
+		ConstantesActividades.SERVICIO, VENTAS_SERVICIO,
+		ConstantesActividades.COMERCIO, VENTAS_COMERCIO,
+		ConstantesActividades.INDUSTRIAMINERIA, VENTAS_INDUSTRIAMINERIA,
+		ConstantesActividades.AGROPECUARIO, VENTAS_AGROPECUARIO
+	);
+	
+	public static final Map<Integer, Map<Integer, Integer>> PERSONAL_LIMITE = ImmutableMap.of(
+		ConstantesActividades.CONSTRUCCION, PERSONAL_CONSTRUCCION,
+		ConstantesActividades.SERVICIO, PERSONAL_SERVICIO,
+		ConstantesActividades.COMERCIO, PERSONAL_COMERCIO,
+		ConstantesActividades.INDUSTRIAMINERIA, PERSONAL_INDUSTRIAMINERIA,
+		ConstantesActividades.AGROPECUARIO, PERSONAL_AGROPECUARIO
+	);
+	
+
 }

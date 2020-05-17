@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		
 		// Prueba creación de usuario e inicio de sesión
-		Usuario usuario = new Usuario("franco", "123456789", ConstantesTipoDeUsuario.ADMIN);
+		//Usuario usuario = new Usuario("franco", "123456789", ConstantesTipoDeUsuario.ADMIN);
 		//usuario.iniciarSesion("franco", "diseno2020!");
 		
 		// Creación Entidad Jurídica

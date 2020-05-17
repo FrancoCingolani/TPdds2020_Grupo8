@@ -42,4 +42,8 @@ public class Organizacion {
 	public double getVentasAnuales() {
 		return this.ventasAnuales;
 	}
+	
+	public void setCategoria(Categoria nuevaCategoria) {
+		this.categoria = nuevaCategoria;
+	}
 }
