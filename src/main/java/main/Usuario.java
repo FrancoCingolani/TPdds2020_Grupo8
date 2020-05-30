@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import exceptions.ContraseniaCortaException;
 import exceptions.ContraseniaInseguraException;
+import mensajes.Mensaje;
 
 public class Usuario {
 	
@@ -16,6 +17,7 @@ public class Usuario {
 	int tipo;
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
+	BandejaMensajes bandejaEntrada;
 	
 	MD5Hashing hash = MD5Hashing.getInstance();
 	ValidadorDeContrasenia validador = ValidadorDeContrasenia.getInstance();
@@ -24,11 +26,9 @@ public class Usuario {
 		this.nombre = nombre;
 		this.contrasenia = hash.getMd5(contrasenia);
 		this.tipo = tipo;
-		
+		this.bandejaEntrada = new BandejaMensajes();
 		this.validador.validar(contrasenia);
-		
-	}
-	
+	}	
 	
 	public String getNombre() {
 		return nombre;
@@ -58,6 +58,12 @@ public class Usuario {
 			return false;
 		}
 	}
+	
+	public void recibirMensaje(Mensaje nuevoMensaje) {
+		this.bandejaEntrada.nuevoMensaje(nuevoMensaje);
+	}
+	
+	
 		
 
 }
