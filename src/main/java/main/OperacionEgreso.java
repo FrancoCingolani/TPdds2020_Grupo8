@@ -3,7 +3,7 @@ package main;
 import java.util.Date;
 import java.util.List;
 
-public class OperacionEgreso extends Operacion {
+public class OperacionEgreso{
 	
 	Proveedor proveedor;
 	Date fecha;
