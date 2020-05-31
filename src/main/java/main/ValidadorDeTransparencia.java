@@ -24,6 +24,10 @@ public class ValidadorDeTransparencia {
 	}
 	
 	public boolean requierePresupuesto() {
+		List<Presupuesto> presupuestos = this.compra.getPresupuestos();
+		if(presupuestos.size() != compra.getCantPresuReq()) {
+			return false;
+		}
 		return true;
 	}
 	
