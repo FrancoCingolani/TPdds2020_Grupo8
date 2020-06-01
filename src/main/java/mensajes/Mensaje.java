@@ -14,6 +14,10 @@ public abstract class Mensaje {
 		return this.textoMensaje;
 	}
 	
+	public String getAsuntoMensaje() {
+		return this.asuntoMensaje;
+	}
+	
 	public void leerMensaje() {
 		this.leido = true;
 	}

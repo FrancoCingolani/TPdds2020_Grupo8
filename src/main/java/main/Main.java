@@ -8,17 +8,54 @@ import java.util.List;
 
 import constantes.*;
 import enumeradores.*;
+import mensajes.*;
 
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		
 		// Prueba creación de usuario e inicio de sesión
-		//Usuario usuario = new Usuario("franco", "123456789", ConstantesTipoDeUsuario.ADMIN);
-		//usuario.iniciarSesion("franco", "diseno2020!");
+		Usuario usuario = new Usuario("franco", "lalapapa!", ConstantesTipoDeUsuario.ADMIN);
+		usuario.iniciarSesion("franco", "diseno2020!");
+		
+		// Prueba creación de mensaje
+		MensajeValidadorCompra mensaje1 = new MensajeValidadorCompra("Prueba de mensaje numero 1"); // por ahora es el único tipo de mensaje, por eso se usa este para probar
+		MensajeValidadorCompra mensaje2 = new MensajeValidadorCompra("Prueba de mensaje numero 2");
+		usuario.recibirMensaje(mensaje1); // envío el mensaje a la bandeja de entrada del usuario
+		
+		List<Mensaje> todosLosMensajes = usuario.getMensajes(); // tengo solo el mensaje 1
+		
+		System.out.println("Prueba sobre mensajes - TODOS");
+		for (Mensaje msj : todosLosMensajes) {
+			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
+		}
+		
+		usuario.recibirMensaje(mensaje2); // envío el mensaje a la bandeja de entrada del usuario
+		todosLosMensajes = usuario.getMensajes();  // Tengo mensaje 1 y 2
+		
+		System.out.println("Prueba sobre mensajes - TODOS");
+		for (Mensaje msj : todosLosMensajes) {
+			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
+		}
+		
+		mensaje1.leerMensaje(); // Lo marco como leído
+		
+		todosLosMensajes = usuario.getMensajes();  // Tengo mensaje 1 y 2
+		List<Mensaje> mensajesLeidos = usuario.getMensajesNoLeidos(); // Tengo solo mensaje 2
+		
+		System.out.println("Prueba sobre mensajes - TODOS");
+		for (Mensaje msj : todosLosMensajes) {
+			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
+		}
+		
+		System.out.println("Prueba sobre mensajes - SIN LEER");
+		for (Mensaje msj : mensajesLeidos) {
+			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
+		}
+		
 		
 		// Creación Entidad Jurídica
-		EntidadJuridica entidad = new EntidadJuridica("pepe SA", "pepe pateatraseros", "20375512840", "calle falsa 123", 60, Actividad.AGROPECUARIO, TipoEntidadJuridica.EMPRESA);
+		/*EntidadJuridica entidad = new EntidadJuridica("pepe SA", "pepe pateatraseros", "20375512840", "calle falsa 123", 60, Actividad.AGROPECUARIO, TipoEntidadJuridica.EMPRESA);
 		
 		// Creación items
 		Item item1 = new Item("Algo muy barato", 1, 1);
@@ -71,7 +108,7 @@ public class Main {
 		nuevaEntidadAPartirDeBase.agregarOperacion(operacion3); // Agrego otro item para que suban las ventas y recategorice la empresa
 		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por incremento de ventas
 		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
-		
+		*/
 	}
 
 }

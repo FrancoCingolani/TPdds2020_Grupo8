@@ -12,6 +12,11 @@ public class Compra extends Operacion{
 	Presupuesto presupuestoElegido;
 	
 	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, Presupuesto presupuestoElegido) {
+		/** Ignacio: No es lógico que al momento de crearse la necesidad de compra se carguen al mismo tiempo los presupuestos, los egresos, los revisores y el presupuesto
+		 * Se supone que primero se carga la compra, sin presupuestos, sin revisores, sin egresos y sin presupuesto elegido. Los presupuestos se van pidiendo a los proveedores
+		 * quienes los envían y luego se agregan a la compra en caso de cumplir ciertos parámetros. Mismo con revisores. El presupuesto elegido sale de comprar todos
+		 * los presupuestos cargados y elegir alguno de ellos. Y las operaciones de egreso se cargan cuando se efectúa el intercambio "item por dinero"
+		 */
 		this.cantPresuReq = cantPresuReq;
 		this.presupuestos = presupuestos;
 		this.operacionesEgre = operacionesEgre;
@@ -68,6 +73,14 @@ public class Compra extends Operacion{
 		this.presupuestoElegido = presupuestoElegido;
 	}
 	
+	public void agregarRevisor(Usuario nuevoRevisor) {
+		this.revisores.add(nuevoRevisor);
+	}
+	
+	public void agregarPresupuesto (Presupuesto nuevoPresupuesto) {
+		// @TODO verificar que cada item del presupuesto coincida con un item de la compra
+		this.presupuestos.add(nuevoPresupuesto);
+	}
 	
 	
 }

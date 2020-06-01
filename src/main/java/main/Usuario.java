@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import exceptions.ContraseniaCortaException;
 import exceptions.ContraseniaInseguraException;
@@ -61,6 +62,14 @@ public class Usuario {
 	
 	public void recibirMensaje(Mensaje nuevoMensaje) {
 		this.bandejaEntrada.nuevoMensaje(nuevoMensaje);
+	}
+	
+	public List<Mensaje> getMensajes () {
+		return this.bandejaEntrada.getMensajesTodos();
+	}
+	
+	public List<Mensaje> getMensajesNoLeidos () {
+		return this.bandejaEntrada.getMensajesSinLeer();
 	}
 	
 	
