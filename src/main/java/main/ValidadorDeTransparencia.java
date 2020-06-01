@@ -28,14 +28,33 @@ public class ValidadorDeTransparencia {
 	
 	public boolean requierePresupuesto() {
 		List<Presupuesto> presupuestos = this.compra.getPresupuestos();
-		if(presupuestos.size() != compra.getCantPresuReq()) {
+		if(presupuestos.size() != this.compra.getCantPresuReq()) {
 			return false;
 		}
 		return true;
 	}
 	
 	public boolean fueRealizadaEnBasePresu() {
-		return true;
+		Presupuesto presupuestoElegido = this.compra.getPresupestoElegido();
+		List<Item> itemsPresupuesto = presupuestoElegido.getItems();
+		List<OperacionEgreso> opsEgreso = this.compra.getOperacionesEgre();
+		List<Item> itemsCompra;
+		//Se que no hace lo que quiero
+		//La idea es unir todos los items de las distintas compras en una lista.
+		/*for(List<OperacionEgreso> opsEgreso : Items){
+            for(OperacionEgreso i: list){
+               itemsCompra.add(i);
+            }
+        }*/
+		//Luego ordenarlos por algun criterio
+		/*Collections.sort(itemsPresupuesto);
+	    Collections.sort(itemsCompra);  
+	    */
+	    //Al final Comprarlos
+	    return itemsCompra.equals(itemsPresupuesto);
+		
+		//tambien se me habia ocurrido mirar primero el valor pagado con el presupuestado
+	    //Si no es asi, listo. Si lo es, comparamos con lo de arriba
 	}
 	
 	public boolean validarSeleccionMenorValor() {
