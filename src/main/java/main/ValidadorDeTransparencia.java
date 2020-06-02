@@ -39,13 +39,12 @@ public class ValidadorDeTransparencia {
 		List<Item> itemsPresupuesto = presupuestoElegido.getItems();
 		List<OperacionEgreso> opsEgreso = this.compra.getOperacionesEgre();
 		List<Item> itemsCompra;
+		for (OperacionEgreso operacion : opsEgreso) {
+			itemsCompra.add(operacion.getItems());
+		}
 		//Se que no hace lo que quiero
 		//La idea es unir todos los items de las distintas compras en una lista.
-		/*for(List<OperacionEgreso> opsEgreso : Items){
-            for(OperacionEgreso i: list){
-               itemsCompra.add(i);
-            }
-        }*/
+		
 		//Luego ordenarlos por algun criterio
 		/*Collections.sort(itemsPresupuesto);
 	    Collections.sort(itemsCompra);  

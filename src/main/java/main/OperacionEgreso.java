@@ -30,4 +30,12 @@ public class OperacionEgreso{
 	public double getValorTotalOperacion() {
 		return this.valorTotal;
 	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 }
