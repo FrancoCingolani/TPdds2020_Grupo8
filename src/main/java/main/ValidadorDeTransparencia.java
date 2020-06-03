@@ -11,13 +11,10 @@ public class ValidadorDeTransparencia {
 	public ValidadorDeTransparencia(Compra compra) {
 		this.compra = compra;
 	}
-	
 
 	public void setCompra(Compra compra) {
 		this.compra = compra;
 	}
-
-
 
 	public void validarCompra(Compra compra) {
 		boolean reqPresupuesto = this.requierePresupuesto();

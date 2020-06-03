@@ -13,101 +13,10 @@ import mensajes.*;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException{
-		
-		// Prueba creación de usuario e inicio de sesión
-		Usuario usuario = new Usuario("franco", "lalapapa!", ConstantesTipoDeUsuario.ADMIN);
-		usuario.iniciarSesion("franco", "diseno2020!");
-		
-		// Prueba creación de mensaje
-		MensajeValidadorCompra mensaje1 = new MensajeValidadorCompra("Prueba de mensaje numero 1"); // por ahora es el único tipo de mensaje, por eso se usa este para probar
-		MensajeValidadorCompra mensaje2 = new MensajeValidadorCompra("Prueba de mensaje numero 2");
-		usuario.recibirMensaje(mensaje1); // envío el mensaje a la bandeja de entrada del usuario
-		
-		List<Mensaje> todosLosMensajes = usuario.getMensajes(); // tengo solo el mensaje 1
-		
-		System.out.println("Prueba sobre mensajes - TODOS");
-		for (Mensaje msj : todosLosMensajes) {
-			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
-		}
-		
-		usuario.recibirMensaje(mensaje2); // envío el mensaje a la bandeja de entrada del usuario
-		todosLosMensajes = usuario.getMensajes();  // Tengo mensaje 1 y 2
-		
-		System.out.println("Prueba sobre mensajes - TODOS");
-		for (Mensaje msj : todosLosMensajes) {
-			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
-		}
-		
-		mensaje1.leerMensaje(); // Lo marco como leído
-		
-		todosLosMensajes = usuario.getMensajes();  // Tengo mensaje 1 y 2
-		List<Mensaje> mensajesLeidos = usuario.getMensajesNoLeidos(); // Tengo solo mensaje 2
-		
-		System.out.println("Prueba sobre mensajes - TODOS");
-		for (Mensaje msj : todosLosMensajes) {
-			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
-		}
-		
-		System.out.println("Prueba sobre mensajes - SIN LEER");
-		for (Mensaje msj : mensajesLeidos) {
-			System.out.println("Asunto: " + msj.getAsuntoMensaje() + " - Texto: " + msj.getTextoMensaje());
-		}
-		
-		
-		// Creación Entidad Jurídica
-		/*EntidadJuridica entidad = new EntidadJuridica("pepe SA", "pepe pateatraseros", "20375512840", "calle falsa 123", 60, Actividad.AGROPECUARIO, TipoEntidadJuridica.EMPRESA);
-		
-		// Creación items
-		Item item1 = new Item("Algo muy barato", 1, 1);
-		Item item2 = new Item("Otra cosa barata", 2, 1);
-		List<Item> items = Arrays.asList(item1, item2);
-		
-		Item item3 = new Item("Algo caro", 12890000, 1);
-		List<Item> items2 = Arrays.asList(item3);
-		
-		// Alta proveedor
-		Proveedor proveedor = new ProveedorFisico("calle falsa 1234", "Ricardo", "Fort", "12345678", "20123456781");
-		
-		// Alta medio de pago
-		Atm guita = new Atm(3);
-		
-		// Creación documento comercial
-		DocumentoComercial doc = new DocumentoComercial ("1425","ticket");
-		List<DocumentoComercial> docs = Arrays.asList(doc);
-		
-		// Creación operaciones de egreso
-		OperacionEgreso operacion = new OperacionEgreso(proveedor, new Date(), guita, items, docs);
-		OperacionEgreso operacion2 = new OperacionEgreso(proveedor, new Date(), guita, items2, docs);
-		
-		// Asociación de operacion de egreso a la entidad
-		entidad.agregarOperacion(operacion);
-		
-		// Prueba de categoría
-		System.out.println("Prueba sobre Entidad Juridica");
-		System.out.println(entidad.getDescripcionCategoria());
-		entidad.setPersonal(5); // Disminuyo la cantidad de personal para que recategorice la empresa
-		CategorizadorEntidad.categorizar(entidad); // recategorización por cambio de personal
-		System.out.println(entidad.getDescripcionCategoria()); // Prueba de categoría
-		entidad.agregarOperacion(operacion2); // Agrego otro item para que suban las ventas y recategorice la empresa
-		CategorizadorEntidad.categorizar(entidad); // recategorización por incremento de ventas
-		System.out.println(entidad.getDescripcionCategoria()); // Prueba de categoría
-		System.out.println();
-		
-		// Creación Entidad base
-		EntidadBase entidadBase = new EntidadBase("minerita", "minera los hijos de cuca", 18, "donovan y camino general chamizo, gerli", Actividad.INDUSTRIA_Y_MINERIA);
-		Item item4 = new Item ("Alto muuuuuuuuuuy caro", 1190330000, 4);
-		List<Item> items4 = Arrays.asList(item4);
-		OperacionEgreso operacion3 = new OperacionEgreso(proveedor, new Date(), guita, items4, docs);
-		System.out.println("Prueba sobre Entidad Base");
-		System.out.println(entidadBase.getDescripcionCategoria());
-		EntidadJuridica nuevaEntidadAPartirDeBase = new EntidadJuridica(entidadBase, "minera los honestos srl", TipoEntidadJuridica.EMPRESA, "20153456781"); // Reconvierto base a jurídica
-		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // al crearse se recategorizó, tiene que haber cambiado
-		nuevaEntidadAPartirDeBase.setPersonal(62); // Aumento la cantidad de personal para que recategorice la empresa
-		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por cambio de personal
-		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
-		nuevaEntidadAPartirDeBase.agregarOperacion(operacion3); // Agrego otro item para que suban las ventas y recategorice la empresa
-		CategorizadorEntidad.categorizar(nuevaEntidadAPartirDeBase); // recategorización por incremento de ventas
-		System.out.println(nuevaEntidadAPartirDeBase.getDescripcionCategoria()); // Prueba de categoría
+
+
+		/*
+
 		*/
 	}
 
