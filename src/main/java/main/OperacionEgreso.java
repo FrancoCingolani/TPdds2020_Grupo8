@@ -10,15 +10,15 @@ public class OperacionEgreso{
 	double valorTotal;
 	MedioDePago medioDePago;
 	List<Item> items;
-	List<DocumentoComercial> documentoComercial;
+	List<DocumentoComercial> documentosComerciales;
 	
 	
-	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentoComercial) {
+	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales) {
 		this.proveedor = proveedor;
 		this.fecha = fecha;
 		this.medioDePago = medioDePago;
 		this.items = items;
-		this.documentoComercial = documentoComercial;
+		this.documentosComerciales = documentosComerciales;
 		this.valorTotal = 0;
 		
 		for (Item item : items) {
