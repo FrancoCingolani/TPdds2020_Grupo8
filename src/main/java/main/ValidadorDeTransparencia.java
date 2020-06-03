@@ -23,7 +23,7 @@ public class ValidadorDeTransparencia {
 		this.notificarRevisores(reqPresupuesto, basePresupuesto, presupuestoMenorValor);
 	}
 	
-	public boolean requierePresupuesto() {
+	private boolean requierePresupuesto() {
 		List<Presupuesto> presupuestos = this.compra.getPresupuestos();
 		if(presupuestos.size() != this.compra.getCantPresuReq()) {
 			return false;
@@ -31,7 +31,7 @@ public class ValidadorDeTransparencia {
 		return true;
 	}
 	
-	public boolean fueRealizadaEnBasePresu() {
+	private boolean fueRealizadaEnBasePresu() {
 		
 		List<Presupuesto> presupuestos = this.compra.getPresupuestos();
 		Presupuesto presupuestoElegido = this.compra.getPresupestoElegido();
@@ -45,7 +45,7 @@ public class ValidadorDeTransparencia {
 		return false;
 	}
 	
-	public boolean validarSeleccionMenorValor() {
+	private boolean validarSeleccionMenorValor() {
 		/**
 		 * Ignacio: Si fuera lógico el proceso de compra, se debería validar que las variables presupuestos y presupuestoElegido estén seteadas y tengan
 		 * datos cargados. Como nos guíamos por otra lógica, esto es correcto
@@ -62,7 +62,7 @@ public class ValidadorDeTransparencia {
 		return true; 
 	}
 	
-	public void notificarRevisores(boolean resultadoReqPresupuesto, boolean resultadoBasePresupuesto, boolean resultadoPresupuestoMenorValor) {
+	private void notificarRevisores(boolean resultadoReqPresupuesto, boolean resultadoBasePresupuesto, boolean resultadoPresupuestoMenorValor) {
 		String textoBase = "Cumple con cantidad de presupuestos requeridos: %s | Cumple con haber sido realizada en base a algun presupuesto: %s | Cumple con haberse realizado en base al presupuesto de menor valor: %s";
 		String textoMensaje = String.format(textoBase, String.valueOf(resultadoReqPresupuesto), String.valueOf(resultadoBasePresupuesto), String.valueOf(resultadoPresupuestoMenorValor)).replaceAll("true", "OK").replaceAll("false", "ERROR");
 		for (Usuario user : compra.revisores) {

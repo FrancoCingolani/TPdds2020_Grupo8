@@ -11,8 +11,7 @@ public class OperacionEgreso{
 	MedioDePago medioDePago;
 	List<Item> items;
 	List<DocumentoComercial> documentosComerciales;
-	
-	
+
 	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales) {
 		this.proveedor = proveedor;
 		this.fecha = fecha;
