@@ -31,7 +31,7 @@ public class Main {
     		      
     		      switch (opcion) {
     		      	case 1:
-    		      		System.out.println("Ingresar nombre de usuario: ");
+    		      		System.out.println("Ingrese nombre de usuario: ");
     	                Scanner usuarioElegido = new Scanner(System.in);
     	                String usuario = usuarioElegido.nextLine ();
     	                System.out.println("Ingresar password: ");
@@ -39,7 +39,100 @@ public class Main {
     	                String password = passwordElegida.nextLine ();
     	                Usuario usuarioCreado = new Usuario(usuario, password, ConstantesTipoDeUsuario.ADMIN);
     		      	case 2:
-    		      		
+    		      		System.out.println("Elige el tipo de Organización: ");
+    		      		System.out.println("1. Entidad base");
+    		    	    System.out.println("2. Entidad jurídica");
+    	                Scanner tipoOrganizacionElegido = new Scanner(System.in);
+    	                int opcionOrganizacion = tipoOrganizacionElegido.nextInt();
+    	                
+    	                if(opcionOrganizacion == 1) { //ENTIDAD BASE
+    	                	System.out.println("Ingrese el nombre de la organización: ");
+    	                	Scanner nombreElegido = new Scanner(System.in);
+        	                String nombreOrganizacion = nombreElegido.nextLine ();
+        	                System.out.println("Ingrese la descripción: ");
+    	                	Scanner descripcionElegida = new Scanner(System.in);
+        	                String descripcionOrganizacion = descripcionElegida.nextLine ();
+        	                System.out.println("Cantidad de personal: ");
+        	                Scanner personalSeleccionado = new Scanner(System.in);
+        	                int personalOrganizacion = personalSeleccionado.nextInt();
+        	                System.out.println("Dirección postal: ");
+    	                	Scanner direccionElegida = new Scanner(System.in);
+        	                String direccionOrganizacion = direccionElegida.nextLine ();
+        	                System.out.println("Elegir tipo de actividad: ");
+        	                System.out.println("1. Construcción");
+        		    	    System.out.println("2. Servicio");
+        		    	    System.out.println("3. Comercio");
+        		    	    System.out.println("4. Industriamineria");
+        		    	    System.out.println("5. Agropecuario");
+        		    	    Scanner actividadSeleccionada = new Scanner(System.in);
+        	                int actividad = actividadSeleccionada.nextInt();
+        	                Actividad actividadOrganizacion = null;
+        	                switch (actividad) {
+        	                	case 1: actividadOrganizacion = Actividad.CONSTRUCCION;
+        	                	break;
+        	                	case 2: actividadOrganizacion = Actividad.SERVICIOS;
+        	                	break;
+        	                	case 3: actividadOrganizacion = Actividad.COMERCIO;
+        	                	break;
+        	                	case 4: actividadOrganizacion = Actividad.INDUSTRIA_Y_MINERIA;
+        	                	break;
+        	                	case 5: actividadOrganizacion = Actividad.AGROPECUARIO;
+        	                	break;
+        	                }
+        	                EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion);
+        	                System.out.println("Entidad base creada exitosamente");
+    	                }else if(opcionOrganizacion == 2) {
+    	                	System.out.println("Ingrese la razón social: ");
+    	                	Scanner razonSocialElegida = new Scanner(System.in);
+        	                String razonSocialOrganizacion = razonSocialElegida.nextLine ();
+        	                System.out.println("Ingrese el nombre ficticio: ");
+    	                	Scanner nombreElegido = new Scanner(System.in);
+        	                String nombreOrganizacion = nombreElegido.nextLine ();
+        	                System.out.println("CUIT: ");
+        	                Scanner cuitElegido = new Scanner(System.in);
+        	                String cuitOrganizacion = nombreElegido.nextLine ();
+        	                System.out.println("Dirección postal: ");
+    	                	Scanner direccionElegida = new Scanner(System.in);
+        	                String direccionOrganizacion = direccionElegida.nextLine ();
+        	                System.out.println("Cantidad de personal: ");
+        	                Scanner personalSeleccionado = new Scanner(System.in);
+        	                int personalOrganizacion = personalSeleccionado.nextInt();
+        	                System.out.println("Elegir tipo de actividad: ");
+        	                System.out.println("1. Construcción");
+        		    	    System.out.println("2. Servicio");
+        		    	    System.out.println("3. Comercio");
+        		    	    System.out.println("4. Industriamineria");
+        		    	    System.out.println("5. Agropecuario");
+        		    	    Scanner actividadSeleccionada = new Scanner(System.in);
+        	                int actividad = actividadSeleccionada.nextInt();
+        	                Actividad actividadOrganizacion = null;
+        	                switch (actividad) {
+        	                	case 1: actividadOrganizacion = Actividad.CONSTRUCCION;
+        	                	break;
+        	                	case 2: actividadOrganizacion = Actividad.SERVICIOS;
+        	                	break;
+        	                	case 3: actividadOrganizacion = Actividad.COMERCIO;
+        	                	break;
+        	                	case 4: actividadOrganizacion = Actividad.INDUSTRIA_Y_MINERIA;
+        	                	break;
+        	                	case 5: actividadOrganizacion = Actividad.AGROPECUARIO;
+        	                	break;
+        	                }
+        	                System.out.println("Elegir tipo de entidad jurídica: ");
+        	                System.out.println("1. Empresa");
+        		    	    System.out.println("2. OSC");
+        	                Scanner tipoEntidadJurSeleccionada = new Scanner(System.in);
+        	                int tipoEntidadJur = tipoEntidadJurSeleccionada.nextInt();
+        	                TipoEntidadJuridica tipoEntidadJuridica = null;
+        	                switch (tipoEntidadJur) {
+        	                	case 1: tipoEntidadJuridica = TipoEntidadJuridica.EMPRESA;
+        	                	break;
+        	                	case 2: tipoEntidadJuridica = TipoEntidadJuridica.OSC;
+        	                	break;
+        	                }
+        	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
+        	                System.out.println("Entidad jurídica creada exitosamente");
+    	                }
     		      }
     	            	
     	    } catch (InputMismatchException e) {
