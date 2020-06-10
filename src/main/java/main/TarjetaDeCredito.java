@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class TarjetaDeCredito extends MedioDePago{
 	
-	int numero;
-	int codigoSeguridad;
+	String numero;
+	String codigoSeguridad;
 	Date fechaExpiracion;
 	String duenioNombre;
-	long duenioNroIdentificacion;
-	long duenoTipoIdentificacion;
+	String duenioNroIdentificacion;
+	String duenoTipoIdentificacion;
 	
-	public TarjetaDeCredito(int numero, int codigoSeguridad, Date fechaExpiracion, String duenioNombre, long duenioNroIdentificacion, long duenoTipoIdentificacion) {
+	public TarjetaDeCredito(String numero, String codigoSeguridad, Date fechaExpiracion, String duenioNombre, String duenioNroIdentificacion, String duenoTipoIdentificacion) {
 		this.numero = numero;
 		this.codigoSeguridad = codigoSeguridad;
 		this.fechaExpiracion = fechaExpiracion;
@@ -20,19 +20,19 @@ public class TarjetaDeCredito extends MedioDePago{
 		this.duenoTipoIdentificacion = duenoTipoIdentificacion;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
-	public int getCodigoSeguridad() {
+	public String getCodigoSeguridad() {
 		return codigoSeguridad;
 	}
 
-	public void setCodigoSeguridad(int codigoSeguridad) {
+	public void setCodigoSeguridad(String codigoSeguridad) {
 		this.codigoSeguridad = codigoSeguridad;
 	}
 
@@ -52,19 +52,19 @@ public class TarjetaDeCredito extends MedioDePago{
 		this.duenioNombre = duenioNombre;
 	}
 
-	public long getDuenioNroIdentificacion() {
+	public String getDuenioNroIdentificacion() {
 		return duenioNroIdentificacion;
 	}
 
-	public void setDuenioNroIdentificacion(long duenioNroIdentificacion) {
+	public void setDuenioNroIdentificacion(String duenioNroIdentificacion) {
 		this.duenioNroIdentificacion = duenioNroIdentificacion;
 	}
 
-	public long getDuenoTipoIdentificacion() {
+	public String getDuenoTipoIdentificacion() {
 		return duenoTipoIdentificacion;
 	}
 
-	public void setDuenoTipoIdentificacion(long duenoTipoIdentificacion) {
+	public void setDuenoTipoIdentificacion(String duenoTipoIdentificacion) {
 		this.duenoTipoIdentificacion = duenoTipoIdentificacion;
 	}
 	

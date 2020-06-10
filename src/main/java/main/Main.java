@@ -23,7 +23,8 @@ public class Main {
     		
     	    System.out.println("1. Crear usuario");
     	    System.out.println("2. Crear organización");
-    	    System.out.println("3. Salir");
+    	    System.out.println("3.Agregar compra");
+    	    System.out.println("4. Salir");
     	    
     	    try {
     	    	 System.out.println("Escribe una de las opciones:");
@@ -133,6 +134,302 @@ public class Main {
         	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
         	                System.out.println("Entidad jurídica creada exitosamente");
     	                }
+    		      	case 3:
+    		      		System.out.println("Ingrese la cantidad de presupuestos necesarios ");
+    	                Scanner cantElegida = new Scanner(System.in);
+    	                int cantPresu = cantElegida.nextInt ();
+    	                List<Presupuesto> presupuestos;
+    	                if(cantPresu>0) {
+    	                	for(int i=0; i< cantPresu; i++) {
+    	                		System.out.println("Ingrese el detalle del presupuesto:");
+    	        	            Scanner descElegido = new Scanner(System.in);
+    	        	            String unDetalle = descElegido.nextLine ();
+    	        	            System.out.println("Ingrese la cantidad de tipos de items:");
+	        	                Scanner cantElegidaItems = new Scanner(System.in);
+	        	                int cantItems = cantElegidaItems.nextInt ();
+	        	                List<Item> unosItems;
+	        	                while(cantItems>0) {
+	        	                	System.out.println("Ingrese la descripcion del item:");
+	    	        	            Scanner descripcionElegido = new Scanner(System.in);
+	    	        	            String laDescripcion = descripcionElegido.nextLine ();
+	    	        	            System.out.println("Ingrese el valor:");
+    	        	                Scanner precio = new Scanner(System.in);
+    	        	                int elValor = precio.nextInt ();
+    	        	                System.out.println("Ingrese la cantidad de este producto:");
+    	        	                Scanner amount = new Scanner(System.in);
+    	        	                int laCantidad = amount.nextInt ();
+	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
+	        	                	unosItems.add(unItem);
+	        	                	cantItems --;
+	        	                }
+	        	                System.out.println("Ingrese la cantidad de documentos:");
+	        	                Scanner cantElegidaDocs = new Scanner(System.in);
+	        	                int cantDocEle = cantElegidaDocs.nextInt ();
+	        	                List<DocumentoComercial> unosDocumentos;
+	        	                while(cantDocEle>0) {
+	        	                	System.out.println("Ingrese el numero del documento:");
+	    	        	            Scanner numeroChosen = new Scanner(System.in);
+	    	        	            String unNDoc = numeroChosen.nextLine ();
+	    	        	            System.out.println("Ingrese el tipo del documento:");
+	    	        	            Scanner tipoElegido = new Scanner(System.in);
+	    	        	            String unTipo = tipoElegido.nextLine ();
+	        	                	DocumentoComercial unDocumento = new DocumentoComercial( unNDoc, unTipo);
+	        	                	unosDocumentos.add(unDocumento);
+	        	                	cantDocEle --;
+	        	                }
+    	        	            
+    	                		System.out.println("Elegir el tipo de proveedor:");
+    	                	     System.out.println("1. Fisico");
+    	                	     System.out.println("2. Juridica");
+    	        	             Scanner tipoProveSeleccionada = new Scanner(System.in);
+    	        	                int tipoProveedor = tipoProveSeleccionada.nextInt();
+    	        	                switch (tipoProveedor) {
+    	        	                case 1:
+	    	        	                System.out.println("Ingrese el nombre del proveedor:");
+	    	        	                Scanner nombreElegido = new Scanner(System.in);
+	    	        	                String unNombre = nombreElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el apellido del proveedor:");
+	    	        	                Scanner apellidoElegido = new Scanner(System.in);
+	    	        	                String unApellido = apellidoElegido.nextLine ();
+	    	        	                System.out.println("Ingrese la direccion del proveedor:");
+	    	        	                Scanner direccionElegido = new Scanner(System.in);
+	    	        	                String unDireccionPostal = direccionElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el DNI del proveedor:");
+	    	        	                Scanner dniElegido = new Scanner(System.in);
+	    	        	                String unDni = dniElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el CUIL del proveedor:");
+	    	        	                Scanner cuilElegido = new Scanner(System.in);
+	    	        	                String unCuil = cuilElegido.nextLine ();
+	    	        	                ProveedorFisico unProveedor = new ProveedorFisico(unDireccionPostal, unNombre,  unApellido, unDni, unCuil);
+	    	        	                Presupuesto unPresupuesto = new Presupuesto(unProveedor, unDetalle, unosItems, unosDocumentos);
+	    	        	                presupuestos.add(unPresupuesto);
+	    	        	                System.out.println("¿Es el presupuesto que se ha elegido al final? (Y/N)"); //Muy groncho, pero efectivo
+	    	        	                Scanner alfinal = new Scanner(System.in);
+	    	        	                String fueELegido = alfinal.nextLine ();
+	    	        	                if(fueELegido == "Y") {
+	    	        	                	Presupuesto presupuestoElegido = unPresupuesto;
+	    	        	                }
+    	        	                case 2: 
+    	        	                	System.out.println("Ingrese la razon social del proveedor:");
+	    	        	                Scanner razonElegido = new Scanner(System.in);
+	    	        	                String unRazonSocial = razonElegido.nextLine ();
+    	        	                	System.out.println("Ingrese la direccion del proveedor:");
+	    	        	                Scanner direccioNElegido = new Scanner(System.in);
+	    	        	                String unaDireccionPostal = direccioNElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el CUIT del proveedor:");
+	    	        	                Scanner cuitElegido = new Scanner(System.in);
+	    	        	                String unCuit = cuitElegido.nextLine ();
+    	        	                	ProveedorJuridico otroProveedor = new ProveedorJuridico(unaDireccionPostal, unRazonSocial, unCuit);
+    	        	                	Presupuesto otroPresupuesto = new Presupuesto(otroProveedor, unDetalle, unosItems, unosDocumentos);
+    	        	                	presupuestos.add(otroPresupuesto);
+    	        	                	System.out.println("¿Es el presupuesto que se ha elegido al final?  (Y/N)");//Muy groncho, pero efectivo
+	    	        	                Scanner ufinal = new Scanner(System.in);
+	    	        	                String fuELegido = ufinal.nextLine ();
+	    	        	                if(fuELegido == "Y") {
+	    	        	                	Presupuesto presupuestoElegido = otroPresupuesto;
+	    	        	                }
+    	        	                }
+    	        	               	                		
+    	                	}
+    	                	
+    	                }
+    	                //Ahora las operaciones egreso, por fin
+    	                System.out.println("Ingrese la cantidad de operaciones Egreso: ");
+    	                Scanner cantaElegida = new Scanner(System.in);
+    	                int cantOE = cantaElegida.nextInt ();
+    	                List<OperacionEgreso> operacionesEgreso;
+    	                if(cantOE>0) {
+    	                	for(int i=0; i< cantOE; i++) {
+    	                		 System.out.println("Ingrese la cantidad de tipos de items:");
+ 	        	                Scanner amountElegidaItems = new Scanner(System.in);
+ 	        	                int cantItems = amountElegidaItems.nextInt ();
+ 	        	                List<Item> variosItems;
+ 	        	                while(cantItems>0) {
+ 	        	                	System.out.println("Ingrese la descripcion del item:");
+ 	    	        	            Scanner descripcioNElegido = new Scanner(System.in);
+ 	    	        	            String laDescripcion = descripcioNElegido.nextLine ();
+ 	    	        	            System.out.println("Ingrese el valor:");
+     	        	                Scanner price = new Scanner(System.in);
+     	        	                int elValor = price.nextInt ();
+     	        	                System.out.println("Ingrese la cantidad de este producto:");
+     	        	                Scanner cantiddd = new Scanner(System.in);
+     	        	                int laCantidad = cantiddd.nextInt ();
+ 	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
+ 	        	                	variosItems.add(unItem);
+ 	        	                	cantItems --;
+ 	        	                }//FIN ITEMS
+ 	        	               System.out.println("Ingrese la cantidad de documentos:");
+	        	                Scanner cantDocumen = new Scanner(System.in);
+	        	                int cantDocEle = cantDocumen.nextInt ();
+	        	                List<DocumentoComercial> losDocumentosComerciales;
+	        	                while(cantDocEle>0) {
+	        	                	System.out.println("Ingrese el numero del documento:");
+	    	        	            Scanner numeroChosen = new Scanner(System.in);
+	    	        	            String unNDoc = numeroChosen.nextLine ();
+	    	        	            System.out.println("Ingrese el tipo del documento:");
+	    	        	            Scanner tipoElegido = new Scanner(System.in);
+	    	        	            String unTipo = tipoElegido.nextLine ();
+	        	                	DocumentoComercial unDocumento = new DocumentoComercial( unNDoc, unTipo);
+	        	                	losDocumentosComerciales.add(unDocumento);
+	        	                	cantDocEle --;
+	        	                }//FIN DOCS
+	        	                 System.out.println("Elegir el medio de pago:");
+	   	                	     System.out.println("1. Tarjeta de credito");
+	   	                	     System.out.println("2. Tarjeta de debito");
+	   	                	     System.out.println("3. Ticket");	
+	   	                	     System.out.println("4. Atm");
+	   	                	     System.out.println("5. Dinero en cuenta");
+	   	                	     Scanner medioPagoSeleccionada = new Scanner(System.in);
+	   	                	     int MPSeleccionado = medioPagoSeleccionada.nextInt();
+	   	                	     if(MPSeleccionado == 1) {
+	   	                   	    	System.out.println("Ingrese el numero de la tarjeta:");
+    	        	                Scanner numTar = new Scanner(System.in);
+    	        	                String numeroTarjeta = numTar.nextLine ();
+    	        	                System.out.println("Ingrese el codigo de seguridad:");
+    	        	                Scanner codSg = new Scanner(System.in);
+    	        	                String codigoSeguridad = codSg.nextLine ();
+    	        	                System.out.println("Ingrese el anio, luego el mes y finalmente la fecha de vencimiento de la tarjeta:");
+    	        	                Scanner anito = new Scanner(System.in);
+    	        	                int anio = anito.nextInt();
+    	        	                Scanner mesito = new Scanner(System.in);
+    	        	                int mes = mesito.nextInt();
+    	        	                Scanner dia = new Scanner(System.in);
+    	        	                int fecha = dia.nextInt();
+    	        	                Date fechaExpiracion = new Date(anio, mes,fecha);
+    	        	                System.out.println("Ingrese el nombre del duenio:");
+    	        	                Scanner xx = new Scanner(System.in);
+    	        	                String duenioNombre = xx.nextLine ();
+    	        	                System.out.println("Ingrese el numero de identificacion del duenio:");
+    	        	                Scanner xxx = new Scanner(System.in);
+    	        	                String duenioNroIdentificacion = xxx.nextLine ();
+    	        	                System.out.println("Ingrese el tipo de esta identificacion:");
+    	        	                Scanner xxxx = new Scanner(System.in);
+    	        	                String duenoTipoIdentificacion = xxxx.nextLine ();
+	   	                	    	TarjetaDeCredito elMedioDePago = new TarjetaDeCredito( numeroTarjeta, codigoSeguridad, fechaExpiracion, duenioNombre, duenioNroIdentificacion,  duenoTipoIdentificacion);
+	   	                	     }
+	   	                	  if(MPSeleccionado == 2) {
+	   	                   	    System.out.println("Ingrese el numero de la tarjeta:");
+  	        	                Scanner numTar = new Scanner(System.in);
+  	        	                String elNumero = numTar.nextLine ();
+  	        	                System.out.println("Ingrese el codigo de seguridad:");
+  	        	                Scanner y = new Scanner(System.in);
+  	        	                String elCodigoSeguridad = y.nextLine ();
+  	        	                System.out.println("Ingrese el anio, luego el mes y finalmente la fecha de vencimiento de la tarjeta:");
+  	        	                Scanner anito = new Scanner(System.in);
+  	        	                int anio = anito.nextInt();
+  	        	                Scanner mesito = new Scanner(System.in);
+  	        	                int mes = mesito.nextInt();
+  	        	                Scanner dia = new Scanner(System.in);
+  	        	                int fecha = dia.nextInt();
+  	        	                Date laFechaExpiracion = new Date(anio, mes,fecha);
+  	        	                System.out.println("Ingrese el nombre del duenio:");
+  	        	                Scanner xx = new Scanner(System.in);
+  	        	                String elDuenioNombre = xx.nextLine ();
+  	        	                System.out.println("Ingrese el numero de identificacion del duenio:");
+  	        	                Scanner xxx = new Scanner(System.in);
+  	        	                String elDuenioNroIdentificacion = xxx.nextLine ();
+  	        	                System.out.println("Ingrese el tipo de esta identificacion:");
+  	        	                Scanner xxxx = new Scanner(System.in);
+  	        	                String elDuenoTipoIdentificacion = xxxx.nextLine ();
+	   	                	    TarjetaDeDebito elMedioDePago = new TarjetaDeDebito(elNumero,  elCodigoSeguridad, laFechaExpiracion, elDuenioNombre,  elDuenioNroIdentificacion, elDuenoTipoIdentificacion);
+	   	                	     }
+	   	                	  if(MPSeleccionado ==3) {
+	   	                		System.out.println("Ingrese el numero para el Cajero:");
+  	        	                Scanner cajeroNUM = new Scanner(System.in);
+  	        	                String numeroParaCajero = cajeroNUM.nextLine ();
+  	        	                System.out.println("Ingrese el codigo de barras:");
+  	        	                Scanner y = new Scanner(System.in);
+  	        	                long codigoBarras = y.nextLong ();
+	   	                	  	Ticket elMedioDePago = new Ticket( numeroParaCajero, codigoBarras);
+	   	                	  }
+	   	                	if(MPSeleccionado ==4) {
+	   	                		System.out.println("Ingrese el numero de link pagos:");
+  	        	                Scanner nLP = new Scanner(System.in);
+  	        	                int linkPagos = nLP.nextInt ();
+	   	                	  	Atm elMedioDePago = new Atm(linkPagos);
+	   	                	  }
+	   	                	if(MPSeleccionado ==5) {
+	   	                		System.out.println("Ingrese el saldo actual:");
+  	        	                Scanner jj = new Scanner(System.in);
+  	        	                double saldo = jj.nextDouble ();
+	   	                	  	DineroEnCuenta elMedioDePago = new DineroEnCuenta(saldo);
+	   	                	  }
+	   	                	     
+	        	             System.out.println("Elegir el tipo de proveedor:");
+   	                	     System.out.println("1. Fisico");
+   	                	     System.out.println("2. Juridica");
+   	        	             Scanner tipoProveSeleccionada = new Scanner(System.in);
+   	        	                int tipoProveedor = tipoProveSeleccionada.nextInt();
+   	        	                switch (tipoProveedor) {
+   	        	                case 1:
+	    	        	                System.out.println("Ingrese el nombre del proveedor:");
+	    	        	                Scanner nombreElegido = new Scanner(System.in);
+	    	        	                String unNombre = nombreElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el apellido del proveedor:");
+	    	        	                Scanner apellidoElegido = new Scanner(System.in);
+	    	        	                String unApellido = apellidoElegido.nextLine ();
+	    	        	                System.out.println("Ingrese la direccion del proveedor:");
+	    	        	                Scanner direccionElegido = new Scanner(System.in);
+	    	        	                String unDireccionPostal = direccionElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el DNI del proveedor:");
+	    	        	                Scanner dniElegido = new Scanner(System.in);
+	    	        	                String unDni = dniElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el CUIL del proveedor:");
+	    	        	                Scanner cuilElegido = new Scanner(System.in);
+	    	        	                String unCuil = cuilElegido.nextLine ();
+	    	        	                ProveedorFisico unProveedor = new ProveedorFisico(unDireccionPostal, unNombre,  unApellido, unDni, unCuil);
+	    	        	                OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
+	    	        	                operacionesEgreso.add(opEgre);
+   	        	                case 2: 
+   	        	                	System.out.println("Ingrese la razon social del proveedor:");
+	    	        	                Scanner razonElegido = new Scanner(System.in);
+	    	        	                String unRazonSocial = razonElegido.nextLine ();
+   	        	                	System.out.println("Ingrese la direccion del proveedor:");
+	    	        	                Scanner direccioNElegido = new Scanner(System.in);
+	    	        	                String unaDireccionPostal = direccioNElegido.nextLine ();
+	    	        	                System.out.println("Ingrese el CUIT del proveedor:");
+	    	        	                Scanner cuitElegido = new Scanner(System.in);
+	    	        	                String unCuit = cuitElegido.nextLine ();
+	    	        	                ProveedorJuridico otroProveedor = new ProveedorJuridico(unaDireccionPostal, unRazonSocial, unCuit);
+	    	        	                OperacionEgreso opEgrezo= new  OperacionEgreso( otroProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
+	    	        	                operacionesEgreso.add(opEgrezo);
+    	                	}
+    	                }//FIN DE CARGA DE OPERACIONES EGRESO
+    	                 System.out.println("Ingrese la cantidad de tipos de items:");
+	        	         Scanner amountElegidaItems = new Scanner(System.in);
+	                     int cantItems = amountElegidaItems.nextInt ();
+	                     List<Item> itemsCompra;
+	        	         while(cantItems>0) {
+	        	               	System.out.println("Ingrese la descripcion del item:");
+	    	        	        Scanner descripcioNElegido = new Scanner(System.in);
+	    	        	        String laDescripcion = descripcioNElegido.nextLine ();
+	    	        	        System.out.println("Ingrese el valor:");
+  	        	                Scanner price = new Scanner(System.in);
+  	        	                int elValor = price.nextInt ();
+  	        	                System.out.println("Ingrese la cantidad de este producto:");
+  	        	                Scanner cantiddd = new Scanner(System.in);
+  	        	                int laCantidad = cantiddd.nextInt ();
+	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
+	        	                	itemsCompra.add(unItem);
+	        	                	cantItems --;
+	        	                }  
+	        	         System.out.println("Ingrese la cantidad de revisores:");
+	        	         Scanner rr = new Scanner(System.in);
+       	                 int cantRevi = rr.nextInt ();
+       	                 List<Usuario> revisores;
+	        	         while(cantRevi>0) {
+	        	        	 System.out.println("Ingrese nombre de usuario: ");
+	     	                Scanner userC = new Scanner(System.in);
+	     	                String user = userC.nextLine ();
+	     	                System.out.println("Ingresar password: ");
+	     	                Scanner contraE = new Scanner(System.in);
+	     	                String contrasenia = contraE.nextLine ();
+	     	                Usuario usuarioCreadow = new Usuario(user, contrasenia, ConstantesTipoDeUsuario.ADMIN);
+	     	                revisores.add(usuarioCreadow);
+	     	                cantRevi--;
+	        	         }
+    	           //creacion de la compra
+    	           Compra laCompra = new Compra (cantPresu, presupuestos, operacionesEgreso, revisores, itemsCompra, presupuestoElegido);
     		      }
     	            	
     	    } catch (InputMismatchException e) {
@@ -142,7 +439,7 @@ public class Main {
 
     	}
 	}
-}
+}}
 /*  
 	EJEMPLO DE OTRO EJERCICIO QUE HICE ANTES
 	
