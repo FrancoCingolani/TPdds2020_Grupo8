@@ -2,6 +2,7 @@ package main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.InputMismatchException;
@@ -140,7 +141,7 @@ public class Main {
     		      		System.out.println("Ingrese la cantidad de presupuestos necesarios ");
     	                Scanner cantElegida = new Scanner(System.in);
     	                int cantPresu = cantElegida.nextInt ();
-    	                List<Presupuesto> presupuestos = null;
+    	                List<Presupuesto> presupuestos = new ArrayList<Presupuesto>();
     	                Presupuesto presupuestoElegido = null;
 
     	                if(cantPresu>0) {
@@ -151,7 +152,7 @@ public class Main {
     	        	            System.out.println("Ingrese la cantidad de tipos de items:");
 	        	                Scanner cantElegidaItems = new Scanner(System.in);
 	        	                int cantItems = cantElegidaItems.nextInt ();
-	        	                List<Item> unosItems = null;
+	        	                List<Item> unosItems = new ArrayList<Item>();
 	        	                while(cantItems>0) {
 	        	                	System.out.println("Ingrese la descripcion del item:");
 	    	        	            Scanner descripcionElegido = new Scanner(System.in);
@@ -169,7 +170,7 @@ public class Main {
 	        	                System.out.println("Ingrese la cantidad de documentos:");
 	        	                Scanner cantElegidaDocs = new Scanner(System.in);
 	        	                int cantDocEle = cantElegidaDocs.nextInt ();
-	        	                List<DocumentoComercial> unosDocumentos = null;
+	        	                List<DocumentoComercial> unosDocumentos = new ArrayList<DocumentoComercial>();
 	        	                while(cantDocEle>0) {
 	        	                	System.out.println("Ingrese el numero del documento:");
 	    	        	            Scanner numeroChosen = new Scanner(System.in);
@@ -242,13 +243,13 @@ public class Main {
     	                System.out.println("Ingrese la cantidad de operaciones Egreso: ");
     	                Scanner cantaElegida = new Scanner(System.in);
     	                int cantOE = cantaElegida.nextInt ();
-    	                List<OperacionEgreso> operacionesEgreso = null;
+    	                List<OperacionEgreso> operacionesEgreso = new ArrayList<OperacionEgreso>();
     	                if(cantOE>0) {
     	                	for(int i=0; i< cantOE; i++) {
     	                		 System.out.println("Ingrese la cantidad de tipos de items:");
  	        	                Scanner amountElegidaItems = new Scanner(System.in);
  	        	                int cantItems = amountElegidaItems.nextInt ();
- 	        	                List<Item> variosItems = null;
+ 	        	                List<Item> variosItems = new ArrayList<Item>();;
  	        	                
  	        	                while(cantItems>0) {
  	        	                	System.out.println("Ingrese la descripcion del item:");
@@ -267,7 +268,7 @@ public class Main {
  	        	               System.out.println("Ingrese la cantidad de documentos:");
 	        	                Scanner cantDocumen = new Scanner(System.in);
 	        	                int cantDocEle = cantDocumen.nextInt ();
-	        	                List<DocumentoComercial> losDocumentosComerciales = null;
+	        	                List<DocumentoComercial> losDocumentosComerciales = new ArrayList<DocumentoComercial>();
 	        	                while(cantDocEle>0) {
 	        	                	System.out.println("Ingrese el numero del documento:");
 	    	        	            Scanner numeroChosen = new Scanner(System.in);
@@ -410,7 +411,7 @@ public class Main {
 	    	                 System.out.println("Ingrese la cantidad de tipos de items:");
 		        	         Scanner amountElegidaItems = new Scanner(System.in);
 		                     int cantItems = amountElegidaItems.nextInt ();
-		                     List<Item> itemsCompra = null;
+		                     List<Item> itemsCompra = new ArrayList<Item>();
 
 		        	         while(cantItems>0) {
 		        	               	System.out.println("Ingrese la descripcion del item:");
@@ -430,7 +431,7 @@ public class Main {
 		        	         System.out.println("Ingrese la cantidad de revisores:");
 		        	         Scanner rr = new Scanner(System.in);
 	       	                 int cantRevi = rr.nextInt ();
-	       	                 List<Usuario> revisores = null;
+	       	                 List<Usuario> revisores = new ArrayList<Usuario>();
 
 		        	         while(cantRevi>0) {
 		        	        	 System.out.println("Ingrese nombre de usuario: ");
