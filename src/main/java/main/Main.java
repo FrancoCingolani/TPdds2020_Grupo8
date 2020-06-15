@@ -447,6 +447,13 @@ public class Main {
 
 	       	           //creacion de la compra
 	    	           Compra laCompra = new Compra (cantPresu, presupuestos, operacionesEgreso, revisores, itemsCompra, presupuestoElegido);
+	    	           // Creación del validador de compra
+	    	           ValidadorDeTransparencia validador = new ValidadorDeTransparencia(laCompra);
+	    	           List<Boolean> resultadoValidacion = validador.resultadosValidadorCompra();
+	    	           System.out.println("Resultado de la validacion de la compra (el mensaje fue enviado a los revisores)");
+	    	           System.out.println("Cumple con cantidad de presupuestos requeridos: " + String.valueOf(resultadoValidacion.get(0)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
+	    	           System.out.println("Cumple con haber sido realizada en base a algun presupuesto: " + String.valueOf(resultadoValidacion.get(1)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
+	    	           System.out.println("Cumple con haberse realizado en base al presupuesto de menor valor:" + String.valueOf(resultadoValidacion.get(2)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
 	    		      }
     		      } //CIERRE SWITCH OPCIONES DEL MENÚ PRINCIPAL
     	    } catch (InputMismatchException e) {

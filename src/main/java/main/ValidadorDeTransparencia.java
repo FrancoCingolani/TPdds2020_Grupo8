@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Arrays;
 import java.util.List;
 
 import mensajes.MensajeValidadorCompra;
@@ -21,6 +22,10 @@ public class ValidadorDeTransparencia {
 		boolean basePresupuesto = this.fueRealizadaEnBasePresu();
 		boolean presupuestoMenorValor = this.validarSeleccionMenorValor();
 		this.notificarRevisores(reqPresupuesto, basePresupuesto, presupuestoMenorValor);
+	}
+	
+	public List<Boolean> resultadosValidadorCompra() {
+		return Arrays.asList(new Boolean[] {this.requierePresupuesto(), this.fueRealizadaEnBasePresu(), this.validarSeleccionMenorValor()});
 	}
 	
 	private boolean requierePresupuesto() {
