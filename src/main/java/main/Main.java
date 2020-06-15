@@ -154,6 +154,7 @@ public class Main {
 	        	                int cantItems = cantElegidaItems.nextInt ();
 	        	                List<Item> unosItems = new ArrayList<Item>();
 	        	                while(cantItems>0) {
+	        	                	System.out.println("Informacion del item...");
 	        	                	System.out.println("Ingrese la descripcion del item:");
 	    	        	            Scanner descripcionElegido = new Scanner(System.in);
 	    	        	            String laDescripcion = descripcionElegido.nextLine ();
@@ -172,6 +173,7 @@ public class Main {
 	        	                int cantDocEle = cantElegidaDocs.nextInt ();
 	        	                List<DocumentoComercial> unosDocumentos = new ArrayList<DocumentoComercial>();
 	        	                while(cantDocEle>0) {
+	        	                	System.out.println("Informacion del documento...");
 	        	                	System.out.println("Ingrese el numero del documento:");
 	    	        	            Scanner numeroChosen = new Scanner(System.in);
 	    	        	            String unNDoc = numeroChosen.nextLine ();
@@ -188,8 +190,8 @@ public class Main {
     	                	     System.out.println("2. Juridica");
     	        	             Scanner tipoProveSeleccionada = new Scanner(System.in);
     	        	                int tipoProveedor = tipoProveSeleccionada.nextInt();
-    	        	                switch (tipoProveedor) {
-    	        	                case 1:
+    	        	                if (tipoProveedor == 1) {
+    	        	                
 	    	        	                System.out.println("Ingrese el nombre del proveedor:");
 	    	        	                Scanner nombreElegido = new Scanner(System.in);
 	    	        	                String unNombre = nombreElegido.nextLine ();
@@ -214,7 +216,8 @@ public class Main {
 	    	        	                if(fueELegido == "Y") {
 	    	        	                	presupuestoElegido = unPresupuesto;
 	    	        	                }
-    	        	                case 2: 
+	    	        	             }else if(tipoProveedor == 2) {
+    	        	                
     	        	                	System.out.println("Ingrese la razon social del proveedor:");
 	    	        	                Scanner razonElegido = new Scanner(System.in);
 	    	        	                String unRazonSocial = razonElegido.nextLine ();
@@ -252,6 +255,7 @@ public class Main {
  	        	                List<Item> variosItems = new ArrayList<Item>();;
  	        	                
  	        	                while(cantItems>0) {
+ 	        	                	System.out.println("Informacion del item...");
  	        	                	System.out.println("Ingrese la descripcion del item:");
  	    	        	            Scanner descripcioNElegido = new Scanner(System.in);
  	    	        	            String laDescripcion = descripcioNElegido.nextLine ();
@@ -270,6 +274,7 @@ public class Main {
 	        	                int cantDocEle = cantDocumen.nextInt ();
 	        	                List<DocumentoComercial> losDocumentosComerciales = new ArrayList<DocumentoComercial>();
 	        	                while(cantDocEle>0) {
+	        	                	System.out.println("Informacion del documento...");
 	        	                	System.out.println("Ingrese el numero del documento:");
 	    	        	            Scanner numeroChosen = new Scanner(System.in);
 	    	        	            String unNDoc = numeroChosen.nextLine ();
@@ -372,9 +377,8 @@ public class Main {
 	   	        	             Scanner tipoProveSeleccionada = new Scanner(System.in);
    	        	                int tipoProveedor = tipoProveSeleccionada.nextInt();
 
-   	        	                switch (tipoProveedor) {
-   	        	                case 1:
-	    	        	                System.out.println("Ingrese el nombre del proveedor:");
+   	        	                if (tipoProveedor ==1) {
+   	        	                        System.out.println("Ingrese el nombre del proveedor:");
 	    	        	                Scanner nombreElegido = new Scanner(System.in);
 	    	        	                String unNombre = nombreElegido.nextLine ();
 	    	        	                System.out.println("Ingrese el apellido del proveedor:");
@@ -392,7 +396,8 @@ public class Main {
 	    	        	                ProveedorFisico unProveedor = new ProveedorFisico(unDireccionPostal, unNombre,  unApellido, unDni, unCuil);
 	    	        	                OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
 	    	        	                operacionesEgreso.add(opEgre);
-   	        	                case 2: 
+   	        	                } else if (tipoProveedor == 2) {
+   	        	                
    	        	                	System.out.println("Ingrese la razon social del proveedor:");
 	    	        	                Scanner razonElegido = new Scanner(System.in);
 	    	        	                String unRazonSocial = razonElegido.nextLine ();
@@ -414,6 +419,7 @@ public class Main {
 		                     List<Item> itemsCompra = new ArrayList<Item>();
 
 		        	         while(cantItems>0) {
+		        	        	 	System.out.println("Informacion del item...");
 		        	               	System.out.println("Ingrese la descripcion del item:");
 		    	        	        Scanner descripcioNElegido = new Scanner(System.in);
 		    	        	        String laDescripcion = descripcioNElegido.nextLine ();
