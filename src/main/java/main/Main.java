@@ -248,6 +248,7 @@ public class Main {
     	                int cantOE = cantaElegida.nextInt ();
     	                List<OperacionEgreso> operacionesEgreso = new ArrayList<OperacionEgreso>();
     	                if(cantOE>0) {
+    	                	List<Item> itemsCompra = new ArrayList<Item>();
     	                	for(int i=0; i< cantOE; i++) {
     	                		 System.out.println("Ingrese la cantidad de tipos de items:");
  	        	                Scanner amountElegidaItems = new Scanner(System.in);
@@ -267,6 +268,7 @@ public class Main {
      	        	                int laCantidad = cantiddd.nextInt ();
  	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
  	        	                	variosItems.add(unItem);
+ 	        	                	itemsCompra.add(unItem);
  	        	                	cantItems --;
  	        	                }//FIN ITEMS
  	        	               System.out.println("Ingrese la cantidad de documentos:");
@@ -413,7 +415,8 @@ public class Main {
    	        	                }
 
     	                	}//FIN DE CARGA DE OPERACIONES EGRESO
-	    	                 System.out.println("Ingrese la cantidad de tipos de items:");
+    	                	
+	    	                /* System.out.println("Ingrese la cantidad de tipos de items:");
 		        	         Scanner amountElegidaItems = new Scanner(System.in);
 		                     int cantItems = amountElegidaItems.nextInt ();
 		                     List<Item> itemsCompra = new ArrayList<Item>();
@@ -432,7 +435,8 @@ public class Main {
 		        	                Item unItem = new Item (laDescripcion, elValor, laCantidad);
 		        	                itemsCompra.add(unItem);
 		        	                cantItems --;
-		        	         }
+		        	         }*/
+    	                	// ESTOS se rellena a medida que se va llenando cada operacion egreso, si no buscar itemscompra en el codigo para entender
 
 		        	         System.out.println("Ingrese la cantidad de revisores:");
 		        	         Scanner rr = new Scanner(System.in);
@@ -453,6 +457,7 @@ public class Main {
 
 	       	           //creacion de la compra
 	    	           Compra laCompra = new Compra (cantPresu, presupuestos, operacionesEgreso, revisores, itemsCompra, presupuestoElegido);
+	    	           System.out.println("La compra ha sido cargada..");
 	    	           // Creación del validador de compra
 	    	           ValidadorDeTransparencia validador = new ValidadorDeTransparencia(laCompra);
 	    	           List<Boolean> resultadoValidacion = validador.resultadosValidadorCompra();
