@@ -8,6 +8,7 @@ import enumeradores.TipoEntidadJuridica;
 
 public class Organizacion {
 	List<OperacionEgreso> operacionesEgresoEntidad;
+	List<OperacionIngreso> operacionesIngresoEntidad;
 	double ventasAnuales;
 	int personal;
 	String direccionPostal;
@@ -15,10 +16,16 @@ public class Organizacion {
 	Categoria categoria;
 	TipoEntidadJuridica tipo;
 	
-	public void agregarOperacion(OperacionEgreso nuevaOperacion) {
+	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {
 		this.operacionesEgresoEntidad.add(nuevaOperacion);
-		this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();
+		this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();//revisar xq una de egreso es una compra
 	}
+	
+	public void agregarOperacionIngreso(OperacionIngreso nuevaOperacion) {
+		this.operacionesIngresoEntidad.add(nuevaOperacion);
+	//	this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();//Para mi va en este...
+	}
+	
 	
 	public double getTotalVentas() {
 		return this.ventasAnuales;
