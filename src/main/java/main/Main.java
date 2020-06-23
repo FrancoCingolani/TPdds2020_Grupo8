@@ -24,8 +24,9 @@ public class Main {
     		
     	    System.out.println("1. Crear usuario");
     	    System.out.println("2. Crear organización");
-    	    System.out.println("3.Agregar compra");
-    	    System.out.println("4. Salir");
+    	    System.out.println("3. Agregar compra");
+    	    System.out.println("4. Validar compra");
+    	    System.out.println("5. Salir");
     	    
     	    try {
     	    	 System.out.println("Escribe una de las opciones:");
@@ -459,13 +460,89 @@ public class Main {
 	    	           Compra laCompra = new Compra (cantPresu, presupuestos, operacionesEgreso, revisores, itemsCompra, presupuestoElegido);
 	    	           System.out.println("La compra ha sido cargada..");
 	    	           // Creación del validador de compra
+	    	           /*
 	    	           ValidadorDeTransparencia validador = new ValidadorDeTransparencia(laCompra);
 	    	           List<Boolean> resultadoValidacion = validador.resultadosValidadorCompra();
 	    	           System.out.println("Resultado de la validacion de la compra (el mensaje fue enviado a los revisores)");
 	    	           System.out.println("Cumple con cantidad de presupuestos requeridos: " + String.valueOf(resultadoValidacion.get(0)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
 	    	           System.out.println("Cumple con haber sido realizada en base a algun presupuesto: " + String.valueOf(resultadoValidacion.get(1)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
 	    	           System.out.println("Cumple con haberse realizado en base al presupuesto de menor valor:" + String.valueOf(resultadoValidacion.get(2)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
+	    		      */
 	    		      }
+    		      	case 4:
+    		      		
+    		      		Proveedor proveedor88 = new Proveedor("asdf 123");
+     	               Item item111 = new Item("Tuercas", 10, 10);
+     	               Item item11B = new Item("Tuercas Baratas", 5, 10);
+     	               Item item11C = new Item("Tuercas Caras", 20, 10);
+     	               Item item222 = new Item("Tornillo", 5, 5);
+     	               Item item22B = new Item("Tornillo Barato", 1, 5);
+     	               Item item22C = new Item("Tornillo Caro", 10, 5);
+     	               Item item333 = new Item("Clavos",2,20); 
+     	               Item item33B = new Item("Clavos Baratos",1,20);
+     	               Item item33C = new Item("Clavos Caros",4,20);
+     	                List<Item> itemsss = Arrays.asList(item111, item222,item333);
+     	                List<Item> itemsssBaratos = Arrays.asList(item11B, item22B,item33B);
+     	                List<Item> itemsssCAROS = Arrays.asList(item11C, item22C,item33C);
+     	                DocumentoComercial documentoComercialll = new DocumentoComercial("1","tipo");
+     	                 List<DocumentoComercial> docsComerciales = new ArrayList<DocumentoComercial>();
+     	                 docsComerciales.add(documentoComercialll);
+     	                 DineroEnCuenta monedero = new DineroEnCuenta(1000000);
+     	                OperacionEgreso operacionEgreso = new OperacionEgreso(proveedor88, new Date(),monedero,itemsss,docsComerciales);
+     	               OperacionEgreso operacionEgresoBarata = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssBaratos,docsComerciales);
+     	              OperacionEgreso operacionEgresoCara = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssCAROS,docsComerciales);
+     	               List<OperacionEgreso> operacionesEgre = Arrays.asList(operacionEgreso);
+     	              List<OperacionEgreso> operacionesEgreBarata = Arrays.asList(operacionEgresoBarata);
+     	             List<OperacionEgreso> operacionesEgreCara = Arrays.asList(operacionEgresoCara);
+     	                Presupuesto presupuesto1 = new Presupuesto(proveedor88,"detalle",itemsss,docsComerciales);
+     	                Presupuesto presupuestoBarato = new Presupuesto(proveedor88, "detalle", itemsssBaratos, docsComerciales);
+     	                Presupuesto presupuestoCaro = new Presupuesto(proveedor88, "detalle", itemsssCAROS, docsComerciales);
+     	                List<Presupuesto> soloUnPresu = new ArrayList<Presupuesto>();
+     	                soloUnPresu.add(presupuesto1);
+     	            //   List<Presupuesto> dosPresu = Arrays.asList(presupuestoBarato, presupuestoCaro);
+     	                List<Presupuesto> dosPresu = new ArrayList<Presupuesto>();
+     	                dosPresu.add(presupuestoBarato);
+     	               dosPresu.add(presupuestoCaro);
+     	                List<Usuario> revisores = new ArrayList<Usuario>();
+     	                Usuario usuarioTOP = new Usuario("franco", "lalapapa!", ConstantesTipoDeUsuario.ADMIN);
+     	                revisores.add(usuarioTOP);
+     	                Compra compraFaltaPresu = new Compra(2,soloUnPresu, operacionesEgre, revisores,itemsss,presupuesto1);
+     	                Compra compraQEligioOtro = new Compra(2,dosPresu, operacionesEgreBarata, revisores,itemsssBaratos,presupuestoCaro);
+     	               Compra compraCARA = new Compra(2,dosPresu, operacionesEgreCara, revisores,itemsssCAROS,presupuestoCaro);
+     	              Compra compraOK = new Compra(2,dosPresu, operacionesEgreBarata, revisores,itemsssBaratos,presupuestoBarato);
+     	                
+     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     	                
+     	                //OPCIONES EN PANTALLA
+    		      		System.out.println("Ya hay compras cargadas, elige la que quieres validar: ");
+    		      		System.out.println("1. Si tiene todos los presupuestos requeridos");
+    		    	    System.out.println("2. Si fue realizado en base de un presupuesto");
+    		    	    System.out.println("3. Si se eligio el mas barato");
+    		    	    System.out.println("4. Si esta todo OK");
+    	                Scanner compraElegida = new Scanner(System.in);
+    	                int opcionCompra = compraElegida.nextInt();
+    	                if(opcionCompra == 1) {
+    	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
+    	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraFaltaPresu);
+    	                	validador1.validarCompra(compraFaltaPresu);
+    	             
+    	                } else if(opcionCompra == 2) {
+    	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
+    	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraQEligioOtro);
+    	                	validador1.validarCompra(compraQEligioOtro);
+    	                }else if (opcionCompra == 3) {
+    	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
+    	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraCARA);
+    	                	validador1.validarCompra(compraCARA);
+    	                }else if (opcionCompra ==4) {
+    	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
+    	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraOK);
+    	                	validador1.validarCompra(compraOK);
+    	                }//fin opciones validaciones
+    	                
+    	                
+    	               
+    		      		
     		      } //CIERRE SWITCH OPCIONES DEL MENÚ PRINCIPAL
     	    } catch (InputMismatchException e) {
     	        System.out.println("Debes insertar un número");

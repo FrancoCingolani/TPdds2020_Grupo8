@@ -1,10 +1,11 @@
 package main;
-
+//QUIEN CAMBIE ESTO TAMBIEN TIENE QUE CAMBIAR EN EL MAIN......  ES MUUUUCHO
 public class Item {
 	
 	String descripcion;
 	double valor;
 	int cantidad;
+	//Clasificacion clasificacion;
 	
 	public Item (String descripcion, double valor, int cantidad) {
 		this.descripcion = descripcion;
