@@ -17,7 +17,7 @@ public class ValidadorDeTransparencia {
 		this.compra = compra;
 	}
 
-	public void validarCompra(Compra compra) {
+	public void validarCompra() {
 		boolean reqPresupuesto = this.requierePresupuesto();
 		boolean basePresupuesto = this.fueRealizadaEnBasePresu();
 		boolean presupuestoMenorValor = this.validarSeleccionMenorValor();

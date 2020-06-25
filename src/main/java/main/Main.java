@@ -524,20 +524,20 @@ public class Main {
     	                if(opcionCompra == 1) {
     	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraFaltaPresu);
-    	                	validador1.validarCompra(compraFaltaPresu);
+    	                	validador1.validarCompra();
     	             
     	                } else if(opcionCompra == 2) {
     	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraQEligioOtro);
-    	                	validador1.validarCompra(compraQEligioOtro);
+    	                	validador1.validarCompra();
     	                }else if (opcionCompra == 3) {
     	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraCARA);
-    	                	validador1.validarCompra(compraCARA);
+    	                	validador1.validarCompra();
     	                }else if (opcionCompra ==4) {
     	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraOK);
-    	                	validador1.validarCompra(compraOK);
+    	                	validador1.validarCompra();
     	                }//fin opciones validaciones
     	                
     	                
