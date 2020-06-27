@@ -5,12 +5,13 @@ public class Item {
 	String descripcion;
 	double valor;
 	int cantidad;
-	//Clasificacion clasificacion;
+	Clasificacion clasificacion;
 	
-	public Item (String descripcion, double valor, int cantidad) {
+	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 		this.cantidad = cantidad;
+		this.clasificacion = clasificacion;
 	}
 
 	public String getDescripcion() {
@@ -33,6 +34,12 @@ public class Item {
 	}
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+	public Clasificacion getClasificacion() {
+		return clasificacion;
+	}
+	public void setClasificacion(Clasificacion clasificacion) {
+		this.clasificacion = clasificacion;
 	}
 	
 	public double precioTotal() {

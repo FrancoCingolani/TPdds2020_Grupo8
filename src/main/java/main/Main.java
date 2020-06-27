@@ -16,6 +16,13 @@ import mensajes.*;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException{
+		
+		Criterio criterioClientes = new Criterio ("clientes");
+		Clasificacion clasificacionClienteA = new Clasificacion ("cliente A", criterioClientes, null);
+		Clasificacion clasificacionClienteB = new Clasificacion ("cliente B", criterioClientes, null);
+		Criterio criterioUbicacion = new Criterio ("ubicación");
+		Clasificacion clasificacionUbicacionCaba = new Clasificacion ("CABA", criterioUbicacion, null);
+		Clasificacion clasificacionUbicacionCorrientes = new Clasificacion ("Corrientes", criterioUbicacion, null);
         
         Scanner sn = new Scanner(System.in);
     	boolean salir = false;
@@ -144,9 +151,11 @@ public class Main {
     	                int cantPresu = cantElegida.nextInt ();
     	                List<Presupuesto> presupuestos = new ArrayList<Presupuesto>();
     	                Presupuesto presupuestoElegido = null;
+    	                
 
     	                if(cantPresu>0) {
     	                	for(int i=0; i< cantPresu; i++) {
+    	                		Clasificacion clasificacion;
     	                		System.out.println("Ingrese el detalle del presupuesto:");
     	        	            Scanner descElegido = new Scanner(System.in);
     	        	            String unDetalle = descElegido.nextLine ();
@@ -163,9 +172,38 @@ public class Main {
     	        	                Scanner precio = new Scanner(System.in);
     	        	                int elValor = precio.nextInt ();
     	        	                System.out.println("Ingrese la cantidad de este producto:");
-    	        	                Scanner amount = new Scanner(System.in);
-    	        	                int laCantidad = amount.nextInt ();
-	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
+    	        	                Scanner amount = new Scanner(System.in);   	        	       
+    	        	                int laCantidad = amount.nextInt ();      
+    	        	                System.out.println("Elija el criterio:");
+    	        	                System.out.println("1. Clientes");
+       	                	     	System.out.println("2. Ubicación");
+	       	                	    Scanner criterioElegido = new Scanner(System.in);
+	 	        	                int criterio = criterioElegido.nextInt ();
+       	                	     	if(criterio == 1) {
+	       	                	     	System.out.println("Elija la clasificación:");
+		 	        	                System.out.println("1. Cliente A");
+	    	                	     	System.out.println("2. Cliente B");
+	    	                	     	Scanner clasif = new Scanner(System.in);
+	    	        	                int clasificacionElegida = clasif.nextInt ();
+	    	        	                if(clasificacionElegida == 1) {
+	    	        	                	clasificacion = clasificacionClienteA;
+	    	        	                }else if(clasificacionElegida == 2){
+	    	        	                	clasificacion = clasificacionClienteB;
+	    	        	                }
+       	                	     	}
+       	                	     if(criterio == 2) {
+	       	                	    	System.out.println("Elija la clasificación:");
+	    	        	                System.out.println("1. CABA");
+	       	                	     	System.out.println("2. Corrientes");
+	    	                	     	Scanner clasif = new Scanner(System.in);
+	    	        	                int clasificacionElegida = clasif.nextInt ();
+	    	        	                if(clasificacionElegida == 1) {
+	    	        	                	clasificacion = clasificacionUbicacionCaba;
+	    	        	                }else if(clasificacionElegida == 2){
+	    	        	                	clasificacion = clasificacionUbicacionCorrientes;
+	    	        	                }
+    	                	     	}	       	                	    	                	                	     		
+									Item unItem = new Item (laDescripcion, elValor, laCantidad, clasificacion);
 	        	                	unosItems.add(unItem);
 	        	                	cantItems --;
 	        	                }    
