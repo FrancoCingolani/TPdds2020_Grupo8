@@ -155,7 +155,7 @@ public class Main {
 
     	                if(cantPresu>0) {
     	                	for(int i=0; i< cantPresu; i++) {
-    	                		Clasificacion clasificacion;
+    	                		Clasificacion clasificacion = clasificacionClienteA;
     	                		System.out.println("Ingrese el detalle del presupuesto:");
     	        	            Scanner descElegido = new Scanner(System.in);
     	        	            String unDetalle = descElegido.nextLine ();
@@ -295,6 +295,7 @@ public class Main {
  	        	                List<Item> variosItems = new ArrayList<Item>();;
  	        	                
  	        	                while(cantItems>0) {
+ 	        	                	Clasificacion clasificacion0 = clasificacionClienteA;
  	        	                	System.out.println("Informacion del item...");
  	        	                	System.out.println("Ingrese la descripcion del item:");
  	    	        	            Scanner descripcioNElegido = new Scanner(System.in);
@@ -305,7 +306,36 @@ public class Main {
      	        	                System.out.println("Ingrese la cantidad de este producto:");
      	        	                Scanner cantiddd = new Scanner(System.in);
      	        	                int laCantidad = cantiddd.nextInt ();
- 	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad);
+     	        	               System.out.println("Elija el criterio:");
+     	        	               System.out.println("1. Clientes");
+      	                	     	System.out.println("2. Ubicación");
+	       	                	    Scanner criterioElegido0 = new Scanner(System.in);
+	 	        	                int criterio0 = criterioElegido0.nextInt ();
+      	                	     	if(criterio0 == 1) {
+	       	                	     	System.out.println("Elija la clasificación:");
+		 	        	                System.out.println("1. Cliente A");
+	    	                	     	System.out.println("2. Cliente B");
+	    	                	     	Scanner clasif0 = new Scanner(System.in);
+	    	        	                int clasificacionElegida0 = clasif0.nextInt ();
+	    	        	                if(clasificacionElegida0 == 1) {
+	    	        	                	clasificacion0 = clasificacionClienteA;
+	    	        	                }else if(clasificacionElegida0 == 2){
+	    	        	                	clasificacion0 = clasificacionClienteB;
+	    	        	                }
+      	                	     	}
+      	                	     if(criterio0 == 2) {
+	       	                	    	System.out.println("Elija la clasificación:");
+	    	        	                System.out.println("1. CABA");
+	       	                	     	System.out.println("2. Corrientes");
+	    	                	     	Scanner clasif0 = new Scanner(System.in);
+	    	        	                int clasificacionElegida0 = clasif0.nextInt ();
+	    	        	                if(clasificacionElegida0 == 1) {
+	    	        	                	clasificacion0 = clasificacionUbicacionCaba;
+	    	        	                }else if(clasificacionElegida0 == 2){
+	    	        	                	clasificacion0 = clasificacionUbicacionCorrientes;
+	    	        	                }
+   	                	     	}
+ 	        	                	Item unItem = new Item (laDescripcion, elValor, laCantidad, clasificacion0);
  	        	                	variosItems.add(unItem);
  	        	                	itemsCompra.add(unItem);
  	        	                	cantItems --;
@@ -507,18 +537,19 @@ public class Main {
 	    	           System.out.println("Cumple con haberse realizado en base al presupuesto de menor valor:" + String.valueOf(resultadoValidacion.get(2)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
 	    		      */
 	    		      }
+   //NO SEPARA EL CASE ...... MATENME.........-------______-------*****************************
     		      	case 4:
-    		      		
+    		     
     		      		Proveedor proveedor88 = new Proveedor("asdf 123");
-     	               Item item111 = new Item("Tuercas", 10, 10);
-     	               Item item11B = new Item("Tuercas Baratas", 5, 10);
-     	               Item item11C = new Item("Tuercas Caras", 20, 10);
-     	               Item item222 = new Item("Tornillo", 5, 5);
-     	               Item item22B = new Item("Tornillo Barato", 1, 5);
-     	               Item item22C = new Item("Tornillo Caro", 10, 5);
-     	               Item item333 = new Item("Clavos",2,20); 
-     	               Item item33B = new Item("Clavos Baratos",1,20);
-     	               Item item33C = new Item("Clavos Caros",4,20);
+     	               Item item111 = new Item("Tuercas", 10, 10, clasificacionClienteA);
+     	               Item item11B = new Item("Tuercas Baratas", 5, 10, clasificacionClienteA);
+     	               Item item11C = new Item("Tuercas Caras", 20, 10, clasificacionClienteA);
+     	               Item item222 = new Item("Tornillo", 5, 5,clasificacionClienteA);
+     	               Item item22B = new Item("Tornillo Barato", 1, 5,clasificacionClienteA);
+     	               Item item22C = new Item("Tornillo Caro", 10, 5,clasificacionClienteA);
+     	               Item item333 = new Item("Clavos",2,20,clasificacionClienteA); 
+     	               Item item33B = new Item("Clavos Baratos",1,20,clasificacionClienteA);
+     	               Item item33C = new Item("Clavos Caros",4,20,clasificacionClienteA);
      	                List<Item> itemsss = Arrays.asList(item111, item222,item333);
      	                List<Item> itemsssBaratos = Arrays.asList(item11B, item22B,item33B);
      	                List<Item> itemsssCAROS = Arrays.asList(item11C, item22C,item33C);

@@ -21,7 +21,7 @@ public class Compra extends Operacion{
 		this.presupuestos = presupuestos;
 		this.operacionesEgre = operacionesEgre;
 		this.revisores = revisores;
-		this.items = items;
+		this.items = items; //algun dia habria que hacer que estos items se carguen solos con el cargado de las opeEgreso
 		this.presupuestoElegido = presupuestoElegido;
 		
 	}
