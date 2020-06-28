@@ -572,11 +572,12 @@ public class Main {
      	                List<Presupuesto> dosPresu = new ArrayList<Presupuesto>();
      	                dosPresu.add(presupuestoBarato);
      	               dosPresu.add(presupuestoCaro);
+     	              List<Presupuesto> otrosDosPresu = Arrays.asList(presupuesto1, presupuestoCaro);
      	                List<Usuario> revisores = new ArrayList<Usuario>();
      	                Usuario usuarioTOP = new Usuario("franco", "lalapapa!", ConstantesTipoDeUsuario.ADMIN);
      	                revisores.add(usuarioTOP);
      	                Compra compraFaltaPresu = new Compra(2,soloUnPresu, operacionesEgre, revisores,itemsss,presupuesto1);
-     	                Compra compraQEligioOtro = new Compra(2,dosPresu, operacionesEgreBarata, revisores,itemsssBaratos,presupuestoCaro);
+     	                Compra compraQEligioOtro = new Compra(2,otrosDosPresu, operacionesEgreBarata, revisores,itemsssBaratos,presupuestoBarato);
      	               Compra compraCARA = new Compra(2,dosPresu, operacionesEgreCara, revisores,itemsssCAROS,presupuestoCaro);
      	              Compra compraOK = new Compra(2,dosPresu, operacionesEgreBarata, revisores,itemsssBaratos,presupuestoBarato);
      	                
@@ -594,7 +595,7 @@ public class Main {
     	                	System.out.println("En este caso se le pedian 2 presupuestos y solo pidieron uno..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraFaltaPresu);
     	                	validador1.validarCompra();
-    	             
+    	                 	             
     	                } else if(opcionCompra == 2) {
     	                	System.out.println("En este caso se compro de un presupuesto que no fue el elegido..");
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraQEligioOtro);
@@ -608,7 +609,12 @@ public class Main {
     	                	ValidadorDeTransparencia validador1 = new ValidadorDeTransparencia(compraOK);
     	                	validador1.validarCompra();
     	                }//fin opciones validaciones
-    	                
+    	                 //Muy groncho, pero todos tienen el mismo revisor, asi que ya fue...
+    	                System.out.println("El resultado fue..");
+    	                List<Mensaje>mensajes = usuarioTOP.getMensajes();
+    	                for(Mensaje mensaje : mensajes) {
+    	                	System.out.println(mensaje.getTextoMensaje());
+    	                }
     	                
     	               
     		      		
