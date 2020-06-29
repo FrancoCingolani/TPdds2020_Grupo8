@@ -11,11 +11,7 @@ public class Clasificacion {
 	Clasificacion clasificacionPadre;
 	
 	public Clasificacion(String descripcion, Criterio criterio, Clasificacion padre ) throws CriterioPadreException, IOException{
-		if(padre == null) {
-			this.descripcion = descripcion;
-			this.criterio = criterio;
-			this.clasificacionPadre = null;
-		}else if((padre != null) && (padre.getCriterio() == criterio)){//Si va a tener una clasificación padre y tienen el mismo criterio
+		if((padre != null) && (padre.getCriterio() == criterio)){//Si va a tener una clasificación padre y tienen el mismo criterio
 			this.descripcion = descripcion;
 			this.criterio = criterio;
 			this.clasificacionPadre = padre;
@@ -24,6 +20,13 @@ public class Clasificacion {
 		}
 		
 	}
+	
+	public Clasificacion(String descripcion, Criterio criterio){
+		this.descripcion = descripcion;
+		this.criterio = criterio;
+		this.clasificacionPadre = null;
+	}
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
