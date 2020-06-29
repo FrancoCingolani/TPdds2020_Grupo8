@@ -49,6 +49,7 @@ public class Main {
     	                Scanner passwordElegida = new Scanner(System.in);
     	                String password = passwordElegida.nextLine ();
     	                Usuario usuarioCreado = new Usuario(usuario, password, ConstantesTipoDeUsuario.ADMIN);
+    	                break;
     		      	case 2:
     		      		System.out.println("Elige el tipo de Organización: ");
     		      		System.out.println("1. Entidad base");
@@ -144,7 +145,7 @@ public class Main {
         	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
         	                System.out.println("Entidad jurídica creada exitosamente");
     	                }
-
+    	                break;
     		      	case 3:
     		      		System.out.println("Ingrese la cantidad de presupuestos necesarios ");
     	                Scanner cantElegida = new Scanner(System.in);
@@ -485,29 +486,7 @@ public class Main {
 
     	                	}//FIN DE CARGA DE OPERACIONES EGRESO
     	                	
-	    	                /* System.out.println("Ingrese la cantidad de tipos de items:");
-		        	         Scanner amountElegidaItems = new Scanner(System.in);
-		                     int cantItems = amountElegidaItems.nextInt ();
-		                     List<Item> itemsCompra = new ArrayList<Item>();
-
-		        	         while(cantItems>0) {
-		        	        	 	System.out.println("Informacion del item...");
-		        	               	System.out.println("Ingrese la descripcion del item:");
-		    	        	        Scanner descripcioNElegido = new Scanner(System.in);
-		    	        	        String laDescripcion = descripcioNElegido.nextLine ();
-		    	        	        System.out.println("Ingrese el valor:");
-	  	        	                Scanner price = new Scanner(System.in);
-	  	        	                int elValor = price.nextInt ();
-	  	        	                System.out.println("Ingrese la cantidad de este producto:");
-	  	        	                Scanner cantiddd = new Scanner(System.in);
-	  	        	                int laCantidad = cantiddd.nextInt ();
-		        	                Item unItem = new Item (laDescripcion, elValor, laCantidad);
-		        	                itemsCompra.add(unItem);
-		        	                cantItems --;
-		        	         }*/
-    	                	// ESTOS se rellena a medida que se va llenando cada operacion egreso, si no buscar itemscompra en el codigo para entender
-
-		        	         System.out.println("Ingrese la cantidad de revisores:");
+	    	                 System.out.println("Ingrese la cantidad de revisores:");
 		        	         Scanner rr = new Scanner(System.in);
 	       	                 int cantRevi = rr.nextInt ();
 	       	                 List<Usuario> revisores = new ArrayList<Usuario>();
@@ -527,17 +506,10 @@ public class Main {
 	       	           //creacion de la compra
 	    	           Compra laCompra = new Compra (cantPresu, presupuestos, operacionesEgreso, revisores, itemsCompra, presupuestoElegido);
 	    	           System.out.println("La compra ha sido cargada..");
-	    	           // Creación del validador de compra
-	    	           /*
-	    	           ValidadorDeTransparencia validador = new ValidadorDeTransparencia(laCompra);
-	    	           List<Boolean> resultadoValidacion = validador.resultadosValidadorCompra();
-	    	           System.out.println("Resultado de la validacion de la compra (el mensaje fue enviado a los revisores)");
-	    	           System.out.println("Cumple con cantidad de presupuestos requeridos: " + String.valueOf(resultadoValidacion.get(0)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
-	    	           System.out.println("Cumple con haber sido realizada en base a algun presupuesto: " + String.valueOf(resultadoValidacion.get(1)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
-	    	           System.out.println("Cumple con haberse realizado en base al presupuesto de menor valor:" + String.valueOf(resultadoValidacion.get(2)).replaceAll("true", "OK").replaceAll("false", "ERROR"));
-	    		      */
+	    	          
 	    		      }
-   //NO SEPARA EL CASE ...... MATENME.........-------______-------*****************************
+
+    	                break;
     		      	case 4:
     		     
     		      		Proveedor proveedor88 = new Proveedor("asdf 123");
@@ -627,66 +599,30 @@ public class Main {
 	} //CIERRE FUNCION MAIN
 } //CIERRE CLASE MAIN
 
-/*  
-	EJEMPLO DE OTRO EJERCICIO QUE HICE ANTES
-	
-	Scanner sn = new Scanner(System.in);
-	boolean salir = false;
-	int opcion;
-	while (!salir) {
-	
-	    System.out.println("1. Crear evento");
-	    System.out.println("2. Ver historial");
-	    System.out.println("3. Salir");
-	
-	    try {
-	
-	        System.out.println("Escribe una de las opciones:");
-	        opcion = sn.nextInt();
-	
-	        switch (opcion) {
-	            case 1:
-	            	Usuario usuario = new Usuario(0);
-	            	java.util.Date fechaYHoraActual = new java.util.Date();
-	                System.out.println("Elegir usuario (1 a 3)");
-	                Scanner usuarioSeleccionado = new Scanner(System.in);
-	                int opcionUsuario = usuarioSeleccionado.nextInt();
-	                if (opcionUsuario <= 3 && opcionUsuario >= 1) {
-	                	usuario.setNumUsuario(opcionUsuario);
-	                }
-	                
-	                else {
-	                	System.out.println("Usuario inválido");
-	                	break;
-	                }
-	                System.out.println("Elegir boton (Cualquier numero)");
-	                Scanner botonSeleccionado = new Scanner(System.in);
-	                int opcionBoton = botonSeleccionado.nextInt();
-	                Evento evento = new Evento(fechaYHoraActual, usuario, opcionBoton);
-	                eventoRepositorio.addEvento(evento);
-	                System.out.println("Evento creado. Volviendo al menu principal...");
-	                break;
-	            case 2:
-	            	System.out.println("-------------");
-	            	System.out.println("HISTORIAL DE EVENTOS:");
-	            	for (Evento e:eventoRepositorio.historialEventos) {
-	            		System.out.println("Fecha: "+ e.getFecha());
-	            		System.out.println("Usuario: "+ (e.getUsuario().getNumUsuario()));
-	            		System.out.println("Opción: "+ e.getOpcion());
-	            		System.out.println("-------------");
-	            	}
-	            	
-	                break;
-	            case 3:
-	            	salir = true;
-	            	sn.close();
-	                break;
-	            default:
-	                System.out.println("Solo números entre 1 y 3");
-	        }
-	    } catch (InputMismatchException e) {
-	        System.out.println("Debes insertar un número");
-	        sn.next();
-	    }
-	}
-*/
+
+
+
+
+
+/* System.out.println("Ingrese la cantidad de tipos de items:");
+Scanner amountElegidaItems = new Scanner(System.in);
+int cantItems = amountElegidaItems.nextInt ();
+List<Item> itemsCompra = new ArrayList<Item>();
+
+while(cantItems>0) {
+	 	System.out.println("Informacion del item...");
+      	System.out.println("Ingrese la descripcion del item:");
+       Scanner descripcioNElegido = new Scanner(System.in);
+       String laDescripcion = descripcioNElegido.nextLine ();
+       System.out.println("Ingrese el valor:");
+         Scanner price = new Scanner(System.in);
+         int elValor = price.nextInt ();
+         System.out.println("Ingrese la cantidad de este producto:");
+         Scanner cantiddd = new Scanner(System.in);
+         int laCantidad = cantiddd.nextInt ();
+       Item unItem = new Item (laDescripcion, elValor, laCantidad);
+       itemsCompra.add(unItem);
+       cantItems --;
+}*/
+// ESTOS se rellena a medida que se va llenando cada operacion egreso, si no buscar itemscompra en el codigo para entender
+
