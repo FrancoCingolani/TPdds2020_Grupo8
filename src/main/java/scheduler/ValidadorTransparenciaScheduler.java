@@ -26,9 +26,6 @@ public class ValidadorTransparenciaScheduler {
 		     
 		     // Paso el validador por el contexto del scheduler
 		     scheduler.getContext().put("validador", validador);
-		
-		     // and start it off
-		     scheduler.start();
 		     
 		     // Creo el job y la vinculo con el job del validador de transparencia
 		     JobDetail job = newJob(ValidadorTransparenciaJob.class)
@@ -40,13 +37,17 @@ public class ValidadorTransparenciaScheduler {
 		         .withIdentity("TriggerValidadorTransparencia", "GrupoValidadorTransparencia")
 		         .startNow()
 		         .withSchedule(simpleSchedule()
-                 .withIntervalInSeconds(10)
+                 .withIntervalInSeconds(3)
                  .repeatForever())
 		         .build();
 		
 		     // Vinculo job y trigger y ejecuto
 		     scheduler.scheduleJob(job, trigger);
-		     Thread.sleep(120000);
+				
+		     // Lanzamos el scheduler
+		     scheduler.start();
+		     
+		     Thread.sleep(9000);
 		     scheduler.shutdown();
 		
 		 } 

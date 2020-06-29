@@ -25,6 +25,7 @@ public class ValidadorTransparenciaJob implements Job {
 		
 		// Ejecuto la validación
 		validador.validarCompra();
+		System.out.println("Estoy validando la compra");
 		
 	}
 }
