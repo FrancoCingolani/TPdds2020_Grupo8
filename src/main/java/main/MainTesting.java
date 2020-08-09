@@ -19,7 +19,7 @@ import mensajes.*;
 import scheduler.*;
 
 public class MainTesting {
-	// Lo uso solo para testear el validador por fuera de toda la otra lÃ³gica
+	// Lo uso solo para testear el validador por fuera de toda la otra lógica
 	public static void main(String[] args) throws InterruptedException, IOException{
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.OFF);
