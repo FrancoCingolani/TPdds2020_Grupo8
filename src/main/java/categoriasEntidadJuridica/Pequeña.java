@@ -1,6 +1,6 @@
 package categoriasEntidadJuridica;
 
-public class PequeÃ±a implements ICategoria {
+public class Pequeña implements ICategoria {
 	public String getDescripcionCategoria() {
 		return this.getClass().getSimpleName();
 	}

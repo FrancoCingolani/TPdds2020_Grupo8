@@ -54,8 +54,8 @@ public class CategorizadorEntidad {
 			categoriaSegunVentas = ConstantesCategorias.MICRO;
 		}
 		
-		else if (ventasAnuales < ventasLimitesActividad.get(ConstantesCategorias.PEQUEÃ‘A)) {
-			categoriaSegunVentas = ConstantesCategorias.PEQUEÃ‘A;
+		else if (ventasAnuales < ventasLimitesActividad.get(ConstantesCategorias.PEQUEÑA)) {
+			categoriaSegunVentas = ConstantesCategorias.PEQUEÑA;
 		}
 		
 		else if (ventasAnuales < ventasLimitesActividad.get(ConstantesCategorias.MEDIANATRAMO1)) {
@@ -79,8 +79,8 @@ public class CategorizadorEntidad {
 			categoriaSegunPersonal = ConstantesCategorias.MEDIANATRAMO1;
 		}
 		
-		else if (personal >= personalLimiteActividad.get(ConstantesCategorias.PEQUEÃ‘A)) {
-			categoriaSegunPersonal = ConstantesCategorias.PEQUEÃ‘A;
+		else if (personal >= personalLimiteActividad.get(ConstantesCategorias.PEQUEÑA)) {
+			categoriaSegunPersonal = ConstantesCategorias.PEQUEÑA;
 		}
 		
 		else if (personal >= personalLimiteActividad.get(ConstantesCategorias.MICRO)) {
@@ -103,8 +103,8 @@ public class CategorizadorEntidad {
 			case ConstantesCategorias.MICRO:
 				categoriaCalculada = new Micro();
 				break;
-			case ConstantesCategorias.PEQUEÃ‘A:
-				categoriaCalculada = new PequeÃ±a();
+			case ConstantesCategorias.PEQUEÑA:
+				categoriaCalculada = new Pequeña();
 				break;
 			case ConstantesCategorias.MEDIANATRAMO1:
 				categoriaCalculada = new MedianaTramo1();
