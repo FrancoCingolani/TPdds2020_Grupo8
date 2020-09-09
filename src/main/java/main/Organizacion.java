@@ -15,6 +15,7 @@ public class Organizacion {
 	Actividad actividad;
 	Categoria categoria;
 	TipoEntidadJuridica tipo;
+	int periodoVinculacion;
 	
 	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {
 		this.operacionesEgresoEntidad.add(nuevaOperacion);
@@ -52,5 +53,11 @@ public class Organizacion {
 	
 	public void setCategoria(Categoria nuevaCategoria) {
 		this.categoria = nuevaCategoria;
+	}
+	public int getPeriodo() {
+		return periodoVinculacion;
+	}
+	public void setPeriodo(int periodo) {
+		this.periodoVinculacion = periodo;
 	}
 }

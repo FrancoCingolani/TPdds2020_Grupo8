@@ -14,7 +14,7 @@ public class EntidadJuridica extends Organizacion{
 	//Categoria 
 	
 	// Constructor; como el codigoInscripcionIGJ es opcional, creo 2 constructores diferentes (overloading). Ver si conviene realizarlo con el patrón builder
-	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo, int codigoInscripcionIGJ) {
+	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo, int codigoInscripcionIGJ, int periodo) {
 		this.razonSocial = razonSocial;
 		this.nombreFicticio = nombreFicticio;
 		this.CUIT = CUIT;
@@ -24,16 +24,18 @@ public class EntidadJuridica extends Organizacion{
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
 		this.tipo = tipo;
 		this.operacionesEgresoEntidad = new ArrayList<OperacionEgreso>();
+		this.operacionesIngresoEntidad = new ArrayList<OperacionIngreso>();
 		this.ventasAnuales = 0;
 		CategorizadorEntidad.categorizar(this);
+		this.periodoVinculacion = periodo;
 	}
 	
-	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo) {
-		this (razonSocial, nombreFicticio, CUIT, direccionPostal, personal, actividad, tipo, 0);
+	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo, int periodo) {
+		this (razonSocial, nombreFicticio, CUIT, direccionPostal, personal, actividad, tipo, 0, periodo);
 	}
 	
 	// Para cambiar una entidad jurídica a una base
-	public EntidadJuridica (EntidadBase viejaEntidad, String razonSocial, TipoEntidadJuridica tipo, String CUIT, int codigoInscripcionIGJ) {
+	public EntidadJuridica (EntidadBase viejaEntidad, String razonSocial, TipoEntidadJuridica tipo, String CUIT, int codigoInscripcionIGJ, int periodo) {
 		this.razonSocial = razonSocial;
 		this.nombreFicticio = viejaEntidad.nombreFicticio;
 		this.CUIT = CUIT;
@@ -43,12 +45,14 @@ public class EntidadJuridica extends Organizacion{
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
 		this.tipo = tipo;
 		this.operacionesEgresoEntidad = new ArrayList<OperacionEgreso>();
+		this.operacionesIngresoEntidad = new ArrayList<OperacionIngreso>();
 		this.ventasAnuales = viejaEntidad.ventasAnuales;
 		CategorizadorEntidad.categorizar(this);
+		this.periodoVinculacion = periodo;
 	}
 	
-	public EntidadJuridica (EntidadBase viejaEntidad, String razonSocial, TipoEntidadJuridica tipo, String CUIT) {
-		this (viejaEntidad, razonSocial, tipo, CUIT, 0);
+	public EntidadJuridica (EntidadBase viejaEntidad, String razonSocial, TipoEntidadJuridica tipo, String CUIT, int periodo) {
+		this (viejaEntidad, razonSocial, tipo, CUIT, 0, periodo);
 	}
 	
 	

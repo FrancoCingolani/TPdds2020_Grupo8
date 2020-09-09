@@ -12,6 +12,7 @@ public class OperacionEgreso{
 	List<Item> items;
 	List<DocumentoComercial> documentosComerciales;
 	Organizacion organizacion;
+	boolean fueVinculado;
 
 	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales, Organizacion organizacion) {
 		this.proveedor = proveedor;
@@ -25,6 +26,7 @@ public class OperacionEgreso{
 			this.valorTotal += item.getValor();
 		}
 		this.organizacion = organizacion;
+		this.fueVinculado = false;
 		
 	}
 	

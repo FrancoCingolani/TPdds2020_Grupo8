@@ -9,11 +9,11 @@ public class EntidadBase extends Organizacion{
 	String descripcion;
 	EntidadJuridica perteneceA;
 	
-	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad) {
-		this (nombreFicticio, descripcion, personal, direccionPostal, actividad, null);
+	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, int periodo) {
+		this (nombreFicticio, descripcion, personal, direccionPostal, actividad, null, periodo);
 	}
 	
-	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, EntidadJuridica perteneceA) {
+	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, EntidadJuridica perteneceA, int periodo) {
 		this.nombreFicticio = nombreFicticio;
 		this.descripcion = descripcion;
 		this.personal = personal;
@@ -23,6 +23,7 @@ public class EntidadBase extends Organizacion{
 		this.categoria = null;
 		this.tipo = null;
 		this.operacionesEgresoEntidad = new ArrayList<OperacionEgreso>();
+		this.operacionesIngresoEntidad = new ArrayList<OperacionIngreso>();
 		this.ventasAnuales = 0;
 	}
 	

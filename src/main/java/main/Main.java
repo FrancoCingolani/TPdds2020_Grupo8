@@ -94,7 +94,7 @@ public class Main {
         	                	case 5: actividadOrganizacion = Actividad.AGROPECUARIO;
         	                	break;
         	                }
-        	                EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion);
+        	                EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion,7);
         	                System.out.println("Entidad base creada exitosamente");
     	                }else if(opcionOrganizacion == 2) {
     	                	System.out.println("Ingrese la razon social: ");
@@ -145,7 +145,7 @@ public class Main {
         	                	case 2: tipoEntidadJuridica = TipoEntidadJuridica.OSC;
         	                	break;
         	                }
-        	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
+        	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica,7);
         	                System.out.println("Entidad juridica creada exitosamente");
     	                }
     	                break;
@@ -534,7 +534,7 @@ public class Main {
      	                 List<DocumentoComercial> docsComerciales = new ArrayList<DocumentoComercial>();
      	                 docsComerciales.add(documentoComercialll);
      	                 DineroEnCuenta monedero = new DineroEnCuenta(1000000);
-     	                 EntidadBase laorg = new EntidadBase("nombreFicticio", "descrip", 10, "direccionPostal", Actividad.COMERCIO, null);
+     	                 EntidadBase laorg = new EntidadBase("nombreFicticio", "descrip", 10, "direccionPostal", Actividad.COMERCIO, null,7);
      	               OperacionEgreso operacionEgreso = new OperacionEgreso(proveedor88, new Date(),monedero,itemsss,docsComerciales, laorg);
      	               OperacionEgreso operacionEgresoBarata = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssBaratos,docsComerciales, laorg);
      	              OperacionEgreso operacionEgresoCara = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssCAROS,docsComerciales, laorg);
@@ -673,10 +673,11 @@ public static EntidadBase crearEntidadBase() {
     System.out.println("Direccion postal: ");
 	Scanner direccionElegida = new Scanner(System.in);
     String direccionOrganizacion = direccionElegida.nextLine ();
-    
     Actividad actividadOrganizacion = elegirActividad();
-   
-    EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion);
+    System.out.println("Duracion del periodo de vinculacion deseado: ");
+    Scanner periodose = new Scanner(System.in);
+    int periodo = periodose.nextInt();
+    EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion, periodo);
     System.out.println("Entidad base creada exitosamente");
     
 	return entidadBase;
@@ -713,7 +714,10 @@ public static EntidadJuridica crearEntidadJuridica() {
     	case 2: tipoEntidadJuridica = TipoEntidadJuridica.OSC;
     	break;
     }
-    EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
+    System.out.println("Duracion del periodo de vinculacion deseado: ");
+    Scanner periodose = new Scanner(System.in);
+    int periodo = periodose.nextInt();
+    EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica, periodo);
     System.out.println("Entidad juridica creada exitosamente");
     return entidadJuridica;
 	

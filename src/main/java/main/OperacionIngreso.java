@@ -1,17 +1,20 @@
 package main;
 import java.util.List;
+import java.util.Date;
 
 public class OperacionIngreso {
 	String descripcion;
 	double valorTotal;
 	List<OperacionEgreso> egresos;
 	Organizacion organizacion;
+	Date fechaIngreso;
 	
 	public OperacionIngreso(String descrip, double valorTtal, List<OperacionEgreso> operacionesEgre, Organizacion organizacion) {
 		this.descripcion = descrip;
 		this.valorTotal = valorTtal;
 		this.egresos = operacionesEgre;
 		this.organizacion = organizacion;
+		this.fechaIngreso = new Date();
 	}
 	
 	public double getValorTotalOperacion() {
