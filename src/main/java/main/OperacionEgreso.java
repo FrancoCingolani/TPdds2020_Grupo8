@@ -11,8 +11,9 @@ public class OperacionEgreso{
 	MedioDePago medioDePago;
 	List<Item> items;
 	List<DocumentoComercial> documentosComerciales;
+	Organizacion organizacion;
 
-	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales) {
+	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales, Organizacion organizacion) {
 		this.proveedor = proveedor;
 		this.fecha = fecha;
 		this.medioDePago = medioDePago;
@@ -23,6 +24,7 @@ public class OperacionEgreso{
 		for (Item item : items) {
 			this.valorTotal += item.getValor();
 		}
+		this.organizacion = organizacion;
 		
 	}
 	
@@ -37,4 +39,5 @@ public class OperacionEgreso{
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
+	
 }

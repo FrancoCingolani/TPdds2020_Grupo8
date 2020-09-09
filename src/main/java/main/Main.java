@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import categoriasEntidadJuridica.Categoria;
 import constantes.*;
 import enumeradores.*;
 import mensajes.*;
@@ -30,10 +31,11 @@ public class Main {
     	while (!salir) {
     		
     	    System.out.println("1. Crear usuario");
-    	    System.out.println("2. Crear organización");
+    	    System.out.println("2. Crear organizacion");
     	    System.out.println("3. Agregar compra");
     	    System.out.println("4. Validar compra");
-    	    System.out.println("5. Salir");
+    	    System.out.println("5.Crear Ingreso");
+    	    System.out.println("6. Salir");
     	    
     	    try {
     	    	 System.out.println("Escribe una de las opciones:");
@@ -42,6 +44,7 @@ public class Main {
     		      switch (opcion) {
     		      
     		      	case 1:
+    		      		//Usuario usuarioCreated = crearUsuario(); REVISAR EL TEMA DE LAS EXCEPCIONES
     		      		System.out.println("Ingrese nombre de usuario: ");
     	                Scanner usuarioElegido = new Scanner(System.in);
     	                String usuario = usuarioElegido.nextLine ();
@@ -53,21 +56,21 @@ public class Main {
     		      	case 2:
     		      		System.out.println("Elige el tipo de Organización: ");
     		      		System.out.println("1. Entidad base");
-    		    	    System.out.println("2. Entidad jurídica");
+    		    	    System.out.println("2. Entidad juridica");
     	                Scanner tipoOrganizacionElegido = new Scanner(System.in);
     	                int opcionOrganizacion = tipoOrganizacionElegido.nextInt();
     	                
     	                if(opcionOrganizacion == 1) { //ENTIDAD BASE
-    	                	System.out.println("Ingrese el nombre de la organización: ");
+    	                	System.out.println("Ingrese el nombre de la organizacion: ");
     	                	Scanner nombreElegido = new Scanner(System.in);
         	                String nombreOrganizacion = nombreElegido.nextLine ();
-        	                System.out.println("Ingrese la descripción: ");
+        	                System.out.println("Ingrese la descripcion: ");
     	                	Scanner descripcionElegida = new Scanner(System.in);
         	                String descripcionOrganizacion = descripcionElegida.nextLine ();
         	                System.out.println("Cantidad de personal: ");
         	                Scanner personalSeleccionado = new Scanner(System.in);
         	                int personalOrganizacion = personalSeleccionado.nextInt();
-        	                System.out.println("Dirección postal: ");
+        	                System.out.println("Direccion postal: ");
     	                	Scanner direccionElegida = new Scanner(System.in);
         	                String direccionOrganizacion = direccionElegida.nextLine ();
         	                System.out.println("Elegir tipo de actividad: ");
@@ -94,7 +97,7 @@ public class Main {
         	                EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion);
         	                System.out.println("Entidad base creada exitosamente");
     	                }else if(opcionOrganizacion == 2) {
-    	                	System.out.println("Ingrese la razón social: ");
+    	                	System.out.println("Ingrese la razon social: ");
     	                	Scanner razonSocialElegida = new Scanner(System.in);
         	                String razonSocialOrganizacion = razonSocialElegida.nextLine ();
         	                System.out.println("Ingrese el nombre ficticio: ");
@@ -103,7 +106,7 @@ public class Main {
         	                System.out.println("CUIT: ");
         	                Scanner cuitElegido = new Scanner(System.in);
         	                String cuitOrganizacion = nombreElegido.nextLine ();
-        	                System.out.println("Dirección postal: ");
+        	                System.out.println("Direccion postal: ");
     	                	Scanner direccionElegida = new Scanner(System.in);
         	                String direccionOrganizacion = direccionElegida.nextLine ();
         	                System.out.println("Cantidad de personal: ");
@@ -130,7 +133,7 @@ public class Main {
         	                	case 5: actividadOrganizacion = Actividad.AGROPECUARIO;
         	                	break;
         	                }
-        	                System.out.println("Elegir tipo de entidad jurídica: ");
+        	                System.out.println("Elegir tipo de entidad juridica: ");
         	                System.out.println("1. Empresa");
         		    	    System.out.println("2. OSC");
         	                Scanner tipoEntidadJurSeleccionada = new Scanner(System.in);
@@ -143,7 +146,7 @@ public class Main {
         	                	break;
         	                }
         	                EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
-        	                System.out.println("Entidad jurídica creada exitosamente");
+        	                System.out.println("Entidad juridica creada exitosamente");
     	                }
     	                break;
     		      	case 3:
@@ -177,11 +180,11 @@ public class Main {
     	        	                int laCantidad = amount.nextInt ();      
     	        	                System.out.println("Elija el criterio:");
     	        	                System.out.println("1. Clientes");
-       	                	     	System.out.println("2. Ubicación");
+       	                	     	System.out.println("2. Ubicacion");
 	       	                	    Scanner criterioElegido = new Scanner(System.in);
 	 	        	                int criterio = criterioElegido.nextInt ();
        	                	     	if(criterio == 1) {
-	       	                	     	System.out.println("Elija la clasificación:");
+	       	                	     	System.out.println("Elija la clasificacion:");
 		 	        	                System.out.println("1. Cliente A");
 	    	                	     	System.out.println("2. Cliente B");
 	    	                	     	Scanner clasif = new Scanner(System.in);
@@ -193,7 +196,7 @@ public class Main {
 	    	        	                }
        	                	     	}
        	                	     if(criterio == 2) {
-	       	                	    	System.out.println("Elija la clasificación:");
+	       	                	    	System.out.println("Elija la clasificacion:");
 	    	        	                System.out.println("1. CABA");
 	       	                	     	System.out.println("2. Corrientes");
 	    	                	     	Scanner clasif = new Scanner(System.in);
@@ -309,11 +312,11 @@ public class Main {
      	        	                int laCantidad = cantiddd.nextInt ();
      	        	               System.out.println("Elija el criterio:");
      	        	               System.out.println("1. Clientes");
-      	                	     	System.out.println("2. Ubicación");
+      	                	     	System.out.println("2. Ubicacion");
 	       	                	    Scanner criterioElegido0 = new Scanner(System.in);
 	 	        	                int criterio0 = criterioElegido0.nextInt ();
       	                	     	if(criterio0 == 1) {
-	       	                	     	System.out.println("Elija la clasificación:");
+	       	                	     	System.out.println("Elija la clasificacion:");
 		 	        	                System.out.println("1. Cliente A");
 	    	                	     	System.out.println("2. Cliente B");
 	    	                	     	Scanner clasif0 = new Scanner(System.in);
@@ -325,7 +328,7 @@ public class Main {
 	    	        	                }
       	                	     	}
       	                	     if(criterio0 == 2) {
-	       	                	    	System.out.println("Elija la clasificación:");
+	       	                	    	System.out.println("Elija la clasificacion:");
 	    	        	                System.out.println("1. CABA");
 	       	                	     	System.out.println("2. Corrientes");
 	    	                	     	Scanner clasif0 = new Scanner(System.in);
@@ -466,7 +469,8 @@ public class Main {
 	    	        	                Scanner cuilElegido = new Scanner(System.in);
 	    	        	                String unCuil = cuilElegido.nextLine ();
 	    	        	                ProveedorFisico unProveedor = new ProveedorFisico(unDireccionPostal, unNombre,  unApellido, unDni, unCuil);
-	    	        	                OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
+	    	        	                Organizacion laorg1 = crearOrganizacion();
+	    	        	                OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales, laorg1);
 	    	        	                operacionesEgreso.add(opEgre);
    	        	                } else if (tipoProveedor == 2) {
    	        	                
@@ -480,7 +484,8 @@ public class Main {
 	    	        	                Scanner cuitElegido = new Scanner(System.in);
 	    	        	                String unCuit = cuitElegido.nextLine ();
 	    	        	                ProveedorJuridico otroProveedor = new ProveedorJuridico(unaDireccionPostal, unRazonSocial, unCuit);
-	    	        	                OperacionEgreso opEgrezo= new  OperacionEgreso( otroProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
+	    	        	                Organizacion laorg = crearOrganizacion();
+	    	        	                OperacionEgreso opEgrezo= new  OperacionEgreso( otroProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales, laorg);
 	    	        	                operacionesEgreso.add(opEgrezo);
    	        	                }
 
@@ -529,9 +534,10 @@ public class Main {
      	                 List<DocumentoComercial> docsComerciales = new ArrayList<DocumentoComercial>();
      	                 docsComerciales.add(documentoComercialll);
      	                 DineroEnCuenta monedero = new DineroEnCuenta(1000000);
-     	                OperacionEgreso operacionEgreso = new OperacionEgreso(proveedor88, new Date(),monedero,itemsss,docsComerciales);
-     	               OperacionEgreso operacionEgresoBarata = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssBaratos,docsComerciales);
-     	              OperacionEgreso operacionEgresoCara = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssCAROS,docsComerciales);
+     	                 EntidadBase laorg = new EntidadBase("nombreFicticio", "descrip", 10, "direccionPostal", Actividad.COMERCIO, null);
+     	               OperacionEgreso operacionEgreso = new OperacionEgreso(proveedor88, new Date(),monedero,itemsss,docsComerciales, laorg);
+     	               OperacionEgreso operacionEgresoBarata = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssBaratos,docsComerciales, laorg);
+     	              OperacionEgreso operacionEgresoCara = new OperacionEgreso(proveedor88, new Date(),monedero,itemsssCAROS,docsComerciales, laorg);
      	               List<OperacionEgreso> operacionesEgre = Arrays.asList(operacionEgreso);
      	              List<OperacionEgreso> operacionesEgreBarata = Arrays.asList(operacionEgresoBarata);
      	             List<OperacionEgreso> operacionesEgreCara = Arrays.asList(operacionEgresoCara);
@@ -587,10 +593,11 @@ public class Main {
     	                for(Mensaje mensaje : mensajes) {
     	                	System.out.println(mensaje.getTextoMensaje());
     	                }
-    	                
-    	               
-    		      		
-    		      } //CIERRE SWITCH OPCIONES DEL MENÚ PRINCIPAL
+    	                break;
+    		      	case 5:
+    		      		crearIngreso();
+    		      		break;
+    		      } //CIERRE SWITCH OPCIONES DEL MENu PRINCIPAL
     	    } catch (InputMismatchException e) {
     	        System.out.println("Debes insertar un número");
     	        sn.next();
@@ -601,7 +608,7 @@ public class Main {
 	
 	
 //FUNCIONES PARA QUE NO SEA TAN GRONCHO EL MAIN
-public Usuario crearUsuario() {
+public static Usuario crearUsuario() {
 		System.out.println("Ingrese nombre de usuario: ");
 	    Scanner usuarioElegido = new Scanner(System.in);
 	    String usuario = usuarioElegido.nextLine ();
@@ -612,22 +619,23 @@ public Usuario crearUsuario() {
 	    return usuarioCreado;
 	}
 
-public void crearOrganizacion() {
+public static Organizacion crearOrganizacion() {
 	System.out.println("Elige el tipo de Organización: ");
 		System.out.println("1. Entidad base");
-    System.out.println("2. Entidad jurídica");
+    System.out.println("2. Entidad juridica");
     Scanner tipoOrganizacionElegido = new Scanner(System.in);
     int opcionOrganizacion = tipoOrganizacionElegido.nextInt();
-    
+    Organizacion organizacion = null;
     if(opcionOrganizacion == 1) {     	
-        EntidadBase entidadBase = this.crearEntidadBase();
+        organizacion = crearEntidadBase();
     }else if(opcionOrganizacion == 2) {    	
-        EntidadJuridica entidadJuridica = this.crearEntidadJuridica();
+        organizacion = crearEntidadJuridica();
     }
+    return organizacion;
  
 }
 
-public Actividad elegirActividad() {
+public static Actividad elegirActividad() {
 	System.out.println("Elegir tipo de actividad: ");
     System.out.println("1. Construcción");
     System.out.println("2. Servicio");
@@ -652,21 +660,21 @@ public Actividad elegirActividad() {
      return actividadOrganizacion;
 }
 
-public EntidadBase crearEntidadBase() {
-	System.out.println("Ingrese el nombre de la organización: ");
+public static EntidadBase crearEntidadBase() {
+	System.out.println("Ingrese el nombre de la organizacion: ");
 	Scanner nombreElegido = new Scanner(System.in);
     String nombreOrganizacion = nombreElegido.nextLine ();
-    System.out.println("Ingrese la descripción: ");
+    System.out.println("Ingrese la descripcion: ");
 	Scanner descripcionElegida = new Scanner(System.in);
     String descripcionOrganizacion = descripcionElegida.nextLine ();
     System.out.println("Cantidad de personal: ");
     Scanner personalSeleccionado = new Scanner(System.in);
     int personalOrganizacion = personalSeleccionado.nextInt();
-    System.out.println("Dirección postal: ");
+    System.out.println("Direccion postal: ");
 	Scanner direccionElegida = new Scanner(System.in);
     String direccionOrganizacion = direccionElegida.nextLine ();
     
-    Actividad actividadOrganizacion = this.elegirActividad();
+    Actividad actividadOrganizacion = elegirActividad();
    
     EntidadBase entidadBase = new EntidadBase(nombreOrganizacion, descripcionOrganizacion, personalOrganizacion, direccionOrganizacion, actividadOrganizacion);
     System.out.println("Entidad base creada exitosamente");
@@ -674,8 +682,8 @@ public EntidadBase crearEntidadBase() {
 	return entidadBase;
 }
 
-public EntidadJuridica crearEntidadJuridica() {
-	System.out.println("Ingrese la razón social: ");
+public static EntidadJuridica crearEntidadJuridica() {
+	System.out.println("Ingrese la razon social: ");
 	Scanner razonSocialElegida = new Scanner(System.in);
     String razonSocialOrganizacion = razonSocialElegida.nextLine ();
     System.out.println("Ingrese el nombre ficticio: ");
@@ -684,16 +692,16 @@ public EntidadJuridica crearEntidadJuridica() {
     System.out.println("CUIT: ");
     Scanner cuitElegido = new Scanner(System.in);
     String cuitOrganizacion = nombreElegido.nextLine ();
-    System.out.println("Dirección postal: ");
+    System.out.println("Direccion postal: ");
 	Scanner direccionElegida = new Scanner(System.in);
     String direccionOrganizacion = direccionElegida.nextLine ();
     System.out.println("Cantidad de personal: ");
     Scanner personalSeleccionado = new Scanner(System.in);
     int personalOrganizacion = personalSeleccionado.nextInt();
     
-    Actividad actividadOrganizacion = this.elegirActividad();
+    Actividad actividadOrganizacion = elegirActividad();
     
-    System.out.println("Elegir tipo de entidad jurídica: ");
+    System.out.println("Elegir tipo de entidad juridica: ");
     System.out.println("1. Empresa");
     System.out.println("2. OSC");
     Scanner tipoEntidadJurSeleccionada = new Scanner(System.in);
@@ -706,12 +714,12 @@ public EntidadJuridica crearEntidadJuridica() {
     	break;
     }
     EntidadJuridica entidadJuridica = new EntidadJuridica(razonSocialOrganizacion, nombreOrganizacion, cuitOrganizacion, direccionOrganizacion, personalOrganizacion, actividadOrganizacion, tipoEntidadJuridica);
-    System.out.println("Entidad jurídica creada exitosamente");
+    System.out.println("Entidad juridica creada exitosamente");
     return entidadJuridica;
 	
 }
 
-public Item crearItem() {
+public static Item crearItem() {
 	Criterio criterioClientes = new Criterio ("clientes");
 	Clasificacion clasificacionClienteA = new Clasificacion ("cliente A", criterioClientes, null);
 	Clasificacion clasificacionClienteB = new Clasificacion ("cliente B", criterioClientes, null);
@@ -732,11 +740,11 @@ public Item crearItem() {
      int laCantidad = cantiddd.nextInt ();
     System.out.println("Elija el criterio:");
     System.out.println("1. Clientes");
-   	System.out.println("2. Ubicación");
+   	System.out.println("2. Ubicacion");
 	    Scanner criterioElegido0 = new Scanner(System.in);
      int criterio0 = criterioElegido0.nextInt ();
    	if(criterio0 == 1) {
-	     	System.out.println("Elija la clasificación:");
+	     	System.out.println("Elija la clasificacion:");
          System.out.println("1. Cliente A");
      	System.out.println("2. Cliente B");
      	Scanner clasif0 = new Scanner(System.in);
@@ -748,7 +756,7 @@ public Item crearItem() {
         }
    	}
    if(criterio0 == 2) {
-	    	System.out.println("Elija la clasificación:");
+	    	System.out.println("Elija la clasificacion:");
         System.out.println("1. CABA");
 	     	System.out.println("2. Corrientes");
      	Scanner clasif0 = new Scanner(System.in);
@@ -763,7 +771,7 @@ public Item crearItem() {
  	return unItem;
 }
 
-public Presupuesto crearPresupuesto() { // no pregunta si es o no el presupuesto elegido
+public static Presupuesto crearPresupuesto() { // no pregunta si es o no el presupuesto elegido
 	
 	System.out.println("Ingrese el detalle del presupuesto:");
     Scanner descElegido = new Scanner(System.in);
@@ -774,7 +782,7 @@ public Presupuesto crearPresupuesto() { // no pregunta si es o no el presupuesto
     List<Item> unosItems = new ArrayList<Item>();
     while(cantItems>0) {
     	       	                	    	                	                	     		
-		Item unItem = this.crearItem();
+		Item unItem = crearItem();
     	unosItems.add(unItem);
     	cantItems --;
     }    
@@ -784,19 +792,19 @@ public Presupuesto crearPresupuesto() { // no pregunta si es o no el presupuesto
     List<DocumentoComercial> unosDocumentos = new ArrayList<DocumentoComercial>();
     while(cantDocEle>0) {
     	
-    	DocumentoComercial unDocumento = this.crearDocumento();
+    	DocumentoComercial unDocumento =  crearDocumento();
     	unosDocumentos.add(unDocumento);
     	cantDocEle --;
     }
     
 	
-     Proveedor elProveedor = this.crearProveedor();
+     Proveedor elProveedor =  crearProveedor();
        
         Presupuesto unPresupuesto = new Presupuesto(elProveedor, unDetalle, unosItems, unosDocumentos);
         return unPresupuesto;
 }
 
-public DocumentoComercial crearDocumento() {
+public static DocumentoComercial crearDocumento() {
 	System.out.println("Informacion del documento...");
 	System.out.println("Ingrese el numero del documento:");
     Scanner numeroChosen = new Scanner(System.in);
@@ -808,7 +816,7 @@ public DocumentoComercial crearDocumento() {
 	return unDocumento;
 }
 
-public Proveedor crearProveedor() {
+public static Proveedor crearProveedor() {
 	System.out.println("Elegir el tipo de proveedor:");
     System.out.println("1. Fisico");
     System.out.println("2. Juridica");
@@ -817,17 +825,17 @@ public Proveedor crearProveedor() {
        int tipoProveedor = tipoProveSeleccionada.nextInt();
        if (tipoProveedor == 1) {
                    
-           elProveedor = this.crearProveedorFisico();
+           elProveedor =  crearProveedorFisico();
            
         }else if(tipoProveedor == 2) {
        
-       	elProveedor = this.crearProveedorJuridico();
+       	elProveedor =  crearProveedorJuridico();
        	
        }
        return elProveedor;
 }
 
-public ProveedorJuridico crearProveedorJuridico() {
+public static ProveedorJuridico crearProveedorJuridico() {
 	System.out.println("Ingrese la razon social del proveedor:");
     Scanner razonElegido = new Scanner(System.in);
     String unRazonSocial = razonElegido.nextLine ();
@@ -841,7 +849,7 @@ public ProveedorJuridico crearProveedorJuridico() {
 	return otroProveedor;	
 }
 
-public ProveedorFisico crearProveedorFisico() {
+public static ProveedorFisico crearProveedorFisico() {
 	System.out.println("Ingrese el nombre del proveedor:");
     Scanner nombreElegido = new Scanner(System.in);
     String unNombre = nombreElegido.nextLine ();
@@ -861,7 +869,7 @@ public ProveedorFisico crearProveedorFisico() {
     return unProveedor;
 }
 
-public MedioDePago crearMedioDePago() {
+public static MedioDePago crearMedioDePago() {
 	 System.out.println("Elegir el medio de pago:");
 	     System.out.println("1. Tarjeta de credito");
 	     System.out.println("2. Tarjeta de debito");
@@ -875,24 +883,24 @@ public MedioDePago crearMedioDePago() {
 
 	     if(MPSeleccionado == 1) {
 	    	 
-  	    	elMedioDePago = this.crearTarjetaCredito();
+  	    	elMedioDePago =  crearTarjetaCredito();
 	     } if(MPSeleccionado == 2) {
 	    	 
-	    	 elMedioDePago = this.crearTarjetaDebito();
+	    	 elMedioDePago =  crearTarjetaDebito();
       	 }if(MPSeleccionado ==3) {
    		
-   	  	elMedioDePago = this.crearTicket();
+   	  	elMedioDePago =  crearTicket();
    	    }if(MPSeleccionado ==4) {
    		
-   	  	elMedioDePago = this.crearAtm();
+   	  	elMedioDePago =  crearAtm();
    	   }if(MPSeleccionado ==5) {
    		
-   	  	elMedioDePago = this.crearDineroEnCuenta();
+   	  	elMedioDePago =  crearDineroEnCuenta();
    	  }
    	   return elMedioDePago;
 }
 
-public TarjetaDeCredito crearTarjetaCredito() {
+public static TarjetaDeCredito crearTarjetaCredito() {
 	System.out.println("Ingrese el numero de la tarjeta:");
     Scanner numTar = new Scanner(System.in);
     String numeroTarjeta = numTar.nextLine ();
@@ -919,7 +927,7 @@ public TarjetaDeCredito crearTarjetaCredito() {
     TarjetaDeCredito tarjeta = new TarjetaDeCredito( numeroTarjeta, codigoSeguridad, fechaExpiracion, duenioNombre, duenioNroIdentificacion,  duenoTipoIdentificacion);
     return tarjeta;	
 }
-public TarjetaDeDebito crearTarjetaDebito() {
+public static TarjetaDeDebito crearTarjetaDebito() {
 	 System.out.println("Ingrese el numero de la tarjeta:");
      Scanner numTar = new Scanner(System.in);
      String elNumero = numTar.nextLine ();
@@ -947,14 +955,14 @@ public TarjetaDeDebito crearTarjetaDebito() {
 	return tarjetaD;     
 	
 }
-public Atm crearAtm() {
+public static Atm crearAtm() {
 	System.out.println("Ingrese el numero de link pagos:");
     Scanner nLP = new Scanner(System.in);
     int linkPagos = nLP.nextInt ();
 	Atm atm = new Atm(linkPagos);
 	return atm;
 }
-public DineroEnCuenta crearDineroEnCuenta(){
+public static DineroEnCuenta crearDineroEnCuenta(){
 	System.out.println("Ingrese el saldo actual:");
     Scanner jj = new Scanner(System.in);
     double saldo = jj.nextDouble ();
@@ -962,7 +970,7 @@ public DineroEnCuenta crearDineroEnCuenta(){
 	return dinero;
 }
 
-public Ticket crearTicket() {
+public static Ticket crearTicket() {
 	System.out.println("Ingrese el numero para el Cajero:");
     Scanner cajeroNUM = new Scanner(System.in);
     String numeroParaCajero = cajeroNUM.nextLine ();
@@ -973,7 +981,7 @@ public Ticket crearTicket() {
 	return ticket;
 }
 
-public Compra crearCompra() {
+public static Compra crearCompra() {
 
 		System.out.println("Ingrese la cantidad de presupuestos necesarios ");
     Scanner cantElegida = new Scanner(System.in);
@@ -984,7 +992,7 @@ public Compra crearCompra() {
 
     if(cantPresu>0) {
     	for(int i=0; i< cantPresu; i++) {
-    	Presupuesto unPresu=this.crearPresupuesto();	
+    	Presupuesto unPresu= crearPresupuesto();	
     	presupuestos.add(unPresu);
     	System.out.println("¿Es el presupuesto que se ha elegido al final?  (Y/N)");//Muy groncho, pero efectivo
         Scanner ufinal = new Scanner(System.in);
@@ -1012,7 +1020,7 @@ public Compra crearCompra() {
              
              while(cantItems>0) {
              	
-             	Item unItem = this.crearItem();
+             	Item unItem =  crearItem();
              	variosItems.add(unItem);
              	itemsCompra.add(unItem);
              	cantItems --;
@@ -1023,14 +1031,17 @@ public Compra crearCompra() {
             List<DocumentoComercial> losDocumentosComerciales = new ArrayList<DocumentoComercial>();
             while(cantDocEle>0) {
             	
-            	DocumentoComercial unDocumento = this.crearDocumento();
+            	DocumentoComercial unDocumento =  crearDocumento();
             	losDocumentosComerciales.add(unDocumento);
             	cantDocEle --;
             }//FIN DOCS
 
-       	     MedioDePago elMedioDePago = this.crearMedioDePago();
-       	  Proveedor unProveedor = this.crearProveedor();
-          OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales);
+       	     MedioDePago elMedioDePago =  crearMedioDePago();
+       	  Proveedor unProveedor =  crearProveedor();
+       	System.out.println("Cual es la organizacion de esta compra?");
+       	Organizacion laOrganizacion = crearOrganizacion();
+       	 
+          OperacionEgreso opEgre= new  OperacionEgreso( unProveedor, new Date(), elMedioDePago, variosItems, losDocumentosComerciales, laOrganizacion);
           operacionesEgreso.add(opEgre);
           
 
@@ -1043,7 +1054,7 @@ public Compra crearCompra() {
 
          while(cantRevi>0) {
         	 
-             Usuario usuarioCreadow = this.crearUsuario();
+             Usuario usuarioCreadow =  crearUsuario();
              revisores.add(usuarioCreadow);
              cantRevi--;
          }
@@ -1055,6 +1066,20 @@ public Compra crearCompra() {
    }
     return laCompra;
 }
+public static OperacionIngreso crearIngreso() {
+	System.out.println("Ingrese la descripcion del ingreso:");
+    Scanner descElegido = new Scanner(System.in);
+    String descrip = descElegido.nextLine ();
+    System.out.println("Ingrese el valor total del ingreso:");
+    Scanner cantElegidaItems = new Scanner(System.in);
+    double valorTtal = cantElegidaItems.nextInt ();
+    List<OperacionEgreso> operacionesEgre = new ArrayList<OperacionEgreso>();
+    System.out.println("De que organizacion corresponde este ingreso?");
+    Organizacion organizacion = crearOrganizacion();
+	OperacionIngreso ingreso = new OperacionIngreso(descrip, valorTtal, operacionesEgre, organizacion);
+	System.out.println("Ya se ingreso el ingreso ;)");
+	return ingreso;
+}
 
 } //CIERRE CLASE MAIN
 
@@ -1063,25 +1088,5 @@ public Compra crearCompra() {
 
 
 
-/* System.out.println("Ingrese la cantidad de tipos de items:");
-Scanner amountElegidaItems = new Scanner(System.in);
-int cantItems = amountElegidaItems.nextInt ();
-List<Item> itemsCompra = new ArrayList<Item>();
 
-while(cantItems>0) {
-	 	System.out.println("Informacion del item...");
-      	System.out.println("Ingrese la descripcion del item:");
-       Scanner descripcioNElegido = new Scanner(System.in);
-       String laDescripcion = descripcioNElegido.nextLine ();
-       System.out.println("Ingrese el valor:");
-         Scanner price = new Scanner(System.in);
-         int elValor = price.nextInt ();
-         System.out.println("Ingrese la cantidad de este producto:");
-         Scanner cantiddd = new Scanner(System.in);
-         int laCantidad = cantiddd.nextInt ();
-       Item unItem = new Item (laDescripcion, elValor, laCantidad);
-       itemsCompra.add(unItem);
-       cantItems --;
-}*/
-// ESTOS se rellena a medida que se va llenando cada operacion egreso, si no buscar itemscompra en el codigo para entender
 

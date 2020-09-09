@@ -5,11 +5,13 @@ public class OperacionIngreso {
 	String descripcion;
 	double valorTotal;
 	List<OperacionEgreso> egresos;
+	Organizacion organizacion;
 	
-	public OperacionIngreso(String descrip, double valorTtal, List<OperacionEgreso> operacionesEgre) {
+	public OperacionIngreso(String descrip, double valorTtal, List<OperacionEgreso> operacionesEgre, Organizacion organizacion) {
 		this.descripcion = descrip;
 		this.valorTotal = valorTtal;
 		this.egresos = operacionesEgre;
+		this.organizacion = organizacion;
 	}
 	
 	public double getValorTotalOperacion() {
