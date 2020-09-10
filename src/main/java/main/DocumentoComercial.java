@@ -1,16 +1,31 @@
 package main;
 
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import enumeradores.TipoDocumentoComercial;
+
+@Entity
 public class DocumentoComercial {
 	
-	String nroDoc;
-	String tipo; //Quizás un enum, mejor? Porque son pocas opciones y van a ser siempre las mismas
+	@Id @GeneratedValue
+	int id_documento_comercial;
+	String numero_identificacion;
+	@ManyToOne
+	int id_operacion_egreso;
+	@Enumerated
+	TipoDocumentoComercial tipo;
 
-	public DocumentoComercial(String nroDoc,String tipo) {
-		this.nroDoc=nroDoc;
+	public DocumentoComercial(String numero_identificacion,int id_operacion_egreso,TipoDocumentoComercial tipo) {
+		this.numero_identificacion=numero_identificacion;
+		this.id_operacion_egreso = id_operacion_egreso;
 		this.tipo = tipo;
 	}
 
-	public String getTipo() {
+	public TipoDocumentoComercial getTipo() {
 		return tipo;
 	}
 

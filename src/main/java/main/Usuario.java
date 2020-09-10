@@ -4,15 +4,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 import mensajes.Mensaje;
 
+@Entity
 public class Usuario {
 	
+	@Id @GeneratedValue
 	String nombre;
 	String contrasenia;
 	int tipo;
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
+	
+	@Transient
 	BandejaMensajes bandejaEntrada;
 	
 	MD5Hashing hash = MD5Hashing.getInstance();

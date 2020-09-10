@@ -1,13 +1,23 @@
 package main;
 
 import java.io.FileNotFoundException;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import java.io.IOException;
 
 import exceptions.CriterioPadreException;
 
+@Entity
 public class Clasificacion {
+	
+	@Id @GeneratedValue
+	int id_clasificacion;
 	String descripcion;
 	Criterio criterio;
+	@OneToOne
 	Clasificacion clasificacionPadre;
 	
 	public Clasificacion(String descripcion, Criterio criterio, Clasificacion padre ) throws CriterioPadreException, IOException{

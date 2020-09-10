@@ -9,10 +9,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
         
-        <class>domain.Evento.java</class>
-        <class>domain.Guardarropas.java</class>
-        <class>domain.Usuario.java</class>
-        <class>domain.Prenda.java</class>
+        <class>domain.Criterio.java</class>
+        <class>domain.Clasificacion.java</class>
+        <class>domain.DocumentoComercial.java</class>
+        <class>domain.MedioDePago.java</class>
         <class>domain.Prenda.TipoDePrenda.java</class>
         <class>domain.RepositorioSugerencias.java</class>
 

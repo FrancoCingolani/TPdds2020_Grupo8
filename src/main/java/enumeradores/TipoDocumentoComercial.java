@@ -1,0 +1,5 @@
+package enumeradores;
+
+public enum TipoDocumentoComercial {
+	FACTURA, NOTA_DEBITO, NOTA_CREDITO, RECIBO, CHEQUE, PAGARE, ORDEN_COMPRA, BOLETA_DEPOSITO_BANCARIO, REMITO
+}
