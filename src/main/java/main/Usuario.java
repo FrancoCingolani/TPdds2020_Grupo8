@@ -21,7 +21,7 @@ public class Usuario {
 	int intentosMaximos = 3;
 	int cantidadIntentos = 0;
 	
-	@Transient
+	@Transient //Volver a ver. Por ahora no lo persisto 
 	BandejaMensajes bandejaEntrada;
 	
 	MD5Hashing hash = MD5Hashing.getInstance();

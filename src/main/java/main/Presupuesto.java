@@ -1,15 +1,31 @@
 package main;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Presupuesto {
+	
+	
+	@Id @GeneratedValue
+	int id_presupuesto;
 	
 	double valorTotal;
 	Proveedor proveedor;
 	String detalle;
-	List<DocumentoComercial> documentos;
-	List<Item> items;
+	
+	@OneToMany
+	private List<DocumentoComercial> documentos = new ArrayList<DocumentoComercial>();
+	
+	@OneToMany
+	private List<Item> items = new ArrayList<Item>();
+
 	
 	public Presupuesto(Proveedor proveedor,String detalle, List<Item> items, List<DocumentoComercial> documentos) {
 		this.valorTotal = 0;

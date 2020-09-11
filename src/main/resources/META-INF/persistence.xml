@@ -9,12 +9,13 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
         
-        <class>domain.Criterio.java</class>
-        <class>domain.Clasificacion.java</class>
-        <class>domain.DocumentoComercial.java</class>
-        <class>domain.MedioDePago.java</class>
-        <class>domain.Prenda.TipoDePrenda.java</class>
-        <class>domain.RepositorioSugerencias.java</class>
+        <class>main.Criterio.java</class>
+        <class>main.Clasificacion.java</class>
+        <class>main.Usuario.java</class>
+        <class>main.DocumentoComercial.java</class>
+        <class>main.MedioDePago.java</class>
+        <class>main.Item.java</class>
+        <class>main.Presupuesto.java</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>

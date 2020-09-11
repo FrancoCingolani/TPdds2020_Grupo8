@@ -1,17 +1,34 @@
 package main;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 //QUIEN CAMBIE ESTO TAMBIEN TIENE QUE CAMBIAR EN EL MAIN......  ES MUUUUCHO
+
+@Entity
 public class Item {
+	
+	@Id @GeneratedValue
+	int id_item;
 	
 	String descripcion;
 	double valor;
 	int cantidad;
+	
+	@ManyToOne
 	Clasificacion clasificacion;
 	
-	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion) {
+	@ManyToOne
+	Presupuesto presupuesto;
+	
+	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion, Presupuesto presupuesto) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 		this.cantidad = cantidad;
 		this.clasificacion = clasificacion;
+		this.presupuesto = presupuesto;
 	}
 
 	public String getDescripcion() {
