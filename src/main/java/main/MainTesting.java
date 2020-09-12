@@ -37,7 +37,7 @@ public class MainTesting {
 		Presupuesto presupuesto1 = new Presupuesto(proveedor88,"detalle",items,null);
 		Presupuesto presupuesto2 = new Presupuesto(proveedor88,"detalle",items,null);
 		
-		List<Presupuesto> presupuestos = Arrays.asList(presupuesto1, presupuesto2);
+		List<Presupuesto> presupuestos = Arrays.asList(presupuesto1);
         
         Compra compra = new Compra(1, presupuestos, null, revisores, items, presupuesto2);
         
