@@ -2,18 +2,39 @@ package main;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import categoriasEntidadJuridica.Categoria;
 import enumeradores.Actividad;
 import enumeradores.TipoEntidadJuridica;
 
+@Entity
 public class Organizacion {
+	
+	@Id @GeneratedValue
+	int id_organizacion;
+	
+	@OneToMany
 	List<OperacionEgreso> operacionesEgresoEntidad;
+	@OneToMany
 	List<OperacionIngreso> operacionesIngresoEntidad;
 	double ventasAnuales;
 	int personal;
 	String direccionPostal;
+	@ManyToOne
 	Actividad actividad;
+	@OneToOne
 	Categoria categoria;
+	@Enumerated
 	TipoEntidadJuridica tipo;
 	int periodoVinculacion;
 	

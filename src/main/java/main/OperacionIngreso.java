@@ -1,11 +1,19 @@
 package main;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import java.util.Date;
 
+@Entity
 public class OperacionIngreso {
 	String descripcion;
 	double valorTotal;
+	@OneToMany
 	List<OperacionEgreso> egresos;
+	@ManyToOne
 	Organizacion organizacion;
 	Date fechaIngreso;
 	

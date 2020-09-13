@@ -1,5 +1,10 @@
 package main;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("juridico")
 public class ProveedorJuridico extends Proveedor{
 	
 	String razonSocial;

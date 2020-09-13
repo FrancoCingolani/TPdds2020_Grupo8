@@ -3,14 +3,28 @@ package main;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
+@Entity
 public class OperacionEgreso{
+	
+	@Id @GeneratedValue
+	int id_operacion_egreso;
 	
 	Proveedor proveedor;
 	Date fecha;
 	double valorTotal;
 	MedioDePago medioDePago;
+	@OneToMany
 	List<Item> items;
+	@OneToMany
 	List<DocumentoComercial> documentosComerciales;
+	@OneToOne
 	Organizacion organizacion;
 	boolean fueVinculado;
 

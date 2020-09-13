@@ -15,7 +15,18 @@
         <class>main.DocumentoComercial.java</class>
         <class>main.MedioDePago.java</class>
         <class>main.Item.java</class>
+        <class>main.Compra.java</class>
+        <class>main.Proveedor.java</class>
+        <class>main.OperacionOngreso.java</class>
+        <class>main.OperacionEgreso.java</class>
         <class>main.Presupuesto.java</class>
+		<class>main.TipoDocumento.java</class>
+		<class>main.Organizacion.java</class>
+		<class>main.Presupuesto.java</class>
+		<class>main.Presupuesto.java</class>
+		<class>main.Presupuesto.java</class>
+
+
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>

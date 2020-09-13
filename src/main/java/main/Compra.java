@@ -2,12 +2,26 @@ package main;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
+@Entity
 public class Compra extends Operacion{
 	
+	@Id @GeneratedValue
+	int id_compra;
+	
 	int cantPresuReq;
+	@OneToMany
 	List<Presupuesto> presupuestos;
+	@OneToMany
 	List<OperacionEgreso> operacionesEgre;
+	@OneToMany
 	List<Usuario> revisores;
+	@OneToMany
 	List<Item> items;
 	Presupuesto presupuestoElegido;
 	
