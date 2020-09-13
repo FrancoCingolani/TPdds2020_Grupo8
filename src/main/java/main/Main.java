@@ -608,7 +608,7 @@ public class Main {
 	
 	
 //FUNCIONES PARA QUE NO SEA TAN GRONCHO EL MAIN
-public static Usuario crearUsuario() {
+public static Usuario crearUsuario()  throws FileNotFoundException, IOException  {
 		System.out.println("Ingrese nombre de usuario: ");
 	    Scanner usuarioElegido = new Scanner(System.in);
 	    String usuario = usuarioElegido.nextLine ();
@@ -771,6 +771,7 @@ public static Item crearItem() {
         	clasificacion0 = clasificacionUbicacionCorrientes;
         }
 	}
+   //faltaria lo del presupuesto
  	Item unItem = new Item (laDescripcion, elValor, laCantidad, clasificacion0);
  	return unItem;
 }

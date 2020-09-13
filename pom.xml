@@ -63,6 +63,20 @@
 		<artifactId>jpa-java8-extras</artifactId>
 		<version>1.0-alpha-1</version>
 	</dependency>
+	
+<!-- LAS COSAS PARA LA API SEGUN LO QUE LEI QUE HIZO NACHITO -->
+ 	<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.10</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20200518</version>
+		</dependency>
+
 		    
 	<dependency>
 	     <groupId>org.hsqldb</groupId>
