@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class Clasificacion {
 	@Id @GeneratedValue
 	int id_clasificacion;
 	String descripcion;
+	@ManyToOne
 	Criterio criterio;
 	@OneToOne
 	Clasificacion clasificacionPadre;

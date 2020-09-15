@@ -24,7 +24,10 @@ public class Usuario {
 	@Transient //Volver a ver. Por ahora no lo persisto 
 	BandejaMensajes bandejaEntrada;
 	
+	@Transient
 	MD5Hashing hash = MD5Hashing.getInstance();
+	
+	@Transient
 	ValidadorDeContrasenia validador = ValidadorDeContrasenia.getInstance();
 	
 	public Usuario(String nombre, String contrasenia, int tipo) throws FileNotFoundException, IOException {

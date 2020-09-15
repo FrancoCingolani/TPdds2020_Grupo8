@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -16,10 +17,11 @@ public class OperacionEgreso{
 	@Id @GeneratedValue
 	int id_operacion_egreso;
 	
+	@ManyToOne
 	Proveedor proveedor;
 	Date fecha;
 	double valorTotal;
-	//VER HERENCIA
+	@ManyToOne
 	MedioDePago medioDePago;
 	@OneToMany
 	List<Item> items;

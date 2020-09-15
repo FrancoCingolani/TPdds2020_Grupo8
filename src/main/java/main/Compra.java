@@ -23,7 +23,7 @@ public class Compra extends Operacion{
 	List<Usuario> revisores;
 	@OneToMany
 	List<Item> items;
-	Presupuesto presupuestoElegido;
+	int presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pasé a int. Volver a revisar
 	
 	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, Presupuesto presupuestoElegido) {
 		/** Ignacio: No es lÃ³gico que al momento de crearse la necesidad de compra se carguen al mismo tiempo los presupuestos, los egresos, los revisores y el presupuesto
