@@ -22,6 +22,12 @@
         <class>main.Presupuesto.java</class>
 		<class>main.TipoDocumento.java</class>
 		<class>main.Organizacion.java</class>
+		<class>main.TarjetaDeCredito.java</class>
+		<class>main.TarjetaDeDebito.java</class>
+		<class>main.Ticket.java</class>
+		<class>main.Atm.java</class>
+		<class>main.DineroEnCuenta.java</class>
+		<class>main.Presupuesto.java</class>
 		<class>main.Presupuesto.java</class>
 		<class>main.Presupuesto.java</class>
 		<class>main.Presupuesto.java</class>

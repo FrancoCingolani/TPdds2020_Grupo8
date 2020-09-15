@@ -1,5 +1,9 @@
 package main;
 //TIENE LO QUE DICE EL DIAGRAMA DE CLASES
+
+import javax.persistence.Entity;
+
+@Entity(name = "DineroEnCuenta")
 public class DineroEnCuenta extends MedioDePago {
 		double saldo; 
 		

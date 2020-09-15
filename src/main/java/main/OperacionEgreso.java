@@ -19,6 +19,7 @@ public class OperacionEgreso{
 	Proveedor proveedor;
 	Date fecha;
 	double valorTotal;
+	//VER HERENCIA
 	MedioDePago medioDePago;
 	@OneToMany
 	List<Item> items;

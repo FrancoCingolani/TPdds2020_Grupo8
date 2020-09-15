@@ -1,5 +1,9 @@
 package main;
 //TIENE LO QUE DICE EL DIAGRAMA DE CLASES
+
+import javax.persistence.Entity;
+
+@Entity(name = "Ticket")
 public class Ticket extends MedioDePago{
 	String	numeroParaCajero;
 	long codigoBarras; 

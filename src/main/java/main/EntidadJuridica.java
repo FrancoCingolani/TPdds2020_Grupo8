@@ -2,8 +2,15 @@ package main;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
 import enumeradores.*;
 
+@Entity
+@Table(name = "EntidadesJuridicas")
+@PrimaryKeyJoinColumn(name = "id_entidad_juridica")
 public class EntidadJuridica extends Organizacion{
 	
 	String razonSocial;

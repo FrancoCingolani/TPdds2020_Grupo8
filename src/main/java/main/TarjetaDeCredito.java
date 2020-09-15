@@ -2,6 +2,9 @@ package main;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity(name = "TarjetaDeCredito")
 public class TarjetaDeCredito extends MedioDePago{
 	
 	String numero;

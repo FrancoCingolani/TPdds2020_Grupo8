@@ -2,11 +2,22 @@ package main;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
 import enumeradores.Actividad;
 
+
+@Entity
+@Table(name = "EntidadesJuridicas")
+@PrimaryKeyJoinColumn(name = "id_entidad_base")
 public class EntidadBase extends Organizacion{
 	String nombreFicticio;
 	String descripcion;
+	
+	@ManyToOne
 	EntidadJuridica perteneceA;
 	
 	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, int periodo) {
