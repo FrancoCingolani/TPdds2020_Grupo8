@@ -33,7 +33,7 @@ public class Organizacion {
 	double ventasAnuales;
 	int personal;
 	String direccionPostal;
-	@ManyToOne
+	@Enumerated
 	Actividad actividad;
 	@OneToOne
 	Categoria categoria;

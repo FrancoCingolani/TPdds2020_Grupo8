@@ -15,11 +15,11 @@ public class DocumentoComercial {
 	int id_documento_comercial;
 	String numero_identificacion;
 	@ManyToOne
-	int id_operacion_egreso;
+	OperacionEgreso id_operacion_egreso;
 	@Enumerated
 	TipoDocumentoComercial tipo;
 
-	public DocumentoComercial(String numero_identificacion,int id_operacion_egreso,TipoDocumentoComercial tipo) {
+	public DocumentoComercial(String numero_identificacion,OperacionEgreso id_operacion_egreso,TipoDocumentoComercial tipo) {
 		this.numero_identificacion=numero_identificacion;
 		this.id_operacion_egreso = id_operacion_egreso;
 		this.tipo = tipo;

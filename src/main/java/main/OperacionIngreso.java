@@ -2,6 +2,8 @@ package main;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -9,6 +11,10 @@ import java.util.Date;
 
 @Entity
 public class OperacionIngreso {
+	
+	@Id @GeneratedValue
+	int id_operacion_ingreso;
+	
 	String descripcion;
 	double valorTotal;
 	@OneToMany
