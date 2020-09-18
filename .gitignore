@@ -100,3 +100,5 @@ hs_err_pid*
 /target/
 
 src/main/java/main/MainTesting.java
+
+src/main/resources/META-INF/*.*

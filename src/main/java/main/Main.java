@@ -70,7 +70,7 @@ public class Main { //REVISAR ITEM Y COMPRA
      	                List<Item> itemsss = Arrays.asList(item111, item222,item333);
      	                List<Item> itemsssBaratos = Arrays.asList(item11B, item22B,item33B);
      	                List<Item> itemsssCAROS = Arrays.asList(item11C, item22C,item33C);
-     	                DocumentoComercial documentoComercialll = new DocumentoComercial("1","tipo");
+     	                DocumentoComercial documentoComercialll = new DocumentoComercial("1",operacionEgreso,TipoDocumentoComercial.FACTURA);
      	                 List<DocumentoComercial> docsComerciales = new ArrayList<DocumentoComercial>();
      	                 docsComerciales.add(documentoComercialll);
      	                 DineroEnCuenta monedero = new DineroEnCuenta(1000000);
@@ -263,7 +263,7 @@ public static EntidadJuridica crearEntidadJuridica() {
 	
 }
 
-public static Item crearItem() {
+public static Item crearItem() { //TODO
 	Criterio criterioClientes = new Criterio ("clientes");
 	Clasificacion clasificacionClienteA = new Clasificacion ("cliente A", criterioClientes, null);
 	Clasificacion clasificacionClienteB = new Clasificacion ("cliente B", criterioClientes, null);
@@ -349,7 +349,7 @@ public static Presupuesto crearPresupuesto() { // no pregunta si es o no el pres
         return unPresupuesto;
 }
 
-public static DocumentoComercial crearDocumento() {
+public static DocumentoComercial crearDocumento() {//TODO
 	System.out.println("Informacion del documento...");
 	System.out.println("Ingrese el numero del documento:");
     Scanner numeroChosen = new Scanner(System.in);
@@ -539,7 +539,7 @@ public static Compra crearCompra() {
     	for(int i=0; i< cantPresu; i++) {
     	Presupuesto unPresu= crearPresupuesto();	
     	presupuestos.add(unPresu);
-    	System.out.println("Â¿Es el presupuesto que se ha elegido al final?  (Y/N)");//Muy groncho, pero efectivo
+    	System.out.println("¿Es el presupuesto que se ha elegido al final?  (Y/N)");//Muy groncho, pero efectivo
         Scanner ufinal = new Scanner(System.in);
         String fuELegido = ufinal.nextLine ();
         	if(fuELegido == "Y") {
@@ -599,7 +599,7 @@ public static Compra crearCompra() {
 
          while(cantRevi>0) {
         	 
-             Usuario usuarioCreadow =  crearUsuario();
+             Usuario usuarioCreadow =  crearUsuario(); //REVISAR
              revisores.add(usuarioCreadow);
              cantRevi--;
          }
