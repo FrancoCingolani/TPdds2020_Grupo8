@@ -21,15 +21,14 @@ public class Item {
 	@ManyToOne
 	Clasificacion clasificacion;
 	
-	@ManyToOne
-	Presupuesto presupuesto;
+	int numeroPresupuesto;
 	
-	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion, Presupuesto presupuesto) {
+	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion, int numeroPresupuesto) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 		this.cantidad = cantidad;
 		this.clasificacion = clasificacion;
-		this.presupuesto = presupuesto;
+		this.numeroPresupuesto = numeroPresupuesto;
 	}
 
 	public String getDescripcion() {

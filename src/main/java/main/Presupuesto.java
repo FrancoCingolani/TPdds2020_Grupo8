@@ -28,6 +28,8 @@ public class Presupuesto {
 	
 	@OneToMany
 	private List<Item> items = new ArrayList<Item>();
+	
+	int numeroPresupuesto;
 
 	
 	public Presupuesto(Proveedor proveedor,String detalle, List<Item> items, List<DocumentoComercial> documentos) {
