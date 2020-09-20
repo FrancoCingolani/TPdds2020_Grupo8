@@ -20,6 +20,7 @@ public class OperacionEgreso{
 	@ManyToOne
 	Proveedor proveedor;
 	Date fecha;
+	CurrencyML moneda;
 	double valorTotal;
 	@ManyToOne
 	MedioDePago medioDePago;

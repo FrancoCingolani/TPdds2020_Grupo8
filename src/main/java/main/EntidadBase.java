@@ -20,15 +20,16 @@ public class EntidadBase extends Organizacion{
 	@ManyToOne
 	EntidadJuridica perteneceA;
 	
-	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, int periodo) {
-		this (nombreFicticio, descripcion, personal, direccionPostal, actividad, null, periodo);
+	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal,CityML Ciudad, Actividad actividad, int periodo) {
+		this (nombreFicticio, descripcion, personal, direccionPostal,Ciudad, actividad, null, periodo);
 	}
 	
-	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal, Actividad actividad, EntidadJuridica perteneceA, int periodo) {
+	public EntidadBase(String nombreFicticio, String descripcion, int personal, String direccionPostal,CityML Ciudad, Actividad actividad, EntidadJuridica perteneceA, int periodo) {
 		this.nombreFicticio = nombreFicticio;
 		this.descripcion = descripcion;
 		this.personal = personal;
 		this.direccionPostal = direccionPostal;
+		this.ciudad = Ciudad;
 		this.actividad = actividad;
 		this.perteneceA = perteneceA;
 		this.categoria = null;

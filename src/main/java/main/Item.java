@@ -14,6 +14,7 @@ public class Item {
 	int id_item;
 	
 	String descripcion;
+	CurrencyML moneda;
 	double valor;
 	int cantidad;
 	

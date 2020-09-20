@@ -16,6 +16,7 @@ public class OperacionIngreso {
 	int id_operacion_ingreso;
 	
 	String descripcion;
+	CurrencyML moneda;
 	double valorTotal;
 	@OneToMany
 	List<OperacionEgreso> egresos;

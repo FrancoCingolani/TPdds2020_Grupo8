@@ -21,11 +21,12 @@ public class EntidadJuridica extends Organizacion{
 	//Categoria 
 	
 	// Constructor; como el codigoInscripcionIGJ es opcional, creo 2 constructores diferentes (overloading). Ver si conviene realizarlo con el patrón builder
-	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo, int codigoInscripcionIGJ, int periodo) {
+	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal,CityML Ciudad, int personal, Actividad actividad, TipoEntidadJuridica tipo, int codigoInscripcionIGJ, int periodo) {
 		this.razonSocial = razonSocial;
 		this.nombreFicticio = nombreFicticio;
 		this.CUIT = CUIT;
 		this.direccionPostal = direccionPostal;
+		this.ciudad = Ciudad;
 		this.personal = personal;
 		this.actividad = actividad;
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
@@ -37,16 +38,17 @@ public class EntidadJuridica extends Organizacion{
 		this.periodoVinculacion = periodo;
 	}
 	
-	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, int personal, Actividad actividad, TipoEntidadJuridica tipo, int periodo) {
-		this (razonSocial, nombreFicticio, CUIT, direccionPostal, personal, actividad, tipo, 0, periodo);
+	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal, CityML Ciudad,int personal, Actividad actividad, TipoEntidadJuridica tipo, int periodo) {
+		this (razonSocial, nombreFicticio, CUIT, direccionPostal,Ciudad, personal, actividad, tipo, 0, periodo);
 	}
 	
-	// Para cambiar una entidad jurídica a una base
+	// Para cambiar una entidad juridica a una base
 	public EntidadJuridica (EntidadBase viejaEntidad, String razonSocial, TipoEntidadJuridica tipo, String CUIT, int codigoInscripcionIGJ, int periodo) {
 		this.razonSocial = razonSocial;
 		this.nombreFicticio = viejaEntidad.nombreFicticio;
 		this.CUIT = CUIT;
 		this.direccionPostal = viejaEntidad.direccionPostal;
+		this.ciudad = viejaEntidad.ciudad;
 		this.personal = viejaEntidad.personal;
 		this.actividad = viejaEntidad.actividad;
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;

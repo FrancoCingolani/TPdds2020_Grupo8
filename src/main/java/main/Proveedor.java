@@ -15,10 +15,12 @@ public class Proveedor {
 	@Id @GeneratedValue
 	int id_proveedor;
 	String direccionPostal;
+	CityML ciudad;
 	
 	
-	public Proveedor(String direccionPostal) {
+	public Proveedor(String direccionPostal, CityML Ciudad) {
 		this.direccionPostal = direccionPostal;
+		this.ciudad = Ciudad;
 	}
 	
 	public String getdireccionPostal() {

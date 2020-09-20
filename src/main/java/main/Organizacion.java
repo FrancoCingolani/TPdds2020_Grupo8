@@ -33,6 +33,7 @@ public class Organizacion {
 	double ventasAnuales;
 	int personal;
 	String direccionPostal;
+	CityML ciudad;
 	@Enumerated
 	Actividad actividad;
 	@OneToOne

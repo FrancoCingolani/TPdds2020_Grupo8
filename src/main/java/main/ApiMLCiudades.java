@@ -14,9 +14,9 @@ import org.apache.http.util.EntityUtils;
 
 import org.json.*;
 
-public class ApiMLProvincias {
-	public static List<StateML> Get_Provincias() throws ClientProtocolException, IOException {
-		List<StateML> Provincias = new ArrayList<StateML>();
+public class ApiMLCiudades {
+	public static List<CityML> Get_Provincias() throws ClientProtocolException, IOException {
+		List<CityML> Ciudades = new ArrayList<CityML>();
 		String url = "https://api.mercadolibre.com/classified_locations/countries/AR";
 		CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
@@ -37,9 +37,15 @@ public class ApiMLProvincias {
                     // Itero sobre la lista de provincias y seteo los correspondientes atributos
                     for (int i = 0; i < states.length(); i++) {
                     	JSONObject prov = (JSONObject)states.get(i);
-                    	StateML nuevaProvincia = new StateML (prov.getString("name"), prov.getString("id"));
-                    	agregarCoordenadasAProvincia(nuevaProvincia);
-                        Provincias.add(nuevaProvincia);
+                    	JSONArray ciudadis=  prov.getJSONArray("cities");
+                    	CityML nuevaCiudad = new CityML (prov.getString("name"), prov.getString("id"));
+                    	agregarCoordenadasAProvincia(nuevaCiudad);
+                    	for(int j =0; j<ciudadis.length();j++) {
+                    	JSONObject ciud = (JSONObject)ciudadis.get(i);
+                    	nuevaCiudad.setNombreCiudad(ciud.getString("name"));
+                    	nuevaCiudad.setIdCiudad(ciud.getString("id"));
+                        Ciudades.add(nuevaCiudad);
+                        }
                     }
                 }
 
@@ -51,11 +57,11 @@ public class ApiMLProvincias {
             httpClient.close();
         }
         
-        return Provincias;
+        return Ciudades;
     }
 	
-	private static void agregarCoordenadasAProvincia(StateML provincia) throws ClientProtocolException, IOException {
-		String url = "https://api.mercadolibre.com/classified_locations/states/" + provincia.getId();
+	private static void agregarCoordenadasAProvincia(CityML ciudad) throws ClientProtocolException, IOException {
+		String url = "https://api.mercadolibre.com/classified_locations/states/" + ciudad.getId_State();
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		
 		try {
@@ -72,7 +78,7 @@ public class ApiMLProvincias {
                     JSONObject obj = new JSONObject(result);
                     JSONObject coordenadas = (JSONObject) obj.get("geo_information");
                     JSONObject ubicacion = (JSONObject) coordenadas.get("location");
-                    provincia.setLatitudyLongitud(ubicacion.get("latitude").toString(), ubicacion.get("longitude").toString());
+                    ciudad.setLatitudyLongitud(ubicacion.get("latitude").toString(), ubicacion.get("longitude").toString());
                 }
 
             } finally {
@@ -84,4 +90,8 @@ public class ApiMLProvincias {
         }
 		
 	}
+	
+
+	
+	
 }
