@@ -37,7 +37,7 @@ public class ApiMLMonedas {
                     // Itero sobre la lista de moneditas y seteo los correspondientes atributos
                     for (int i = 0; i < currencies.length(); i++) {
                     	JSONObject monedita = (JSONObject)currencies.get(i);
-                    	CurrencyML nuevaMoneda = new CurrencyML( monedita.getString("description"), monedita.getString("id"), monedita.getString("symbol"), monedita.getInt("decimal_places"));
+                    	CurrencyML nuevaMoneda = new CurrencyML( monedita.getString("description"),  monedita.getString("symbol"), monedita.getInt("decimal_places"));
                         moneditas.add(nuevaMoneda);
                     }
                 }
