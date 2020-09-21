@@ -25,7 +25,7 @@ public class Compra extends Operacion{
 	List<Item> items;
 	int presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pas� a int. Volver a revisar
 	
-	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, Presupuesto presupuestoElegido) {
+	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, int presupuestoElegido) {
 		/** Ignacio: No es lógico que al momento de crearse la necesidad de compra se carguen al mismo tiempo los presupuestos, los egresos, los revisores y el presupuesto
 		 * Se supone que primero se carga la compra, sin presupuestos, sin revisores, sin egresos y sin presupuesto elegido. Los presupuestos se van pidiendo a los proveedores
 		 * quienes los envían y luego se agregan a la compra en caso de cumplir ciertos parámetros. Mismo con revisores. El presupuesto elegido sale de comprar todos
@@ -79,11 +79,11 @@ public class Compra extends Operacion{
 		this.items = items;
 	}
 	
-	public Presupuesto getPresupestoElegido() {
+	public int getPresupestoElegido() {
 		return presupuestoElegido;
 	}
 
-	public void setPresupuestoElegido(Presupuesto presupuestoElegido) {
+	public void setPresupuestoElegido(int presupuestoElegido) {
 		this.presupuestoElegido = presupuestoElegido;
 	}
 	

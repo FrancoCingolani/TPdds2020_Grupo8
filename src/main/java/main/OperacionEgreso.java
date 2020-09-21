@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -18,19 +19,26 @@ public class OperacionEgreso{
 	int id_operacion_egreso;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_proveedor")
 	Proveedor proveedor;
 	Date fecha;
-	CurrencyML moneda;
+	@ManyToOne
+	@JoinColumn(name = "id_moneda")
+	CurrencyML id_moneda;
 	double valorTotal;
 	@ManyToOne
 	MedioDePago medioDePago;
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "operacionEgreso")
 	List<Item> items;
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "operacionEgreso")
 	List<DocumentoComercial> documentosComerciales;
 	@OneToOne
+	@JoinColumn(name = "id_organizacion")
 	Organizacion organizacion;
 	boolean fueVinculado;
+	@ManyToOne
+	@JoinColumn(name = "id_operacion_ingreso")
+	OperacionIngreso operacionIngreso;
 
 	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales, Organizacion organizacion) {
 		this.proveedor = proveedor;

@@ -1,6 +1,14 @@
 package main;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class CurrencyML {
+	
+	@Id @GeneratedValue
+	int id_moneda;
 
 	private String Descripcion;
 	private String Symbol;

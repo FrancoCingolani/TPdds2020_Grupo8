@@ -17,7 +17,8 @@ public class Presupuesto {
 	@Id @GeneratedValue
 	int id_presupuesto;
 	
-	CurrencyML moneda;
+	@ManyToOne
+	CurrencyML id_moneda;
 	double valorTotal;
 	@ManyToOne
 	Proveedor proveedor;

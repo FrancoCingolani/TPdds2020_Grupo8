@@ -43,7 +43,6 @@ public class ApiMLCiudades {
                     	for(int j =0; j<ciudadis.length();j++) {
                     	JSONObject ciud = (JSONObject)ciudadis.get(i);
                     	nuevaCiudad.setNombreCiudad(ciud.getString("name"));
-                    	nuevaCiudad.setIdCiudad(ciud.getString("id"));
                         Ciudades.add(nuevaCiudad);
                         }
                     }

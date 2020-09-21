@@ -14,7 +14,8 @@ public class Item {
 	int id_item;
 	
 	String descripcion;
-	CurrencyML moneda;
+	@ManyToOne
+	CurrencyML id_moneda;
 	double valor;
 	int cantidad;
 	

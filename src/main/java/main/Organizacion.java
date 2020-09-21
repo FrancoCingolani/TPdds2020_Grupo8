@@ -33,7 +33,8 @@ public class Organizacion {
 	double ventasAnuales;
 	int personal;
 	String direccionPostal;
-	CityML ciudad;
+	@ManyToOne
+	CityML id_ciudad;
 	@Enumerated
 	Actividad actividad;
 	@OneToOne

@@ -1,12 +1,19 @@
 package main;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class CityML {
+	
+	@Id @GeneratedValue
+	int id_ciudad;
 	private String Name_Country= "Argentina";
 	private String Id_Country ="AR";
 	private String Latitud;
 	private String Longitud;
 	private String Name_City;
-	private String Id_City;
 	private String Name_State;
 	private String Id_State;
 	
@@ -15,12 +22,11 @@ public class CityML {
 		this.Id_State = Id; 
 	}
 	
-	public CityML( String lat, String lon, String nombreCity, String Id_City,String nombreState, String Id_State) {
+	public CityML( String lat, String lon, String nombreCity,String nombreState, String Id_State) {
 		
 		this.Latitud = lat;
 		this.Longitud = lon;
 		this.Name_City =nombreCity ;
-		this.Id_City = Id_City;
 		this.Name_State= nombreState;
 		this.Id_State = Id_State;
 	}
@@ -34,9 +40,6 @@ public class CityML {
 		
 	}
 
-	public void setIdCiudad(String id) {
-		this.Id_City = id;
-	}
 	public String getLatitud() {
 		return Latitud;
 	}
@@ -56,7 +59,4 @@ public class CityML {
 		return Name_City;
 	}
 
-	public String getId_City() {
-		return Id_City;
-	}
 }

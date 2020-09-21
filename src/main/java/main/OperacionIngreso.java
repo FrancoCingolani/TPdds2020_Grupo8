@@ -2,8 +2,10 @@ package main;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -16,11 +18,14 @@ public class OperacionIngreso {
 	int id_operacion_ingreso;
 	
 	String descripcion;
-	CurrencyML moneda;
+	@ManyToOne
+	@JoinColumn(name = "id_moneda")
+	CurrencyML id_moneda;
 	double valorTotal;
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "operacionIngreso")
 	List<OperacionEgreso> egresos;
 	@ManyToOne
+	@JoinColumn(name = "id_organizacion")
 	Organizacion organizacion;
 	Date fechaIngreso;
 	
