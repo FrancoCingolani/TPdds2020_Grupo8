@@ -16,7 +16,8 @@ public class Proveedor {
 	int id_proveedor;
 	String direccionPostal;
 	CityML ciudad;
-	
+
+	public Proveedor(){}	
 	
 	public Proveedor(String direccionPostal, CityML Ciudad) {
 		this.direccionPostal = direccionPostal;
