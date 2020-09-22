@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Presupuestos")
 public class Presupuesto {
 	
 	
@@ -18,13 +23,15 @@ public class Presupuesto {
 	int id_presupuesto;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_moneda")
 	CurrencyML id_moneda;
 	double valorTotal;
 	@ManyToOne
+	@JoinColumn(name = "id_proveedor")
 	Proveedor proveedor;
 	String detalle;
 	
-	@OneToMany
+	@ManyToMany
 	private List<DocumentoComercial> documentos = new ArrayList<DocumentoComercial>();
 	
 	@OneToMany

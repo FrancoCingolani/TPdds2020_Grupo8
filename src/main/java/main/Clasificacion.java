@@ -4,20 +4,24 @@ import java.io.FileNotFoundException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import java.io.IOException;
 
 import exceptions.CriterioPadreException;
 
 @Entity
+@Table(name = "Clasificaciones")
 public class Clasificacion {
 	
 	@Id @GeneratedValue
 	int id_clasificacion;
 	String descripcion;
 	@ManyToOne
+	@JoinColumn(name = "id_criterio")
 	Criterio criterio;
 	@OneToOne
 	Clasificacion clasificacionPadre;

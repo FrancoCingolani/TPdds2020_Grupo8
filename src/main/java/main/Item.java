@@ -3,11 +3,14 @@ package main;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 //QUIEN CAMBIE ESTO TAMBIEN TIENE QUE CAMBIAR EN EL MAIN......  ES MUUUUCHO
 
 @Entity
+@Table(name = "Items")
 public class Item {
 	
 	@Id @GeneratedValue
@@ -15,12 +18,18 @@ public class Item {
 	
 	String descripcion;
 	@ManyToOne
+	@JoinColumn(name = "id_moneda")
 	CurrencyML id_moneda;
 	double valor;
 	int cantidad;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_clasificacion")
 	Clasificacion clasificacion;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_compra")
+	Compra compra;
 	
 	int numeroPresupuesto;
 	

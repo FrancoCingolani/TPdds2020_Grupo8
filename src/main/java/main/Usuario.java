@@ -7,11 +7,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import mensajes.Mensaje;
 
 @Entity
+@Table(name = "Usuarios")
 public class Usuario {
 	
 	@Id @GeneratedValue

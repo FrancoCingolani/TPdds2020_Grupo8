@@ -3,12 +3,18 @@ package main;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "Compras")
 public class Compra extends Operacion{
 	
 	@Id @GeneratedValue
@@ -16,16 +22,20 @@ public class Compra extends Operacion{
 	
 	int cantPresuReq;
 	@OneToMany
+	@JoinColumn(name = "id_presupuesto")
 	List<Presupuesto> presupuestos;
 	@OneToMany
+	@JoinColumn(name = "id_operacion_egreso")
 	List<OperacionEgreso> operacionesEgre;
-	@OneToMany
+	@ManyToMany
 	List<Usuario> revisores;
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "compra")
 	List<Item> items;
-	int presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pasÈ a int. Volver a revisar
+	@ManyToOne
+	@JoinColumn(name = "id_presupuesto")
+	Presupuesto presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pasÈ a int. Volver a revisar
 	
-	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, int presupuestoElegido) {
+	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, Presupuesto presupuestoElegido) {
 		/** Ignacio: No es l√≥gico que al momento de crearse la necesidad de compra se carguen al mismo tiempo los presupuestos, los egresos, los revisores y el presupuesto
 		 * Se supone que primero se carga la compra, sin presupuestos, sin revisores, sin egresos y sin presupuesto elegido. Los presupuestos se van pidiendo a los proveedores
 		 * quienes los env√≠an y luego se agregan a la compra en caso de cumplir ciertos par√°metros. Mismo con revisores. El presupuesto elegido sale de comprar todos
@@ -79,11 +89,11 @@ public class Compra extends Operacion{
 		this.items = items;
 	}
 	
-	public int getPresupestoElegido() {
+	public Presupuesto getPresupestoElegido() {
 		return presupuestoElegido;
 	}
 
-	public void setPresupuestoElegido(int presupuestoElegido) {
+	public void setPresupuestoElegido(Presupuesto presupuestoElegido) {
 		this.presupuestoElegido = presupuestoElegido;
 	}
 	

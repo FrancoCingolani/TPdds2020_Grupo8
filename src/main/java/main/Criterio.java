@@ -3,8 +3,10 @@ package main;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Criterios")
 public class Criterio {
 	
 	@Id @GeneratedValue

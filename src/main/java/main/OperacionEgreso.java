@@ -4,15 +4,19 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "OperacionesEgreso")
 public class OperacionEgreso{
 	
 	@Id @GeneratedValue
@@ -27,10 +31,11 @@ public class OperacionEgreso{
 	CurrencyML id_moneda;
 	double valorTotal;
 	@ManyToOne
+	@JoinColumn(name = "id_medio_de_pago")
 	MedioDePago medioDePago;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "operacionEgreso")
+	@ManyToMany
 	List<Item> items;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "operacionEgreso")
+	@ManyToMany
 	List<DocumentoComercial> documentosComerciales;
 	@OneToOne
 	@JoinColumn(name = "id_organizacion")
