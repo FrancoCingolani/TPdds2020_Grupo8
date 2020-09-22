@@ -1,6 +1,22 @@
 package mensajes;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Mensajes")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
 public abstract class Mensaje {
+	
+	@Id @GeneratedValue
+	int id_mensaje;
+	
 	String textoMensaje;
 	String asuntoMensaje;
 	Boolean leido;

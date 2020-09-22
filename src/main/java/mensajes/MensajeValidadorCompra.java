@@ -1,5 +1,10 @@
 package mensajes;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("validadorCompra")
 public class MensajeValidadorCompra extends Mensaje {
 	public MensajeValidadorCompra(String texto) {
 		super(texto);
