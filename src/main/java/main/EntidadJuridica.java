@@ -26,7 +26,7 @@ public class EntidadJuridica extends Organizacion{
 		this.nombreFicticio = nombreFicticio;
 		this.CUIT = CUIT;
 		this.direccionPostal = direccionPostal;
-		this.ciudad = Ciudad;
+		this.id_ciudad = Ciudad;
 		this.personal = personal;
 		this.actividad = actividad;
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
@@ -48,7 +48,7 @@ public class EntidadJuridica extends Organizacion{
 		this.nombreFicticio = viejaEntidad.nombreFicticio;
 		this.CUIT = CUIT;
 		this.direccionPostal = viejaEntidad.direccionPostal;
-		this.ciudad = viejaEntidad.ciudad;
+		this.id_ciudad = viejaEntidad.id_ciudad;
 		this.personal = viejaEntidad.personal;
 		this.actividad = viejaEntidad.actividad;
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;

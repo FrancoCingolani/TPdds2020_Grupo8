@@ -29,7 +29,7 @@ public class EntidadBase extends Organizacion{
 		this.descripcion = descripcion;
 		this.personal = personal;
 		this.direccionPostal = direccionPostal;
-		this.ciudad = Ciudad;
+		this.id_ciudad = Ciudad;
 		this.actividad = actividad;
 		this.perteneceA = perteneceA;
 		this.categoria = null;
