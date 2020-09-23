@@ -48,6 +48,11 @@ public class OperacionIngreso {
 	public String getDescripcion() {
 		return descripcion;
 	}
+	
+	public Organizacion getOrganizacion() {
+		return organizacion;
+	}
+
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -60,4 +65,13 @@ public class OperacionIngreso {
 	public void agregarOperacionesEgreso(List<OperacionEgreso> operacionesEgre) {
 		this.egresos = operacionesEgre;
 	}
+	
+	public int getId() {
+		return id_operacion_ingreso;
+	}
+	
+	public Date getDate() {
+		return fechaIngreso;
+	}
+	
 }

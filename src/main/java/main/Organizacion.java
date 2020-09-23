@@ -86,4 +86,7 @@ public class Organizacion {
 	public void setPeriodo(int periodo) {
 		this.periodoVinculacion = periodo;
 	}
+	public int getIdOrganizacion() {
+		return id_organizacion;
+	}
 }

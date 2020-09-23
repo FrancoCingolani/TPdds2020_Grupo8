@@ -36,7 +36,20 @@
 		<property name="use_sql_comments">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
+		<mapping class="main.OperacionEgreso"></mapping>
+		<mapping class="main.OperacionIngreso"></mapping>
+		<mapping class="main.CurrencyML"></mapping>
+		<mapping class="main.MedioDePago"></mapping>
+		<mapping class="main.Organizacion"></mapping>
+		<mapping class="main.CityML"></mapping>
+		<mapping class="categoriasEntidadJuridica.Categoria"></mapping>
 		<mapping class="main.Proveedor"></mapping>
-		
+		<mapping class="main.Item"></mapping>
+		<mapping class="main.Clasificacion"></mapping>
+		<mapping class="main.Compra"></mapping>
+		<mapping class="main.Criterio"></mapping>
+		<mapping class="main.Presupuesto"></mapping>
+		<mapping class="main.DocumentoComercial"></mapping>
+		<mapping class="main.Usuario"></mapping>
 	</session-factory>
 </hibernate-configuration>

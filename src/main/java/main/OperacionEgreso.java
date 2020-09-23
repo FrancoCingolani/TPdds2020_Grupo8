@@ -73,4 +73,12 @@ public class OperacionEgreso{
 		this.items = items;
 	}
 	
+	public void setIdOperacionIngreso(int idOpIngreso) {
+		this.id_operacion_egreso = idOpIngreso;
+	}
+
+	public Date getDate() {
+		return fecha;
+	}
+	
 }
