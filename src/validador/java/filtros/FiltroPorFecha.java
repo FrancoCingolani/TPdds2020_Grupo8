@@ -23,5 +23,10 @@ public class FiltroPorFecha implements CondicionFiltro{
 		
 		return egresosFiltrados;
 	}
+
+	@Override
+	public Boolean filtrarEgresos(OperacionEgreso egreso, OperacionIngreso opIngreso) {
+		return Math.abs(ChronoUnit.DAYS.between(egreso.getDate().toInstant(), opIngreso.getDate().toInstant())) <= DIAS_MARGEN;
+	}
 	
 }

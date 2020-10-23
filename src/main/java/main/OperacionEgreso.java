@@ -81,4 +81,8 @@ public class OperacionEgreso{
 		return fecha;
 	}
 	
+	public Organizacion getOrganizacion() {
+		return organizacion;
+	}
+	
 }

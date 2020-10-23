@@ -73,5 +73,14 @@ public class OperacionIngreso {
 	public Date getDate() {
 		return fechaIngreso;
 	}
+
+	public double getSumaParcialEgresosAsociados() {
+		double sumaParcial = 0;
+		for (OperacionEgreso egreso : this.egresos) {
+			sumaParcial += egreso.getValorTotalOperacion();
+		}
+		
+		return sumaParcial;
+	}
 	
 }
