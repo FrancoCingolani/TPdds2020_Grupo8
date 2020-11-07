@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>GeSoc</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>{{#block "titulo"}}{{/block}}</title>
+		{{#block "scripts"}}{{/block}}
+		<link href="/css/simple-sidebar.css" rel="stylesheet">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <link rel="stylesheet" href="../../main.css">
+	</head>
+
+	<body>
+		<div id="wrapper" class="toggled">
+
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand">
+						<a href="/">
+							<img src = "/home.png" alt="home" width=64px height=64px align="left"/>
+						</a>
+						<font color="#FA0721" size=15px><b>G</b></font>
+						<font color="#FA0721" size=15px><b>E</b></font>
+						<font color="#FA0721" size=15px><b>S</b></font>
+						<font color="#FA0721" size=15px><b>O</b></font>
+						<font color="#FA0721" size=15px><b>C</b></font>
+					</li>
+					<br>
+					<li>
+						<a href="/guardarropas">Pantalla 1</a>
+					</li>
+					<li>
+						<a href="/sugerencias">Pantalla 2</a>
+					</li>
+					<li>
+						<a href="/sugerencias/historial">Pantalla 3</a>
+					</li>
+					<li>
+						<a href="/evento/nuevo">Pantalla 4</a>
+					</li>
+					<li>
+						<a href="/evento">Pantalla 5</a>
+					</li>
+					<li>
+						<div style="position:fixed; bottom:8px">
+							<form action="/logout" method="post">
+								<input type="submit" class="btn btn-danger" value="Cerrar sesión">
+							</form>
+						</div>
+					</li> 
+					
+					{{#block "items_sidebar"}}
+					{{/block}}
+				   
+				</ul>
+			</div>
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				<div class="container">
+					{{#block "contenido"}}
+					{{/block}}
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	</body>
+</html>
+{{#block "script"}}
+{{/block}}

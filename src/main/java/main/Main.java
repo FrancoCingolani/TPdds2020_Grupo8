@@ -9,6 +9,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.BasicConfigurator;
+
+import server.*;
 import categoriasEntidadJuridica.Categoria;
 import constantes.*;
 import enumeradores.*;
@@ -17,7 +20,12 @@ import mensajes.*;
 public class Main { //REVISAR ITEM Y COMPRA
 
 	public static void main(String[] args) throws FileNotFoundException, IOException{
+		BasicConfigurator.configure();
+		Server.iniciar();
+	}
 		
+		
+		/*
 		Criterio criterioClientes = new Criterio ("clientes");
 		Clasificacion clasificacionClienteA = new Clasificacion ("cliente A", criterioClientes, null);
 		Clasificacion clasificacionClienteB = new Clasificacion ("cliente B", criterioClientes, null);
@@ -625,6 +633,8 @@ public static OperacionIngreso crearIngreso() {
 	System.out.println("Ya se ingreso el ingreso ;)");
 	return ingreso;
 }
+
+*/
 
 } //CIERRE CLASE MAIN
 
