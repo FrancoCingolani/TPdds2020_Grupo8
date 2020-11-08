@@ -42,6 +42,8 @@ public class Organizacion {
 	@Enumerated
 	TipoEntidadJuridica tipo;
 	int periodoVinculacion;
+	@OneToMany
+	List<Proyecto> proyectos = null;
 	
 	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {
 		this.operacionesEgresoEntidad.add(nuevaOperacion);
@@ -88,5 +90,10 @@ public class Organizacion {
 	}
 	public int getIdOrganizacion() {
 		return id_organizacion;
+	}
+	
+	public void agregarProyecto(Proyecto nuevoProyecto) {
+		this.proyectos.add(nuevoProyecto);
+	//	this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();//Para mi va en este...
 	}
 }

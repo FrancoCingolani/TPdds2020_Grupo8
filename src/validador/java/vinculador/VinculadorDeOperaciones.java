@@ -126,4 +126,10 @@ public class VinculadorDeOperaciones {
 			VinculadorDeOperaciones.vincularIngresoAEgreso(op, orden);
 		}
 	}
+	public void vincularIngresoAProyectos(/*LOQUECORRESPONDA*/) {
+		/*BUENO LO QUE SEA NECESARIO*/
+	}
+	private static void vincularIngresoAProyectos(/*LOQUECORRESPONDA*/) {
+		/*BUENO LO QUE SEA NECESARIO*/
+	}
 }
