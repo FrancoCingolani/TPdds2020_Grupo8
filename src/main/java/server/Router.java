@@ -29,12 +29,18 @@ public class Router {
 		
 		/* ACÁ SE CREAN LOS CONTROLLERS */
 		HomeController homeController = new HomeController();
+		OperacionEgresoController operacionEgresoController = new OperacionEgresoController();
 		 
 		 
 		
 		
 		//HOME
 		Spark.get("/", homeController::pantallaPrincipal, engine);
+		
+		// ALTA DE OPERACIONES EGRESO
+				Spark.get("/operacionesEgreso",
+						operacionEgresoController::altaOpEgreso, 
+						new HandlebarsTemplateEngine());
 		
 		
 		/* ESTO ES SI QUEREMOS QUE EL USUARIO ESTÉ LOGUEADO ANTES DE ACCEDER A LA PÁGINA. IR AGREGANDO LAS DISTINTAS PÁGINAS QUE HAGAMOS */
