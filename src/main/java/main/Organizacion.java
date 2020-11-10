@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,8 +28,10 @@ public class Organizacion {
 	int id_organizacion;
 	
 	@OneToMany
+	@JoinColumn(name = "id_operacion_egreso_entidad")
 	List<OperacionEgreso> operacionesEgresoEntidad;
 	@OneToMany
+	@JoinColumn(name = "id_operacion_ingreso_entidad")
 	List<OperacionIngreso> operacionesIngresoEntidad;
 	double ventasAnuales;
 	int personal;
@@ -43,6 +46,7 @@ public class Organizacion {
 	TipoEntidadJuridica tipo;
 	int periodoVinculacion;
 	@OneToMany
+	@JoinColumn(name = "id_proyecto")
 	List<Proyecto> proyectos = null;
 	
 	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {

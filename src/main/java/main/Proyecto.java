@@ -2,10 +2,15 @@ package main;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Proyectos")
 public class Proyecto {
 	
 	@Id @GeneratedValue
@@ -15,6 +20,7 @@ public class Proyecto {
 	String descripcion;
 	double montoAsignado;
 	@OneToMany
+	@JoinColumn(name = "id_subsidio")
 	List<OperacionIngreso> subsidios;
 	
 	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre) {
