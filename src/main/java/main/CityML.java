@@ -9,54 +9,54 @@ public class CityML {
 	
 	@Id @GeneratedValue
 	int id_ciudad;
-	private String Name_Country= "Argentina";
-	private String Id_Country ="AR";
-	private String Latitud;
-	private String Longitud;
-	private String Name_City;
-	private String Name_State;
-	private String Id_State;
+	private String name_country= "Argentina";
+	private String id_country ="AR";
+	private String latitud;
+	private String longitud;
+	private String name_city;
+	private String name_state;
+	private String id_state;
 	
 	public CityML(String desc, String Id) {
-		this.Name_State = desc;
-		this.Id_State = Id; 
+		this.name_state = desc;
+		this.id_state = Id; 
 	}
 	
 	public CityML( String lat, String lon, String nombreCity,String nombreState, String Id_State) {
 		
-		this.Latitud = lat;
-		this.Longitud = lon;
-		this.Name_City =nombreCity ;
-		this.Name_State= nombreState;
-		this.Id_State = Id_State;
+		this.latitud = lat;
+		this.longitud = lon;
+		this.name_city =nombreCity ;
+		this.name_state= nombreState;
+		this.id_state = Id_State;
 	}
 	
 	public void setLatitudyLongitud (String lat, String lon) {
-		this.Latitud = lat;
-		this.Longitud = lon;
+		this.latitud = lat;
+		this.longitud = lon;
 	}
 	public void setNombreCiudad (String ciudad) {
-		this.Name_City = ciudad;
+		this.name_city = ciudad;
 		
 	}
 
 	public String getLatitud() {
-		return Latitud;
+		return latitud;
 	}
 
 	public String getLongitud() {
-		return Longitud;
+		return longitud;
 	}
 
 	public String getName_State() {
-		return Name_State;
+		return name_state;
 	}
 
 	public String getId_State() {
-		return Id_State;
+		return id_state;
 	}
 	public String getName_City() {
-		return Name_City;
+		return name_city;
 	}
 
 }

@@ -10,32 +10,32 @@ public class CurrencyML {
 	@Id @GeneratedValue
 	int id_moneda;
 
-	private String Descripcion;
-	private String Symbol;
-	private int Decimal_places; 
+	private String descripcion;
+	private String symbol;
+	private int decimal_places; 
 	
 	
 	public CurrencyML(String desc) {
-		this.Descripcion = desc;
+		this.descripcion = desc;
 		
 	}
 	
 	public CurrencyML(String desc,  String symbol, int decimales) {
-		this.Descripcion = desc; 
-		this.Symbol = symbol;
-		this.Decimal_places = decimales;
+		this.descripcion = desc; 
+		this.symbol = symbol;
+		this.decimal_places = decimales;
 	}
 	
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 
 
 	public String getSymbol() {
-		return Symbol;
+		return symbol;
 	}
 	public int getDecimal_places() {
-		return Decimal_places;
+		return decimal_places;
 	}
 	
 }
