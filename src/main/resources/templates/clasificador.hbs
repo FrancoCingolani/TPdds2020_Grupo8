@@ -16,14 +16,63 @@
       <h1>Clasificador de Operaciones</h1>
 
       <form action="/evento/nuevo" method = "post">
-        
-        <div class="form-group">
-            <label>SERIA COMO PARA ELEGIR UNA CLASIFICACION</label>
-            <input class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre del proyecto">
-        </div>
+    
+        <div>
+        <br>
+        <h4>Asocie su egreso a una categoria</h4>
+	        <label>Egresos</label>
+	        <select class="form-control" name="Egreso">
+	          {{#each egreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione un egreso que desee categorizar</small>
+      	</div>
+      	
+      	<div>
+	        <label>Categoria</label>
+	        <select class="form-control" name="Categoria">
+	          {{#each categoria}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione la categoria que corresponda</small>
+      	</div>
 
-       
-        <br><br>
+        <br>
+
+
+		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<!--
+        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
+        -->
+        <br>
+      </form>
+      
+       <form action="/evento/nuevo" method = "post">
+    <br><br>
+        <div>
+        <h4>Asocie un presupuesto a una categoria</h4>
+	        <label>Presupuestos</label>
+	        <select class="form-control" name="Presupuesto">
+	          {{#each presupuesto}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione un presupuesto que desee categorizar</small>
+      	</div>
+      	
+      	<div>
+	        <label>Categoria</label>
+	        <select class="form-control" name="Categoria">
+	          {{#each categoria}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione la categoria que corresponda</small>
+      	</div>
+
+        <br>
 
 
 		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">

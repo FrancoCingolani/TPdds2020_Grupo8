@@ -35,10 +35,12 @@ public class Router {
 		ProyectoController proyectoController = new ProyectoController();
 		
 		/*	AsociarEgreIngreController asociarEgreIngreController = new AsociarEgreIngreController();
+		 * */
+		
 		ClasificadorController clasificadorController = new ClasificadorController();
 		MensajesController mensajesController = new MensajesController();
 		VisualizadorController visualizadorController = new VisualizadorController();
-		*/
+		
 		
 		//HOME
 		Spark.get("/", homeController::pantallaPrincipal, engine);
@@ -68,26 +70,27 @@ public class Router {
 				Spark.get("/proyecto",
 						proyectoController::altaProyecto, 
 						new HandlebarsTemplateEngine());
-		/*		
+				
 		// VISUALIZAR OPERACIONES Y PROYECTOS
 				Spark.get("/visualizador",
 						visualizadorController::visualizador, 
 						new HandlebarsTemplateEngine());
-			
+				/*	
 		// ASOCIAR OPERACIONES
 				Spark.get("/asociar",
 						asociarEgreIngreController::asociarEgreIngre, 
 						new HandlebarsTemplateEngine());
-				
+				*/
 		// CLASIFICADOR
 				Spark.get("/clasificador",
 						clasificadorController::clasificador, 
 						new HandlebarsTemplateEngine());
+						
 		//BANDEJA DE MENSAJES
 				Spark.get("/mensajes",
 						mensajesController::mensajes, 
 						new HandlebarsTemplateEngine());
-				*/
+				
 				
 		/* ESTO ES SI QUEREMOS QUE EL USUARIO ESTÉ LOGUEADO ANTES DE ACCEDER A LA PÁGINA. IR AGREGANDO LAS DISTINTAS PÁGINAS QUE HAGAMOS */
 		//Spark.before("/", Router::chequearLoginInexistente);
