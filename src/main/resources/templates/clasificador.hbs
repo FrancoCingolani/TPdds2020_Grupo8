@@ -1,0 +1,42 @@
+{{#partial "contenido"}}
+<html>
+<head>
+  <title>Crear eventos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../main.css">
+</head>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/home">Inicio</a>
+    </li>
+    <li class="breadcrumb-item active">Clasificador</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Clasificador de Operaciones</h1>
+
+      <form action="/evento/nuevo" method = "post">
+        
+        <div class="form-group">
+            <label>SERIA COMO PARA ELEGIR UNA CLASIFICACION</label>
+            <input class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre del proyecto">
+        </div>
+
+       
+        <br><br>
+
+
+		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<!--
+        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
+        -->
+        <br>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+{{/partial}}
+{{>layout.hbs}}
+
