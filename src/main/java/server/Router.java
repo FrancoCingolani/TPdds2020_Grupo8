@@ -35,6 +35,7 @@ public class Router {
 		ProyectoController proyectoController = new ProyectoController();
 		
 		/*	AsociarEgreIngreController asociarEgreIngreController = new AsociarEgreIngreController();
+		 * AuditoriaController auditoriaController = new AuditoriaController();
 		 * */
 		
 		ClasificadorController clasificadorController = new ClasificadorController();
@@ -80,6 +81,11 @@ public class Router {
 				Spark.get("/asociar",
 						asociarEgreIngreController::asociarEgreIngre, 
 						new HandlebarsTemplateEngine());
+						
+			// ADUTORIA
+				Spark.get("/auditoria",
+						auditoriaController::auditoria, 
+						new HandlebarsTemplateEngine());			
 				*/
 		// CLASIFICADOR
 				Spark.get("/clasificador",
