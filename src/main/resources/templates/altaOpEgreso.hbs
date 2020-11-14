@@ -19,7 +19,7 @@
         
         <div class="form-group">
             <label>Proveedor</label>
-            <input class="form-control" name="proveedor" id="proveedor" placeholder="Ingrese el cuit del proveedor">
+            <input class="form-control" name="proveedor" id="proveedor" placeholder="Ingrese el id del proveedor">
         </div>
 
         <div>
@@ -31,9 +31,9 @@
         <div>
 	        <label>Moneda</label>
 	        <select class="form-control" name="moneda">
-	          {{#each monedas}}
-	            <option>{{this.Descripcion}}</option>
-	          {{/each}}
+	          	<option value="1">Moneda 1</option> 
+  				<option value="2">Moneda 2</option>
+  				<option value="3">Moneda 3</option>
 	        </select>
 	        <small class="form-text text-muted">Seleccione la moneda</small>
       	</div>
@@ -46,9 +46,9 @@
         <div>
 	        <label>Medio de pago</label>
 	        <select class="form-control" name="medioDePago">
-	          {{#each medioDePago}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	          	<option value="1">Medio de pago 1</option> 
+  				<option value="2">Medio de pago 2</option>
+  				<option value="3">Medio de pago 3</option>
 	        </select>
 	        <small class="form-text text-muted">Seleccione el medio de pago</small>
       	</div>
@@ -56,9 +56,9 @@
       	<div>
 	        <label>Comprobante</label>
 	        <select class="form-control" name="comprobante">
-	          {{#each comprobante}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	          	<option value="1">Comprobante 1</option> 
+  				<option value="2">Comprobante 2</option>
+  				<option value="3">Comprobante 3</option>
 	        </select>
 	        <small class="form-text text-muted">Seleccione los comprobantes para la operacion</small>
       	</div>
@@ -66,9 +66,9 @@
       	<div>
 	        <label>Items</label>
 	        <select class="form-control" name="item">
-	          {{#each item}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	          	<option value="1">Item 1</option> 
+  				<option value="2">Item 2</option>
+  				<option value="3">Item 3</option>
 	        </select>
 	        <small class="form-text text-muted">Seleccione los items de la operacion</small>
       	</div>

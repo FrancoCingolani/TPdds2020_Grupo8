@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 abstract public class AbstractHibernateRepo {
 
-	private static EntityManager em;
+	public static EntityManager em;
 
 	protected EntityManager getEntityManager() {
 		if (em == null) {

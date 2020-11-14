@@ -1,12 +1,12 @@
 package server;
 
-/*import java.util.HashMap;
+import java.util.HashMap;
 
-import domain.repos.RepositorioUsuarios;
-import domain.usuario.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import repositorios.RepositorioUsuarios;
+import main.Usuario;
 
 public class LoginController {
 	
@@ -17,13 +17,13 @@ public class LoginController {
 		}
 	}; 
 
-	public ModelAndView getLoginPage(Request req, Response res) {
+	public ModelAndView loginFront(Request req, Response res) {
 		return new ModelAndView(new HashMap<>(), "login.hbs");
 	}
 
 	public ModelAndView login(Request req, Response res) {
 		/*
-		 * //Usuarie usuarie = RepositorioUsuaries.buscarPorNombre(req.params("user"))
+		 * //Usuario usuario = RepositorioUsuarios.buscarPorNombre(req.params("user"))
 		 * //si no existe, lanzar excepcion Usuario usuario = new Usuario("foo", "foo");
 		 * usuario.validarContrasenia(req.queryParams("pass"));
 		 * 
@@ -31,11 +31,13 @@ public class LoginController {
 		 * res.cookie("uid", usuario.getId().toString());
 		 * 
 		 * // redirijan al perfil res.redirect("/guardarropas"); return null;
-		 
+		 */
 		String nombreUsuario = req.queryParams("usuario");
 		String password = req.queryParams("contrasenia");
 		System.out.println("Alguien se quiso loguear con usuario " + nombreUsuario + " y contrasenia " + password);
-
+		
+		
+		/*
 		Usuario usuario = RepositorioUsuarios.instance().findUsuario(nombreUsuario);
 		
 		if( usuario == null ) {
@@ -43,15 +45,18 @@ public class LoginController {
 		}
 
 		// System.out.println(usuario2);
+		
+		String usuarioPassword = usuario.getContrasenia();
 
-		if (usuario.password.equals(password)) {
+		if (usuarioPassword.equals(password)) {
 			System.out.println("Login exitoso");
 			req.session(true);
 			req.session().attribute("user", nombreUsuario);
-			res.redirect("/guardarropas");
+			res.redirect("/");
 		} else {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");
 		}
+		*/
 
 		return null;
 	}
@@ -63,4 +68,3 @@ public class LoginController {
 	}
 
 }
-*/

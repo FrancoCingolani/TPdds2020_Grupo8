@@ -29,7 +29,7 @@ public class Router {
 		
 		/* ACÁ SE CREAN LOS CONTROLLERS */
 		HomeController homeController = new HomeController();
-		//LoginController loginController = new LoginController();
+		LoginController loginController = new LoginController();
 		OperacionEgresoController operacionEgresoController = new OperacionEgresoController();
 		OperacionIngresoController operacionIngresoController = new OperacionIngresoController();
 		ProyectoController proyectoController = new ProyectoController();
@@ -45,9 +45,9 @@ public class Router {
 		
 		//HOME
 		Spark.get("/", homeController::pantallaPrincipal, engine);
-		/* LOG IN USUARIIOS
+		//LOG IN USUARIIOS
 		Spark.get("/login",
-				loginController::getLoginPage, 
+				loginController::loginFront, 
 				new HandlebarsTemplateEngine());
 		
 		Spark.post("/login",
@@ -56,10 +56,14 @@ public class Router {
 		
 		Spark.post("/logout",
 				loginController::logout, 
-				new HandlebarsTemplateEngine());*/
+				new HandlebarsTemplateEngine());
 		
 		// ALTA DE OPERACIONES EGRESO
 				Spark.get("/operacionesEgreso",
+						operacionEgresoController::altaOpEgresoFront, 
+						new HandlebarsTemplateEngine());
+				
+				Spark.post("/operacionesEgreso",
 						operacionEgresoController::altaOpEgreso, 
 						new HandlebarsTemplateEngine());
 		

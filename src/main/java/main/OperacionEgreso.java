@@ -44,6 +44,9 @@ public class OperacionEgreso{
 	@ManyToOne
 	@JoinColumn(name = "id_operacion_ingreso")
 	OperacionIngreso operacionIngreso;
+	
+	public OperacionEgreso() {
+	}
 
 	public OperacionEgreso(Proveedor proveedor, Date fecha, MedioDePago medioDePago, List<Item> items, List<DocumentoComercial> documentosComerciales, Organizacion organizacion) {
 		this.proveedor = proveedor;
@@ -83,6 +86,81 @@ public class OperacionEgreso{
 	
 	public Organizacion getOrganizacion() {
 		return organizacion;
+	}
+	public int getId_operacion_egreso() {
+		return id_operacion_egreso;
+	}
+
+	public void setId_operacion_egreso(int id_operacion_egreso) {
+		this.id_operacion_egreso = id_operacion_egreso;
+	}
+
+	public Proveedor getProveedor() {
+		return proveedor;
+	}
+
+	public void setProveedor(Proveedor proveedor) {
+		this.proveedor = proveedor;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public CurrencyML getId_moneda() {
+		return id_moneda;
+	}
+
+	public void setId_moneda(CurrencyML id_moneda) {
+		this.id_moneda = id_moneda;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public MedioDePago getMedioDePago() {
+		return medioDePago;
+	}
+
+	public void setMedioDePago(MedioDePago medioDePago) {
+		this.medioDePago = medioDePago;
+	}
+
+	public List<DocumentoComercial> getDocumentosComerciales() {
+		return documentosComerciales;
+	}
+
+	public void setDocumentosComerciales(List<DocumentoComercial> documentosComerciales) {
+		this.documentosComerciales = documentosComerciales;
+	}
+
+	public boolean isFueVinculado() {
+		return fueVinculado;
+	}
+
+	public void setFueVinculado(boolean fueVinculado) {
+		this.fueVinculado = fueVinculado;
+	}
+
+	public OperacionIngreso getOperacionIngreso() {
+		return operacionIngreso;
+	}
+
+	public void setOperacionIngreso(OperacionIngreso operacionIngreso) {
+		this.operacionIngreso = operacionIngreso;
+	}
+
+	public void setOrganizacion(Organizacion organizacion) {
+		this.organizacion = organizacion;
 	}
 	
 }

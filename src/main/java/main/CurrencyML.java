@@ -14,11 +14,11 @@ public class CurrencyML {
 	private String symbol;
 	private int decimal_places; 
 	
-	
+	/*
 	public CurrencyML(String desc) {
 		this.descripcion = desc;
 		
-	}
+	}*/
 	
 	public CurrencyML(String desc,  String symbol, int decimales) {
 		this.descripcion = desc; 

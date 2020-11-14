@@ -3,6 +3,7 @@ package repositorios;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import main.CurrencyML;
@@ -25,8 +26,8 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 		String queryStr =
 			    "SELECT descripcion FROM CurrencyML";
 		
-		TypedQuery<CurrencyML> query =
-		    this.getEntityManager().createQuery(queryStr, CurrencyML.class);
+
+		TypedQuery<CurrencyML> query = this.getEntityManager().createQuery(queryStr, CurrencyML.class);
 
 		List<CurrencyML> results = query.getResultList();
 		return results;
