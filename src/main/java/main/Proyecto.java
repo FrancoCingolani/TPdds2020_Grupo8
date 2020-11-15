@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,13 +23,16 @@ public class Proyecto {
 	@OneToMany
 	@JoinColumn(name = "id_subsidio")
 	List<OperacionIngreso> subsidios;
+	@ManyToOne
+	@JoinColumn(name = "id_usuario") //se lo agregue al usuario
+	Usuario director;
 	
-	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre) {
+	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre, Usuario director) {
 		this.nombre= nombre;
 		this.descripcion = descripcion;
 		this.montoAsignado = montoAsignado;
 		this.subsidios = operacionesIngre;
-		
+		this.director = director;
 	}
 	
 	public double getmontoAsignadoOperacion() {
@@ -53,10 +57,17 @@ public class Proyecto {
 	}
 	public void agregarOperacionIngreso(OperacionIngreso nuevaOperacion) {
 		this.subsidios.add(nuevaOperacion);
-	//	this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();//Para mi va en este...
 	}
 	public int getIdProyecto() {
 		return id_proyecto;
+	}
+	public void agregarABitacora(String operacionARegistrar) {
+		OperacionRegistrada operacionRegistrada = new OperacionRegistrada(this, operacionARegistrar);
+		this.director.getBitacora().agregarOperacion(operacionRegistrada);
+	
+	}
+	public int getIDDirector() {
+		return director.getID();
 	}
 }
 

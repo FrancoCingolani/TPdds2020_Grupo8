@@ -15,16 +15,64 @@
     <div class="col-md-8">
       <h1>Asocie sus operaciones</h1>
 
-      <form action="/evento/nuevo" method = "post">
-        
-        <div class="form-group">
-            <label>ELEGIR DOS OPERACIONES Y JUNTARLAS</label>
-            <input class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre del proyecto">
-        </div>
+       <form action="/evento/nuevo" method = "post">
+    
+        <div>
+        <br>
+        <h4>Asocie su egreso a un o varios Ingresos</h4>
+	        <label>Egresos</label>
+	        <select class="form-control" name="Egreso">
+	          {{#each egreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione un egreso</small>
+      	</div>
+      	
+      	<div>
+	        <label>Ingresos</label>
+	        <select class="form-control" name="ingresos">
+	          {{#each ingreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione uno o mas ingresos que desee asociar</small>
+      	</div>
 
-         
+        <br>
 
-        <br><br>
+
+		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<!--
+        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
+        -->
+        <br>
+      </form>
+      
+       <form action="/evento/nuevo" method = "post">
+    <br><br>
+        <div>
+        <h4>Asocie un ingreso a uno o varios egresos</h4>
+	        <label>Ingreso</label>
+	        <select class="form-control" name="Ingreso">
+	          {{#each ingreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione un ingreso</small>
+      	</div>
+      	
+      	<div>
+	        <label>Egresos</label>
+	        <select class="form-control" name="Egreso">
+	          {{#each egreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione uno o mas egresos que desee asociar</small>
+      	</div>
+
+        <br>
 
 
 		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">

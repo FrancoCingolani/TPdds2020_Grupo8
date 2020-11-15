@@ -17,6 +17,8 @@ import mensajes.Mensaje;
 public class Usuario {
 	
 	@Id @GeneratedValue
+	int id_usuario;
+	
 	String nombre;
 	String contrasenia;
 	int tipo;
@@ -32,12 +34,16 @@ public class Usuario {
 	@Transient
 	ValidadorDeContrasenia validador = ValidadorDeContrasenia.getInstance();
 	
+	@Transient
+	Bitacora bitacora;
+	
 	public Usuario(String nombre, String contrasenia, int tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
 		this.contrasenia = hash.getMd5(contrasenia);
 		this.tipo = tipo;
 		this.bandejaEntrada = new BandejaMensajes();
 		this.validador.validar(contrasenia);
+		this.bitacora = new Bitacora();
 	}	
 	
 	public String getNombre() {
@@ -80,8 +86,12 @@ public class Usuario {
 	public List<Mensaje> getMensajesNoLeidos () {
 		return this.bandejaEntrada.getMensajesSinLeer();
 	}
-	
-	
+	public Bitacora getBitacora() {
+		return bitacora;
+	}
+	public int getID(){
+		return id_usuario;
+	}
 		
 
 }
