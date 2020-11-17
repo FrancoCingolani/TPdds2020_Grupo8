@@ -37,7 +37,7 @@ public class LoginController {
 		System.out.println("Alguien se quiso loguear con usuario " + nombreUsuario + " y contrasenia " + password);
 		
 		
-		/*
+		
 		Usuario usuario = RepositorioUsuarios.instance().findUsuario(nombreUsuario);
 		
 		if( usuario == null ) {
@@ -56,9 +56,12 @@ public class LoginController {
 		} else {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");
 		}
-		*/
-
+		
+		
+		res.redirect("/");
 		return null;
+		
+		//return new ModelAndView(null, "home.hbs");
 	}
 
 	public ModelAndView logout(Request req, Response res) {

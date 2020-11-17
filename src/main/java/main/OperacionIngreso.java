@@ -1,6 +1,7 @@
 package main;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class OperacionIngreso {
 	int id_operacion_ingreso;
 	
 	String descripcion;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "id_moneda")
 	CurrencyML id_moneda;
 	double valorTotal;
@@ -29,6 +30,9 @@ public class OperacionIngreso {
 	Organizacion organizacion;
 	Date fechaIngreso;
 	
+	public OperacionIngreso() {
+	}
+	
 	public OperacionIngreso(String descrip, double valorTtal, List<OperacionEgreso> operacionesEgre, Organizacion organizacion) {
 		this.descripcion = descrip;
 		this.valorTotal = valorTtal;
@@ -37,6 +41,22 @@ public class OperacionIngreso {
 		this.fechaIngreso = new Date();
 	}
 	
+	public CurrencyML getId_moneda() {
+		return id_moneda;
+	}
+
+	public void setId_moneda(CurrencyML id_moneda) {
+		this.id_moneda = id_moneda;
+	}
+
+	public Date getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
 	public double getValorTotalOperacion() {
 		return valorTotal;
 	}

@@ -70,6 +70,10 @@ public class Router {
 		
 		// ALTA DE OPERACIONES INGRESO
 				Spark.get("/operacionesIngreso",
+						operacionIngresoController::altaOpIngresoFront, 
+						new HandlebarsTemplateEngine());
+				
+				Spark.post("/operacionesIngreso",
 						operacionIngresoController::altaOpIngreso, 
 						new HandlebarsTemplateEngine());
 		// ALTA DE OPERACIONES PROYECTO

@@ -12,11 +12,11 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 		return INSTANCE;
 	}
 
-	public Usuario findUsuario(String nombre) {
+	public Usuario findUsuario(String nombreUsuario) {
 		try {
 			return this.getEntityManager()
-					.createQuery("SELECT usuario FROM Usuarios usuario WHERE usuario.nombre = ?1", Usuario.class)
-					.setParameter(1, nombre).getSingleResult();			
+					.createQuery("SELECT '*' FROM usuarios WHERE nombre = ?1", Usuario.class)
+					.setParameter(1, nombreUsuario).getSingleResult();			
 		} catch( NoResultException e) {
 			return null;
 		}

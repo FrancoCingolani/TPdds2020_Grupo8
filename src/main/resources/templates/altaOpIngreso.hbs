@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <h1>Alta Operacion Ingreso</h1>
 
-      <form action="/evento/nuevo" method = "post">
+      <form action="/operacionesIngreso" method = "post">
         
         <div class="form-group">
             <label>Descripcion</label>
@@ -31,16 +31,14 @@
         <div>
 	        <label>Moneda</label>
 	        <select class="form-control" name="moneda">
-	          {{#each monedas}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	            <option value="1">Moneda 1</option> 
 	        </select>
 	        <small class="form-text text-muted">Seleccione la moneda</small>
       	</div>
       
       	<div class="form-group">
             <label>Valor total</label>
-            <input class="form-control" name="valor" id="valor" placeholder="Ingrese valor de la operacion">
+            <input class="form-control" name="valorTotal" id="valorTotal" placeholder="Ingrese valor de la operacion">
         </div>
         
         

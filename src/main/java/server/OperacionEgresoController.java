@@ -41,13 +41,14 @@ public class OperacionEgresoController {
 		String documentosComerciales = req.queryParams("documentosComerciales");
 		String organizacion = req.queryParams("organizacion");
 		
+		/*
 		opEgreso.setProveedor(proveedor);
 		opEgreso.setFecha(fecha);
 		opEgreso.setMedioDePago(medioDePago);
 		opEgreso.setItems(items);
 		opEgreso.setDocumentosComerciales(documentosComerciales);
 		opEgreso.setOrganizacion(organizacion);
-		
+		*/
 
 
 		RepositorioOpEgreso.getInstance().persist(opEgreso);
