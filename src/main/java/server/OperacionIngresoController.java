@@ -21,7 +21,7 @@ public class OperacionIngresoController {
 		List<CurrencyML> monedas = repoMonedas.buscarMonedas();	
 		
 		
-		return new ModelAndView(null, "altaOpIngreso.hbs");
+		return new ModelAndView(monedas, "altaOpIngreso.hbs");
 	}
 	
 	

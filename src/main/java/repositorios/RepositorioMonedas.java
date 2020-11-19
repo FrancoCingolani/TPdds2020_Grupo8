@@ -33,11 +33,27 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 			    + "FROM CurrencyML currency "
 				+ "WHERE currency.id_moneda = '" + 1 + "' ";
 		*/
-
-		TypedQuery<CurrencyML> query = this.getEntityManager().createQuery("SELECT '*' FROM CurrencyML", CurrencyML.class);
+		
+		
+		@SuppressWarnings("unchecked")
+		TypedQuery<CurrencyML> query = (TypedQuery<CurrencyML>) this.getEntityManager().createQuery("SELECT descripcion FROM CurrencyML");
+		
+		
+		
+		//TypedQuery<CurrencyML> query = this.getEntityManager().createQuery("SELECT '*' FROM CurrencyML", CurrencyML.class);
+		
+		//TypedQuery<T> typedQuery =em.createQuery(query.toString(), Class.forName(type.getSimpleName()));
 
 		List<CurrencyML> results = query.getResultList();
+		
+		System.out.println(results);
+		
+		
 		return results;
+		
+		
+		//return this.getEntityManager().createQuery("SELECT '*' FROM CurrencyML");
+		
 	}
 
 }
