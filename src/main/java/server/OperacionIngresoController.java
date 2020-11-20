@@ -9,6 +9,7 @@ import java.util.List;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import main.CurrencyML;
@@ -18,10 +19,26 @@ public class OperacionIngresoController {
 		
 		RepositorioMonedas repoMonedas = RepositorioMonedas.getInstance();
 		
-		List<CurrencyML> monedas = repoMonedas.buscarMonedas();	
+		List<String> monedas = repoMonedas.buscarMonedas();	
 		
 		
-		return new ModelAndView(monedas, "altaOpIngreso.hbs");
+		ArrayList<String> arrayMonedas = new ArrayList<String>();
+		
+		
+		for(String m : monedas) {
+			arrayMonedas.add(m);
+			//String probando = m.getDescripcion();
+			
+		}
+		
+		String monedita = arrayMonedas.get(0);
+		
+		System.out.println(arrayMonedas.get(0));
+		
+		//System.out.println(monedas.get(0).getDescripcion());
+		
+		
+		return new ModelAndView(monedita, "altaOpIngreso.hbs");
 	}
 	
 	

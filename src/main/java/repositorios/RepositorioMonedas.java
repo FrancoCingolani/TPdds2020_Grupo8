@@ -1,6 +1,7 @@
 package repositorios;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -22,7 +23,7 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 	static List<CurrencyML> monedas = new ArrayList<CurrencyML>();
 	
 	
-	public List<CurrencyML> buscarMonedas() {
+	public List<String> buscarMonedas() {
 		/*
 		String queryStr =
 			    "SELECT '*' FROM CurrencyML";
@@ -35,18 +36,46 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 		*/
 		
 		
+		
+		//ESTE FUNCIONA
+		//@SuppressWarnings("unchecked")  
+		//TypedQuery<CurrencyML> query = (TypedQuery<CurrencyML>) this.getEntityManager().createQuery("SELECT id_moneda, decimal_places, descripcion, symbol FROM CurrencyML");
+		//List<CurrencyML> results = query.getResultList();
+		
+		Query query = this.getEntityManager().createQuery("SELECT descripcion FROM CurrencyML");
+		
 		@SuppressWarnings("unchecked")
-		TypedQuery<CurrencyML> query = (TypedQuery<CurrencyML>) this.getEntityManager().createQuery("SELECT descripcion FROM CurrencyML");
-		
-		
-		
-		//TypedQuery<CurrencyML> query = this.getEntityManager().createQuery("SELECT '*' FROM CurrencyML", CurrencyML.class);
-		
-		//TypedQuery<T> typedQuery =em.createQuery(query.toString(), Class.forName(type.getSimpleName()));
-
-		List<CurrencyML> results = query.getResultList();
+		List<String> results = query.getResultList();
 		
 		System.out.println(results);
+		
+		//String probando = results.get(0).getDescripcion();
+
+		//System.out.println(probando);
+		
+		//System.out.println(results);
+		
+		//Object resultado = results.get(0);
+		
+		//System.out.println(resultado.getClass().get);
+		/*
+		CurrencyML moneda;
+		
+		for (CurrencyML resultado : results) {
+			  moneda = (CurrencyML) resultado; 
+			  System.out.println(moneda.getDescripcion());
+		}*/
+		
+		/*
+		CurrencyML moneda ;
+		Iterator iter = results.iterator();
+		while(iter.hasNext()){
+		  moneda = (CurrencyML)iter.next(); 
+		  System.out.println(moneda.getDescripcion());
+		}*/
+		
+
+
 		
 		
 		return results;
