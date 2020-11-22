@@ -20,6 +20,9 @@ public class CurrencyML {
 		
 	}*/
 	
+	public CurrencyML() {
+	}
+	
 	public CurrencyML(String desc,  String symbol, int decimales) {
 		this.descripcion = desc; 
 		this.symbol = symbol;

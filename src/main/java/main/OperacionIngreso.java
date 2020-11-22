@@ -9,17 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "OperacionesIngreso")
 public class OperacionIngreso {
 	
 	@Id @GeneratedValue
 	int id_operacion_ingreso;
 	
 	String descripcion;
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "id_moneda")
 	CurrencyML id_moneda;
 	double valorTotal;

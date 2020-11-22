@@ -7,38 +7,25 @@ import spark.Request;
 import spark.Response;
 import java.util.List;
 
+import enumeradores.Actividad;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import main.CurrencyML;
 
 public class OperacionIngresoController {
+	
 	public ModelAndView altaOpIngresoFront(Request req, Response res) {
 		
 		RepositorioMonedas repoMonedas = RepositorioMonedas.getInstance();
 		
-		List<String> monedas = repoMonedas.buscarMonedas();	
+		List<CurrencyML> currencyml = repoMonedas.buscarMonedas();	
 		
-		
-		ArrayList<String> arrayMonedas = new ArrayList<String>();
-		
-		
-		for(String m : monedas) {
-			arrayMonedas.add(m);
-			//String probando = m.getDescripcion();
-			
-		}
-		
-		String monedita = arrayMonedas.get(0);
-		
-		System.out.println(arrayMonedas.get(0));
-		
-		//System.out.println(monedas.get(0).getDescripcion());
-		
-		
-		return new ModelAndView(monedita, "altaOpIngreso.hbs");
+		return new ModelAndView(currencyml, "altaOpIngreso.hbs");
 	}
 	
 	

@@ -23,7 +23,7 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 	static List<CurrencyML> monedas = new ArrayList<CurrencyML>();
 	
 	
-	public List<String> buscarMonedas() {
+	public List<CurrencyML> buscarMonedas() {
 		/*
 		String queryStr =
 			    "SELECT '*' FROM CurrencyML";
@@ -42,46 +42,12 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 		//TypedQuery<CurrencyML> query = (TypedQuery<CurrencyML>) this.getEntityManager().createQuery("SELECT id_moneda, decimal_places, descripcion, symbol FROM CurrencyML");
 		//List<CurrencyML> results = query.getResultList();
 		
-		Query query = this.getEntityManager().createQuery("SELECT descripcion FROM CurrencyML");
+		Query query = this.getEntityManager().createQuery("SELECT currencyml FROM CurrencyML currencyml");
 		
 		@SuppressWarnings("unchecked")
-		List<String> results = query.getResultList();
-		
-		System.out.println(results);
-		
-		//String probando = results.get(0).getDescripcion();
-
-		//System.out.println(probando);
-		
-		//System.out.println(results);
-		
-		//Object resultado = results.get(0);
-		
-		//System.out.println(resultado.getClass().get);
-		/*
-		CurrencyML moneda;
-		
-		for (CurrencyML resultado : results) {
-			  moneda = (CurrencyML) resultado; 
-			  System.out.println(moneda.getDescripcion());
-		}*/
-		
-		/*
-		CurrencyML moneda ;
-		Iterator iter = results.iterator();
-		while(iter.hasNext()){
-		  moneda = (CurrencyML)iter.next(); 
-		  System.out.println(moneda.getDescripcion());
-		}*/
-		
-
-
-		
+		List<CurrencyML> results = query.getResultList();	
 		
 		return results;
-		
-		
-		//return this.getEntityManager().createQuery("SELECT '*' FROM CurrencyML");
 		
 	}
 

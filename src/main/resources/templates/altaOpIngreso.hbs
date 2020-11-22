@@ -31,7 +31,9 @@
         <div>
 	        <label>Moneda</label>
 	        <select class="form-control" name="moneda">
-            	<option>{{monedita}}</option>
+            	{{#each this}}
+            		<option value={{id_moneda}}>{{descripcion}}</option>
+          		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione la moneda</small>
       	</div>
