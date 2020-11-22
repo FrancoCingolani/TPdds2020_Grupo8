@@ -23,7 +23,9 @@ public class OperacionIngresoController {
 		
 		RepositorioMonedas repoMonedas = RepositorioMonedas.getInstance();
 		
-		List<CurrencyML> currencyml = repoMonedas.buscarMonedas();	
+		List<CurrencyML> currencyml = repoMonedas.buscarMonedas();
+		
+		
 		
 		return new ModelAndView(currencyml, "altaOpIngreso.hbs");
 	}
@@ -35,11 +37,11 @@ public ModelAndView altaOpIngreso(Request req, Response res) throws ParseExcepti
 
 		String descripcion = req.queryParams("descripcion");
 		String fechaParam = req.queryParams("fecha");
-		//String moneda = req.queryParams("moneda");
+		String monedaParam = req.queryParams("moneda");
+		int id_moneda = Integer.parseInt(monedaParam);
+		//CurrencyML id_moneda = Integer.parseInt(monedaParam);
 		String valorTotalParam = req.queryParams("valorTotal");
 		int valorTotal = Integer.parseInt(valorTotalParam);
-		
-		CurrencyML monedaPrueba = new CurrencyML("Forint Hungaro", "F", 2);
 		
 		
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -47,7 +49,10 @@ public ModelAndView altaOpIngreso(Request req, Response res) throws ParseExcepti
 		
 		opIngreso.setDescripcion(descripcion);
 		opIngreso.setFechaIngreso(fechaParseada);
-		opIngreso.setId_moneda(monedaPrueba);
+		
+		//OTRO DETALLE QUE ENCONTRÉ. PARA PERSISTIRLO TENGO QUE PASAR UN TIPO CURRENCYML, NO UN INTEGER. VOLVER A VER PARA CORREGIRLO
+		//opIngreso.setId_moneda(id_moneda);
+		
 		opIngreso.setValorTotal(valorTotal);
 		
 

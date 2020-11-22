@@ -19,7 +19,7 @@
         
         <div class="form-group">
             <label>Proveedor</label>
-            <input class="form-control" name="proveedor" id="proveedor" placeholder="Ingrese el id del proveedor">
+            <input class="form-control" name="proveedor" id="proveedor" placeholder="Ingrese el cuit del proveedor">
         </div>
 
         <div>
@@ -31,9 +31,9 @@
         <div>
 	        <label>Moneda</label>
 	        <select class="form-control" name="moneda">
-	          	<option value="1">Moneda 1</option> 
-  				<option value="2">Moneda 2</option>
-  				<option value="3">Moneda 3</option>
+            	{{#each this}}
+            		<option value={{id_moneda}}>{{descripcion}}</option>
+          		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione la moneda</small>
       	</div>
