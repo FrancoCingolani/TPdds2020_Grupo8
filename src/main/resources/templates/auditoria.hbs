@@ -9,30 +9,53 @@
     <li class="breadcrumb-item">
       <a routerLink="/home">Inicio</a>
     </li>
-    <li class="breadcrumb-item active">Alta proyecto</li>
+    <li class="breadcrumb-item active">Auditoria</li>
   </ol>
   <div class="row">
     <div class="col-md-8">
-      <h1>Auditoria</h1>
+      <h1>Bitacora</h1>
+      							
+	<br>
 
-      <form action="/evento/nuevo" method = "post">
-        
-        <div class="form-group">
-            <label>PENSAR QUE PONER</label>
-            <input class="form-control" name="nombre" id="nombre" placeholder="Pensar que poner">
-        </div>
-
-        
-
-        <br><br>
-
-
-		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-		<!--
-        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
-        -->
-        <br>
-      </form>
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Director</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Proyecto 33</td>
+      <td>Ingreso mensual</td>
+      <td>Juancito Perez</td>
+      <td>50000</td>
+      <td>Comprar maquina de papel higienico</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Proyecto 66</td>
+      <td>Ingreso mensual</td>
+      <td>Camil</td>
+      <td>50000</td>
+      <td>Maquina del tiempo</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Proyecto 99</td>
+      <td>Ingreso mensual</td>
+      <td>Natalia Natalia</td>
+      <td>50000</td>
+      <td>Medicamentos</td>
+    </tr>
+  </tbody>
+</table>
+									
     </div>
   </div>
 </body>
@@ -40,4 +63,5 @@
 
 {{/partial}}
 {{>layout.hbs}}
+
 

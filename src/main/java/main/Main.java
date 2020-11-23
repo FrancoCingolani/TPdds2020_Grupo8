@@ -17,7 +17,7 @@ import constantes.*;
 import enumeradores.*;
 import mensajes.*;
 
-public class Main { //REVISAR ITEM Y COMPRA
+public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		BasicConfigurator.configure();

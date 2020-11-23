@@ -33,12 +33,8 @@ public class Router {
 		OperacionEgresoController operacionEgresoController = new OperacionEgresoController();
 		OperacionIngresoController operacionIngresoController = new OperacionIngresoController();
 		ProyectoController proyectoController = new ProyectoController();
-		
-			AsociarEgreIngreController asociarEgreIngreController = new AsociarEgreIngreController();
-			/*
-		 * AuditoriaController auditoriaController = new AuditoriaController();
-		 * */
-		
+		AsociarEgreIngreController asociarEgreIngreController = new AsociarEgreIngreController();
+		AuditoriaController auditoriaController = new AuditoriaController();
 		ClasificadorController clasificadorController = new ClasificadorController();
 		MensajesController mensajesController = new MensajesController();
 		VisualizadorController visualizadorController = new VisualizadorController();
@@ -90,12 +86,12 @@ public class Router {
 				Spark.get("/asociar",
 						asociarEgreIngreController::asociarEgreIngre, 
 						new HandlebarsTemplateEngine());
-				/*			
+						
 			// ADUTORIA
 				Spark.get("/auditoria",
 						auditoriaController::auditoria, 
 						new HandlebarsTemplateEngine());			
-				*/
+			
 		// CLASIFICADOR
 				Spark.get("/clasificador",
 						clasificadorController::clasificador, 
