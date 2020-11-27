@@ -18,6 +18,14 @@
        <form action="/evento/nuevo" method = "post">
     
         <div>
+          <h4>Elija la operacion que quiera asociar</h4>
+	        <select class="form-control" name="filtrito">
+	         <option selected>Elija...</option>
+	            <option>Operaciones Ingreso</option>
+	            <option>Operaciones Egreso</option>
+	        </select>
+      	</div>
+      														<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
         <br>
         <h4>Asocie su egreso a un o varios Ingresos</h4>
 	        <label>Egresos</label>
@@ -28,8 +36,8 @@
 	        </select>
 	        <small class="form-text text-muted">Seleccione un egreso</small>
       	</div>
-      	
-      	<div>
+      	<br>
+      	<div> <!-- REVISAR PORQUE LO PONE ARRIBA-->
 	        <label>Ingresos</label>
 	        <select class="form-control" name="ingresos">
 	          {{#each ingreso}}

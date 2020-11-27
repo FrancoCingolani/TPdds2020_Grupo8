@@ -15,6 +15,7 @@ import repositorios.RepositorioDocumentosComerciales;
 import repositorios.RepositorioMedioDePago;
 import repositorios.RepositorioMonedas;
 import repositorios.RepositorioOpEgreso;
+import repositorios.RepositorioItems;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -28,12 +29,12 @@ public class OperacionEgresoController {
 		RepositorioMonedas repoMonedas = RepositorioMonedas.getInstance();
 		RepositorioMedioDePago repoMedioDePago = RepositorioMedioDePago.getInstance();
 		RepositorioDocumentosComerciales repoDocComerciales = RepositorioDocumentosComerciales.getInstance();
-		RepositorioDocumentosComerciales repoItems = RepositorioDocumentosComerciales.getInstance();
+		RepositorioItems repoItems = RepositorioItems.getInstance();
 		
 		List<T> currencyml = (List<T>) repoMonedas.buscarMonedas();	
 		//List<T> mediosDePago = (List<T>) repoMedioDePago.buscarMediosDePago();
 		List<T> documentosComerciales = (List<T>) repoDocComerciales.buscarDocumentosComerciales();	
-		List<T> documentosComeritemsciales = (List<T>) repoItems.buscarItems();	
+		List<T> items = (List<T>) repoItems.buscarItems();	
 		
 		
 		HashMap<String, List<T>> opEgresoOptions = new HashMap<String, List<T>>();
