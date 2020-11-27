@@ -1,19 +1,24 @@
 package main;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //no se si se usan o no pero segun la pagina de mongo son las comunes
 //https://mongodb.github.io/mongo-java-driver/4.1/driver/getting-started/quick-start/
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import com.mongodb.Block;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.*;
 import com.mongodb.client.result.DeleteResult;
 import static com.mongodb.client.model.Updates.*;
 import com.mongodb.client.result.UpdateResult;
+
 
 
 public class Bitacora {
@@ -22,7 +27,48 @@ public class Bitacora {
 	
 	public void agregarOperacion (OperacionRegistrada operacionRegistrada) {
 		this.operacionesRegistradas.add(operacionRegistrada);
+	}
+	
+	
+	public void insertarTest() {
+		/*MongoClient mongoClient = MongoClients.create();
+		MongoDatabase database = mongoClient.getDatabase("bitacora_gesoc");
+		MongoCollection<Document> collection = database.getCollection("bitacora_gesoc");
+			
+		Document doc = new Document("name", "MongoDB")
+		.append("type", "database")
+		.append("count", 1)
+		.append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
+		.append("info", new Document("x", 203).append("y", 102));
+			 
+		collection.insertOne(doc);
 		
+		System.out.println(collection.countDocuments());*/
+		
+		String template = "mongodb://%s:%s@%s/sample-database?replicaSet=rs0&readpreference=%s";
+        String username = "root";
+        String password = "dds2020!";
+        String clusterEndpoint = "dds2020-gesoc.cluster-c31m2f4pisk0.us-east-1.docdb.amazonaws.com:27017";
+        String readPreference = "secondaryPreferred";
+        String connectionString = String.format(template, username, password, clusterEndpoint, readPreference);
+
+        //MongoClientURI clientURI = new MongoClientURI(connectionString);
+        MongoClient mongoClient = MongoClients.create(connectionString);
+
+        MongoDatabase testDB = mongoClient.getDatabase("sample-database");
+        MongoCollection<Document> numbersCollection = testDB.getCollection("sample-collection");
+
+        Document doc = new Document("name", "pi").append("value", 3.14159);
+        numbersCollection.insertOne(doc);
+
+        MongoCursor<Document> cursor = numbersCollection.find().iterator();
+        try {
+            while (cursor.hasNext()) {
+                System.out.println(cursor.next().toJson());
+            }
+        } finally {
+            cursor.close();
+        }
 	}
 	
 	/*

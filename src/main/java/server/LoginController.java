@@ -43,12 +43,9 @@ public class LoginController {
 		if( usuario == null ) {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");
 		}
-
-		// System.out.println(usuario2);
 		
 		String usuarioPassword = usuario.getContrasenia();
-
-		if (usuarioPassword.equals(password)) {
+		if (usuario.iniciarSesion(nombreUsuario, password)) {
 			System.out.println("Login exitoso");
 			req.session(true);
 			req.session().attribute("user", nombreUsuario);

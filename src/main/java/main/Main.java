@@ -22,6 +22,8 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		BasicConfigurator.configure();
 		Server.iniciar();
+		/*Bitacora lala = new Bitacora();
+		lala.insertarTest();*/
 	}
 		
 		

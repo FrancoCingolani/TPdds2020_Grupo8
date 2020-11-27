@@ -37,6 +37,9 @@ public class Usuario {
 	@Transient
 	Bitacora bitacora;
 	
+	public Usuario() {}
+		
+	
 	public Usuario(String nombre, String contrasenia, int tipo) throws FileNotFoundException, IOException {
 		this.nombre = nombre;
 		this.contrasenia = hash.getMd5(contrasenia);
@@ -66,7 +69,7 @@ public class Usuario {
 	}
 	
 	public boolean iniciarSesion(String nombre, String contrasenia) {
-		if(nombre == this.nombre && hash.getMd5(contrasenia).equals(this.contrasenia) && this.cantidadIntentos < this.intentosMaximos) {
+		if(nombre.equals(this.nombre) && hash.getMd5(contrasenia).equals(this.contrasenia) && this.cantidadIntentos < this.intentosMaximos) {
 			System.out.println("El usuario se ha logueado exitosamente.");
 			return true;
 		}else {
