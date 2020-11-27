@@ -31,7 +31,7 @@
         <div>
 	        <label>Moneda</label>
 	        <select class="form-control" name="moneda">
-            	{{#each this}}
+            	{{#each monedas}}
             		<option value={{id_moneda}}>{{descripcion}}</option>
           		{{/each}}
 	        </select>
@@ -46,29 +46,27 @@
         <div>
 	        <label>Medio de pago</label>
 	        <select class="form-control" name="medioDePago">
-	          	<option value="1">Medio de pago 1</option> 
-  				<option value="2">Medio de pago 2</option>
-  				<option value="3">Medio de pago 3</option>
+	          	<option>Tarjeta de credito</option> 
 	        </select>
 	        <small class="form-text text-muted">Seleccione el medio de pago</small>
       	</div>
       	
       	<div>
 	        <label>Comprobante</label>
-	        <select class="form-control" name="comprobante">
-	          	<option value="1">Comprobante 1</option> 
-  				<option value="2">Comprobante 2</option>
-  				<option value="3">Comprobante 3</option>
+	        <select multiple size="6" class="form-control" name="comprobante">
+	          	{{#each documentosComerciales}}
+            		<option>{{tipo}}</option>
+          		{{/each}}
 	        </select>
-	        <small class="form-text text-muted">Seleccione los comprobantes para la operacion</small>
+	        <small class="form-text text-muted">Seleccione los numeros de identificacion de los comprobantes de la operacion</small>
       	</div>
       	
       	<div>
 	        <label>Items</label>
-	        <select class="form-control" name="item">
-	          	<option value="1">Item 1</option> 
-  				<option value="2">Item 2</option>
-  				<option value="3">Item 3</option>
+	        <select multiple size="6" class="form-control" name="item">
+	          	{{#each items}}
+            		<option>{{tipo}}</option>
+          		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los items de la operacion</small>
       	</div>
