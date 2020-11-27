@@ -19,6 +19,9 @@ public class DocumentoComercial {
 	String numero_identificacion;
 	@Enumerated
 	TipoDocumentoComercial tipo;
+	
+	public DocumentoComercial() {
+	}
 
 	public DocumentoComercial(String numero_identificacion,TipoDocumentoComercial tipo) {
 		this.numero_identificacion=numero_identificacion;
