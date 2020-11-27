@@ -3,7 +3,7 @@ Diagrama: https://www.lucidchart.com/documents/edit/63027adc-6fdf-4178-82c2-c50a
 
 COMO HACER LA CONEXION CON EL PUTTY
 
-SESSION=> Arriba donde dice Host Name cargás ec2-3-238-94-107.compute-1.amazonaws.com
+SESSION=> Arriba donde dice Host Name cargás ec2-3-238-94-107.compute-1.amazonaws.com (OJO, esto cambia cada vez que se inicia la vm)
 Luego ingresas a SSH -> Auth selecionas el archivo dds2020g8.ppk
 Finalmente OPEN
 (Usuario: ubuntu
