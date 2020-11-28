@@ -37,6 +37,9 @@ public class Clasificacion {
 		
 	}
 	
+	public Clasificacion(){
+	}
+	
 	public Clasificacion(String descripcion, Criterio criterio){
 		this.descripcion = descripcion;
 		this.criterio = criterio;

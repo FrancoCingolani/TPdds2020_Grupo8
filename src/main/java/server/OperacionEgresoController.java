@@ -52,6 +52,12 @@ public class OperacionEgresoController {
 	public ModelAndView altaOpEgreso(Request req, Response res) {
 		
 		OperacionEgreso opEgreso = new OperacionEgreso();
+		
+		String fecha = req.queryParams("fecha");
+		
+		System.out.println(fecha);
+		
+		/*
 
 		String proveedor = req.queryParams("proveedor");
 		String fecha = req.queryParams("fecha");
@@ -63,20 +69,32 @@ public class OperacionEgresoController {
 		Date fechaMedioDePago = new Date();
 		TarjetaDeCredito medioDePago = new TarjetaDeCredito("785430001547", "246", fechaMedioDePago, "Franco", "DNI", "456123789");
 		
-		/*
+		
 		opEgreso.setProveedor(proveedor);
-		opEgreso.setFecha(fecha);
+		
+		String fechaRecortada = fecha.substring(0, 10);
+		System.out.println(fechaRecortada);
+		Date fechaOperacion = Date.parse(fechaRecortada);
+		opEgreso.setFecha(fechaOperacion);
+		
 		opEgreso.setMedioDePago(medioDePago);
 		opEgreso.setItems(items);
 		opEgreso.setDocumentosComerciales(documentosComerciales);
 		opEgreso.setOrganizacion(organizacion);
-		*/
+		
 
 
 		RepositorioOpEgreso.getInstance().persist(opEgreso);
 
 		res.redirect("/");
+		
 		return null;
+		
+		*/
+		
+		return new ModelAndView(null, "home.hbs");
+		
+		
 	}
 
 }

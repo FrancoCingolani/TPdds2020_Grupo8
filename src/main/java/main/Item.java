@@ -33,6 +33,9 @@ public class Item {
 	
 	int numeroPresupuesto;
 	
+	public Item () {
+	}
+	
 	public Item (String descripcion, double valor, int cantidad, Clasificacion clasificacion, int numeroPresupuesto) {
 		this.descripcion = descripcion;
 		this.valor = valor;

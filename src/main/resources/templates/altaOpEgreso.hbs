@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <h1>Alta operacion egreso</h1>
 
-      <form action="/evento/nuevo" method = "post">
+      <form action="/operacionesEgreso" method = "post">
         
         <div class="form-group">
             <label>Proveedor</label>
@@ -65,7 +65,7 @@
 	        <label>Items</label>
 	        <select multiple size="6" class="form-control" name="item">
 	          	{{#each items}}
-            		<option>{{tipo}}</option>
+            		<option>{{descripcion}}</option>
           		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los items de la operacion</small>

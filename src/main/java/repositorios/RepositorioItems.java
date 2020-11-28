@@ -32,8 +32,6 @@ public class RepositorioItems extends AbstractHibernateRepo{
 		
 		List<Item> results = query.getResultList();
 		
-		System.out.println(results);
-		
 		return results;
 		
 	}

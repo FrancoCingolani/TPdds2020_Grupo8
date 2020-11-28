@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -31,9 +32,12 @@ public class Compra extends Operacion{
 	List<Usuario> revisores;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "compra")
 	List<Item> items;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "id_presupuesto")
 	Presupuesto presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pasé a int. Volver a revisar
+	
+	public Compra() {		
+	}
 	
 	public Compra(int cantPresuReq, List<Presupuesto> presupuestos, List<OperacionEgreso> operacionesEgre, List<Usuario> revisores, List<Item> items, Presupuesto presupuestoElegido) {
 		/** Ignacio: No es lÃ³gico que al momento de crearse la necesidad de compra se carguen al mismo tiempo los presupuestos, los egresos, los revisores y el presupuesto

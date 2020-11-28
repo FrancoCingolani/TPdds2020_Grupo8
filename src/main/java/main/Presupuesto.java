@@ -38,6 +38,9 @@ public class Presupuesto {
 	private List<Item> items = new ArrayList<Item>();
 	
 	int numeroPresupuesto;
+	
+	public Presupuesto() {
+	}
 
 	
 	public Presupuesto(Proveedor proveedor,String detalle, List<Item> items, List<DocumentoComercial> documentos) {

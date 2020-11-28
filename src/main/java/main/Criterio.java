@@ -14,6 +14,9 @@ public class Criterio {
 	
 	String descripcion;
 	
+	public Criterio() {
+	}
+	
 	public Criterio(String descipcion) {
 		this.descripcion = descipcion;
 	}
