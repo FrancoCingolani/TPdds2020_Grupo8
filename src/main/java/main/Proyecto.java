@@ -55,7 +55,7 @@ public class Proyecto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public void agregarOperacionIngreso(OperacionIngreso nuevaOperacion) {
+	public void vincular(OperacionIngreso nuevaOperacion) {
 		this.subsidios.add(nuevaOperacion);
 	}
 	public int getIdProyecto() {

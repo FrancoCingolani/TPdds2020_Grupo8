@@ -23,9 +23,12 @@
 	         <option selected>Elija...</option>
 	            <option>Operaciones Ingreso</option>
 	            <option>Operaciones Egreso</option>
+	            <option>Proyecto</option>
 	        </select>
       	</div>
-      														<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
+      </form>
+      
+      	 <form action="/evento/nuevo" method = "post">													<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
         <br>
         <h4>Asocie su egreso a un o varios Ingresos</h4>
 	        <label>Egresos</label>
@@ -78,6 +81,38 @@
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione uno o mas egresos que desee asociar</small>
+      	</div>
+
+        <br>
+
+
+		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<!--
+        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
+        -->
+        <br>
+      </form>
+      
+      <form action="/evento/nuevo" method = "post">													<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
+        <br>
+        <h4>Asocie su proyecto a un o varios Ingresos</h4>
+	        <label>Proyectos</label>
+	        <select class="form-control" name="Proyecto">
+	          {{#each proyecto}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione un proyecto</small>
+      	</div>
+      	<br>
+      	<div> 
+	        <label>Ingresos</label>
+	        <select class="form-control" name="ingresos">
+	          {{#each ingreso}}
+	            <option>{{this}}</option>
+	          {{/each}}
+	        </select>
+	        <small class="form-text text-muted">Seleccione uno o mas ingresos que desee asociar</small>
       	</div>
 
         <br>
