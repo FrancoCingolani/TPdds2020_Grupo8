@@ -17,7 +17,7 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 	}
 
 	
-	public List<Mensaje> buscarMesaje() {
+	public List<Mensaje> buscarMensaje() {
 
 		//COPIADO DE ITEMS
 		Query query = this.getEntityManager().createQuery("FROM Mensaje mensajes");
