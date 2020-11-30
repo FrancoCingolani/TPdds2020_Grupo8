@@ -31,7 +31,7 @@ public class OperacionIngresoController {
 	}
 	
 	
-public ModelAndView altaOpIngreso(Request req, Response res) throws ParseException {
+	public ModelAndView altaOpIngreso(Request req, Response res) throws ParseException {
 		
 		OperacionIngreso opIngreso = new OperacionIngreso();
 

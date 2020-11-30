@@ -72,8 +72,12 @@ public class Router {
 				Spark.post("/operacionesIngreso",
 						operacionIngresoController::altaOpIngreso, 
 						new HandlebarsTemplateEngine());
-		// ALTA DE OPERACIONES PROYECTO
+		// ALTA DE PROYECTO
 				Spark.get("/proyecto",
+						proyectoController::altaProyectoFront, 
+						new HandlebarsTemplateEngine());
+				
+				Spark.post("/proyecto",
 						proyectoController::altaProyecto, 
 						new HandlebarsTemplateEngine());
 				

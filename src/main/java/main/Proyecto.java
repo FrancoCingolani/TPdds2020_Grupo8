@@ -27,6 +27,9 @@ public class Proyecto {
 	@JoinColumn(name = "id_usuario") //se lo agregue al usuario
 	Usuario director;
 	
+	public Proyecto() {
+	}
+	
 	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre, Usuario director) {
 		this.nombre= nombre;
 		this.descripcion = descripcion;
