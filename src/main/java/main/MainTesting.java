@@ -29,11 +29,11 @@ public class MainTesting {
 		
       //  Presupuesto presupuestoElegido = presupuesto1;
         
-        Item item1 = new Item("Algo muy barato", 1, 1, null);	
-		Item item2 = new Item("Otra cosa barata", 2, 1, null);	
+        Item item1 = new Item("Algo muy barato", 1, 1, null, 0);	
+		Item item2 = new Item("Otra cosa barata", 2, 1, null, 0);	
 		List<Item> items = Arrays.asList(item1, item2);
 		
-		Proveedor proveedor88 = new Proveedor("asdf 123");
+		Proveedor proveedor88 = new Proveedor("asdf 123", null);
 		Presupuesto presupuesto1 = new Presupuesto(proveedor88,"detalle",items,null);
 		Presupuesto presupuesto2 = new Presupuesto(proveedor88,"detalle",items,null);
 		
