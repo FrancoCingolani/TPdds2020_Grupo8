@@ -1,5 +1,16 @@
 package server;
 
+
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+
+public class MensajesController {
+	public ModelAndView mensajes(Request req, Response res) {
+		return new ModelAndView(null, "bandejaMensajes.hbs");
+	}
+}
+/*
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,4 +59,4 @@ public ModelAndView mensajes(Request req, Response res) throws ParseException {
 		return null;
 	}	
 	
-}
+}*/
