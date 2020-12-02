@@ -26,7 +26,7 @@ CREATE TABLE `atm` (
   `id_medio_de_pago` int(11) NOT NULL,
   `linkPagos` int(11) NOT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `categorias` (
   `tipo` varchar(31) NOT NULL,
   `id_categoria` int(11) NOT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `cityml` (
   `name_country` varchar(255) DEFAULT NULL,
   `name_state` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_ciudad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +108,7 @@ CREATE TABLE `clasificaciones` (
   KEY `FKphxaxv7njotbdv8g0tye2w8jl` (`id_criterio`),
   CONSTRAINT `FKb0xejcp40pkq6gd2rvfs1fbql` FOREIGN KEY (`clasificacionPadre_id_clasificacion`) REFERENCES `clasificaciones` (`id_clasificacion`),
   CONSTRAINT `FKphxaxv7njotbdv8g0tye2w8jl` FOREIGN KEY (`id_criterio`) REFERENCES `criterios` (`id_criterio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `compras` (
   PRIMARY KEY (`id_compra`),
   KEY `FKdafu1tws7f4qthggs3d374onp` (`id_presupuesto`),
   CONSTRAINT `FKdafu1tws7f4qthggs3d374onp` FOREIGN KEY (`id_presupuesto`) REFERENCES `presupuestos` (`id_presupuesto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,6 +148,44 @@ INSERT INTO `compras` VALUES (1,1,NULL);
 /*!40000 ALTER TABLE `compras` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `nombre` varchar(255) NOT NULL,
+  `cantidadIntentos` int(11) NOT NULL,
+  `contrasenia` varchar(255) DEFAULT NULL,
+  `intentosMaximos` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES ('Franco',0,'dds2020',10,1,0),('igna',0,'481f968faa0b1198491486565b4efdd7',10,1,1);
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
 --
 -- Table structure for table `compras_usuarios`
 --
@@ -157,13 +195,13 @@ DROP TABLE IF EXISTS `compras_usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `compras_usuarios` (
   `Compra_id_compra` int(11) NOT NULL,
-  `revisores_nombre` varchar(255) NOT NULL,
   `revisores_id_usuario` int(11) NOT NULL,
-  KEY `FKdq0a70asq6ne07oxmkuqfvpdw` (`revisores_nombre`),
+  PRIMARY KEY (`Compra_id_compra`, `revisores_id_usuario`),
+  KEY `FKdq0a70asq6ne07oxmkuqfvpdw` (`revisores_id_usuario`),
   KEY `FKb19mvr0hin8qbotels7n29f9s` (`Compra_id_compra`),
   CONSTRAINT `FKb19mvr0hin8qbotels7n29f9s` FOREIGN KEY (`Compra_id_compra`) REFERENCES `compras` (`id_compra`),
-  CONSTRAINT `FKdq0a70asq6ne07oxmkuqfvpdw` FOREIGN KEY (`revisores_nombre`) REFERENCES `usuarios` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `FKdq0a70asq6ne07oxmkuqfvpdw` FOREIGN KEY (`revisores_id_usuario`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +224,7 @@ CREATE TABLE `criterios` (
   `id_criterio` int(11) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_criterio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +250,7 @@ CREATE TABLE `currencyml` (
   `descripcion` varchar(255) DEFAULT NULL,
   `symbol` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_moneda`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,7 +274,7 @@ CREATE TABLE `dineroencuenta` (
   `id_medio_de_pago` int(11) NOT NULL,
   `saldo` double NOT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +299,7 @@ CREATE TABLE `documentoscomerciales` (
   `numero_identificacion` varchar(255) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_documento_comercial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +334,7 @@ CREATE TABLE `entidadesjuridicas` (
   CONSTRAINT `FK1nefbqsofgwh8crtpw92d3w0t` FOREIGN KEY (`id_entidad_juridica`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FK28p4vcna6qjxw9qamj086ojlg` FOREIGN KEY (`perteneceA_id_entidad_juridica`) REFERENCES `entidadesjuridicas` (`id_entidad_juridica`),
   CONSTRAINT `FKcl559f1bafn2x2o854h1mucaa` FOREIGN KEY (`id_entidad_base`) REFERENCES `organizaciones` (`id_organizacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,7 +355,7 @@ DROP TABLE IF EXISTS `hibernate_sequence`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hibernate_sequence` (
   `next_val` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +391,7 @@ CREATE TABLE `items` (
   CONSTRAINT `FK6bwse5dbwnhde54deb9g6j4j1` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`),
   CONSTRAINT `FKnvd3n9xccjlax331pc9s753ha` FOREIGN KEY (`id_clasificacion`) REFERENCES `clasificaciones` (`id_clasificacion`),
   CONSTRAINT `FKqmf63a27pryeptnqkx5kdii68` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -380,7 +418,7 @@ CREATE TABLE `mensajes` (
   `leido` bit(1) DEFAULT NULL,
   `textoMensaje` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_mensaje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -424,7 +462,7 @@ CREATE TABLE `operacionesegreso` (
   CONSTRAINT `FKm0ai9eqsnsrc74mk3hjfl3kag` FOREIGN KEY (`id_operacion_egreso_entidad`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKrt6a7qgxkfrjmewt9rnt2puat` FOREIGN KEY (`id_operacion_ingreso`) REFERENCES `operacioningreso` (`id_operacion_ingreso`),
   CONSTRAINT `FKsuu7wh48yksamtwsf70x977gk` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,7 +488,7 @@ CREATE TABLE `operacionesegreso_documentoscomerciales` (
   KEY `FKgkw4wemns7byj2g87uctkf8f8` (`OperacionEgreso_id_operacion_egreso`),
   CONSTRAINT `FKgkw4wemns7byj2g87uctkf8f8` FOREIGN KEY (`OperacionEgreso_id_operacion_egreso`) REFERENCES `operacionesegreso` (`id_operacion_egreso`),
   CONSTRAINT `FKgqaq4qokofm80rlwaq3tq6363` FOREIGN KEY (`documentosComerciales_id_documento_comercial`) REFERENCES `documentoscomerciales` (`id_documento_comercial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +514,7 @@ CREATE TABLE `operacionesegreso_items` (
   KEY `FKn2kw8mvax6if1ssf5ija2nq5w` (`OperacionEgreso_id_operacion_egreso`),
   CONSTRAINT `FK7bv1mck5l684jbrq1npupnnx` FOREIGN KEY (`items_id_item`) REFERENCES `items` (`id_item`),
   CONSTRAINT `FKn2kw8mvax6if1ssf5ija2nq5w` FOREIGN KEY (`OperacionEgreso_id_operacion_egreso`) REFERENCES `operacionesegreso` (`id_operacion_egreso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -513,7 +551,7 @@ CREATE TABLE `operacionesingreso` (
   CONSTRAINT `FK5d3hipv0ll8y3jhkucq2jo617` FOREIGN KEY (`id_organizacion`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKm2s3f3vajyr2h27li8m2h3idh` FOREIGN KEY (`id_operacion_ingreso_entidad`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKpcqxlor40rk5xsr5fnj68gdnb` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -550,7 +588,7 @@ CREATE TABLE `operacioningreso` (
   CONSTRAINT `FK3hqsre56p878e9iyuqplcw4wy` FOREIGN KEY (`id_organizacion`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FK7o2t7v7cq0412a4k30rfm2yxr` FOREIGN KEY (`id_operacion_ingreso_entidad`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKlweahfjc2o3j7reo5n8nffxwj` FOREIGN KEY (`id_subsidio`) REFERENCES `proyectos` (`id_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -585,7 +623,7 @@ CREATE TABLE `organizaciones` (
   KEY `FK9wpp4ags0yhlbudilqh92mlg6` (`id_ciudad_id_ciudad`),
   CONSTRAINT `FK9wpp4ags0yhlbudilqh92mlg6` FOREIGN KEY (`id_ciudad_id_ciudad`) REFERENCES `cityml` (`id_ciudad`),
   CONSTRAINT `FKqjm1f1ba2ecu6nqwmb0s6wgwr` FOREIGN KEY (`categoria_id_categoria`) REFERENCES `categorias` (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -617,7 +655,7 @@ CREATE TABLE `presupuestos` (
   CONSTRAINT `FK22xyrayor63co5xiptlnigjvj` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`),
   CONSTRAINT `FKrosfir1m9y7j456xu4pus3t93` FOREIGN KEY (`id_presupuesto`) REFERENCES `compras` (`id_compra`),
   CONSTRAINT `FKtl5ux5ny59qsvkaglhhns2npk` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -644,7 +682,7 @@ CREATE TABLE `presupuestos_documentoscomerciales` (
   KEY `FK2794696i696yb68fbtr1s91i0` (`Presupuesto_id_presupuesto`),
   CONSTRAINT `FK2794696i696yb68fbtr1s91i0` FOREIGN KEY (`Presupuesto_id_presupuesto`) REFERENCES `presupuestos` (`id_presupuesto`),
   CONSTRAINT `FKd5lry4n7aboumpgr7sbqgmb9w` FOREIGN KEY (`documentos_id_documento_comercial`) REFERENCES `documentoscomerciales` (`id_documento_comercial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -670,7 +708,7 @@ CREATE TABLE `presupuestos_items` (
   KEY `FK7ovp5xvxqpl9hjvgil44wim0r` (`Presupuesto_id_presupuesto`),
   CONSTRAINT `FK7ovp5xvxqpl9hjvgil44wim0r` FOREIGN KEY (`Presupuesto_id_presupuesto`) REFERENCES `presupuestos` (`id_presupuesto`),
   CONSTRAINT `FKb4jovkb91nnliqkby5q7yta9n` FOREIGN KEY (`items_id_item`) REFERENCES `items` (`id_item`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -703,7 +741,7 @@ CREATE TABLE `proveedores` (
   PRIMARY KEY (`id_proveedor`),
   KEY `FKsw2mciqtjvb3ifpsfinvtrygn` (`id_ciudad`),
   CONSTRAINT `FKsw2mciqtjvb3ifpsfinvtrygn` FOREIGN KEY (`id_ciudad`) REFERENCES `cityml` (`id_ciudad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -731,7 +769,7 @@ CREATE TABLE `proyectos` (
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_proyecto`),
   CONSTRAINT `FKnjrcws4nb4acm4t2plj0g7k6s` FOREIGN KEY (`id_proyecto`) REFERENCES `organizaciones` (`id_organizacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -759,7 +797,7 @@ CREATE TABLE `tarjetadecredito` (
   `fechaExpiracion` datetime DEFAULT NULL,
   `numero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -788,7 +826,7 @@ CREATE TABLE `tarjetadedebito` (
   `fechaExpiracion` datetime DEFAULT NULL,
   `numero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -813,7 +851,7 @@ CREATE TABLE `ticket` (
   `codigoBarras` bigint(20) NOT NULL,
   `numeroParaCajero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -825,41 +863,5 @@ LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `usuarios`
---
-
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `nombre` varchar(255) NOT NULL,
-  `cantidadIntentos` int(11) NOT NULL,
-  `contrasenia` varchar(255) DEFAULT NULL,
-  `intentosMaximos` int(11) NOT NULL,
-  `tipo` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuarios`
---
-
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Franco',0,'dds2020',10,1,0);
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-12-02 11:19:27
