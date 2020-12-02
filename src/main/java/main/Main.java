@@ -7,10 +7,11 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 
 import server.*;
+/*
 import categoriasEntidadJuridica.Categoria;
 import constantes.*;
 import enumeradores.*;
-import mensajes.*;
+import mensajes.*;*/
 
 public class Main {
 
