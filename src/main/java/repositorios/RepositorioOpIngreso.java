@@ -20,10 +20,12 @@ public class RepositorioOpIngreso extends AbstractHibernateRepo{
 	
 	public List<OperacionIngreso> buscarOpIngreso() {
 		
-		Query query = this.getEntityManager().createQuery("SELECT opIngreso FROM OperacionIngreso opIngreso");
+		Query query = this.getEntityManager().createQuery("FROM OperacionIngreso opIngreso");
 		
 		@SuppressWarnings("unchecked")
 		List<OperacionIngreso> results = query.getResultList();	
+		
+		System.out.println(results);
 		
 		return results;
 		

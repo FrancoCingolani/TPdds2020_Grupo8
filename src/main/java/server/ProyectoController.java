@@ -1,10 +1,9 @@
 package server;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import main.OperacionIngreso;
+import java.util.HashMap;
+import java.util.List;
 import main.Proyecto;
+
 import repositorios.RepositorioOpIngreso;
 import repositorios.RepositorioProyecto;
 import spark.ModelAndView;
@@ -12,8 +11,20 @@ import spark.Request;
 import spark.Response;
 
 public class ProyectoController {
-	public ModelAndView altaProyectoFront(Request req, Response res) {
-		return new ModelAndView(null, "altaProyecto.hbs");
+	public <T> ModelAndView altaProyectoFront(Request req, Response res) {
+		
+		
+		RepositorioOpIngreso repoOpIngreso = RepositorioOpIngreso.getInstance();
+		
+		List<T> opIngreso = (List<T>) repoOpIngreso.buscarOpIngreso();	
+
+		HashMap<String, List<T>> proyectoOptions = new HashMap<String, List<T>>();
+
+	    // Agrego valores al Hashmap (nombreReferencia, List)
+		proyectoOptions.put("opIngreso", opIngreso);
+
+		
+		return new ModelAndView(proyectoOptions, "altaProyecto.hbs");
 	}
 	
 	

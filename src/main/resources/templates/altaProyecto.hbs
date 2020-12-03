@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <h1>Alta Proyecto</h1>
 
-      <form action="/evento/nuevo" method = "post">
+      <form action="/proyecto" method = "post">
         
         <div class="form-group">
             <label>Nombre</label>
@@ -35,9 +35,9 @@
         
         <div>
 	        <label>Ingresos</label>
-	        <select class="form-control" name="ingresos">
-	          {{#each ingreso}}
-	            <option>{{this}}</option>
+	        <select multiple size="6" class="form-control" name="ingresos">
+	          {{#each opIngreso}}
+	            <option>{{descripcion}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los ingresos corrrespondientes al proyecto</small>
