@@ -96,6 +96,7 @@ public class OperacionIngreso {
 		return fechaIngreso;
 	}
 
+
 	public double getSumaParcialEgresosAsociados() {
 		double sumaParcial = 0;
 		for (OperacionEgreso egreso : this.egresos) {
@@ -104,5 +105,4 @@ public class OperacionIngreso {
 		
 		return sumaParcial;
 	}
-	
 }

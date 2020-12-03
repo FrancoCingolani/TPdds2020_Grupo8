@@ -50,5 +50,11 @@ public class RepositorioMonedas extends AbstractHibernateRepo{
 		return results;
 		
 	}
+	
+	public CurrencyML buscarMonedaPorID(int id_moneda) {
+		Query query = this.getEntityManager().createQuery("SELECT currencyml FROM CurrencyML currencyml WHERE id_moneda = :id");
+		query.setParameter("id", id_moneda);
+		return (CurrencyML) query.getSingleResult();
+	}
 
 }

@@ -40,6 +40,10 @@ public class CurrencyML {
 	public int getDecimal_places() {
 		return decimal_places;
 	}
+
+	public int getId_moneda() {
+		return id_moneda;
+	}
 	
 }
 

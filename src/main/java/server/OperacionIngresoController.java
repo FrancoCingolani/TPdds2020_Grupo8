@@ -25,8 +25,6 @@ public class OperacionIngresoController {
 		
 		List<CurrencyML> currencyml = repoMonedas.buscarMonedas();
 		
-		
-		
 		return new ModelAndView(currencyml, "altaOpIngreso.hbs");
 	}
 	
@@ -34,6 +32,7 @@ public class OperacionIngresoController {
 	public ModelAndView altaOpIngreso(Request req, Response res) throws ParseException {
 		
 		OperacionIngreso opIngreso = new OperacionIngreso();
+		RepositorioMonedas repoMonedas = RepositorioMonedas.getInstance();
 
 		String descripcion = req.queryParams("descripcion");
 		String fechaParam = req.queryParams("fecha");
@@ -51,11 +50,10 @@ public class OperacionIngresoController {
 		opIngreso.setFechaIngreso(fechaParseada);
 		
 		//OTRO DETALLE QUE ENCONTRÉ. PARA PERSISTIRLO TENGO QUE PASAR UN TIPO CURRENCYML, NO UN INTEGER. VOLVER A VER PARA CORREGIRLO
-		//opIngreso.setId_moneda(id_moneda);
+		opIngreso.setId_moneda(repoMonedas.buscarMonedaPorID(id_moneda));
+		System.out.println(opIngreso.getId_moneda().getId_moneda());
 		
 		opIngreso.setValorTotal(valorTotal);
-		
-
 
 		RepositorioOpIngreso.getInstance().persist(opIngreso);
 
