@@ -17,17 +17,18 @@
       <h1>Sus Operaciones</h1>
       <div>
         <br>
-        <h4>Elija lo que quisiera vizualisar</h4>
-	        <select class="form-control" name="Egreso">
+        <h4>Elija lo que quisiera visualizar</h4>
+	        <select class="form-control" id="selector" name="Egreso"> <!-- NECESITA PARA ALGO TENER EL NOMBRE EGRESO?-->	        
 	        <option selected>Elija...</option>
-	            <option>Operaciones Ingreso</option>
-	            <option>Operaciones Egreso</option>
-	            <option>Proyectos</option>
+	            <option value="i">Operaciones Ingreso</option>
+	            <option value="e">Operaciones Egreso</option>
+	            <option value="p">Proyectos</option>
 	        </select>
       	</div>
       														<!-- HARIA FALTA HACER QUE SOLO APAREZCA LA TABLA DE LO SELECCIONADO-->
       								<!-- INGRESOS -->
-	<br>
+	</br>
+	<div id="ingresos"> <!-- INICIO DIV INGRESOS -->
 	<h2>Ingresos</h2>
       <table class="table table-striped">
   <thead>
@@ -63,45 +64,49 @@
     </tr>
   </tbody>
 </table>
+</div> <!-- FIN  DIV INGRESOS -->
 									<!-- EGRESOS -->
-	<br>
-	<h2>Egresos</h2>
-      <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Producto</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Monto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>02/10/2016</td>
-      <td>Tornillos</td>
-      <td>100000</td>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>02/11/2016</td>
-      <td>Tuercas</td>
-      <td>145</td>
-      <td>1200</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>02/12/2016</td>
-      <td>Destornillador</td>
-      <td>46</td>
-      <td>7800</td>
-    </tr>
-  </tbody>
-</table>
+
+	<div id="egresos"> <!-- INICIO DIV EGRESOS -->
+		<h2>Egresos</h2>
+	      <table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th scope="col">ID</th>
+	      <th scope="col">Fecha</th>
+	      <th scope="col">Producto</th>
+	      <th scope="col">Cantidad</th>
+	      <th scope="col">Monto</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">1</th>
+	      <td>02/10/2016</td>
+	      <td>Tornillos</td>
+	      <td>100000</td>
+	      <td>50000</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td>02/11/2016</td>
+	      <td>Tuercas</td>
+	      <td>145</td>
+	      <td>1200</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td>02/12/2016</td>
+	      <td>Destornillador</td>
+	      <td>46</td>
+	      <td>7800</td>
+	    </tr>
+	  </tbody>
+	</table>
+	</div> <!-- FIN DIV EGRESOS-->
 								<!-- PROYECTO -->
-	<br>
+
+	<div id="proyectos"> <!-- INICIO DIV PROYECTOS -->
 	<h2>Proyectos</h2>
       <table class="table table-striped">
   <thead>
@@ -137,6 +142,7 @@
     </tr>
   </tbody>
 </table>
+</div> <!-- FIN DIV PROYECTOS -->
     </div>
   </div>
 </body>
@@ -144,4 +150,7 @@
 
 {{/partial}}
 {{>layout.hbs}}
+
+<!-- JS para mostrar/ocultar lo que se pida en el visualizador-->
+<script src="/js/visualizadorStyle.js"></script>
 
