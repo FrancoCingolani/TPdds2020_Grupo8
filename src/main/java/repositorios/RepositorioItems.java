@@ -35,5 +35,11 @@ public class RepositorioItems extends AbstractHibernateRepo{
 		return results;
 		
 	}
+	
+	public Item buscarItemsPorId(int id_item) { //EN REALIDAD VOY A TENER QUE PASAR UNA LISTA DE ITEMS
+		Query query = this.getEntityManager().createQuery("SELECT item FROM Item item WHERE id_item = :id_item");
+		query.setParameter("id_item", id_item);
+		return (Item) query.getResultList();
+	}
 
 }
