@@ -31,5 +31,9 @@ public class DocumentoComercial {
 	public TipoDocumentoComercial getTipo() {
 		return tipo;
 	}
+	
+	public int getId_documento_comercial() {
+		return id_documento_comercial;
+	}
 
 }

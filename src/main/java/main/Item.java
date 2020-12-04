@@ -75,5 +75,9 @@ public class Item {
 	public double precioTotal() {
 		return valor * cantidad;
 	}
+	
+	public int getId_item() {
+		return id_item;
+	}
 
 }

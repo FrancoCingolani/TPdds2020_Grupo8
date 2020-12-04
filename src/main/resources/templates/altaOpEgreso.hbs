@@ -46,7 +46,7 @@
         <div>
 	        <label>Medio de pago</label>
 	        <select class="form-control" name="medioDePago">
-	          	<option>Tarjeta de credito</option> 
+	          	<option value=1>Tarjeta de credito</option> 
 	        </select>
 	        <small class="form-text text-muted">Seleccione el medio de pago</small>
       	</div>
@@ -55,7 +55,7 @@
 	        <label>Comprobante</label>
 	        <select multiple size="6" class="form-control" name="comprobante">
 	          	{{#each documentosComerciales}}
-            		<option>{{tipo}}</option>
+            		<option value={{id_documento_comercial}}>{{tipo}}</option>
           		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los numeros de identificacion de los comprobantes de la operacion</small>
@@ -65,7 +65,7 @@
 	        <label>Items</label>
 	        <select multiple size="6" class="form-control" name="item">
 	          	{{#each items}}
-            		<option>{{descripcion}}</option>
+            		<option value={{id_item}}>{{descripcion}}</option>
           		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los items de la operacion</small>

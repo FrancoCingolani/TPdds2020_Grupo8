@@ -1,5 +1,7 @@
 package server;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,13 +51,32 @@ public class OperacionEgresoController {
 		return new ModelAndView(opEgresoOptions, "altaOpEgreso.hbs");
 	}
 	
-	public ModelAndView altaOpEgreso(Request req, Response res) {
+	public ModelAndView altaOpEgreso(Request req, Response res) throws ParseException {
 		
 		OperacionEgreso opEgreso = new OperacionEgreso();
 		
-		String fecha = req.queryParams("fecha");
+		String cuitProveedor = req.queryParams("proveedor");
+		String fechaParam = req.queryParams("fecha");
+		String monedaParam = req.queryParams("moneda");
+		int id_moneda = Integer.parseInt(monedaParam);
+		String medioDePagoParam = req.queryParams("medioDePago");
+		int id_medioDePago = Integer.parseInt(medioDePagoParam);
+		String comprobanteParam = req.queryParams("item");
+		int id_comprobante = Integer.parseInt(comprobanteParam);
+		String itemParam = req.queryParams("comprobante");
+		int id_item = Integer.parseInt(itemParam);
 		
-		System.out.println(fecha);
+		
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+		Date fechaParseada = formato.parse(fechaParam);
+		
+		opEgreso.setFecha(fechaParseada);
+		//opEgreso.setMedioDePago(medioDePago);
+		//opEgreso.setItems(items);
+		//opEgreso.setDocumentosComerciales(documentosComerciales);
+		//opEgreso.setOrganizacion(organizacion);
+		
+		
 		
 		/*
 
@@ -72,15 +93,7 @@ public class OperacionEgresoController {
 		
 		opEgreso.setProveedor(proveedor);
 		
-		String fechaRecortada = fecha.substring(0, 10);
-		System.out.println(fechaRecortada);
-		Date fechaOperacion = Date.parse(fechaRecortada);
-		opEgreso.setFecha(fechaOperacion);
 		
-		opEgreso.setMedioDePago(medioDePago);
-		opEgreso.setItems(items);
-		opEgreso.setDocumentosComerciales(documentosComerciales);
-		opEgreso.setOrganizacion(organizacion);
 		
 
 
