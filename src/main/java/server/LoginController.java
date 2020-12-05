@@ -44,11 +44,11 @@ public class LoginController {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");
 		}
 		
-		String usuarioPassword = usuario.getContrasenia();
 		if (usuario.iniciarSesion(nombreUsuario, password)) {
 			System.out.println("Login exitoso");
 			req.session(true);
 			req.session().attribute("user", nombreUsuario);
+			req.session().attribute("id", usuario.getID());
 			res.redirect("/");
 		} else {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");

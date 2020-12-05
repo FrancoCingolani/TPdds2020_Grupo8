@@ -59,7 +59,7 @@ public class OperacionIngreso {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public double getValorTotalOperacion() {
+	public double getValorTotal() {
 		return valorTotal;
 	}
 
@@ -88,7 +88,7 @@ public class OperacionIngreso {
 		this.egresos = operacionesEgre;
 	}
 	
-	public int getId() {
+	public int getId_operacion_ingreso() {
 		return id_operacion_ingreso;
 	}
 	

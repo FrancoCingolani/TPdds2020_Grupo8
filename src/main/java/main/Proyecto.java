@@ -41,7 +41,11 @@ public class Proyecto {
 	public double getmontoAsignadoOperacion() {
 		return montoAsignado;
 	}
-
+	
+	public double getMontoAsignado() {
+		return montoAsignado;
+	}
+	
 	public void setmontoAsignado(double montoAsignado) {
 		this.montoAsignado = montoAsignado;
 	}
@@ -71,6 +75,14 @@ public class Proyecto {
 	}
 	public int getIDDirector() {
 		return director.getID();
+	}
+	
+	public List<OperacionIngreso> getSubsidios() {
+		return subsidios;
+	}
+	
+	public Usuario getDirector() {
+		return director;
 	}
 }
 

@@ -23,7 +23,7 @@ $("#selector").change(function() {
 			$("#ingresos").hide();
 			$("#proyectos").show();
 			break;
-		case "default": // Muestra proyectos
+		case "default": // Oculta todo
 			$("#egresos").hide();
 			$("#ingresos").hide();
 			$("#proyectos").hide();

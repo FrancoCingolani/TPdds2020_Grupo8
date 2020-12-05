@@ -1,5 +1,7 @@
 package server;
 
+import com.github.jknack.handlebars.Handlebars;
+
 import spark.Request;
 import spark.Response;
 import spark.Spark;
@@ -39,6 +41,9 @@ public class Router {
 		MensajesController mensajesController = new MensajesController();
 		VisualizadorController visualizadorController = new VisualizadorController();
 		
+		// TEST - IGNA
+		Handlebars hb = new Handlebars();
+		hb.registerHelpers(new HelperSource());
 		
 		//HOME
 		Spark.get("/", homeController::pantallaPrincipal, engine);

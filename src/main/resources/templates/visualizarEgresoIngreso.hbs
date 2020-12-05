@@ -28,46 +28,35 @@
       														<!-- HARIA FALTA HACER QUE SOLO APAREZCA LA TABLA DE LO SELECCIONADO-->
       								<!-- INGRESOS -->
 	</br>
-	<div id="ingresos"> <!-- INICIO DIV INGRESOS -->
+<div id="ingresos"> <!-- INICIO DIV INGRESOS -->
 	<h2>Ingresos</h2>
       <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Moneda</th>
-      <th scope="col">Monto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>02/10/2016</td>
-      <td>Ingreso mensual</td>
-      <td>Peso</td>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>02/11/2016</td>
-      <td>Ingreso mensual</td>
-      <td>Peso</td>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>02/12/2016</td>
-      <td>Ingreso mensual</td>
-      <td>Peso</td>
-      <td>50000</td>
-    </tr>
-  </tbody>
-</table>
+		<thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Fecha</th>
+		      <th scope="col">Descripcion</th>
+		      <th scope="col">Moneda</th>
+		      <th scope="col">Monto</th>
+		    </tr>
+		</thead>
+	  <tbody>
+	  	{{#each opIng}}
+	  		<tr>
+		  		<th scope="row">{{id_operacion_ingreso}}</th>
+			    <td>{{fechaIngreso}}</td>
+			    <td>{{descripcion}}</td>
+			    <td>{{id_moneda.descripcion}}</td>
+			    <td>$ {{valorTotal}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
 </div> <!-- FIN  DIV INGRESOS -->
 									<!-- EGRESOS -->
 
 	<div id="egresos"> <!-- INICIO DIV EGRESOS -->
+		
 		<h2>Egresos</h2>
 	      <table class="table table-striped">
 	  <thead>
@@ -80,7 +69,7 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr>
+	  <tr>
 	      <th scope="row">1</th>
 	      <td>02/10/2016</td>
 	      <td>Tornillos</td>
@@ -109,39 +98,38 @@
 	<div id="proyectos"> <!-- INICIO DIV PROYECTOS -->
 	<h2>Proyectos</h2>
       <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Monto</th>
-      <th scope="col">ID Subsidio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Inversion en maquinaria</td>
-      <td>Plan progresar</td>
-      <td>70000</td>
-      <td>123</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-       <td>Inversion en IO</td>
-      <td>Plan progresar</td>
-      <td>70500</td>
-      <td>159</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Inversion en infrastructura</td>
-      <td>Plan progresar</td>
-      <td>99000</td>
-      <td>357</td>
-    </tr>
-  </tbody>
-</table>
+		    {{#each proyecto}}
+		    	
+		    	<thead>
+		    		<tr>
+				      <th scope="col">Descripcion</th>
+				      <th scope="col">Monto Asignado</th>
+				      <th scope="col">Director</th>
+				    </tr>
+				    
+				    <tr>
+					    <td>{{descripcion}}</td>
+					    <td>$ {{montoAsignado}}</td>
+					    <td>{{director.nombre}}</td>
+					</tr>
+					
+				    <tr>
+				      <th scope="col">Descripcion Subsidio</th>
+				      <th scope="col">Monto</th>
+				      <th scope="col">ID Subsidio</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+		    	{{#each subsidios}}
+			  		<tr>
+					    <td>{{descripcion}}</td>
+					    <td>$ {{valorTotal}}</td>
+					    <td>{{id_operacion_ingreso}}</td>
+					</tr>
+				{{/each}}
+			{{/each}}
+		  </tbody>
+	</table>
 </div> <!-- FIN DIV PROYECTOS -->
     </div>
   </div>
@@ -153,4 +141,5 @@
 
 <!-- JS para mostrar/ocultar lo que se pida en el visualizador-->
 <script src="/js/visualizadorStyle.js"></script>
+
 
