@@ -18,7 +18,7 @@ public class RepositorioCategorias extends AbstractHibernateRepo{
 	}
 	
 	//copiado de items
-	public List<Clasificacion> buscarItems() {
+	public List<Clasificacion> buscarClasificacion() {
 		
 		Query query = this.getEntityManager().createQuery("FROM Clasificacion clasificaciones");
 		

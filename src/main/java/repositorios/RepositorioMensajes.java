@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-
+import main.OperacionEgreso;
 import mensajes.*;
 
 public class RepositorioMensajes  extends AbstractHibernateRepo{
@@ -17,16 +17,17 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 	}
 
 	
-	public List<Mensaje> buscarMensaje() {
-
-		//COPIADO DE ITEMS
-		Query query = this.getEntityManager().createQuery("FROM Mensaje mensajes");
-		
+	public List<MensajeValidadorCompra> buscarMensaje() { 	//COPIADO DE ITEMS
+		Query query = this.getEntityManager().createQuery("FROM MensajeValidadorCompra mensajes");
 		@SuppressWarnings("unchecked")
-		
-		List<Mensaje> results = query.getResultList();
-		
+		List<MensajeValidadorCompra> results = query.getResultList();
 		return results;
-		
+	}
+	
+	public MensajeValidadorCompra persist( MensajeValidadorCompra unMensaje ) {
+		this.getEntityManager().getTransaction().begin();
+		this.getEntityManager().persist(unMensaje);
+		this.getEntityManager().getTransaction().commit();
+		return unMensaje;
 	}
 }

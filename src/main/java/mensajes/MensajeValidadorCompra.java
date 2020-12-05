@@ -10,4 +10,9 @@ public class MensajeValidadorCompra extends Mensaje {
 		super(texto);
 		this.asuntoMensaje = "Resultado validador de compra";
 	}
+	public MensajeValidadorCompra() {}
+	public MensajeValidadorCompra (String textoMensaje, String asuntoMensaje , Boolean leido) {
+		super(textoMensaje, leido);
+		this.asuntoMensaje = asuntoMensaje;
+	}
 }

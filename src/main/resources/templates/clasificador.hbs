@@ -14,9 +14,18 @@
   <div class="row">
     <div class="col-md-8">
       <h1>Clasificador de Operaciones</h1>
-
-      <form action="/evento/nuevo" method = "post">
-    
+		 
+		 <div>
+        <br>
+        <h4>Elija lo que quisiera clasificar</h4>
+	        <select class="form-control" id="selector" name="seleccion">       
+	        	<option value="default" selected>Elija...</option>
+	            <option value="e">Operaciones Egreso</option>
+	            <option value="p">Presupuesto</option>
+	        </select>
+      	</div>
+      			
+   <form action="/clasificar/egreso" method = "post"> 
         <div>
         <br>
         <h4>Asocie su Operacion a una categoria</h4>
@@ -49,7 +58,7 @@
         <br>
       </form>
       
-       <form action="/evento/nuevo" method = "post">
+       <form action="/clasificar/presupuesto" method = "post">
     <br><br>
         <div>
         <h4>Asocie un presupuesto a una categoria</h4>
@@ -89,70 +98,4 @@
 {{/partial}}
 {{>layout.hbs}}
 
-<!--  POSIBLE MEJORA
-
-<div>
-        <br>
-        <h4>Asocie su Operacion a una categoria</h4>
-        	<div class="form-check">
- 			 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Option1" checked>
-  			<label class="form-check-label" for="exampleRadios1">
-   					Operacion Egreso
- 		 </label>
-	</div>
-	<div class="form-check">
- 			 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Option2" checked>
-  			<label class="form-check-label" for="exampleRadios1">
-   					Presupuesto
- 		 </label>
-	</div>
-	
- <!-- ALGUN TIPO DE IF-->
-	        <label>Egresos</label>
-	        <select class="form-control" name="Egreso">
-	          {{#each egreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
-	        </select>
-	        <small class="form-text text-muted">Seleccione un egreso que desee categorizar</small>
-      	</div>
-      	
- <!-- ELSE-->   
-  <label>Presupuestos</label>
-	        <select class="form-control" name="Presupuesto">
-	          {{#each presupuesto}}
-	            <option>{{this}}</option>
-	          {{/each}}
-	        </select>
-	        <small class="form-text text-muted">Seleccione un presupuesto que desee categorizar</small>
-      	</div>
-      	
-      	
-<!-- LA CATEGORIA -->      	  	
-      	<div>
-	        <label>Categoria</label>
-	        <select class="form-control" name="Categoria">
-	          {{#each categoria}}
-	            <option>{{this}}</option>
-	          {{/each}}
-	        </select>
-	        <small class="form-text text-muted">Seleccione la categoria que corresponda</small>
-      	</div>
-
-        <br>
-
-
-		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-		<!--
-        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
-        -->
-        <br>
-      </form>
-
-
-
-
-
-
--->
-
+<script src="/js/clasificadorStyle.js"></script>

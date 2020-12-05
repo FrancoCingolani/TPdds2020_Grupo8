@@ -20,14 +20,19 @@ public abstract class Mensaje {
 	String textoMensaje;
 	String asuntoMensaje;
 	Boolean leido;
-	public Mensaje(){
-	}
+	
+	public Mensaje() {
+		}
 	
 	public Mensaje(String texto) {
 		this.textoMensaje = texto;
 		this.leido = false;
 	}
 	
+	public Mensaje(String texto, Boolean leido) {
+		this.textoMensaje = texto;
+		this.leido = leido;
+	}
 	
 	public String getTextoMensaje() {
 		return this.textoMensaje;
