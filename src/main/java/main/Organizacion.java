@@ -40,6 +40,7 @@ public class Organizacion {
 	CityML id_ciudad;
 	@Enumerated
 	Actividad actividad;
+	String nombreFicticio;
 	@OneToOne
 	Categoria categoria;
 	@Enumerated
@@ -48,6 +49,9 @@ public class Organizacion {
 	@OneToMany
 	@JoinColumn(name = "id_proyecto")
 	List<Proyecto> proyectos = null;
+	
+	public Organizacion() {
+	}
 	
 	public void agregarOperacionEgreso(OperacionEgreso nuevaOperacion) {
 		this.operacionesEgresoEntidad.add(nuevaOperacion);

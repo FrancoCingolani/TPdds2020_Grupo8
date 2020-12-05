@@ -11,7 +11,8 @@ public class ProveedorJuridico extends Proveedor{
 	String cuit;
 	
 	
-	
+	public ProveedorJuridico() {
+	}
 	public ProveedorJuridico(String direccionPostal,CityML Ciudad, String razonSocial, String cuit) {
 		super(direccionPostal, Ciudad);
 		this.razonSocial = razonSocial;

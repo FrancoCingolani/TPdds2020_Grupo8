@@ -23,9 +23,9 @@ public class RepositorioOrganizaciones extends AbstractHibernateRepo {
 		return INSTANCE;
 	}
 
-	public Organizacion buscarOrganizacionPorCuit(String cuit) {
-		Query query = this.getEntityManager().createQuery("SELECT organizacion FROM Organizacion organizacion WHERE cuit = :cuit");
-		query.setParameter("cuit", cuit);
+	public Organizacion buscarOrganizacionPorNombre(String nombre) {
+		Query query = this.getEntityManager().createQuery("SELECT organizacion FROM Organizacion organizacion WHERE nombreFicticio = :nombre");
+		query.setParameter("nombre", nombre);
 		return (Organizacion) query.getSingleResult();
 	}
 }

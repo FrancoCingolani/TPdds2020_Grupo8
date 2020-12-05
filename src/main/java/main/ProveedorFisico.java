@@ -12,6 +12,9 @@ public class ProveedorFisico extends Proveedor {
 	String cuil;
 	
 	
+	public ProveedorFisico() {
+	}
+	
 	public ProveedorFisico(String direccionPostal, CityML Ciudad, String nombre, String apellido, String dni, String cuil) {
 		super(direccionPostal, Ciudad);
 		this.nombre = nombre;

@@ -19,6 +19,9 @@ public class Categoria {
 	@Transient
 	private ICategoria categoria;		
 	
+	public Categoria() {
+	}
+	
 	public Categoria(ICategoria categoria) {
 		this.categoria = categoria;
 	}

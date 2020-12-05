@@ -22,9 +22,9 @@ public class RepositorioProveedores extends AbstractHibernateRepo {
 		return INSTANCE;
 	}
 
-	public Proveedor buscarProveedorPorCuit(String cuit) {
-		Query query = this.getEntityManager().createQuery("SELECT proveedores FROM Proveedores proveedores WHERE cuit = :cuit");
-		query.setParameter("cuit", cuit);
+	public Proveedor buscarProveedorPorId(int id_proveedor) {
+		Query query = this.getEntityManager().createQuery("FROM Proveedor proveedor WHERE id_proveedor = :id_proveedor");
+		query.setParameter("id_proveedor", id_proveedor);
 		return (Proveedor) query.getSingleResult();
 	}
 }

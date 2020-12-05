@@ -36,10 +36,14 @@ public class RepositorioDocumentosComerciales extends AbstractHibernateRepo{
 		
 	}
 	
-	public DocumentoComercial buscarDocumentosComercialesPorId(int id_documentoComercial) { //EN REALIDAD VOY A TENER QUE PASAR UNA LISTA DE DOC COMERCIALES
-		Query query = this.getEntityManager().createQuery("SELECT documentoComercial FROM DocumentosComerciales documentoComercial WHERE id_documento_comercial = :id_documentoComercial");
+	@SuppressWarnings("unchecked")
+	public List<DocumentoComercial> buscarDocumentosComercialesPorId(int id_documentoComercial) { //EN REALIDAD VOY A TENER QUE PASAR UNA LISTA DE DOC COMERCIALES
+		Query query = this.getEntityManager().createQuery("SELECT documentoComercial FROM DocumentoComercial documentoComercial WHERE id_documento_comercial = :id_documentoComercial");
 		query.setParameter("id_documentoComercial", id_documentoComercial);
-		return (DocumentoComercial) query.getResultList();
+		
+		List<DocumentoComercial> results = query.getResultList();
+		
+		return results;
 	}
 
 }

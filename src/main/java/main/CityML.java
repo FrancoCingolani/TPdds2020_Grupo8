@@ -17,6 +17,9 @@ public class CityML {
 	private String name_state;
 	private String id_state;
 	
+	public CityML() {
+	}
+	
 	public CityML(String desc, String Id) {
 		this.name_state = desc;
 		this.id_state = Id; 
@@ -57,6 +60,10 @@ public class CityML {
 	}
 	public String getName_City() {
 		return name_city;
+	}
+	
+	public int getId_ciudad() {
+		return id_ciudad;
 	}
 
 }

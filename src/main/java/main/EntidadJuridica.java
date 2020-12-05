@@ -20,6 +20,9 @@ public class EntidadJuridica extends Organizacion{
 		
 	//Categoria 
 	
+	public EntidadJuridica () {
+	}
+	
 	// Constructor; como el codigoInscripcionIGJ es opcional, creo 2 constructores diferentes (overloading). Ver si conviene realizarlo con el patrón builder
 	public EntidadJuridica (String razonSocial, String nombreFicticio, String CUIT, String direccionPostal,CityML Ciudad, int personal, Actividad actividad, TipoEntidadJuridica tipo, int codigoInscripcionIGJ, int periodo) {
 		this.razonSocial = razonSocial;

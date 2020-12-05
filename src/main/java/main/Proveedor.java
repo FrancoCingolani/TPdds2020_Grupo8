@@ -36,6 +36,30 @@ public class Proveedor {
 	public void setdireccionPostal(String direccionPostal) {
 		this.direccionPostal = direccionPostal;
 	}
+
+	public int getId_proveedor() {
+		return id_proveedor;
+	}
+
+	public void setId_proveedor(int id_proveedor) {
+		this.id_proveedor = id_proveedor;
+	}
+
+	public String getDireccionPostal() {
+		return direccionPostal;
+	}
+
+	public void setDireccionPostal(String direccionPostal) {
+		this.direccionPostal = direccionPostal;
+	}
+
+	public CityML getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(CityML ciudad) {
+		this.ciudad = ciudad;
+	}
 	
 
 }

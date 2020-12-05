@@ -14,6 +14,9 @@ public class TarjetaDeDebito extends MedioDePago{
 	String duenioNroIdentificacion;
 	String duenoTipoIdentificacion;
 	
+	public TarjetaDeDebito() {
+	}
+	
 	public TarjetaDeDebito(String numero, String codigoSeguridad, Date fechaExpiracion, String duenioNombre, String duenioNroIdentificacion, String duenoTipoIdentificacion) {
 		this.numero = numero;
 		this.codigoSeguridad = codigoSeguridad;

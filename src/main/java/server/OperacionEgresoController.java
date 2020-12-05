@@ -65,7 +65,8 @@ public class OperacionEgresoController {
 		RepositorioItems repoItems = new RepositorioItems();
 		RepositorioOrganizaciones repoOrganizaciones = new RepositorioOrganizaciones();
 		
-		String cuitProveedor = req.queryParams("proveedor");
+		String proveedorParam = req.queryParams("proveedor");
+		int id_proveedor = Integer.parseInt(proveedorParam);
 		String fechaParam = req.queryParams("fecha");
 		String monedaParam = req.queryParams("moneda");
 		int id_moneda = Integer.parseInt(monedaParam);
@@ -84,55 +85,21 @@ public class OperacionEgresoController {
 		Date fechaParseada = formato.parse(fechaParam);
 		
 		opEgreso.setFecha(fechaParseada);
-		opEgreso.setProveedor(repoProveedores.buscarProveedorPorCuit(cuitProveedor));
+		opEgreso.setProveedor(repoProveedores.buscarProveedorPorId(id_proveedor));
+		System.out.println("Yeeeii, pasó el problema");
 		opEgreso.setId_moneda(repoMonedas.buscarMonedaPorID(id_moneda));
 		opEgreso.setValorTotal(valorTotal);
 		opEgreso.setMedioDePago(repoMedioDePago.buscarMedioDePagoPorId(id_medioDePago));
 		opEgreso.setDocumentosComerciales((List<DocumentoComercial>) repoDocumentoComercial.buscarDocumentosComercialesPorId(id_comprobante));
 		opEgreso.setItems((List<Item>) repoItems.buscarItemsPorId(id_item));
-		opEgreso.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorCuit(organizacion)); 
-		//TODO: VER EL TEMA DE LAS ORGANIZACIONES. NO TIENEN UN CAMPO NOMBRE COMO PARA BUSCAR. VER QUE CAMPO USAR
-		//TODO: TAMBIÉN TIRAR UN INSERT EN LA BD PARA CREAR UNA ORGANIZACION
-		
-		
-		
-		//opEgreso.setMedioDePago(medioDePago);
-		//opEgreso.setItems(items);
-		//opEgreso.setDocumentosComerciales(documentosComerciales);
-		//opEgreso.setOrganizacion(organizacion);
-		
-		
-		
-		/*
-
-		String proveedor = req.queryParams("proveedor");
-		String fecha = req.queryParams("fecha");
-		//String medioDePago = req.queryParams("medioDePago");
-		String items = req.queryParams("items");
-		String documentosComerciales = req.queryParams("documentosComerciales");
-		String organizacion = req.queryParams("organizacion");
-		
-		Date fechaMedioDePago = new Date();
-		TarjetaDeCredito medioDePago = new TarjetaDeCredito("785430001547", "246", fechaMedioDePago, "Franco", "DNI", "456123789");
-		
-		
-		opEgreso.setProveedor(proveedor);
-		
-		
-		
-
+		opEgreso.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorNombre(organizacion)); 
+						
 
 		RepositorioOpEgreso.getInstance().persist(opEgreso);
 
 		res.redirect("/");
 		
-		return null;
-		
-		*/
-		
-		return new ModelAndView(null, "home.hbs");
-		
-		
+		return null;	
 	}
 
 }
