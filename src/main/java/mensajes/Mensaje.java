@@ -6,7 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import main.Usuario;
 
 @Entity
 @Table(name = "Mensajes")
@@ -16,6 +20,10 @@ public abstract class Mensaje {
 	
 	@Id @GeneratedValue
 	int id_mensaje;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	Usuario id_usuario;
 	
 	String textoMensaje;
 	String asuntoMensaje;

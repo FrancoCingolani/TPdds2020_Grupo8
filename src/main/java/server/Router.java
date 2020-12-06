@@ -29,7 +29,7 @@ public class Router {
 		Spark.staticFiles.location("/public");
 		Spark.init();
 		
-		/* ACÁ SE CREAN LOS CONTROLLERS */
+		/* ACï¿½ SE CREAN LOS CONTROLLERS */
 		HomeController homeController = new HomeController();
 		LoginController loginController = new LoginController();
 		OperacionEgresoController operacionEgresoController = new OperacionEgresoController();
@@ -108,11 +108,11 @@ public class Router {
 						
 		//BANDEJA DE MENSAJES
 				Spark.get("/mensajes",
-						mensajesController::mensajes, 
+						mensajesController::mensajesFront, 
 						new HandlebarsTemplateEngine());
 				
 				
-		/* ESTO ES SI QUEREMOS QUE EL USUARIO ESTÉ LOGUEADO ANTES DE ACCEDER A LA PÁGINA. IR AGREGANDO LAS DISTINTAS PÁGINAS QUE HAGAMOS */
+		/* ESTO ES SI QUEREMOS QUE EL USUARIO ESTï¿½ LOGUEADO ANTES DE ACCEDER A LA Pï¿½GINA. IR AGREGANDO LAS DISTINTAS Pï¿½GINAS QUE HAGAMOS */
 		//Spark.before("/", Router::chequearLoginInexistente);
 		
 		DebugScreen.enableDebugScreen();
