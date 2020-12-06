@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import main.CurrencyML;
+import main.DocumentoComercial;
 import main.OperacionIngreso;
 import repositorios.AbstractHibernateRepo;
 
@@ -25,8 +26,6 @@ public class RepositorioOpIngreso extends AbstractHibernateRepo{
 		@SuppressWarnings("unchecked")
 		List<OperacionIngreso> results = query.getResultList();	
 		
-		System.out.println(results);
-		
 		return results;
 		
 	}
@@ -37,6 +36,14 @@ public class RepositorioOpIngreso extends AbstractHibernateRepo{
 		this.getEntityManager().getTransaction().commit();
 		return opIngreso;
 	}
+	
+	public OperacionIngreso buscarOpIngresoPorId(int id_operacion_ingreso) {
+		Query query = this.getEntityManager().createQuery("SELECT operacionIngreso FROM OperacionIngreso operacionIngreso WHERE id_operacion_ingreso = :id_operacion_ingreso");
+		query.setParameter("id_operacion_ingreso", id_operacion_ingreso);
+		return (OperacionIngreso) query.getSingleResult();
+	
+	}
+	
 
 
 

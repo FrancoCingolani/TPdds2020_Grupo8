@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,10 +23,13 @@ public class Proyecto {
 	double montoAsignado;
 	@OneToMany
 	@JoinColumn(name = "id_subsidio")
-	List<OperacionIngreso> subsidios;
+	List<OperacionIngreso> subsidios = new ArrayList<OperacionIngreso>();
 	@ManyToOne
 	@JoinColumn(name = "id_usuario") //se lo agregue al usuario
 	Usuario director;
+	@ManyToOne
+	@JoinColumn(name = "id_organizacion")
+	Organizacion organizacion;
 	
 	public Proyecto() {
 	}
@@ -62,8 +66,8 @@ public class Proyecto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public void vincular(OperacionIngreso nuevaOperacion) {
-		this.subsidios.add(nuevaOperacion);
+	public void vincular(OperacionIngreso operacionIngreso) {
+		this.subsidios.add(operacionIngreso);
 	}
 	public int getIdProyecto() {
 		return id_proyecto;
@@ -83,6 +87,10 @@ public class Proyecto {
 	
 	public Usuario getDirector() {
 		return director;
+	}
+	
+	public void setOrganizacion (Organizacion organizacion) {
+		this.organizacion = organizacion;
 	}
 }
 

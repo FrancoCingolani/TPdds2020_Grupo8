@@ -37,11 +37,16 @@
 	        <label>Ingresos</label>
 	        <select multiple size="6" class="form-control" name="ingresos">
 	          {{#each opIngreso}}
-	            <option>{{descripcion}}</option>
+	            <option value={{id_operacion_ingreso}}>{{descripcion}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los ingresos corrrespondientes al proyecto</small>
       	</div>
+      	
+      	<div class="form-group">
+            <label>Organizacion</label>
+            <input class="form-control" name="organizacion" id="organizacion" placeholder="Ingrese el nombre de la organizacion">
+        </div>
 
         <br><br>
 

@@ -2,9 +2,13 @@ package server;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
+
+import main.Item;
+import main.OperacionIngreso;
 import main.Proyecto;
 
 import repositorios.RepositorioOpIngreso;
+import repositorios.RepositorioOrganizaciones;
 import repositorios.RepositorioProyecto;
 import spark.ModelAndView;
 import spark.Request;
@@ -32,15 +36,24 @@ public class ProyectoController {
 	public ModelAndView altaProyecto(Request req, Response res) throws ParseException {
 		
 		Proyecto proyecto = new Proyecto();
+		RepositorioOpIngreso repoOpIngreso = new RepositorioOpIngreso();
+		RepositorioOrganizaciones repoOrganizaciones = new RepositorioOrganizaciones();
 
 		String nombre = req.queryParams("nombre");
 		String descripcion = req.queryParams("descripcion");
-		String monto = req.queryParams("montoAsignado");
-		int montoAsignado = Integer.parseInt(monto);
+		String montoParam = req.queryParams("valor");
+		int montoAsignado = Integer.parseInt(montoParam);
+		String ingresosParam = req.queryParams("ingresos");
+		int id_ingreso = Integer.parseInt(ingresosParam);
+		String organizacion = req.queryParams("organizacion");
 		
 		proyecto.setNombre(nombre);
 		proyecto.setDescripcion(descripcion);
 		proyecto.setmontoAsignado(montoAsignado);
+		//proyecto.vincular(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
+		proyecto.vincular(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
+		System.out.println(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
+		proyecto.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorNombre(organizacion)); 
 		
 		RepositorioProyecto.getInstance().persist(proyecto);
 
