@@ -30,7 +30,11 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 	        session1 = sf.openSession();
 	        String hql = "FROM Usuario U WHERE U.nombre = :user";
 	        Query query = session1.createQuery(hql, Usuario.class).setParameter("user", nombreUsuario);
-	        us = (Usuario) query.getSingleResult();
+	        try {
+	        	us = (Usuario) query.getSingleResult();
+		    } catch (NoResultException e) {
+		        System.out.println("Error");
+		    }
 	        session1.close();
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -42,7 +46,7 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 
 	}
 
-	public Usuario findUsuarioById(Long id) {
+	public Usuario findUsuarioById(int id) {
 		return this.getEntityManager().find(Usuario.class, id);
 	}
 

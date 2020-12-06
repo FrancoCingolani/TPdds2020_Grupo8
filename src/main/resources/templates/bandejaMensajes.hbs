@@ -9,47 +9,28 @@
     <li class="breadcrumb-item">
       <a routerLink="/home">Inicio</a>
     </li>
-    <li class="breadcrumb-item active">Bandeja de Mensajes</li>
+    <li class="breadcrumb-item active">Bandeja de Mensajes </li>
   </ol>
   <div class="row">
     <div class="col-md-8">
       <h1>Bandeja de Mensajes</h1>
-
-      <div class="card w-75">
-  <div class="card-body">
-    <h5 class="card-title">Asunto 111</h5>
-    <p class="card-text">Cumple con cantidad de presupuestos requeridos.</p>
-    <h6 class="card-title">No leido</h6>
-    <a href="#" class="btn btn-primary">Leer</a>
-  </div>
-</div>
-
+      	{{#each this}}
+      		<div class="card w-75">
+      			 <div class="card-body">
+      			 	 <h5 class="card-title">{{this.asuntoMensaje}}</h5>
+      			 	  <p class="card-text">{{this.textoMensaje}}</p>
+      			 	  <h6 class="card-title">
+      			 	  	{{#if leido}}
+						  Leido
+						{{else}}
+						  No Leido
+						{{/if}}
+      			 	  </h6>
+      			 	  <a href="#" class="btn btn-primary">Leer</a>	 	      
+			 	 </div>
+			</div>
+      	{{/each}}
         <br>
-      
-
-      <div class="card w-75">
-  <div class="card-body">
-    <h5 class="card-title">Asunto 222</h5>
-    <p class="card-text">Cumple con haber sido realizada en base a algun presupuesto.</p>
-    <h6 class="card-title">Leido</h6>
-    <a href="#" class="btn btn-primary">Leer</a>
-  </div>
-</div>
-        
-        <br>
-
-
-      <div class="card w-75">
-  <div class="card-body">
-    <h5 class="card-title">Asunto 333</h5>
-    <p class="card-text">Cumple con haberse realizado en base al presupuesto de menor valor.</p>
-    <h6 class="card-title">No leido</h6>
-    <a href="#" class="btn btn-primary">Leer</a>
-  </div>
-</div>
-<br>
-
-    </div>
   </div>
 </body>
 </html>

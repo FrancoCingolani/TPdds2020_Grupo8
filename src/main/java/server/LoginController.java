@@ -13,7 +13,7 @@ public class LoginController {
 	private static final HashMap<String, Object> badLoginResponsePayload = new HashMap<String, Object>() {
 		private static final long serialVersionUID = 1L;
 		{
-			put("feedback", "Usuario o contraseña invalidas");
+			put("feedback", "Usuario o contraseï¿½a invalidas");
 		}
 	}; 
 
@@ -48,7 +48,8 @@ public class LoginController {
 			System.out.println("Login exitoso");
 			req.session(true);
 			req.session().attribute("user", nombreUsuario);
-			req.session().attribute("id", usuario.getID());
+			req.session().attribute("id", usuario.getID()); // Para recuperar el ID: req.session().attribute("id").toString()
+
 			res.redirect("/");
 		} else {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");

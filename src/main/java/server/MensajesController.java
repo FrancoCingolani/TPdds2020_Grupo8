@@ -24,15 +24,16 @@ import spark.Request;
 import spark.Response;
 
 public class MensajesController {
-	public <T> ModelAndView mensajesFront(Request req, Response res) {
+	public ModelAndView mensajesFront(Request req, Response res) {
 		RepositorioMensajes repoMensajes = RepositorioMensajes.getInstance();
 		
-		List<T> listaMensajes = (List<T>) repoMensajes.buscarMensaje();
+		int idUser = Integer.parseInt(req.session().attribute("id").toString());
+		List<Mensaje> listaMensajes = (List<Mensaje>) repoMensajes.buscarMensajesPorID(idUser);
 		
 		return new ModelAndView(listaMensajes, "bandejaMensajes.hbs");
 	}
 	
-public ModelAndView mensajes(Request req, Response res) throws ParseException {
+	public ModelAndView mensajes(Request req, Response res) throws ParseException {
 		
 	//MensajeValidadorCompra unMensaje = new MensajeValidadorCompra();
 
@@ -40,7 +41,7 @@ public ModelAndView mensajes(Request req, Response res) throws ParseException {
 		String asuntoMensaje = req.queryParams("asuntoMensaje");
 		Boolean leido = Boolean.parseBoolean("leido");
 		
-	MensajeValidadorCompra unMensaje = new MensajeValidadorCompra(textoMensaje, asuntoMensaje , leido);
+		MensajeValidadorCompra unMensaje = new MensajeValidadorCompra(textoMensaje, asuntoMensaje , leido);
 		
 		
 		unMensaje.setTextoMensaje(textoMensaje) ;
