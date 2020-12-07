@@ -39,6 +39,10 @@ public class Presupuesto {
 	
 	int numeroPresupuesto;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_proyecto")
+	Proyecto proyecto;
+	
 	public Presupuesto() {
 	}
 

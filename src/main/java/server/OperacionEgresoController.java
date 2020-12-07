@@ -15,6 +15,7 @@ import main.MedioDePago;
 import main.OperacionEgreso;
 import main.Proveedor;
 import main.TarjetaDeCredito;
+import repositorios.RepositorioCompras;
 import repositorios.RepositorioDocumentosComerciales;
 import repositorios.RepositorioMedioDePago;
 import repositorios.RepositorioMonedas;
@@ -64,6 +65,7 @@ public class OperacionEgresoController {
 		RepositorioDocumentosComerciales repoDocumentoComercial = new RepositorioDocumentosComerciales();
 		RepositorioItems repoItems = new RepositorioItems();
 		RepositorioOrganizaciones repoOrganizaciones = new RepositorioOrganizaciones();
+		RepositorioCompras repoCompras = new RepositorioCompras();
 		
 		String proveedorParam = req.queryParams("proveedor");
 		int id_proveedor = Integer.parseInt(proveedorParam);
@@ -79,6 +81,8 @@ public class OperacionEgresoController {
 		String itemParam = req.queryParams("comprobante");
 		int id_item = Integer.parseInt(itemParam);
 		String organizacion = req.queryParams("organizacion");
+		String compraParam = req.queryParams("compra");
+		int id_compra = Integer.parseInt(compraParam);
 		
 		
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -86,14 +90,15 @@ public class OperacionEgresoController {
 		
 		opEgreso.setFecha(fechaParseada);
 		opEgreso.setProveedor(repoProveedores.buscarProveedorPorId(id_proveedor));
-		System.out.println("Yeeeii, pasó el problema");
 		opEgreso.setId_moneda(repoMonedas.buscarMonedaPorID(id_moneda));
 		opEgreso.setValorTotal(valorTotal);
 		opEgreso.setMedioDePago(repoMedioDePago.buscarMedioDePagoPorId(id_medioDePago));
 		opEgreso.setDocumentosComerciales((List<DocumentoComercial>) repoDocumentoComercial.buscarDocumentosComercialesPorId(id_comprobante));
 		opEgreso.setItems((List<Item>) repoItems.buscarItemsPorId(id_item));
 		opEgreso.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorNombre(organizacion)); 
-						
+		opEgreso.setCompra(repoCompras.buscarCompraPorId(id_compra));
+		
+		System.out.println("Hasta acá va bien!");
 
 		RepositorioOpEgreso.getInstance().persist(opEgreso);
 

@@ -44,6 +44,9 @@ public class OperacionEgreso{
 	@ManyToOne
 	@JoinColumn(name = "id_operacion_ingreso")
 	OperacionIngreso operacionIngreso;
+	@ManyToOne
+	@JoinColumn(name = "id_compra")
+	Compra compra;
 	
 	public OperacionEgreso() {
 	}
@@ -161,6 +164,10 @@ public class OperacionEgreso{
 
 	public void setOrganizacion(Organizacion organizacion) {
 		this.organizacion = organizacion;
+	}
+	
+	public void setCompra(Compra compra) {
+		this.compra = compra;
 	}
 	
 }
