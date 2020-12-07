@@ -23,8 +23,10 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+
 public class MensajesController {
 	public ModelAndView mensajesFront(Request req, Response res) {
+		
 		RepositorioMensajes repoMensajes = RepositorioMensajes.getInstance();
 		
 		int idUser = Integer.parseInt(req.session().attribute("id").toString());

@@ -66,4 +66,8 @@ public abstract class Mensaje {
 	public void setLeido(Boolean leido) {
 		this.leido = leido;
 	}
+	
+	public Boolean getLeido() {
+		return leido;
+	}
 }

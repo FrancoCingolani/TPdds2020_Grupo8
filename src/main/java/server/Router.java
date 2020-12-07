@@ -111,9 +111,14 @@ public class Router {
 						mensajesController::mensajesFront, 
 						new HandlebarsTemplateEngine());
 				
-				
-		/* ESTO ES SI QUEREMOS QUE EL USUARIO EST� LOGUEADO ANTES DE ACCEDER A LA P�GINA. IR AGREGANDO LAS DISTINTAS P�GINAS QUE HAGAMOS */
-		//Spark.before("/", Router::chequearLoginInexistente);
+		/*Spark.before("/", Router::chequearLoginInexistente);
+		Spark.before("/mensajes", Router::chequearLoginInexistente);
+		Spark.before("/operacionesEgreso", Router::chequearLoginInexistente);
+		Spark.before("/operacionesIngreso", Router::chequearLoginInexistente);
+		Spark.before("/clasificador", Router::chequearLoginInexistente);
+		Spark.before("/visualizador", Router::chequearLoginInexistente);
+		Spark.before("/asociar", Router::chequearLoginInexistente);
+		Spark.before("/proyecto", Router::chequearLoginInexistente);*/
 		
 		DebugScreen.enableDebugScreen();
 	}
