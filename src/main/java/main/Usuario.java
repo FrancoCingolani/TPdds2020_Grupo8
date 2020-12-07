@@ -78,7 +78,8 @@ public class Usuario {
 		}
 	}
 	
-	public void recibirMensaje(Mensaje nuevoMensaje) {
+	public void recibirMensaje(Mensaje nuevoMensaje) { 
+		// TODO: esto debe persistir el mensaje en la DB 
 		this.bandejaEntrada.nuevoMensaje(nuevoMensaje);
 	}
 	
