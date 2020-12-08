@@ -45,11 +45,11 @@ public class AsociarEgreIngreController {
 		// Tengo que traer los detalles de 3 modelos, los busco de a 1
 		// Operacion ingreso
 		RepositorioOpIngreso repoOpIng = RepositorioOpIngreso.getInstance();
-		List<OperacionIngreso> OpIng = repoOpIng.buscarOpIngreso();
+		List<OperacionIngreso> OpIng = repoOpIng.buscarOpIngresoSinAsociar();
 				
 		// Operacion egreso
 		RepositorioOpEgreso repoOpEg = RepositorioOpEgreso.getInstance();
-		List<OperacionEgreso> OpEg = repoOpEg.buscarOpEgreso();
+		List<OperacionEgreso> OpEg = repoOpEg.buscarOpEgresoSinAsociar();
 		
 		// Proyecto
 		RepositorioProyecto repoProy = RepositorioProyecto.getInstance();
@@ -65,7 +65,7 @@ public class AsociarEgreIngreController {
 		return new ModelAndView(model, "asociarEgresoIngreso.hbs");
 	}
 	
-public ModelAndView altaOpEgreso(Request req, Response res) throws ParseException {
+public ModelAndView asociar(Request req, Response res) throws ParseException {
 		
 		OperacionEgreso opEgreso = new OperacionEgreso();
 		OperacionIngreso opIngreso = new OperacionIngreso();
