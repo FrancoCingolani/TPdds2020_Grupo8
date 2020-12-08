@@ -28,21 +28,22 @@
       	</div>
       </form>
       
-      	 <form action="/evento/nuevo" method = "post">													<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
-        <br>
-        <h4>Asocie su egreso a un o varios Ingresos</h4>
-	        <label>Egresos</label>
-	        <select class="form-control" name="Egreso">
+      <div id="egresos">
+       <form action="/evento1/nuevo" method = "post">
+    		<br>
+        	<div>
+       	    <h4>Asocie un egreso a uno o varios ingresos</h4>
+	        <label>Egreso</label>
+	        <select class="form-control" name="Egreso1">
 	          {{#each egreso}}
 	            <option>{{this}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione un egreso</small>
-      	</div>
-      	<br>
-      	<div> <!-- REVISAR PORQUE LO PONE ARRIBA-->
+      	</div>	
+      	<div>
 	        <label>Ingresos</label>
-	        <select class="form-control" name="ingresos">
+	        <select class="form-control" name="Ingresos1">
 	          {{#each ingreso}}
 	            <option>{{this}}</option>
 	          {{/each}}
@@ -51,31 +52,29 @@
       	</div>
 
         <br>
-
-
 		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-		<!--
-        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
-        -->
         <br>
+        
       </form>
+      </div>  	<!--   FIN DIV EGRESO     -->
       
-       <form action="/evento/nuevo" method = "post">
-    <br><br>
-        <div>
-        <h4>Asocie un ingreso a uno o varios egresos</h4>
+      
+      <div id="ingresos">
+       <form action="/evento2/nuevo" method = "post">
+    		<br>
+        	<div>
+       	    <h4>Asocie un ingreso a uno o varios egresos</h4>
 	        <label>Ingreso</label>
-	        <select class="form-control" name="Ingreso">
+	        <select class="form-control" name="Ingreso2">
 	          {{#each ingreso}}
 	            <option>{{this}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione un ingreso</small>
-      	</div>
-      	
+      	</div>	
       	<div>
 	        <label>Egresos</label>
-	        <select class="form-control" name="Egreso">
+	        <select class="form-control" name="Egresos2">
 	          {{#each egreso}}
 	            <option>{{this}}</option>
 	          {{/each}}
@@ -84,30 +83,29 @@
       	</div>
 
         <br>
-
-
 		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-		<!--
-        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
-        -->
         <br>
+        
       </form>
+    </div>  	<!--   FIN DIV INGRESO     -->   
       
-      <form action="/evento/nuevo" method = "post">													<!-- HARIA FALTA HACER QUE SOLO APAREZCA el clasificador correspondiente-->
-        <br>
-        <h4>Asocie su proyecto a un o varios Ingresos</h4>
-	        <label>Proyectos</label>
-	        <select class="form-control" name="Proyecto">
+      
+      <div id="proyectos">
+       <form action="/evento3/nuevo" method = "post">
+    		<br>
+        	<div>
+       	    <h4>Asocie un Proyecto a uno o varios ingresos</h4>
+	        <label>Proyecto</label>
+	        <select class="form-control" name="Proyeto3">
 	          {{#each proyecto}}
 	            <option>{{this}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione un proyecto</small>
-      	</div>
-      	<br>
-      	<div> 
+      	</div>	
+      	<div>
 	        <label>Ingresos</label>
-	        <select class="form-control" name="ingresos">
+	        <select class="form-control" name="Ingresos3">
 	          {{#each ingreso}}
 	            <option>{{this}}</option>
 	          {{/each}}
@@ -116,14 +114,14 @@
       	</div>
 
         <br>
-
-
 		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-		<!--
-        <button type="button" class="btn btn-lg btn-primary btn-block">Crear</button>
-        -->
         <br>
+        
       </form>
+      </div>  	<!--   FIN DIV PROYECTO     -->
+      
+      
+      
     </div>
   </div>
 </body>
@@ -131,4 +129,4 @@
 
 {{/partial}}
 {{>layout.hbs}}
-
+<script src="/js/visualizadorStyle.js"></script> <!--   USE EL MISMO QUE VISUALIZAR PORQUE TIENEN EL MISMO CRITERIO     -->
