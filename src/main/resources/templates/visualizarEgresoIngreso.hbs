@@ -56,43 +56,47 @@
 									<!-- EGRESOS -->
 
 	<div id="egresos"> <!-- INICIO DIV EGRESOS -->
-		
-		<h2>Egresos</h2>
-	      <table class="table table-striped">
-	  <thead>
-	    <tr>
-	      <th scope="col">ID</th>
-	      <th scope="col">Fecha</th>
-	      <th scope="col">Producto</th>
-	      <th scope="col">Cantidad</th>
-	      <th scope="col">Monto</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  <tr>
-	      <th scope="row">1</th>
-	      <td>02/10/2016</td>
-	      <td>Tornillos</td>
-	      <td>100000</td>
-	      <td>50000</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">2</th>
-	      <td>02/11/2016</td>
-	      <td>Tuercas</td>
-	      <td>145</td>
-	      <td>1200</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td>02/12/2016</td>
-	      <td>Destornillador</td>
-	      <td>46</td>
-	      <td>7800</td>
-	    </tr>
-	  </tbody>
-	</table>
-	</div> <!-- FIN DIV EGRESOS-->
+		{{#each opEg}}
+			<h2>Egreso #{{id_operacion_egreso}}</h2>
+				<table class="table table-striped">
+					<thead>
+					    <tr>
+					      <th scope="col">Organizaci&oacute;n</th>
+					      <th scope="col">Valor Total</th>
+					      <th scope="col">Moneda</th>
+					      <th scope="col">Fecha</th>
+					    </tr>
+					</thead>
+					  
+					<tbody>
+						<tr>
+					      <td>{{organizacion.nombreFicticio}}</td>
+					      <td>{{valorTotal}}</td>
+					      <td>{{id_moneda.descripcion}}</td>
+					      <td>{{fecha}}</td>
+					    </tr>				  
+				
+				<tr><th scope="col">Items Asociados</th></tr>
+				    <tr>
+				      <th scope="col">Descripci&oacute;n</th>
+				      <th scope="col">Clasificaci&oacute;n</th>
+				      <th scope="col">Valor</th>
+				      <th scope="col">Cantidad</th>
+				    </tr>
+
+				{{#each items}}
+					<tr>
+				      <td>{{descripcion}}</td>
+				      <td>{{clasificacion.descripcion}}</td>
+				      <td>{{valor}}</td>
+				      <td>{{cantidad}}</td>
+				    </tr>				  
+				{{/each}}
+			</tbody>
+		</table>
+	{{/each}}
+
+</div> <!-- FIN DIV EGRESOS-->
 								<!-- PROYECTO -->
 
 	<div id="proyectos"> <!-- INICIO DIV PROYECTOS -->

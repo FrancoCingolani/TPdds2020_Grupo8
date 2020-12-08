@@ -90,6 +90,7 @@ public class OperacionEgreso{
 	public Organizacion getOrganizacion() {
 		return organizacion;
 	}
+	
 	public int getId_operacion_egreso() {
 		return id_operacion_egreso;
 	}
@@ -169,5 +170,4 @@ public class OperacionEgreso{
 	public void setCompra(Compra compra) {
 		this.compra = compra;
 	}
-	
 }

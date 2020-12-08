@@ -104,4 +104,8 @@ public class Organizacion {
 		this.proyectos.add(nuevoProyecto);
 	//	this.ventasAnuales += nuevaOperacion.getValorTotalOperacion();//Para mi va en este...
 	}
+	
+	public String getNombreFicticio() {
+		return nombreFicticio;
+	}
 }
