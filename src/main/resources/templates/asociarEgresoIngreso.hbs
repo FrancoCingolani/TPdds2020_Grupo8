@@ -32,27 +32,26 @@
        <form action="/evento1/nuevo" method = "post">
     		<br>
         	<div>
-       	    <h4>Asocie un egreso a uno o varios ingresos</h4>
+       	    <h4>asociar egresos</h4>
 	        <label>Egreso</label>
-	        <select class="form-control" name="Egreso1">
-	          {{#each egreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	        <select multiple size="6" class="form-control" name="egreso">
+	          	{{#each egreso}}
+            		<option value={{id_operacion_egreso}}>{{descripcion}}</option>
+          		{{/each}}
 	        </select>
-	        <small class="form-text text-muted">Seleccione un egreso</small>
+	        <small class="form-text text-muted">Seleccione los egresos que desee asociar</small>
       	</div>	
       	<div>
-	        <label>Ingresos</label>
-	        <select class="form-control" name="Ingresos1">
-	          {{#each ingreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	        <label>Orden</label>
+	        <select class="form-control" name="orden" id="orden">
+	         	<option value="default" selected>Elija...</option>
+	            <option value="f">Por fecha</option>
+	            <option value="v">Por valor</option>
 	        </select>
-	        <small class="form-text text-muted">Seleccione uno o mas ingresos que desee asociar</small>
       	</div>
 
         <br>
-		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<a id="filtrar" class="btn btn-primary">Asociar</a>	
         <br>
         
       </form>
@@ -63,30 +62,27 @@
        <form action="/evento2/nuevo" method = "post">
     		<br>
         	<div>
-       	    <h4>Asocie un ingreso a uno o varios egresos</h4>
+       	    <h4>asociar ingresos</h4>
 	        <label>Ingreso</label>
-	        <select class="form-control" name="Ingreso2">
-	          {{#each ingreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	        <select multiple size="6" class="form-control" name="ingreso">
+	          	{{#each ingreso}}
+            		<option value={{id_operacion_ingreso}}>{{descripcion}}</option>
+          		{{/each}}
 	        </select>
-	        <small class="form-text text-muted">Seleccione un ingreso</small>
+	       <small class="form-text text-muted">Seleccione los ingresos que desee asociar</small>
       	</div>	
       	<div>
-	        <label>Egresos</label>
-	        <select class="form-control" name="Egresos2">
-	          {{#each egreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	        <label>Orden</label>
+	        <select class="form-control" name="orden" id="orden">
+	         	<option value="default" selected>Elija...</option>
+	            <option value="f">Por fecha</option>
+	            <option value="v">Por valor</option>
 	        </select>
-	        <small class="form-text text-muted">Seleccione uno o mas egresos que desee asociar</small>
       	</div>
 
         <br>
-		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
+		<a id="filtrar" class="btn btn-primary">Asociar</a>	
         <br>
-        
-      </form>
     </div>  	<!--   FIN DIV INGRESO     -->   
       
       
@@ -103,12 +99,13 @@
 	        </select>
 	        <small class="form-text text-muted">Seleccione un proyecto</small>
       	</div>	
+      	    	
       	<div>
 	        <label>Ingresos</label>
-	        <select class="form-control" name="Ingresos3">
-	          {{#each ingreso}}
-	            <option>{{this}}</option>
-	          {{/each}}
+	        <select multiple size="6" class="form-control" name="ingreso">
+	          	{{#each ingreso}}
+            		<option value={{id_operacion_ingreso}}>{{descripcion}}</option>
+          		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione uno o mas ingresos que desee asociar</small>
       	</div>
@@ -129,4 +126,4 @@
 
 {{/partial}}
 {{>layout.hbs}}
-<script src="/js/asociarStyle.js"></script> <!--   USE EL MISMO QUE VISUALIZAR PORQUE TIENEN EL MISMO CRITERIO     -->
+<script src="/js/asociarStyle.js"></script> 
