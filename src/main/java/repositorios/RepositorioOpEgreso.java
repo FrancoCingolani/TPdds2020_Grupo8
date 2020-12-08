@@ -55,7 +55,4 @@ public class RepositorioOpEgreso extends AbstractHibernateRepo{
 		
 		return results;
 	}
-
-
-
 }
