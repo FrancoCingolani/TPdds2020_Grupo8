@@ -26,7 +26,7 @@ public class Compra extends Operacion{
 	@JoinColumn(name = "id_presupuesto")
 	List<Presupuesto> presupuestos;
 	@OneToMany
-	@JoinColumn(name = "id_operacion_egreso")
+	@JoinColumn(name = "id_compra")
 	List<OperacionEgreso> operacionesEgre;
 	@ManyToMany
 	List<Usuario> revisores;
