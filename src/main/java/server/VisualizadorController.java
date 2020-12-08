@@ -60,7 +60,7 @@ public class VisualizadorController {
 		return new ModelAndView(model, "visualizarEgresoIngreso.hbs");
 	}
 	
-	public ModelAndView visualizadorClasificador(Request req, Response res) throws CloneNotSupportedException {
+	public ModelAndView visualizadorClasificador(Request req, Response res) {
 		Template t = null;
 		int idClasificacionOpEgreso = Integer.parseInt(req.params(":id")); // id pasado por parámetro
 		// Tengo que traer los detalles de 3 modelos, los busco de a 1
