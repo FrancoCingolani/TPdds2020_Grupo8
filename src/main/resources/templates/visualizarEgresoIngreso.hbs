@@ -56,14 +56,24 @@
 									<!-- EGRESOS -->
 
 	<div id="egresos"> <!-- INICIO DIV EGRESOS -->
+	<h4>Elija la clasificaci&oacute;n</h4>
+        <select class="form-control" id="selectorClas" name="selClas">       
+        	<option value="default" selected>Todos</option>
+        	{{#each clasificaciones}}
+	            <option value="{{id_clasificacion}}">{{descripcion}}</option>
+	        {{/each}}
+        </select>
+        </br>
+        <a id="filtrar" class="btn btn-primary">Filtar</a>	 	
+		</br></br>
 		{{#each opEg}}
 			<h2>Egreso #{{id_operacion_egreso}}</h2>
 				<table class="table table-striped">
 					<thead>
 					    <tr>
 					      <th scope="col">Organizaci&oacute;n</th>
-					      <th scope="col">Valor Total</th>
 					      <th scope="col">Moneda</th>
+					   	  <th scope="col">Valor Total</th>
 					      <th scope="col">Fecha</th>
 					    </tr>
 					</thead>
@@ -71,8 +81,8 @@
 					<tbody>
 						<tr>
 					      <td>{{organizacion.nombreFicticio}}</td>
+					      <td>{{id_moneda.descripcion}}</td>				     
 					      <td>{{valorTotal}}</td>
-					      <td>{{id_moneda.descripcion}}</td>
 					      <td>{{fecha}}</td>
 					    </tr>				  
 				
@@ -90,7 +100,7 @@
 				      <td>{{clasificacion.descripcion}}</td>
 				      <td>{{valor}}</td>
 				      <td>{{cantidad}}</td>
-				    </tr>				  
+				    </tr>		 
 				{{/each}}
 			</tbody>
 		</table>

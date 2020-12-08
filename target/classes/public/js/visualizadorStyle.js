@@ -30,3 +30,16 @@ $("#selector").change(function() {
 			break;
 	}
 });
+
+$(function() {
+	$("#filtrar").click(function(){
+		switch($("#selectorClas").val()) {
+			case "default": // Redirijo a la pantalla original
+				location.href = '/visualizador';
+				break;
+			default: // Debo redirigir a la clasificacion seleccionada
+				location.href = '/visualizador/id/' + $("#selectorClas").val();
+				break;
+		}
+	});
+});

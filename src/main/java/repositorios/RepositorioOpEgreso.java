@@ -1,9 +1,12 @@
 package repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
 
+import main.Clasificacion;
+import main.Item;
 import main.OperacionEgreso;
 import main.OperacionIngreso;
 import repositorios.AbstractHibernateRepo;
@@ -31,11 +34,26 @@ public class RepositorioOpEgreso extends AbstractHibernateRepo{
 		
 		@SuppressWarnings("unchecked")
 		List<OperacionEgreso> results = query.getResultList();	
-		
-		System.out.println(results);
-		
+
 		return results;
 		
+	}
+
+	public List<OperacionEgreso> buscarOpEgresoPorClasificacion(int idClasificacionOpEgreso) {
+		// Busco la clasificación que se corresponde por el ID dado
+		Query queryClasificacion = this.getEntityManager().createQuery("FROM Clasificacion clas WHERE clas.id_clasificacion = :id");
+		queryClasificacion.setParameter("id", idClasificacionOpEgreso);
+		
+		Clasificacion clas = (Clasificacion) queryClasificacion.getSingleResult();
+		
+		Query query = this.getEntityManager().createQuery("FROM OperacionEgreso opEgreso JOIN FETCH opEgreso.items it WHERE it.clasificacion = :id");
+		
+		query.setParameter("id", clas);
+		
+		@SuppressWarnings("unchecked")
+		List<OperacionEgreso> results = query.getResultList();
+		
+		return results;
 	}
 
 

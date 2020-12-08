@@ -1,7 +1,5 @@
 package server;
 
-import com.github.jknack.handlebars.Handlebars;
-
 import spark.Request;
 import spark.Response;
 import spark.Spark;
@@ -40,11 +38,7 @@ public class Router {
 		ClasificadorController clasificadorController = new ClasificadorController();
 		MensajesController mensajesController = new MensajesController();
 		VisualizadorController visualizadorController = new VisualizadorController();
-		
-		// TEST - IGNA
-		Handlebars hb = new Handlebars();
-		hb.registerHelpers(new HelperSource());
-		
+
 		//HOME
 		Spark.get("/", homeController::pantallaPrincipal, engine);
 		//LOG IN USUARIIOS
@@ -87,8 +81,15 @@ public class Router {
 						new HandlebarsTemplateEngine());
 				
 		// VISUALIZAR OPERACIONES Y PROYECTOS
+				/*Spark.get("/visualizador",
+						visualizadorController::visualizador, 
+						new HandlebarsTemplateEngine());*/
 				Spark.get("/visualizador",
 						visualizadorController::visualizador, 
+						new HandlebarsTemplateEngine());
+				
+				Spark.get("/visualizador/id/:id",
+						visualizadorController::visualizadorClasificador, 
 						new HandlebarsTemplateEngine());
 			
 		// ASOCIAR OPERACIONES
