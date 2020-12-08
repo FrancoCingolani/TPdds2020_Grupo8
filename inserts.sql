@@ -1,10 +1,10 @@
 INSERT INTO usuarios (nombre, cantidadIntentos, contrasenia, intentosMaximos, tipo, id_usuario) VALUES ('ignacio', 0, 'iGnac10ss', 3, 1, 1), ('franco', 0, 'Franc0ssss', 3, 1, 2), ('jesica', 0, 'J3s1casss', 3, 1, 3), ('josefina', 0, 'J0sef1nass', 3, 1, 4);
 INSERT INTO currencyml VALUES (1, 2, "Peso argentino", "ARS"), (2, 2, "Dolar Estadounidense", "USD");
 INSERT INTO cityml VALUES (1, 1, 1, 1000, 2000, "Buenos Aires", "Argentina", "Buenos Aires");
+INSERT INTO categorias (id_categoria, tipo) VALUES (1,'tipo1'), (2, 'tipo2'), (3, 'tipo3');
 INSERT INTO organizaciones VALUES (1,1,'1direccionPostal', "organizacion1", 30, 20, 1, 40000, 1, 1);
 INSERT INTO proyectos VALUES (1, 1, "descripcion 1", 10000, "proyecto 1", 1, 1);
 INSERT INTO atm (id_medio_de_pago, linkPagos) VALUES (1,1111), (2, 2222), (3, 3333);
-INSERT INTO categorias (id_categoria, tipo) VALUES (1,'tipo1'), (2, 'tipo2'), (3, 'tipo3');
 INSERT INTO criterios VALUES (1, "Criterio1"), (2, "Criterio2");
 INSERT INTO clasificaciones VALUES (1,'descripcion´1', 1, 1), (2,'descripcion 2', 2, 2), (3,'descripcion3', 3, 2);
 INSERT INTO proveedores (tipo, id_proveedor, direccionPostal, apellido, cuil, dni, nombre, id_ciudad) VALUES ('fisico', 1, 'direccionPostal', 'Cingolani', '20123456', '123456', 'Franco', 1);

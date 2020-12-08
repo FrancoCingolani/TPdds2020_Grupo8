@@ -98,7 +98,6 @@ public class OperacionEgresoController {
 		opEgreso.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorNombre(organizacion)); 
 		opEgreso.setCompra(repoCompras.buscarCompraPorId(id_compra));
 		
-		System.out.println("Hasta acá va bien!");
 
 		RepositorioOpEgreso.getInstance().persist(opEgreso);
 

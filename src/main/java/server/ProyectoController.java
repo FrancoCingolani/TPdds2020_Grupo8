@@ -5,6 +5,7 @@ import java.util.List;
 
 import main.Item;
 import main.OperacionIngreso;
+import main.Organizacion;
 import main.Proyecto;
 
 import repositorios.RepositorioOpIngreso;
@@ -50,10 +51,9 @@ public class ProyectoController {
 		proyecto.setNombre(nombre);
 		proyecto.setDescripcion(descripcion);
 		proyecto.setmontoAsignado(montoAsignado);
-		//proyecto.vincular(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
 		proyecto.vincular(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
-		System.out.println(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
-		proyecto.setOrganizacion(repoOrganizaciones.buscarOrganizacionPorNombre(organizacion)); 
+		Organizacion organizacionTraida = repoOrganizaciones.buscarOrganizacionPorNombre(organizacion);
+		proyecto.setOrganizacion(organizacionTraida);
 		
 		RepositorioProyecto.getInstance().persist(proyecto);
 
