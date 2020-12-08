@@ -26,8 +26,6 @@ public class RepositorioClasificacion extends AbstractHibernateRepo{
 		
 		List<Clasificacion> results = query.getResultList();
 		
-		System.out.println(results);
-		
 		return results;
 		
 	}

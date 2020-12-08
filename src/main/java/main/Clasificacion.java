@@ -67,6 +67,10 @@ public class Clasificacion {
 		this.clasificacionPadre = clasificacionPadre;
 	}
 	
+	public int getId_clasificacion() {
+		return id_clasificacion;
+	}
+	
 	//clasificar() :: void
 
 }
