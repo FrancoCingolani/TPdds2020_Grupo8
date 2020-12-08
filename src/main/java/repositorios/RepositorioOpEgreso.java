@@ -55,4 +55,13 @@ public class RepositorioOpEgreso extends AbstractHibernateRepo{
 		
 		return results;
 	}
+	
+	public List<OperacionEgreso> buscarOpEgresoSinAsociar() {
+		Query query = this.getEntityManager().createQuery("FROM OperacionEgreso opEgreso WHERE id_operacion_ingreso IS NULL");
+		
+		@SuppressWarnings("unchecked")
+		List<OperacionEgreso> results = query.getResultList();	
+
+		return results;
+	}
 }

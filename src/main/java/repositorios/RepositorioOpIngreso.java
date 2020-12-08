@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import main.CurrencyML;
 import main.DocumentoComercial;
+import main.OperacionEgreso;
 import main.OperacionIngreso;
 import repositorios.AbstractHibernateRepo;
 
@@ -44,6 +45,14 @@ public class RepositorioOpIngreso extends AbstractHibernateRepo{
 	
 	}
 	
+	public List<OperacionIngreso> buscarOpIngresoSinAsociar() {
+		Query query = this.getEntityManager().createQuery("FROM OperacionIngreso opIngreso WHERE NOT EXISTS (FROM OperacionEgreso opEgreso WHERE opEgreso.operacionIngreso = opIngreso.id_operacion_ingreso)");
+		
+		@SuppressWarnings("unchecked")
+		List<OperacionIngreso> results = query.getResultList();	
+
+		return results;
+	}
 
 
 
