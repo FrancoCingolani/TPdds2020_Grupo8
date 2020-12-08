@@ -47,7 +47,7 @@ public class Organizacion {
 	TipoEntidadJuridica tipo;
 	int periodoVinculacion;
 	@OneToMany
-	@JoinColumn(name = "id_proyecto")
+	@JoinColumn(name = "id_organizacion")
 	List<Proyecto> proyectos = null;
 	
 	public Organizacion() {
