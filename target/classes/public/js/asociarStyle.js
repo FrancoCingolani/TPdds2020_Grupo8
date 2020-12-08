@@ -6,8 +6,8 @@ $( document).ready(function() {
 });
 
 // Funcion para tratar los cambios en el dropdown selector
-$("#selector").change(function() {
-	switch ($("#selector").val()) {
+$("#filtrito").change(function() {
+	switch ($("#filtrito").val()) {
 		case "e": // Muestra egresos
 			$("#egresos").show();
 			$("#ingresos").hide();
