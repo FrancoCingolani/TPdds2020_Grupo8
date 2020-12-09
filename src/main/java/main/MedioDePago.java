@@ -13,8 +13,6 @@ import javax.persistence.InheritanceType;
 public abstract class MedioDePago {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false)
 	int id_medio_de_pago;
 
 }
