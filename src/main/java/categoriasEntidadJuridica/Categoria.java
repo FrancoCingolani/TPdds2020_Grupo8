@@ -1,8 +1,10 @@
 package categoriasEntidadJuridica;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -13,7 +15,9 @@ import javax.persistence.Transient;
 @DiscriminatorColumn(name = "tipo")
 public class Categoria {
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
 	int id_categoria;
 	
 	@Transient

@@ -2,10 +2,12 @@ package main;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -24,7 +26,9 @@ import enumeradores.TipoEntidadJuridica;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Organizacion {
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
 	int id_organizacion;
 	
 	@OneToMany

@@ -1,13 +1,17 @@
 package main;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class CityML {
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
 	int id_ciudad;
 	private String name_country= "Argentina";
 	private String id_country ="AR";
