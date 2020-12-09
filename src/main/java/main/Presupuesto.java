@@ -28,7 +28,7 @@ public class Presupuesto {
 	double valorTotal;
 	@ManyToOne
 	@JoinColumn(name = "id_proveedor")
-	Proveedor proveedor;
+	ProveedorFisico proveedor;
 	String detalle;
 	
 	@ManyToMany
@@ -47,7 +47,7 @@ public class Presupuesto {
 	}
 
 	
-	public Presupuesto(Proveedor proveedor,String detalle, List<Item> items, List<DocumentoComercial> documentos) {
+	public Presupuesto(ProveedorFisico proveedor,String detalle, List<Item> items, List<DocumentoComercial> documentos) {
 		this.valorTotal = 0;
 		this.proveedor = proveedor;
 		this.detalle = detalle;
@@ -70,7 +70,7 @@ public class Presupuesto {
 		return proveedor;
 	}
 
-	public void setProveedor(Proveedor proveedor) {
+	public void setProveedor(ProveedorFisico proveedor) {
 		this.proveedor = proveedor;
 	}
 
