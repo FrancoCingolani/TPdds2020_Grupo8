@@ -96,7 +96,16 @@ public class Router {
 				Spark.get("/asociar",
 						asociarEgreIngreController::asociarEgreIngre, 
 						new HandlebarsTemplateEngine());
-						
+				Spark.post("/asociar/egresos",
+						asociarEgreIngreController::asociarVinculadorEgreso, 
+						new HandlebarsTemplateEngine());
+				Spark.post("/asociar/ingresos",
+						asociarEgreIngreController::asociarVinculadorIngreso, 
+						new HandlebarsTemplateEngine());
+				Spark.post("/asociar/proyectos",
+						asociarEgreIngreController::asociarVinculadorProyecto, 
+						new HandlebarsTemplateEngine());
+				
 			// ADUTORIA
 				Spark.get("/auditoria",
 						auditoriaController::auditoria, 

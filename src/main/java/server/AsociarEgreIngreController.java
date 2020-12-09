@@ -38,6 +38,7 @@ import repositorios.RepositorioProyecto;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import \src;
 
 public class AsociarEgreIngreController {
 	public ModelAndView asociarEgreIngre(Request req, Response res) {
@@ -65,46 +66,23 @@ public class AsociarEgreIngreController {
 		return new ModelAndView(model, "asociarEgresoIngreso.hbs");
 	}
 	
-public ModelAndView asociar(Request req, Response res) throws ParseException {
-		
-		OperacionEgreso opEgreso = new OperacionEgreso();
-		OperacionIngreso opIngreso = new OperacionIngreso();
-		RepositorioProveedores repoProveedores = new RepositorioProveedores();
-		RepositorioMonedas repoMonedas = new RepositorioMonedas();
-		RepositorioMedioDePago repoMedioDePago = new RepositorioMedioDePago();
-		RepositorioDocumentosComerciales repoDocumentoComercial = new RepositorioDocumentosComerciales();
-		RepositorioItems repoItems = new RepositorioItems();
-		RepositorioOrganizaciones repoOrganizaciones = new RepositorioOrganizaciones();
-		RepositorioCompras repoCompras = new RepositorioCompras();
-		
-		String proveedorParam = req.queryParams("proveedor");
-		int id_proveedor = Integer.parseInt(proveedorParam);
-		String fechaParam = req.queryParams("fecha");
-		String monedaParam = req.queryParams("moneda");
-		int id_moneda = Integer.parseInt(monedaParam);
-		String valorTotalParam = req.queryParams("valor");
-		int valorTotal = Integer.parseInt(valorTotalParam);
-		String medioDePagoParam = req.queryParams("medioDePago");
-		int id_medioDePago = Integer.parseInt(medioDePagoParam);
-		String comprobanteParam = req.queryParams("item");
-		int id_comprobante = Integer.parseInt(comprobanteParam);
-		String itemParam = req.queryParams("comprobante");
-		int id_item = Integer.parseInt(itemParam);
-		String organizacion = req.queryParams("organizacion");
-		String compraParam = req.queryParams("compra");
-		int id_compra = Integer.parseInt(compraParam);
-		
-		
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-		Date fechaParseada = formato.parse(fechaParam);
-		
-
-		
-
-		String descripcion = req.queryParams("descripcion");
-		
-		res.redirect("/");
-		
-		return null;	
+	public ModelAndView asociarVinculadorEgreso (Request req, Response res){
+		Template t = null;
+		//VinculadorDeOperaciones vinculador = new VinculadorDeOperaciones();
+		//vinculador.vincularEgresoAIngreso(opIngreso, orden)
+		return new ModelAndView(null, "asociarEgresoIngreso.hbs");
 	}
+	
+	public ModelAndView asociarVinculadorIngreso (Request req, Response res){
+		Template t = null;
+		//VinculadorDeOperaciones vinculador = new VinculadorDeOperaciones();
+		//vinculador.vincularEgresoAIngreso(opIngreso, orden)
+		return new ModelAndView(null, "asociarEgresoIngreso.hbs");
+	}
+	
+	public ModelAndView asociarVinculadorProyecto (Request req, Response res){
+		//este es el que es manual.. asi que solo seria poner en la bd el id del proyecto en la opIngreso	
+		return new ModelAndView(null, "asociarEgresoIngreso.hbs");
+	}
+
 }
