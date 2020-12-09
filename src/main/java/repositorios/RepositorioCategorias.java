@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import main.Clasificacion; //no olvidar que nosotro habiamos hecho el cambio del nombre
+import main.OperacionEgreso;
 
 
 public class RepositorioCategorias extends AbstractHibernateRepo{
@@ -28,6 +29,12 @@ public class RepositorioCategorias extends AbstractHibernateRepo{
 
 		return results;
 		
+	}
+	
+	public Clasificacion buscarClasificacionPorId(int id_clasificacion) {
+		Query query = this.getEntityManager().createQuery("SELECT clasificacion FROM Clasificacion clasificacion WHERE id_clasificacion = :id_clasificacion");
+		query.setParameter("id_clasificacion", id_clasificacion);
+		return (Clasificacion) query.getSingleResult();
 	}
 
 }

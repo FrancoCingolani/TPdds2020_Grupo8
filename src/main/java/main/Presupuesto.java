@@ -47,6 +47,10 @@ public class Presupuesto {
 	@JoinColumn(name = "id_proyecto")
 	Proyecto proyecto;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_clasificacion")
+	Clasificacion clasificacion;
+	
 	public Presupuesto() {
 	}
 
@@ -104,6 +108,10 @@ public class Presupuesto {
 	
 	public int getId_presupuesto() {
 		return id_presupuesto;
+	}
+	
+	public void setClasificacion(Clasificacion clasificacion) {
+		this.clasificacion = clasificacion;
 	}
 	
 }

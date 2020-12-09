@@ -113,7 +113,13 @@ public class Router {
 			
 		// CLASIFICADOR
 				Spark.get("/clasificador",
-						clasificadorController::clasificador, 
+						clasificadorController::clasificadorFront, 
+						new HandlebarsTemplateEngine());
+				Spark.post("/clasificar/egreso",
+						clasificadorController::clasificarEgreso, 
+						new HandlebarsTemplateEngine());
+				Spark.post("/clasificar/presupuesto",
+						clasificadorController::clasificarPresupuesto, 
 						new HandlebarsTemplateEngine());
 						
 		//BANDEJA DE MENSAJES

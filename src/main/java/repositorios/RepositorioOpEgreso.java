@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import main.Clasificacion;
+import main.CurrencyML;
 import main.Item;
 import main.OperacionEgreso;
 import main.OperacionIngreso;
@@ -63,5 +64,11 @@ public class RepositorioOpEgreso extends AbstractHibernateRepo{
 		List<OperacionEgreso> results = query.getResultList();	
 
 		return results;
+	}
+	
+	public OperacionEgreso buscarOpEgresoPorId(int id_operacion_egreso) {
+		Query query = this.getEntityManager().createQuery("SELECT opEgreso FROM OperacionEgreso opEgreso WHERE id_operacion_egreso = :id_operacion_egreso");
+		query.setParameter("id_operacion_egreso", id_operacion_egreso);
+		return (OperacionEgreso) query.getSingleResult();
 	}
 }

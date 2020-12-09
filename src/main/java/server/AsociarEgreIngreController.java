@@ -38,7 +38,6 @@ import repositorios.RepositorioProyecto;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
-import \src;
 
 public class AsociarEgreIngreController {
 	public ModelAndView asociarEgreIngre(Request req, Response res) {

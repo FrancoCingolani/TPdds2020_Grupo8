@@ -37,8 +37,8 @@ public class Compra extends Operacion{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "compra")
 	List<Item> items;
 	@OneToOne
-	@JoinColumn(name = "id_presupuesto")
-	Presupuesto presupuestoElegido; //OJO, antes era del tipo Presupuesto, y para mapearlo lo pasé a int. Volver a revisar
+	@JoinColumn(name = "id_presupuesto_elegido")
+	Presupuesto presupuestoElegido;
 	
 	public Compra() {		
 	}
