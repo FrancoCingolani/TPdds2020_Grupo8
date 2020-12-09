@@ -19,13 +19,11 @@ public class RepositorioPresupuesto extends AbstractHibernateRepo{
 	//copiado de items
 	public List<Presupuesto> buscarPresupuesto() {
 		
-		Query query = this.getEntityManager().createQuery("FROM Clasificacion clasificaciones");
+		Query query = this.getEntityManager().createQuery("FROM Presupuesto presu");
 		
 		@SuppressWarnings("unchecked")
 		
 		List<Presupuesto> results = query.getResultList();
-		
-		System.out.println(results);
 		
 		return results;
 		

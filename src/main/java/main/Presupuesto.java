@@ -98,5 +98,8 @@ public class Presupuesto {
 		this.items = items;
 	}
 	
+	public int getId_presupuesto() {
+		return id_presupuesto;
+	}
 	
 }

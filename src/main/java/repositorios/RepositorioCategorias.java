@@ -25,9 +25,7 @@ public class RepositorioCategorias extends AbstractHibernateRepo{
 		@SuppressWarnings("unchecked")
 		
 		List<Clasificacion> results = query.getResultList();
-		
-		System.out.println(results);
-		
+
 		return results;
 		
 	}

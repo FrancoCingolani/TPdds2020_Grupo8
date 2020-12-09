@@ -30,9 +30,9 @@
         <br>
         <h4>Asocie su Operacion a una categoria</h4>
 	        <label>Egresos</label>
-	        <select class="form-control" name="Egreso">
-	          {{#each egreso}}
-	            <option>{{this}}</option>
+	        <select class="form-control" name="egreso">
+	          {{#each OpEg}}
+	            <option value="{{id_operacion_egreso}}">Organizacion:{{organizacion.nombreFicticio}} ---- Monto: {{valorTotal}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione un egreso que desee categorizar</small>
@@ -40,9 +40,9 @@
       	
       	<div>
 	        <label>Categoria</label>
-	        <select class="form-control" name="Categoria">
-	          {{#each categoria}}
-	            <option>{{this}}</option>
+	        <select class="form-control" name="categoria">
+	          {{#each clasificacion}}
+	            <option value="{{id_clasificacion}}">{{descripcion}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione la categoria que corresponda</small>
@@ -67,7 +67,7 @@
 	        <label>Presupuestos</label>
 	        <select class="form-control" name="Presupuesto">
 	          {{#each presupuesto}}
-	            <option>{{this}}</option>
+	            <option value="{{id_presupuesto}}">{{detalle}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione un presupuesto que desee categorizar</small>
@@ -75,9 +75,9 @@
       	
       	<div>
 	        <label>Categoria</label>
-	        <select class="form-control" name="Categoria">
-	          {{#each categoria}}
-	            <option>{{this}}</option>
+	        <select class="form-control" name="categoria">
+	          {{#each clasificacion}}
+	            <option value="{{id_clasificacion}}">{{descripcion}}</option>
 	          {{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione la categoria que corresponda</small>

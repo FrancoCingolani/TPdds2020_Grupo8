@@ -23,7 +23,7 @@ public class Compra extends Operacion{
 	
 	int cantPresuReq;
 	@OneToMany
-	@JoinColumn(name = "id_presupuesto")
+	@JoinColumn(name = "id_compra")
 	List<Presupuesto> presupuestos;
 	@OneToMany
 	@JoinColumn(name = "id_compra")
