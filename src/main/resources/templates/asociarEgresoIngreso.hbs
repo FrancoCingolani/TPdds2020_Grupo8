@@ -35,8 +35,8 @@
        	    <h4>asociar egresos</h4>
 	        <label>Egreso</label>
 	        <select multiple size="6" class="form-control" name="egreso">
-	          	{{#each egreso}}
-            		<option value={{id_operacion_egreso}}>{{descripcion}}</option>
+	          	{{#each opEg}}
+            		<option value={{id_operacion_egreso}}>Fecha: {{fecha}} por monto: {{valorTotal}}</option>
           		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione los egresos que desee asociar</small>
@@ -45,13 +45,14 @@
 	        <label>Orden</label>
 	        <select class="form-control" name="orden" id="orden">
 	         	<option value="default" selected>Elija...</option>
-	            <option value="f">Por fecha</option>
-	            <option value="v">Por valor</option>
+	            <option value="1">Por fecha</option>
+	            <option value="2">Por valor</option>
 	        </select>
       	</div>
-
+		
         <br>
-		<a id="asociar" class="btn btn-primary">Asociar</a>	
+        <input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Asociar">
+		<!--<a id="asociar" class="btn btn-primary">Asociar</a>-->	
         <br>
         
       </form>
@@ -65,7 +66,7 @@
        	    <h4>asociar ingresos</h4>
 	        <label>Ingreso</label>
 	        <select multiple size="6" class="form-control" name="ingreso">
-	          	{{#each ingreso}}
+	          	{{#each opIng}}
             		<option value={{id_operacion_ingreso}}>{{descripcion}}</option>
           		{{/each}}
 	        </select>
@@ -75,14 +76,16 @@
 	        <label>Orden</label>
 	        <select class="form-control" name="orden" id="orden">
 	         	<option value="default" selected>Elija...</option>
-	            <option value="f">Por fecha</option>
-	            <option value="v">Por valor</option>
+	            <option value="1">Por fecha</option>
+	            <option value="2">Por valor</option>
 	        </select>
       	</div>
 
         <br>
-		<a id="asociar" class="btn btn-primary">Asociar</a>	
+        <input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Asociar">
+		<!--<a id="asociar" class="btn btn-primary">Asociar</a>-->	
         <br>
+        </form>
     </div>  	<!--   FIN DIV INGRESO     -->   
       
       
@@ -103,17 +106,17 @@
       	<div>
 	        <label>Ingresos</label>
 	        <select multiple size="6" class="form-control" name="ingreso">
-	          	{{#each ingreso}}
+	          	{{#each opIng}}
             		<option value={{id_operacion_ingreso}}>{{descripcion}}</option>
           		{{/each}}
 	        </select>
 	        <small class="form-text text-muted">Seleccione uno o mas ingresos que desee asociar</small>
       	</div>
 
+      	<br>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Asociar">
+		<!--<a id="asociar" class="btn btn-primary">Asociar</a>-->	
         <br>
-		<input type="submit" class="btn btn-lg btn-primary btn-block" placeholder="Crear">
-        <br>
-        
       </form>
       </div>  	<!--   FIN DIV PROYECTO     -->
       

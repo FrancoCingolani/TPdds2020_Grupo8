@@ -14,16 +14,34 @@ import main.Usuario;
 
 public class RepositorioUsuarios extends AbstractHibernateRepo {
 
-	private static final RepositorioUsuarios INSTANCE = new RepositorioUsuarios();
+	/*private static final RepositorioUsuarios INSTANCE = new RepositorioUsuarios();
 
 	public static RepositorioUsuarios instance() {
 		return INSTANCE;
+	}*/	
+	
+	private static RepositorioUsuarios instance;
+
+	public static RepositorioUsuarios getInstance() {
+		if (instance == null)
+			instance = new RepositorioUsuarios();
+		return instance;
 	}
+	
 
 	public Usuario findUsuario(String nombreUsuario) {
-		Usuario us = null;
+		 String hql = "FROM Usuario U WHERE U.nombre = :user";
+		 Query query = this.getEntityManager().createQuery(hql);
+		 query.setParameter("user", nombreUsuario);
+		 try {
+			 return (Usuario) query.getSingleResult();
+		 } 
+		 
+		 catch (NoResultException e){
+			 return null;
+		 }
 
-	    SessionFactory sf = null;
+	    /*SessionFactory sf = null;
 	    Session session1 = null;
 	    try {
 	        sf = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -42,7 +60,7 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 	        sf.close();
 	    }
 
-	    return us;
+	    return us;*/
 
 	}
 

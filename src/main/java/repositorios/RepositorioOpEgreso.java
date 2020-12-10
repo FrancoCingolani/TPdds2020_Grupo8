@@ -10,6 +10,7 @@ import main.CurrencyML;
 import main.Item;
 import main.OperacionEgreso;
 import main.OperacionIngreso;
+import main.Organizacion;
 import repositorios.AbstractHibernateRepo;
 
 public class RepositorioOpEgreso extends AbstractHibernateRepo{
@@ -70,5 +71,13 @@ public class RepositorioOpEgreso extends AbstractHibernateRepo{
 		Query query = this.getEntityManager().createQuery("SELECT opEgreso FROM OperacionEgreso opEgreso WHERE id_operacion_egreso = :id_operacion_egreso");
 		query.setParameter("id_operacion_egreso", id_operacion_egreso);
 		return (OperacionEgreso) query.getSingleResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<OperacionEgreso> buscarOpIEgresoOrganizacion(Organizacion organizacion, String queryString) {
+		Query query = this.getEntityManager().createQuery(queryString, OperacionEgreso.class);
+		query.setParameter("id_org_op_ing", organizacion);
+		
+		return query.getResultList();
 	}
 }

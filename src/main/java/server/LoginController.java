@@ -38,7 +38,7 @@ public class LoginController {
 		
 		
 		
-		Usuario usuario = RepositorioUsuarios.instance().findUsuario(nombreUsuario);
+		Usuario usuario = RepositorioUsuarios.getInstance().findUsuario(nombreUsuario);
 		
 		if( usuario == null ) {
 			return new ModelAndView(badLoginResponsePayload, "login.hbs");

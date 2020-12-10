@@ -127,14 +127,14 @@ public class Router {
 						mensajesController::mensajesFront, 
 						new HandlebarsTemplateEngine());
 				
-		/*Spark.before("/", Router::chequearLoginInexistente);
+		Spark.before("/", Router::chequearLoginInexistente);
 		Spark.before("/mensajes", Router::chequearLoginInexistente);
 		Spark.before("/operacionesEgreso", Router::chequearLoginInexistente);
 		Spark.before("/operacionesIngreso", Router::chequearLoginInexistente);
 		Spark.before("/clasificador", Router::chequearLoginInexistente);
 		Spark.before("/visualizador", Router::chequearLoginInexistente);
 		Spark.before("/asociar", Router::chequearLoginInexistente);
-		Spark.before("/proyecto", Router::chequearLoginInexistente);*/
+		Spark.before("/proyecto", Router::chequearLoginInexistente);
 		
 		DebugScreen.enableDebugScreen();
 	}

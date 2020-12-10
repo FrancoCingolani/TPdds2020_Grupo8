@@ -30,4 +30,3 @@ $("#selector").change(function() {
 			break;
 	}
 });
-

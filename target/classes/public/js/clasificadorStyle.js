@@ -1,3 +1,4 @@
+  
 // Al cargar la pagina, oculto los 2 divs
 $( document).ready(function() {
 	$("#egresos").hide();

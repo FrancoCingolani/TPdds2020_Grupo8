@@ -26,18 +26,12 @@ public class RepositorioProyecto extends AbstractHibernateRepo{
 	}
 	
 	public List<Proyecto> buscarProyecto() {
-		
 		Query query = this.getEntityManager().createQuery("FROM Proyecto proyecto");
 		
 		@SuppressWarnings("unchecked")
 		List<Proyecto> results = query.getResultList();	
 		
-		System.out.println(results);
-		
 		return results;
 		
 	}
-
-
-
 }

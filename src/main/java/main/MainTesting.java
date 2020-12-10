@@ -20,7 +20,7 @@ import scheduler.*;
 
 public class MainTesting {
 	// Lo uso solo para testear el validador por fuera de toda la otra lógica
-	public static void main(String[] args) throws InterruptedException, IOException{
+	/*public static void main(String[] args) throws InterruptedException, IOException{
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.OFF);
 		
@@ -53,5 +53,5 @@ public class MainTesting {
 		}	
 
         
-	} //CIERRE FUNCION MAIN
+	} //CIERRE FUNCION MAIN*/
 } //CIERRE CLASE MAIN
