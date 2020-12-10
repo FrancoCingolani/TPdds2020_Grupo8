@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import enumeradores.*;
 
 @Entity
-@Table(name = "EntidadesJuridicas")
+@Table(name = "entidadesjuridicas")
 @PrimaryKeyJoinColumn(name = "id_entidad_juridica")
 public class EntidadJuridica extends Organizacion{
 	

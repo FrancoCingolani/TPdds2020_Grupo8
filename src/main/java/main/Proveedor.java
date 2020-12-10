@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name="Proveedor")
-@Table(name = "Proveedores")
+@Table(name = "proveedores")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
 public class Proveedor {

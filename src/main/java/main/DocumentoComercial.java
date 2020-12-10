@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import enumeradores.TipoDocumentoComercial;
 
 @Entity
-@Table(name = "DocumentosComerciales")
+@Table(name = "documentoscomerciales")
 public class DocumentoComercial {
 	
 	@Id

@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 import mensajes.Mensaje;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "usuarios")
 public class Usuario {
 	
 	@Id

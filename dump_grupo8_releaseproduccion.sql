@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `dds` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `dds` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `dds`;
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
@@ -28,7 +28,7 @@ CREATE TABLE `atm` (
   `id_medio_de_pago` int(11) NOT NULL,
   `linkPagos` int(11) NOT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE `categorias` (
   `tipo` varchar(31) NOT NULL,
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,7 +82,7 @@ CREATE TABLE `cityml` (
   `name_country` varchar(255) DEFAULT NULL,
   `name_state` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_ciudad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `clasificaciones` (
   KEY `FKphxaxv7njotbdv8g0tye2w8jl` (`id_criterio`),
   CONSTRAINT `FKb0xejcp40pkq6gd2rvfs1fbql` FOREIGN KEY (`clasificacionPadre_id_clasificacion`) REFERENCES `clasificaciones` (`id_clasificacion`),
   CONSTRAINT `FKphxaxv7njotbdv8g0tye2w8jl` FOREIGN KEY (`id_criterio`) REFERENCES `criterios` (`id_criterio`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +139,7 @@ CREATE TABLE `compras` (
   PRIMARY KEY (`id_compra`),
   KEY `FKw580b89flj6va30j1hbvb1b4` (`id_presupuesto_elegido`),
   CONSTRAINT `FKw580b89flj6va30j1hbvb1b4` FOREIGN KEY (`id_presupuesto_elegido`) REFERENCES `presupuestos` (`id_presupuesto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +166,7 @@ CREATE TABLE `compras_usuarios` (
   KEY `FKb19mvr0hin8qbotels7n29f9s` (`Compra_id_compra`),
   CONSTRAINT `FKb19mvr0hin8qbotels7n29f9s` FOREIGN KEY (`Compra_id_compra`) REFERENCES `compras` (`id_compra`),
   CONSTRAINT `FKmovhbdt1brpassb5pd910va4g` FOREIGN KEY (`revisores_id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `criterios` (
   `id_criterio` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_criterio`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +216,7 @@ CREATE TABLE `currencyml` (
   `descripcion` varchar(255) DEFAULT NULL,
   `symbol` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_moneda`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `dineroencuenta` (
   `id_medio_de_pago` int(11) NOT NULL,
   `saldo` double NOT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,7 +265,7 @@ CREATE TABLE `documentoscomerciales` (
   `numero_identificacion` varchar(255) DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_documento_comercial`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,7 +299,7 @@ CREATE TABLE `entidadesjuridicas` (
   CONSTRAINT `FK1nefbqsofgwh8crtpw92d3w0t` FOREIGN KEY (`id_entidad_juridica`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FK28p4vcna6qjxw9qamj086ojlg` FOREIGN KEY (`perteneceA_id_entidad_juridica`) REFERENCES `entidadesjuridicas` (`id_entidad_juridica`),
   CONSTRAINT `FKcl559f1bafn2x2o854h1mucaa` FOREIGN KEY (`id_entidad_base`) REFERENCES `organizaciones` (`id_organizacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -335,7 +335,7 @@ CREATE TABLE `items` (
   CONSTRAINT `FK6bwse5dbwnhde54deb9g6j4j1` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`),
   CONSTRAINT `FKnvd3n9xccjlax331pc9s753ha` FOREIGN KEY (`id_clasificacion`) REFERENCES `clasificaciones` (`id_clasificacion`),
   CONSTRAINT `FKqmf63a27pryeptnqkx5kdii68` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -358,7 +358,7 @@ DROP TABLE IF EXISTS `medianatramo1`;
 CREATE TABLE `medianatramo1` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -380,7 +380,7 @@ DROP TABLE IF EXISTS `medianatramo2`;
 CREATE TABLE `medianatramo2` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -409,7 +409,7 @@ CREATE TABLE `mensajes` (
   PRIMARY KEY (`id_mensaje`),
   KEY `FKes3ij9ehri4aigr4thy9n5x2b` (`id_usuario`),
   CONSTRAINT `FKes3ij9ehri4aigr4thy9n5x2b` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -432,7 +432,7 @@ DROP TABLE IF EXISTS `micro`;
 CREATE TABLE `micro` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,7 +479,7 @@ CREATE TABLE `operacionesegreso` (
   CONSTRAINT `FKj8ev01sh8ttibby10x1jfs06s` FOREIGN KEY (`id_operacion_ingreso`) REFERENCES `operacionesingreso` (`id_operacion_ingreso`),
   CONSTRAINT `FKm0ai9eqsnsrc74mk3hjfl3kag` FOREIGN KEY (`id_operacion_egreso_entidad`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKsuu7wh48yksamtwsf70x977gk` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -506,7 +506,7 @@ CREATE TABLE `operacionesegreso_documentoscomerciales` (
   KEY `FKgkw4wemns7byj2g87uctkf8f8` (`OperacionEgreso_id_operacion_egreso`),
   CONSTRAINT `FKgkw4wemns7byj2g87uctkf8f8` FOREIGN KEY (`OperacionEgreso_id_operacion_egreso`) REFERENCES `operacionesegreso` (`id_operacion_egreso`),
   CONSTRAINT `FKgqaq4qokofm80rlwaq3tq6363` FOREIGN KEY (`documentosComerciales_id_documento_comercial`) REFERENCES `documentoscomerciales` (`id_documento_comercial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -533,7 +533,7 @@ CREATE TABLE `operacionesegreso_items` (
   KEY `FKn2kw8mvax6if1ssf5ija2nq5w` (`OperacionEgreso_id_operacion_egreso`),
   CONSTRAINT `FK7bv1mck5l684jbrq1npupnnx` FOREIGN KEY (`items_id_item`) REFERENCES `items` (`id_item`),
   CONSTRAINT `FKn2kw8mvax6if1ssf5ija2nq5w` FOREIGN KEY (`OperacionEgreso_id_operacion_egreso`) REFERENCES `operacionesegreso` (`id_operacion_egreso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -571,7 +571,7 @@ CREATE TABLE `operacionesingreso` (
   CONSTRAINT `FK5d3hipv0ll8y3jhkucq2jo617` FOREIGN KEY (`id_organizacion`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKm2s3f3vajyr2h27li8m2h3idh` FOREIGN KEY (`id_operacion_ingreso_entidad`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKpcqxlor40rk5xsr5fnj68gdnb` FOREIGN KEY (`id_moneda`) REFERENCES `currencyml` (`id_moneda`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -607,7 +607,7 @@ CREATE TABLE `organizaciones` (
   KEY `FK9wpp4ags0yhlbudilqh92mlg6` (`id_ciudad_id_ciudad`),
   CONSTRAINT `FK9wpp4ags0yhlbudilqh92mlg6` FOREIGN KEY (`id_ciudad_id_ciudad`) REFERENCES `cityml` (`id_ciudad`),
   CONSTRAINT `FKqjm1f1ba2ecu6nqwmb0s6wgwr` FOREIGN KEY (`categoria_id_categoria`) REFERENCES `categorias` (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -630,7 +630,7 @@ DROP TABLE IF EXISTS `osc`;
 CREATE TABLE `osc` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -652,7 +652,7 @@ DROP TABLE IF EXISTS `pequenia`;
 CREATE TABLE `pequenia` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -692,7 +692,7 @@ CREATE TABLE `presupuestos` (
   CONSTRAINT `FKn7n4p1wtg0aqqqvay34ahwul3` FOREIGN KEY (`id_proyecto`) REFERENCES `proyectos` (`id_proyecto`),
   CONSTRAINT `FKsefouvay7xchpjp77fm01gnwk` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`),
   CONSTRAINT `FKtl5ux5ny59qsvkaglhhns2npk` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -719,7 +719,7 @@ CREATE TABLE `presupuestos_documentoscomerciales` (
   KEY `FK2794696i696yb68fbtr1s91i0` (`Presupuesto_id_presupuesto`),
   CONSTRAINT `FK2794696i696yb68fbtr1s91i0` FOREIGN KEY (`Presupuesto_id_presupuesto`) REFERENCES `presupuestos` (`id_presupuesto`),
   CONSTRAINT `FKd5lry4n7aboumpgr7sbqgmb9w` FOREIGN KEY (`documentos_id_documento_comercial`) REFERENCES `documentoscomerciales` (`id_documento_comercial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -746,7 +746,7 @@ CREATE TABLE `presupuestos_items` (
   KEY `FK7ovp5xvxqpl9hjvgil44wim0r` (`Presupuesto_id_presupuesto`),
   CONSTRAINT `FK7ovp5xvxqpl9hjvgil44wim0r` FOREIGN KEY (`Presupuesto_id_presupuesto`) REFERENCES `presupuestos` (`id_presupuesto`),
   CONSTRAINT `FKb4jovkb91nnliqkby5q7yta9n` FOREIGN KEY (`items_id_item`) REFERENCES `items` (`id_item`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -780,7 +780,7 @@ CREATE TABLE `proveedores` (
   PRIMARY KEY (`id_proveedor`),
   KEY `FKsw2mciqtjvb3ifpsfinvtrygn` (`id_ciudad`),
   CONSTRAINT `FKsw2mciqtjvb3ifpsfinvtrygn` FOREIGN KEY (`id_ciudad`) REFERENCES `cityml` (`id_ciudad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -813,7 +813,7 @@ CREATE TABLE `proyectos` (
   KEY `FKc31q2qptckmbcljpsqx05yw3k` (`id_organizacion`),
   CONSTRAINT `FKc31q2qptckmbcljpsqx05yw3k` FOREIGN KEY (`id_organizacion`) REFERENCES `organizaciones` (`id_organizacion`),
   CONSTRAINT `FKpn4y7k4cj6vl26mygf42tdkwp` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -842,7 +842,7 @@ CREATE TABLE `tarjetadecredito` (
   `fechaExpiracion` datetime DEFAULT NULL,
   `numero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -871,7 +871,7 @@ CREATE TABLE `tarjetadedebito` (
   `fechaExpiracion` datetime DEFAULT NULL,
   `numero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -896,7 +896,7 @@ CREATE TABLE `ticket` (
   `codigoBarras` bigint(20) NOT NULL,
   `numeroParaCajero` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_medio_de_pago`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -924,7 +924,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(255) DEFAULT NULL,
   `tipo` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

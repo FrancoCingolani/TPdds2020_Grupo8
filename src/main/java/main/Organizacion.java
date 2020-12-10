@@ -22,7 +22,7 @@ import enumeradores.Actividad;
 import enumeradores.TipoEntidadJuridica;
 
 @Entity
-@Table(name = "Organizaciones")
+@Table(name = "organizaciones")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Organizacion {
 	

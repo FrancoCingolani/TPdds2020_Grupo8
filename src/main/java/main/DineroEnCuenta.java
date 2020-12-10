@@ -3,7 +3,7 @@ package main;
 
 import javax.persistence.Entity;
 
-@Entity(name = "DineroEnCuenta")
+@Entity(name = "dineroencuenta")
 public class DineroEnCuenta extends MedioDePago {
 		double saldo; 
 		

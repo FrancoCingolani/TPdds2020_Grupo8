@@ -17,7 +17,7 @@ import java.io.IOException;
 import exceptions.CriterioPadreException;
 
 @Entity
-@Table(name = "Clasificaciones")
+@Table(name = "clasificaciones")
 public class Clasificacion {
 	
 	@Id

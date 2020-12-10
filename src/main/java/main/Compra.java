@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Compras")
+@Table(name = "compras")
 public class Compra extends Operacion{
 	
 	@Id

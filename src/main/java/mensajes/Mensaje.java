@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import main.Usuario;
 
 @Entity
-@Table(name = "Mensajes")
+@Table(name = "mensajes")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
 public abstract class Mensaje {

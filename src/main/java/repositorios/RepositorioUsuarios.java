@@ -33,6 +33,7 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 		 String hql = "FROM Usuario U WHERE U.nombre = :user";
 		 Query query = this.getEntityManager().createQuery(hql);
 		 query.setParameter("user", nombreUsuario);
+
 		 try {
 			 return (Usuario) query.getSingleResult();
 		 } 

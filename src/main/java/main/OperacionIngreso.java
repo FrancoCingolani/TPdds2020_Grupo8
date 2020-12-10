@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "OperacionesIngreso")
+@Table(name = "operacionesingreso")
 public class OperacionIngreso {
 	
 	@Id

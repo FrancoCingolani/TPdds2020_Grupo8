@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
-@Entity(name = "TarjetaDeCredito")
+@Entity(name = "tarjetadecredito")
 public class TarjetaDeCredito extends MedioDePago{
 	
 	String numero;

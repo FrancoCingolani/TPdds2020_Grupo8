@@ -12,7 +12,7 @@ import javax.persistence.Table;
 //QUIEN CAMBIE ESTO TAMBIEN TIENE QUE CAMBIAR EN EL MAIN......  ES MUUUUCHO
 
 @Entity
-@Table(name = "Items")
+@Table(name = "items")
 public class Item {
 	
 	@Id

@@ -10,7 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
 
-@Entity(name="Categorias")
+@Entity(name="categorias")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
 public class Categoria {

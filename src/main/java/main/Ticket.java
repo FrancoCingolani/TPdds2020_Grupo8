@@ -3,7 +3,7 @@ package main;
 
 import javax.persistence.Entity;
 
-@Entity(name = "Ticket")
+@Entity(name = "ticket")
 public class Ticket extends MedioDePago{
 	String	numeroParaCajero;
 	long codigoBarras; 

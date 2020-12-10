@@ -11,7 +11,7 @@ import enumeradores.Actividad;
 
 
 @Entity
-@Table(name = "EntidadesJuridicas")
+@Table(name = "entidadesjuridicas")
 @PrimaryKeyJoinColumn(name = "id_entidad_base")
 public class EntidadBase extends Organizacion{
 	String nombreFicticio;
