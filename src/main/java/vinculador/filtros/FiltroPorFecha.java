@@ -1,4 +1,4 @@
-package filtros;
+package vinculador.filtros;
 
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;

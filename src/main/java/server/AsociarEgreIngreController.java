@@ -39,7 +39,7 @@ import repositorios.RepositorioProyecto;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
-import vinculador.VinculadorDeOperaciones;
+import vinculador.vinculador.VinculadorDeOperaciones;
 
 public class AsociarEgreIngreController {
 	public ModelAndView asociarEgreIngre(Request req, Response res) {

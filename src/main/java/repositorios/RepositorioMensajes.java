@@ -34,7 +34,7 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 	
 	public List<Mensaje> buscarMensajesPorID(int idUsuario) {
 		// Busco el usuario
-		RepositorioUsuarios repoUsuarios = RepositorioUsuarios.instance();
+		RepositorioUsuarios repoUsuarios = RepositorioUsuarios.getInstance();
 		Usuario user = repoUsuarios.findUsuarioById(idUsuario);
 		Query query = this.getEntityManager().createQuery("FROM MensajeValidadorCompra mensajes WHERE mensajes.id_usuario = :user", Mensaje.class).setParameter("user", user);
 		@SuppressWarnings("unchecked")

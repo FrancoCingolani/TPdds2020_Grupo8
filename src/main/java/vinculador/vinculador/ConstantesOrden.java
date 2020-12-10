@@ -1,4 +1,4 @@
-package vinculador;
+package vinculador.vinculador;
 
 public class ConstantesOrden {
 	public static final int FECHA = 1;

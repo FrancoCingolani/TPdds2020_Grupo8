@@ -1,18 +1,17 @@
-package vinculador;
+package vinculador.vinculador;
 
 import java.util.ArrayList;
 import java.util.List;
 import main.*;
 import repositorios.RepositorioOpEgreso;
 import repositorios.RepositorioOpIngreso;
+import vinculador.filtros.CondicionFiltro;
+import vinculador.filtros.FiltroPorFecha;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-import filtros.CondicionFiltro;
-import filtros.FiltroPorFecha;
 
 
 public class VinculadorDeOperaciones {
