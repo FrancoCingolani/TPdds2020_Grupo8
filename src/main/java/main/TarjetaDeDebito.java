@@ -3,8 +3,10 @@ package main;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity(name = "TarjetaDeDebito")
+@Entity
+@Table(name = "tarjetadedebito")
 public class TarjetaDeDebito extends MedioDePago{
 	
 	String numero;

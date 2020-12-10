@@ -49,10 +49,10 @@ public class RepositorioMedioDePago extends AbstractHibernateRepo{
 		Query query = null;
 		
 		if(id_medioDePago == 1) {
-			query = this.getEntityManager().createQuery("SELECT tarjetaDeCredito FROM TarjetaDeCredito tarjetaDeCredito WHERE id_medio_de_pago = :id_medioDePago");
+			query = this.getEntityManager().createQuery("FROM TarjetaDeCredito tarjetaDeCredito WHERE id_medio_de_pago = :id_medioDePago");
 			query.setParameter("id_medioDePago", id_medioDePago);
 		}else if(id_medioDePago == 2) {
-			query = this.getEntityManager().createQuery("SELECT tarjetaDeDebito FROM TarjetaDeDebito tarjetaDeDebito WHERE id_medio_de_pago = :id_medioDePago");
+			query = this.getEntityManager().createQuery("FROM TarjetaDeDebito tarjetaDeDebito WHERE id_medio_de_pago = :id_medioDePago");
 			query.setParameter("id_medioDePago", id_medioDePago);
 		}
 		
