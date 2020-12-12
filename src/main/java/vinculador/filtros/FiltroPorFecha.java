@@ -6,6 +6,7 @@ import java.util.List;
 
 import main.OperacionEgreso;
 import main.OperacionIngreso;
+import main.Proyecto;
 
 public class FiltroPorFecha implements CondicionFiltro{
 
@@ -27,6 +28,10 @@ public class FiltroPorFecha implements CondicionFiltro{
 	@Override
 	public Boolean filtrarEgresos(OperacionEgreso egreso, OperacionIngreso opIngreso) {
 		return Math.abs(ChronoUnit.DAYS.between(egreso.getDate().toInstant(), opIngreso.getDate().toInstant())) <= DIAS_MARGEN;
+	}
+	@Override
+	public Boolean filtrarProyectos( OperacionIngreso opIngreso, Proyecto proyecto) {
+		return Math.abs(ChronoUnit.DAYS.between(opIngreso.getDate().toInstant(), opIngreso.getDate().toInstant())) <= DIAS_MARGEN;
 	}
 	
 }

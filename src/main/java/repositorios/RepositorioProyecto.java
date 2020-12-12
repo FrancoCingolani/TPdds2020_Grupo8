@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import main.OperacionEgreso;
 import main.OperacionIngreso;
+import main.Organizacion;
 import main.Proyecto;
 import repositorios.AbstractHibernateRepo;
 
@@ -33,5 +35,12 @@ public class RepositorioProyecto extends AbstractHibernateRepo{
 		
 		return results;
 		
+	}
+	@SuppressWarnings("unchecked")
+	public List<Proyecto> buscarProyectoOrganizacion(Organizacion organizacion, String queryString) {
+		Query query = this.getEntityManager().createQuery(queryString, Proyecto.class);
+		query.setParameter("id_org_op_ing", organizacion);
+		
+		return query.getResultList();
 	}
 }

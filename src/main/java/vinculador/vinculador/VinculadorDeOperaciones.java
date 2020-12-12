@@ -5,6 +5,7 @@ import java.util.List;
 import main.*;
 import repositorios.RepositorioOpEgreso;
 import repositorios.RepositorioOpIngreso;
+import repositorios.RepositorioProyecto;
 import vinculador.filtros.CondicionFiltro;
 import vinculador.filtros.FiltroPorFecha;
 
@@ -137,6 +138,66 @@ public class VinculadorDeOperaciones {
 		//session.close();
 	}
 	
+	private static void vincularProyectoAIngreso(OperacionIngreso opIngreso, int orden) {
+		//SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		
+		RepositorioOpIngreso repoOpIng = RepositorioOpIngreso.getInstance();
+		RepositorioProyecto repoProye = RepositorioProyecto.getInstance();
+		Boolean filtroOK = true;
+		
+		double sumaParcial = 0; // auxiliar para ir viendo si me paso o no del total de la operaciÃ³n ingreso
+		Proyecto proyectoActual; // auxiliar para la iteraciÃ³n de egresos a asignar en el ingreso
+		
+		/*Session session = sessionFactory.openSession();
+		session.beginTransaction();*/
+		 
+		// Defino query base para traer las operaciones egreso de esa organizaciÃ³n
+		String query = "FROM Proyecto opeg WHERE opeg.organizacion = :id_org_op_ing AND operacionIngreso IS NULL";
+		
+		// Defino el orden deseado
+		switch (orden) {
+			case ConstantesOrden.FECHA:
+				query.concat(" ORDER BY fecha;");
+			case ConstantesOrden.VALOR:
+				query.concat(" ORDER BY valorTotal;");
+			default:
+				query.concat(" ORDER BY valorTotal;"); // Por defecto tomamos el orden por valor 
+		}
+		
+		// Ejecuto la consulta y traigo todos los resultados vÃ¡lidos
+		//List<Proyecto> operacionesEgreso = session.createQuery(query, Proyecto.class).setParameter("id_org_op_ing", opIngreso.getOrganizacion().getIdOrganizacion()).list();
+		List<Proyecto> proyectos = repoProye.buscarProyectoOrganizacion(opIngreso.getOrganizacion(), query);
+		        
+		
+		// Ya tengo las operaciones ingreso, itero sobre ellas
+		for (int i = 0; i < proyectos.size(); i++) {
+			proyectoActual = proyectos.get(i);
+			
+			// Debo aplicar los filtros
+			for (CondicionFiltro filtro : condicionesFiltro) {
+				filtroOK = filtro.filtrarProyectos(opIngreso, proyectoActual);
+				if (!filtroOK) {
+					break;
+				}
+			}
+			
+			if (filtroOK) {
+				// Debo traer la suma total de la operación ingreso para ver si el monto de esta operación egreso es asignable			
+				sumaParcial = proyectoActual.getMontoAsignado(); // TODO: agregar este método a los diagramas
+				if (sumaParcial + opIngreso.getValorTotal() < proyectoActual.getMontoAsignado()) { // Si se cumple la condición, puedo asignar el egreso a este ingreso
+					proyectoActual.setSubsidio(opIngreso);
+					repoProye.persist(proyectoActual);
+					/*Transaction transaccion = session.beginTransaction();
+					session.saveOrUpdate(opEgreso);
+					transaccion.commit();*/
+					break;
+				}
+			}
+		}	
+		
+		//session.close();
+	}
+	
 	public void vincularEgresosAIngreso(List<OperacionIngreso> opIngreso, int orden) {
 		for (OperacionIngreso op : opIngreso) {
 			VinculadorDeOperaciones.vincularEgresoAIngreso(op, orden);
@@ -146,6 +207,11 @@ public class VinculadorDeOperaciones {
 	public void vincularIngresoAEgresos(List<OperacionEgreso> opEgreso, int orden) {
 		for (OperacionEgreso op : opEgreso) {
 			VinculadorDeOperaciones.vincularIngresoAEgreso(op, orden);
+		}
+	}
+	public void vincularProyectoAIngresos(List<OperacionIngreso> opIngreso, int orden) {
+		for (OperacionIngreso op : opIngreso) {
+			VinculadorDeOperaciones.vincularProyectoAIngreso(op, orden);
 		}
 	}
 }

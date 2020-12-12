@@ -103,7 +103,9 @@ public class Proyecto {
 		return cantPresupuestosRequeridos;
 	}
 	
-	
+	public void setSubsidio(OperacionIngreso subsidio) {
+		this.subsidios.add(subsidio);
+	}
 }
 
 
