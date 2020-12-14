@@ -1,11 +1,15 @@
 package server;
 
 import java.util.HashMap;
+import java.util.Map;
+
+import com.google.common.collect.ImmutableMap;
 
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import repositorios.RepositorioUsuarios;
+import main.Bitacora;
 import main.Usuario;
 
 public class LoginController {
@@ -49,6 +53,15 @@ public class LoginController {
 			req.session(true);
 			req.session().attribute("user", nombreUsuario);
 			req.session().attribute("id", usuario.getID()); // Para recuperar el ID: req.session().attribute("id").toString()
+			
+			// Test IGNACIO sobre bitácora
+			Map<String, String> data = ImmutableMap.of(
+				"key 1", "value 1",
+				"key 2", "value 2",
+				"key 3", "value 3"
+			);
+			
+			Bitacora.insertarEnBitacora(nombreUsuario, "login exitoso", data);
 
 			res.redirect("/");
 		} else {

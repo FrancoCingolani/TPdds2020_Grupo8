@@ -78,11 +78,11 @@ public class Proyecto {
 	public int getIdProyecto() {
 		return id_proyecto;
 	}
-	public void agregarABitacora(String operacionARegistrar) {
+	/*public void agregarABitacora(String operacionARegistrar) {
 		OperacionRegistrada operacionRegistrada = new OperacionRegistrada(this, operacionARegistrar);
 		this.director.getBitacora().agregarOperacion(operacionRegistrada);
 	
-	}
+	}*/
 	public int getIDDirector() {
 		return director.getID();
 	}
