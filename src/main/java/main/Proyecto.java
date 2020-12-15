@@ -26,6 +26,7 @@ public class Proyecto {
 	String descripcion;
 	double montoAsignado;
 	int cantPresupuestosRequeridos;
+	double maxSinPresu;
 	@OneToMany
 	@JoinColumn(name = "id_subsidio")
 	List<OperacionIngreso> subsidios = new ArrayList<OperacionIngreso>();
@@ -39,21 +40,22 @@ public class Proyecto {
 	public Proyecto() {
 	}
 	
-	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre, Usuario director, int cantPresReq) {
+	public Proyecto(String nombre, String descripcion, double montoAsignado, List<OperacionIngreso> operacionesIngre, Usuario director, int cantPresReq, double maxSinPresu) {
 		this.nombre= nombre;
 		this.descripcion = descripcion;
 		this.montoAsignado = montoAsignado;
 		this.subsidios = operacionesIngre;
 		this.director = director;
 		this.cantPresupuestosRequeridos = cantPresReq;
+		this.maxSinPresu = maxSinPresu;
 	}
 	
 	public double getmontoAsignadoOperacion() {
 		return montoAsignado;
 	}
 	
-	public double getMontoAsignado() {
-		return montoAsignado;
+	public void setMontoAsignado(double x) {
+		this.montoAsignado=x;
 	}
 	
 	public void setmontoAsignado(double montoAsignado) {
@@ -105,6 +107,13 @@ public class Proyecto {
 	
 	public void setSubsidio(OperacionIngreso subsidio) {
 		this.subsidios.add(subsidio);
+	}
+	public double getMaxSinPresu() {
+		return maxSinPresu;
+	}
+	
+	public void getMontoAsignasetdo(double y) {
+		this.maxSinPresu=y;
 	}
 }
 

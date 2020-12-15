@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,20 +9,32 @@ import mensajes.MensajeValidadorCompra;
 public class ValidadorDeTransparencia {
 	
 	Compra compra;
+	Proyecto proyecto =null;
 	
 	public ValidadorDeTransparencia(Compra compra) {
 		this.compra = compra;
 	}
-
+	public ValidadorDeTransparencia(Compra compra,Proyecto proyecto) {
+		this.compra = compra;
+		this.proyecto = proyecto;
+	}
 	public void setCompra(Compra compra) {
 		this.compra = compra;
 	}
+	public void setProyecto(Proyecto proyecto) {
+		this.proyecto = proyecto;
+	}
+	
 
 	public void validarCompra() {
 		boolean reqPresupuesto = this.requierePresupuesto();
 		boolean basePresupuesto = this.fueRealizadaEnBasePresu();
 		boolean presupuestoMenorValor = this.validarSeleccionMenorValor();
 		this.notificarRevisores(reqPresupuesto, basePresupuesto, presupuestoMenorValor);
+	}
+	public void validarProyecto() {
+		boolean dentroDelMaximoSinPresu = this.dentroDelMaximoSinPresu();
+		//y un mensaje, pero bueno no se en que formato lo quieren
 	}
 	
 	public List<Boolean> resultadosValidadorCompra() {
@@ -52,8 +65,8 @@ public class ValidadorDeTransparencia {
 	
 	private boolean validarSeleccionMenorValor() {
 		/**
-		 * Ignacio: Si fuera lógico el proceso de compra, se debería validar que las variables presupuestos y presupuestoElegido estén seteadas y tengan
-		 * datos cargados. Como nos guíamos por otra lógica, esto es correcto
+		 * Ignacio: Si fuera logico el proceso de compra, se deberia validar que las variables presupuestos y presupuestoElegido estan seteadas y tengan
+		 * datos cargados. Como nos guardamos por otra logica, esto es correcto
 		 */
 		List<Presupuesto> presupuestos = this.compra.getPresupuestos();
 		Presupuesto presupuestoElegido = this.compra.getPresupestoElegido();
@@ -73,6 +86,24 @@ public class ValidadorDeTransparencia {
 		for (Usuario user : compra.revisores) {
 			user.recibirMensaje(new MensajeValidadorCompra(textoMensaje));
 		}
+	}
+	
+	//PROYECTOS
+	private boolean dentroDelMaximoSinPresu() {
+		List<OperacionIngreso> ingresos = this.proyecto.getSubsidios();
+		List<OperacionEgreso> egresos =  new ArrayList<OperacionEgreso>();
+		double sumaEgresos= 0;
+		for (OperacionIngreso ingreso : ingresos) {
+			egresos.addAll(ingreso.getOperacionesEgre());
+		}
+		for (OperacionEgreso egreso : egresos) {
+			sumaEgresos += egreso.getValorTotal();
+		}
+		
+		if(sumaEgresos > this.proyecto.getMaxSinPresu()) {
+			return false;
+		}
+		return true;
 	}
 
 }
