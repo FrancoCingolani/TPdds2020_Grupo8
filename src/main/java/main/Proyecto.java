@@ -112,7 +112,7 @@ public class Proyecto {
 		return maxSinPresu;
 	}
 	
-	public void getMontoAsignasetdo(double y) {
+	public void setMontoAsignado(double y) {
 		this.maxSinPresu=y;
 	}
 }
