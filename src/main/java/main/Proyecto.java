@@ -58,8 +58,8 @@ public class Proyecto {
 		this.montoAsignado=x;
 	}
 	
-	public void setmontoAsignado(double montoAsignado) {
-		this.montoAsignado = montoAsignado;
+	public double getMontoAsignado() {
+		return montoAsignado;
 	}
 	
 	public String getDescripcion() {
@@ -112,7 +112,7 @@ public class Proyecto {
 		return maxSinPresu;
 	}
 	
-	public void setMontoAsignado(double y) {
+	public void setMaxSinPresu(double y) {
 		this.maxSinPresu=y;
 	}
 }
