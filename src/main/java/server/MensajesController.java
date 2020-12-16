@@ -43,7 +43,7 @@ public class MensajesController {
 		String asuntoMensaje = req.queryParams("asuntoMensaje");
 		Boolean leido = Boolean.parseBoolean("leido");
 		
-		MensajeValidadorCompra unMensaje = new MensajeValidadorCompra(textoMensaje, asuntoMensaje , leido);
+		MensajeValidador unMensaje = new MensajeValidador(textoMensaje, asuntoMensaje , leido);
 		
 		
 		unMensaje.setTextoMensaje(textoMensaje) ;

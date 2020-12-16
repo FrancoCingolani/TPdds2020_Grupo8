@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import mensajes.MensajeValidadorCompra;
+import mensajes.MensajeValidador;
+import repositorios.RepositorioUsuarios;
 
 public class ValidadorDeTransparencia {
 	
@@ -32,11 +33,12 @@ public class ValidadorDeTransparencia {
 		boolean presupuestoMenorValor = this.validarSeleccionMenorValor();
 		this.notificarRevisores(reqPresupuesto, basePresupuesto, presupuestoMenorValor);
 	}
+	
 	public void validarProyecto() {
 		boolean dentroDelMaximoSinPresu = this.dentroDelMaximoSinPresu();
-		//y un mensaje, pero bueno no se en que formato lo quieren
+		this.notificarDirectorProyecto(dentroDelMaximoSinPresu);
 	}
-	
+
 	public List<Boolean> resultadosValidadorCompra() {
 		return Arrays.asList(new Boolean[] {this.requierePresupuesto(), this.fueRealizadaEnBasePresu(), this.validarSeleccionMenorValor()});
 	}
@@ -84,7 +86,7 @@ public class ValidadorDeTransparencia {
 		String textoBase = "Cumple con cantidad de presupuestos requeridos: %s | Cumple con haber sido realizada en base a algun presupuesto: %s | Cumple con haberse realizado en base al presupuesto de menor valor: %s";
 		String textoMensaje = String.format(textoBase, String.valueOf(resultadoReqPresupuesto), String.valueOf(resultadoBasePresupuesto), String.valueOf(resultadoPresupuestoMenorValor)).replaceAll("true", "OK").replaceAll("false", "ERROR");
 		for (Usuario user : compra.revisores) {
-			user.recibirMensaje(new MensajeValidadorCompra(textoMensaje));
+			user.recibirMensaje(new MensajeValidador(textoMensaje));
 		}
 	}
 	
@@ -103,7 +105,19 @@ public class ValidadorDeTransparencia {
 		if(sumaEgresos > this.proyecto.getMaxSinPresu()) {
 			return false;
 		}
+		
 		return true;
+	}
+	
+	
+	private void notificarDirectorProyecto(boolean dentroDelMaximoSinPresu) {
+		RepositorioUsuarios repoUser = new RepositorioUsuarios();
+		
+		String textoBase = "Cumple con gastos dentro del maximo sin presupuesto: %s";
+		String textoMensaje = String.format(textoBase, String.valueOf(dentroDelMaximoSinPresu)).replaceAll("true", "OK").replaceAll("false", "ERROR");
+		Usuario director = repoUser.getUserByID(proyecto.getIDDirector());
+		director.recibirMensaje(new MensajeValidador(textoMensaje));
+
 	}
 
 }

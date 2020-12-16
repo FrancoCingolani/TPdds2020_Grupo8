@@ -18,14 +18,14 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 	}
 
 	
-	public List<MensajeValidadorCompra> buscarMensaje() { 	//COPIADO DE ITEMS
+	public List<MensajeValidador> buscarMensaje() { 	//COPIADO DE ITEMS
 		Query query = this.getEntityManager().createQuery("FROM MensajeValidadorCompra mensajes");
 		@SuppressWarnings("unchecked")
-		List<MensajeValidadorCompra> results = query.getResultList();
+		List<MensajeValidador> results = query.getResultList();
 		return results;
 	}
 	
-	public MensajeValidadorCompra persist( MensajeValidadorCompra unMensaje ) {
+	public MensajeValidador persist( MensajeValidador unMensaje ) {
 		this.getEntityManager().getTransaction().begin();
 		this.getEntityManager().persist(unMensaje);
 		this.getEntityManager().getTransaction().commit();
