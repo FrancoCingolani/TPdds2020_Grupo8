@@ -177,7 +177,9 @@ public class OperacionEgreso{
 	public void setCompra(Compra compra) {
 		this.compra = compra;
 	}
-	
+	public Compra getCompra() {
+		return compra;
+	}
 	public void setClasificacion(Clasificacion clasificacion) {
 		this.clasificacion = clasificacion;
 	}
