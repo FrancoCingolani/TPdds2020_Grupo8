@@ -19,7 +19,7 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 
 	
 	public List<MensajeValidador> buscarMensaje() { 	//COPIADO DE ITEMS
-		Query query = this.getEntityManager().createQuery("FROM MensajeValidadorCompra mensajes");
+		Query query = this.getEntityManager().createQuery("FROM MensajeValidador mensajes");
 		@SuppressWarnings("unchecked")
 		List<MensajeValidador> results = query.getResultList();
 		return results;
@@ -36,7 +36,7 @@ public class RepositorioMensajes  extends AbstractHibernateRepo{
 		// Busco el usuario
 		RepositorioUsuarios repoUsuarios = RepositorioUsuarios.getInstance();
 		Usuario user = repoUsuarios.findUsuarioById(idUsuario);
-		Query query = this.getEntityManager().createQuery("FROM MensajeValidadorCompra mensajes WHERE mensajes.id_usuario = :user", Mensaje.class).setParameter("user", user);
+		Query query = this.getEntityManager().createQuery("FROM MensajeValidador mensajes WHERE mensajes.id_usuario = :user", Mensaje.class).setParameter("user", user);
 		@SuppressWarnings("unchecked")
 		List<Mensaje> results = query.getResultList();
 		return results;
