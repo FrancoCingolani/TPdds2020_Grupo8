@@ -115,6 +115,14 @@ public class Proyecto {
 	public void setMaxSinPresu(double y) {
 		this.maxSinPresu=y;
 	}
+	
+	public void setId_proyecto(int id) {
+		id_proyecto = id;
+	}
+	
+	public void setDirector(Usuario elDire) {
+		director = elDire;
+	}
 }
 
 

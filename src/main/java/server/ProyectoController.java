@@ -11,6 +11,7 @@ import main.Proyecto;
 import repositorios.RepositorioOpIngreso;
 import repositorios.RepositorioOrganizaciones;
 import repositorios.RepositorioProyecto;
+import repositorios.RepositorioUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -39,21 +40,27 @@ public class ProyectoController {
 		Proyecto proyecto = new Proyecto();
 		RepositorioOpIngreso repoOpIngreso = new RepositorioOpIngreso();
 		RepositorioOrganizaciones repoOrganizaciones = new RepositorioOrganizaciones();
+		RepositorioUsuarios repoUser = new RepositorioUsuarios();
 
 		String nombre = req.queryParams("nombre");
 		String descripcion = req.queryParams("descripcion");
 		String montoParam = req.queryParams("valor");
 		int montoAsignado = Integer.parseInt(montoParam);
+		String montoMaximoParam = req.queryParams("valorMaximo");
+		int montoMaximoAsignado = Integer.parseInt(montoMaximoParam);
 		String ingresosParam = req.queryParams("ingresos");
 		int id_ingreso = Integer.parseInt(ingresosParam);
 		String organizacion = req.queryParams("organizacion");
+		int id_director = Integer.parseInt(req.session().attribute("id").toString());
 		
 		proyecto.setNombre(nombre);
 		proyecto.setDescripcion(descripcion);
-		proyecto.setmontoAsignado(montoAsignado);
+		proyecto.setMontoAsignado(montoAsignado);
 		proyecto.vincular(repoOpIngreso.buscarOpIngresoPorId(id_ingreso));
 		Organizacion organizacionTraida = repoOrganizaciones.buscarOrganizacionPorNombre(organizacion);
 		proyecto.setOrganizacion(organizacionTraida);
+		proyecto.setMaxSinPresu(montoMaximoAsignado);
+		proyecto.setDirector(repoUser.getUserByID(id_director));
 		
 		RepositorioProyecto.getInstance().persist(proyecto);
 

@@ -19,7 +19,7 @@ public class Main {
 		BasicConfigurator.configure();
 		Server.iniciar();
 		/*Bitacora lala = new Bitacora();
-		lala.insertarTest();*/
+		lala.insertarEnBitacora(null, null, null);*/
 	}
 		
 		

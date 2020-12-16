@@ -43,7 +43,6 @@ public class RepositorioOpIngreso extends AbstractHibernateRepo{
 		Query query = this.getEntityManager().createQuery("SELECT operacionIngreso FROM OperacionIngreso operacionIngreso WHERE id_operacion_ingreso = :id_operacion_ingreso");
 		query.setParameter("id_operacion_ingreso", id_operacion_ingreso);
 		return (OperacionIngreso) query.getSingleResult();
-	
 	}
 	
 	public List<OperacionIngreso> buscarOpIngresoSinAsociar() {

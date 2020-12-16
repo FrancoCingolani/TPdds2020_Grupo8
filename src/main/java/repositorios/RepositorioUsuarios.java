@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import main.OperacionIngreso;
 import main.Usuario;
 
 public class RepositorioUsuarios extends AbstractHibernateRepo {
@@ -74,5 +75,12 @@ public class RepositorioUsuarios extends AbstractHibernateRepo {
 		this.getEntityManager().merge(usuario);
 		this.getEntityManager().getTransaction().commit();
 		return usuario;
+	}
+
+
+	public Usuario getUserByID(int id_director) {
+		Query query = this.getEntityManager().createQuery("FROM Usuario user WHERE id_usuario = :id_usuario");
+		query.setParameter("id_usuario", id_director);
+		return (Usuario) query.getSingleResult();
 	}
 }
